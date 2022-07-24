@@ -1,28 +1,43 @@
-import React from 'react';
-import styles from '../../pages/Home/Home.module.scss';
+@import "src/globalStyles/colors";
 
-export const Info = ({
-	description,
-	bgImage,
-	title,
-	reverse = false,
-}: InfoProps): React.ReactElement => {
-	return (
-		<section className={styles['started']}>
-			<div className={styles['started-info']}>
-				<h3 className={styles['title']}>{title}</h3>
-				<p className={styles['text']}>{description}</p>
-			</div>
-			<div className={styles['started-bg']}>
-				<img src={bgImage} />
-			</div>
-		</section>
-	);
-};
+.started{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 110px;
+	&-reverse{
+		flex-direction: row-reverse;
+	}
 
-type InfoProps = {
-	title: string;
-	description: string;
-	bgImage: string;
-	reverse?: boolean;
-};
+	&-info,&-bg {
+		width: 45%;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&-info {
+		padding-top: 70px;
+		align-items: start;
+	}
+
+	&-bg{
+		img{
+			max-width: 458px;
+			max-height: 564px;
+		}
+	}
+}
+
+
+
+.text {
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 35px;
+	color: $black;
+}

@@ -1,8 +1,16 @@
-import React from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+@import "src/globalStyles/colors";
 
-export const CustomLink = ({ linkText, ...props }: CustomLinkProps) => {
-	return <Link {...props}>{linkText}</Link>;
-};
+.link {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #222222;
+  text-decoration: none;
+  transition: 0.5s;
 
-type CustomLinkProps = LinkProps & { linkText: string };
+  &:hover {
+    color: $blue-light;
+  }
+}
