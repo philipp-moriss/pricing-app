@@ -1,0 +1,20 @@
+import React from 'react';
+import { CustomLink } from '../Link/Link';
+
+export const NavBar = (): React.ReactElement => {
+	return (
+		<nav>
+			<ul className={'aa'}>
+				<li>
+					<CustomLink to={'/'} linkText={'Home'} />
+				</li>
+				<li>
+					<CustomLink to={'#'} linkText={'Contact'} />
+				</li>
+				<li>
+					<CustomLink to={'#'} linkText={'Privacy'} />
+				</li>
+			</ul>
+		</nav>
+	);
+};

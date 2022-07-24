@@ -1,0 +1,8 @@
+import React from 'react';
+import { Link, LinkProps } from 'react-router-dom';
+
+export const CustomLink = ({ linkText, ...props }: CustomLinkProps) => {
+	return <Link {...props}>{linkText}</Link>;
+};
+
+type CustomLinkProps = LinkProps & { linkText: string };

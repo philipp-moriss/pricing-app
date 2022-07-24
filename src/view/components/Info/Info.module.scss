@@ -1,0 +1,28 @@
+import React from 'react';
+import styles from '../../pages/Home/Home.module.scss';
+
+export const Info = ({
+	description,
+	bgImage,
+	title,
+	reverse = false,
+}: InfoProps): React.ReactElement => {
+	return (
+		<section className={styles['started']}>
+			<div className={styles['started-info']}>
+				<h3 className={styles['title']}>{title}</h3>
+				<p className={styles['text']}>{description}</p>
+			</div>
+			<div className={styles['started-bg']}>
+				<img src={bgImage} />
+			</div>
+		</section>
+	);
+};
+
+type InfoProps = {
+	title: string;
+	description: string;
+	bgImage: string;
+	reverse?: boolean;
+};
