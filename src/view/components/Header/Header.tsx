@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './Header.module.scss';
+import { Button } from '../../../../src/assets/uiComponent/button/button';
 import { NavBar } from '../NavBar/NavBar';
+import styles from './Header.module.scss';
 
 export const Header = (): React.ReactElement => {
 	return (
@@ -47,10 +48,8 @@ export const Header = (): React.ReactElement => {
 			</div>
 			<NavBar />
 			<div className={styles['button-container']}>
-				<button className={styles['button']}>Login</button>
-				<button style={{ backgroundColor: '#582EFF' }} className={styles['button']}>
-					SingUp
-				</button>
+				<Button textBtn={'Login'} />
+				<Button textBtn={'SingUp'} style={{ backgroundColor: '#582EFF' }} />
 			</div>
 		</header>
 	);
