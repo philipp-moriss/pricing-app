@@ -13,4 +13,16 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+
+	&-title{
+		margin-bottom: 40px;
+	}
+
+	.cards-inner{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 29px;
+	}
 }
