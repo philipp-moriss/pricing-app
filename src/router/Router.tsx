@@ -6,7 +6,7 @@ import { Home } from '../view/pages/Home/Home';
 export const Router = (): React.ReactElement => {
 	return (
 		<Routes>
-			<Route path={'/'} element={<Home />} />
+			<Route path={'pricing-app/'} element={<Home />} />
 			<Route path="*" element={<NotFound />} />
 		</Routes>
 	);
