@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pricing-app/static/css/main.d9083df7.css",
-    "main.js": "/pricing-app/static/js/main.192a2c66.js",
+    "main.js": "/pricing-app/static/js/main.6ce6dcd1.js",
     "static/media/WorkSans-Medium.ttf": "/pricing-app/static/media/WorkSans-Medium.3515918acace1f6dd1e9.ttf",
     "static/media/WorkSans-Bold.ttf": "/pricing-app/static/media/WorkSans-Bold.d8de505f08550a8e4c16.ttf",
     "static/media/WorkSans-Light.ttf": "/pricing-app/static/media/WorkSans-Light.6c55d51020749e7f6bec.ttf",
@@ -11,10 +11,10 @@
     "static/media/plain-person.png": "/pricing-app/static/media/plain-person.9470c083a8febde6f93d.png",
     "index.html": "/pricing-app/index.html",
     "main.d9083df7.css.map": "/pricing-app/static/css/main.d9083df7.css.map",
-    "main.192a2c66.js.map": "/pricing-app/static/js/main.192a2c66.js.map"
+    "main.6ce6dcd1.js.map": "/pricing-app/static/js/main.6ce6dcd1.js.map"
   },
   "entrypoints": [
     "static/css/main.d9083df7.css",
-    "static/js/main.192a2c66.js"
+    "static/js/main.6ce6dcd1.js"
   ]
 }
