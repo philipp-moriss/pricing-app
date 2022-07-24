@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from '../../../../src/assets/uiComponent/button/button';
 import { NavBar } from '../NavBar/NavBar';
 import styles from './Header.module.scss';
+import { Button } from '../Button/Button';
 
 export const Header = (): React.ReactElement => {
 	return (
