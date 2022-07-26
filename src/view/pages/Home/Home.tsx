@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card } from '../../../../src/view/components/Card/Card';
 import { Header } from '../../components/Header/Header';
 import styles from './Home.module.scss';
 import bgMoneyPerson from '../../../assets/backgrounds/mony-person.png';
@@ -27,12 +28,10 @@ export const Home = (): React.ReactElement => {
 					/>
 					<section className={styles['how-work']}>
 						<Title title={"How it's Work"} size={'h3'} />
-						<div>
-							<div>card</div>
-							<div> {'>'} </div>
-							<div>card</div>
-							<div> {'>'} </div>
-							<div>card</div>
+						<div className={styles['home-card']}>
+							<Card />
+							<Card />
+							<Card />
 						</div>
 					</section>
 				</div>
