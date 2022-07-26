@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../../../../src/assets/uiComponent/button/button';
 import page404Image from '../../../assets/backgrounds/404-error.png';
+import { Button } from '../../components/Button/Button';
 import styles from './NotFound.module.scss';
 
 export const NotFound = (): React.ReactElement => {
@@ -15,7 +15,7 @@ export const NotFound = (): React.ReactElement => {
 					The page you are looking for might have been removed, had its name changed, or is
 					temporarily unavailable.
 				</span>
-				<Button onClick={() => navigate('/pricing-app')} textBtn={'Back to Home'} />
+				<Button onClick={() => navigate('/')} textBtn={'Back to Home'} />
 			</div>
 		</div>
 	);
