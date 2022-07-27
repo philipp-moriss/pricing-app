@@ -6,6 +6,11 @@
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 110px;
+
+	@media (max-width: 1200px) {
+		justify-content: space-evenly;
+	}
+
 	&-reverse{
 		flex-direction: row-reverse;
 	}
