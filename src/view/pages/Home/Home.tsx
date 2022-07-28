@@ -1,11 +1,15 @@
 import React from 'react';
-import { Card } from '../../../../src/view/components/Card/Card';
 import { Header } from '../../components/Header/Header';
 import styles from './Home.module.scss';
 import bgMoneyPerson from '../../../assets/backgrounds/mony-person.png';
 import bgPlainPerson from '../../../assets/backgrounds/plain-person.png';
+import iconNote from '../../../assets/icons/note.svg';
+import iconPhone from '../../../assets/icons/phone.svg';
+import iconMoney from '../../../assets/icons/mone.svg';
 import { Info } from '../../components/Info/Info';
 import { Title } from '../../components/Title/Title';
+import { Card } from '../../components/Card/Card';
+import { Arrow } from '../../components/Arrow/Arrow';
 
 export const Home = (): React.ReactElement => {
 	return (
@@ -27,11 +31,34 @@ export const Home = (): React.ReactElement => {
 						reverse={true}
 					/>
 					<section className={styles['how-work']}>
-						<Title title={"How it's Work"} size={'h3'} />
-						<div className={styles['home-card']}>
-							<Card />
-							<Card />
-							<Card />
+						<Title className={styles['how-work-title']} title={"How it's Work"} size={'h3'} />
+						<div className={styles['cards-inner']}>
+							<Card
+								icon={iconPhone}
+								title={'Set up an account'}
+								description={'Download the app for free, sign up and verify your account.'}
+								color={'primary'}
+							/>
+
+							<Arrow type={'withCircle'} />
+
+							<Card
+								icon={iconNote}
+								title={'Apply for a loan'}
+								description={
+									'Apply for a loan and our technology will run a credit score and decide if you are qualified.'
+								}
+								color={'orange'}
+							/>
+
+							<Arrow type={'withCircle'} />
+
+							<Card
+								icon={iconMoney}
+								title={'Get your cash'}
+								description={'If you qualify, your loan will be disbursed to your wallet.'}
+								color={'green'}
+							/>
 						</div>
 					</section>
 				</div>
