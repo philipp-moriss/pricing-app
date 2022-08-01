@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '../Button/Button';
 import { NavBar } from '../NavBar/NavBar';
 import styles from './Header.module.scss';
-import { Button } from '../Button/Button';
 
 export const Header = (): React.ReactElement => {
 	const [show, setShow] = useState(true);
+	const navigate = useNavigate();
 	return (
 		<header className={styles['header']}>
 			<button className={styles['burger-button']} onClick={(): void => setShow(!show)}>
@@ -53,7 +55,12 @@ export const Header = (): React.ReactElement => {
 				</div>
 				<NavBar />
 				<div className={styles['button-container']}>
-					<Button textBtn={'Login'} />
+					<Button
+						textBtn={'Login'}
+						onClick={() => {
+							navigate('/login');
+						}}
+					/>
 					<Button textBtn={'SingUp'} style={{ backgroundColor: '#582EFF' }} />
 				</div>
 			</div>

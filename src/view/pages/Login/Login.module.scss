@@ -1,0 +1,47 @@
+@import "src/globalStyles/colors";
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $green;
+}
+.login {
+  max-width: 480px;
+  height: 474px;
+  padding: 30px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin: 20px;
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: rgba(255, 255, 255, 0.72);
+  &-input-block {
+    input {
+      width: 100%;
+      height: 40px;
+      background: $white;
+      border: 1px solid #C8C6C5;
+      border-radius: 2px;
+
+      &::placeholder {
+        padding: 10px;
+      }
+
+      &:last-child {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &-btn-block {
+    button:last-child {
+      margin-top: 20px;
+      background: $blue;
+    }
+  }
+
+}
