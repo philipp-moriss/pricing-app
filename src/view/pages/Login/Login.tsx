@@ -3,18 +3,22 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../../../../src/view/components/Button/Button';
 import { CustomLink } from '../../../../src/view/components/Link/Link';
 import { Title } from '../../../../src/view/components/Title/Title';
+import AuthStore from '../../../store/auth-store';
 import styles from './Login.module.scss';
 
 export const Login = () => {
 	const [data, setData] = useState({
 		login: '',
-		passport: '',
+		password: '',
 	});
 	const navigate = useNavigate();
 	const logInHandler = () => {
-		localStorage.setItem('auth', JSON.stringify(true));
-		localStorage.setItem('userData', JSON.stringify(data));
-		navigate('/');
+		if (data.login && data.password) {
+			AuthStore.setAuthStorage(data);
+			navigate('/');
+		} else {
+			alert('Empty field');
+		}
 	};
 	return (
 		<div className={styles['container']}>
@@ -28,8 +32,8 @@ export const Login = () => {
 						value={data.login}
 					/>
 					<input
-						value={data.passport}
-						onChange={(e) => setData({ ...data, passport: e.currentTarget.value })}
+						value={data.password}
+						onChange={(e) => setData({ ...data, password: e.currentTarget.value })}
 						placeholder={'Password'}
 						type="text"
 					/>
