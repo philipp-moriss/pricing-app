@@ -6,36 +6,28 @@ export class AuthStore {
 
 	@action
 	setAuth(auth: boolean) {
-		console.log(this.auth);
-		if (!auth) return;
 		this.auth = auth;
 		return;
 	}
 
 	@action
-	setAuthStorage(userData: {}) {
-		localStorage.setItem('user-data', JSON.stringify(userData));
-		localStorage.setItem('auth', 'true');
+	async setAuthStorage(userData: {}) {
 		this.setAuth(true);
+		await localStorage.setItem('user-data', JSON.stringify(userData));
+		await localStorage.setItem('auth', 'true');
 		return;
 	}
 
 	@action
-	removeAuth() {
-		localStorage.removeItem('user-data');
-		localStorage.removeItem('auth');
+	async removeAuth() {
 		this.setAuth(false);
+		await localStorage.removeItem('user-data');
+		await localStorage.removeItem('auth');
 		return;
 	}
 
 	constructor() {
 		makeAutoObservable(this);
-		/*	makeObservable(this, {
-			removeAuth: action,
-			setAuthStorage: action,
-			setAuth: action,
-			auth: observable,
-		});*/
 	}
 }
 

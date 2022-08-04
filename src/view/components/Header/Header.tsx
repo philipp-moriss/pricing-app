@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AuthStore from '../../../store/auth-store';
 import { Button } from '../Button/Button';
 import { NavBar } from '../NavBar/NavBar';
 import styles from './Header.module.scss';
@@ -59,7 +58,6 @@ export const Header = (): React.ReactElement => {
 					<Button
 						textBtn={'Login'}
 						onClick={() => {
-							AuthStore.removeAuth();
 							navigate('/login');
 						}}
 					/>
