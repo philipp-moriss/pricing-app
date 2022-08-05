@@ -8,12 +8,48 @@
   &_container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 72px;
     height: 100vh;
     background: $white;
   }
+
   &_logo {
-    width: 60px;
-    height: 60px;
+    width: 48px;
+    height: 48px;
+  }
+
+  &_ico {
+    margin-top: 50px;
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+  }
+
+  &_ico-logout {
+    flex: 5;
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5%;
+  }
+  svg:hover {
+    -webkit-transform: scale(1.5);
+    transform: scale(2);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    path {
+      fill: $blue;
+    }
+  }
+  &_ico-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    svg {
+      width: 21px;
+      height: 21px;
+    }
   }
 }
