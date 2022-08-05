@@ -1,0 +1,19 @@
+@import "src/globalStyles/colors";
+
+.side-bar {
+  &_logOut {
+    width: 20px;
+    height: 20px;
+  }
+  &_container {
+    display: flex;
+    flex-direction: column;
+    width: 72px;
+    height: 100vh;
+    background: $white;
+  }
+  &_logo {
+    width: 60px;
+    height: 60px;
+  }
+}
