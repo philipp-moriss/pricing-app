@@ -4,6 +4,7 @@ import { Button } from '../../../../src/view/components/Button/Button';
 import { CustomLink } from '../../../../src/view/components/Link/Link';
 import { Title } from '../../../../src/view/components/Title/Title';
 import styles from './ForgotPassword.module.scss';
+import logo from '../../../assets/image/logo-pony-web.svg';
 
 export const ForgotPassword = () => {
 	const [data, setData] = useState({
@@ -15,6 +16,7 @@ export const ForgotPassword = () => {
 	};
 	return (
 		<div className={styles['container']}>
+			<img className={styles['logo']} src={logo} alt={'logo'} />
 			<div className={styles['forgot-password']}>
 				<Title title={'Login'} size={'h1'} className={styles['forgot-password-title']} />
 				<div className={styles['forgot-password-input-block']}>
