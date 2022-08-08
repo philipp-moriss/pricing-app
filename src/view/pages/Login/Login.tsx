@@ -5,15 +5,16 @@ import { CustomLink } from '../../../../src/view/components/Link/Link';
 import { Title } from '../../../../src/view/components/Title/Title';
 import AuthStore from '../../../store/auth-store';
 import styles from './Login.module.scss';
+import logo from '../../../assets/image/logo-pony-web.svg';
 
 export const Login = () => {
 	const [data, setData] = useState({
-		login: '',
+		name: '',
 		password: '',
 	});
 	const navigate = useNavigate();
 	const logInHandler = () => {
-		if (data.login && data.password) {
+		if (data.name && data.password) {
 			AuthStore.setAuthStorage(data);
 			navigate('/');
 		} else {
@@ -22,20 +23,21 @@ export const Login = () => {
 	};
 	return (
 		<div className={styles['container']}>
+			<img className={styles['logo']} src={logo} alt={'logo'} />
 			<div className={styles['login']}>
 				<Title title={'Login'} size={'h1'} className={styles['login-title']} />
 				<div className={styles['login-input-block']}>
 					<input
-						onChange={(e) => setData({ ...data, login: e.currentTarget.value })}
+						onChange={(e) => setData({ ...data, name: e.currentTarget.value })}
 						placeholder={'Email'}
 						type="text"
-						value={data.login}
+						value={data.name}
 					/>
 					<input
 						value={data.password}
 						onChange={(e) => setData({ ...data, password: e.currentTarget.value })}
 						placeholder={'Password'}
-						type="text"
+						type={'text'}
 					/>
 				</div>
 				<div className={styles['login-btn-block']}>

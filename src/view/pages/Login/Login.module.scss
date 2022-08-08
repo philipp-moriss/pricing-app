@@ -5,7 +5,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $green;
+  background: $black;
+  flex-direction: column;
+}
+.logo {
+  max-width: 300px;
+  max-height: 300px;
+  min-width: 150px;
+  min-height: 150px;
+  margin-bottom: 50px;
 }
 .login {
   max-width: 480px;
@@ -26,10 +34,7 @@
       background: $white;
       border: 1px solid #C8C6C5;
       border-radius: 2px;
-
-      &::placeholder {
-        padding: 10px;
-      }
+      padding: 10px;
 
       &:last-child {
         margin-top: 20px;

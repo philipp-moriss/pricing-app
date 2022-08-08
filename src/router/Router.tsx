@@ -13,9 +13,11 @@ export const Router = observer((): React.ReactElement => {
 	const location = useLocation();
 	useLayoutEffect(() => {
 		const authStorage = JSON.parse(localStorage.getItem('auth') as string);
+		const userData = JSON.parse(localStorage.getItem('user-data') as string);
 
 		if (authStorage && !auth) {
 			AuthStore.setAuth(true);
+			AuthStore.setUser(userData);
 		}
 	}, []);
 
