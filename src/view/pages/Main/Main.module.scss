@@ -1,7 +1,10 @@
+@import "src/globalStyles/colors";
+
 .main {
   &_container {
-    background: #F7F7F7;
+    background: $gray-light;
   }
+
   &-side-bar {
     display: flex;
     flex-direction: column;
