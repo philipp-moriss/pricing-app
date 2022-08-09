@@ -10,6 +10,8 @@ import { Info } from '../../components/Info/Info';
 import { Title } from '../../components/Title/Title';
 import { Card } from '../../components/Card/Card';
 import { Arrow } from '../../components/Arrow/Arrow';
+import { Button } from '../../components/Button/Button';
+import { Footer } from '../../components/Footer/Footer';
 
 export const Home = (): React.ReactElement => {
 	return (
@@ -63,6 +65,13 @@ export const Home = (): React.ReactElement => {
 					</section>
 				</div>
 			</div>
+			<section className={styles['get-app']}>
+				<div className={styles['get-app-inner']}>
+					<p className={styles['get-app-text']}>get apps just by registering</p>
+					<Button textBtn={'SingUp'} style={{ color: 'black', backgroundColor: 'white' }} />
+				</div>
+			</section>
+			<Footer />
 		</>
 	);
 };
