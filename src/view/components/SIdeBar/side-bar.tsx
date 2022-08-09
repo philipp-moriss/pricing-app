@@ -1,21 +1,10 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Loader } from '../../../../src/view/components/Loader/loader';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { ReactComponent as BagIcon } from '../../../assets/icons/bag.svg';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { ReactComponent as ChartIcon } from '../../../assets/icons/chart.svg';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { ReactComponent as LogoutIcon } from '../../../assets/icons/log-out.svg';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { ReactComponent as PersonIcon } from '../../../assets/icons/person.svg';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { ReactComponent as SettingIcon } from '../../../assets/icons/setting.svg';
 import logo from '../../../assets/image/logo-pony-web.svg';
 import AuthStore from '../../../store/auth-store';
