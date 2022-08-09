@@ -24,3 +24,30 @@
 		margin-bottom: 29px;
 	}
 }
+
+
+.get-app {
+	background-color: $green;
+	padding: 131px 0 80px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&-inner {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&-text{
+		font-family: 'Work Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 30px;
+		line-height: 35px;
+		text-align: center;
+		color: #FFFFFF;
+		margin-bottom: 20px;
+	}
+}
