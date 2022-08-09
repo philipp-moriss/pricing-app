@@ -1,4 +1,4 @@
-import AuthStoreInstance, { AuthStore } from './auth-store'
+import AuthStoreInstance, { AuthStore } from './auth-store';
 
-export default AuthStoreInstance
-export { AuthStore }
+export default AuthStoreInstance;
+export { AuthStore };

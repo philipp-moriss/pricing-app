@@ -6,7 +6,7 @@ import { ReactComponent as ChartIcon } from '../../../assets/icons/chart.svg';
 import { ReactComponent as LogoutIcon } from '../../../assets/icons/log-out.svg';
 import { ReactComponent as PersonIcon } from '../../../assets/icons/person.svg';
 import { ReactComponent as SettingIcon } from '../../../assets/icons/setting.svg';
-import logo from '../../../assets/image/logo-pony-web.svg';
+import logo from '../../../assets/logo/logo-pony-web.svg';
 import AuthStore from '../../../store/auth-store';
 import styles from './side-bar.module.scss';
 import MainHeader from '../MainHeader/main-header';

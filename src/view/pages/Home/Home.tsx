@@ -1,5 +1,4 @@
 import React from 'react';
-import { Header } from '../../components/Header/Header';
 import styles from './Home.module.scss';
 import bgMoneyPerson from '../../../assets/backgrounds/mony-person.png';
 import bgPlainPerson from '../../../assets/backgrounds/plain-person.png';
@@ -12,6 +11,7 @@ import { Card } from '../../components/Card/Card';
 import { Arrow } from '../../components/Arrow/Arrow';
 import { Button } from '../../components/Button/Button';
 import { Footer } from '../../components/Footer/Footer';
+import { Header } from '../../components/HomeHeader/Header';
 
 export const Home = (): React.ReactElement => {
 	return (
