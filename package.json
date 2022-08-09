@@ -4,6 +4,7 @@
   "homepage": "https://philipp-moriss.github.io/pricing-app",
   "private": true,
   "dependencies": {
+    "@types/classnames": "^2.3.1",
     "dotenv": "^16.0.1",
     "gh-pages": "^4.0.0",
     "mobx": "^6.6.1",

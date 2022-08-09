@@ -35,6 +35,7 @@ export class AuthStore {
 	async setUser(userData: UserInfoType) {
 		await localStorage.setItem('user-data', JSON.stringify(userData));
 		this.userInfo = { name: userData.name, password: userData.password };
+
 		return;
 	}
 

@@ -6,6 +6,7 @@ import { observer } from 'mobx-react-lite';
 
 const MainHeader = observer(() => {
 	const { userInfo } = AuthStore;
+	console.log(userInfo);
 	return (
 		<div className={styles['main-header']}>
 			<div className={styles['main-header_avatar-block']}>

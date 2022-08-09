@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './Main.module.scss';
 import { SideBar } from '../../components/SIdeBar/side-bar';
+import styles from './Main.module.scss';
 
 export const Main = (): React.ReactElement => {
 	return (

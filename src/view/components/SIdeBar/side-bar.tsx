@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Loader } from '../../../../src/view/components/Loader/loader';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { ReactComponent as BagIcon } from '../../../assets/icons/bag.svg';
