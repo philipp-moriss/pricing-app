@@ -1,15 +1,17 @@
 import React from 'react';
+import styles from './Home.module.scss';
 import bgMoneyPerson from '../../../assets/backgrounds/mony-person.png';
 import bgPlainPerson from '../../../assets/backgrounds/plain-person.png';
-import iconMoney from '../../../assets/icons/mone.svg';
 import iconNote from '../../../assets/icons/note.svg';
 import iconPhone from '../../../assets/icons/phone.svg';
-import { Arrow } from '../../components/Arrow/Arrow';
-import { Card } from '../../components/Card/Card';
-import { Header } from '../../components/HomeHeader/Header';
+import iconMoney from '../../../assets/icons/mone.svg';
 import { Info } from '../../components/Info/Info';
 import { Title } from '../../components/Title/Title';
-import styles from './Home.module.scss';
+import { Card } from '../../components/Card/Card';
+import { Arrow } from '../../components/Arrow/Arrow';
+import { Button } from '../../components/Button/Button';
+import { Footer } from '../../components/Footer/Footer';
+import { Header } from '../../components/HomeHeader/Header';
 
 export const Home = (): React.ReactElement => {
 	return (
@@ -63,6 +65,13 @@ export const Home = (): React.ReactElement => {
 					</section>
 				</div>
 			</div>
+			<section className={styles['get-app']}>
+				<div className={styles['get-app-inner']}>
+					<p className={styles['get-app-text']}>get apps just by registering</p>
+					<Button textBtn={'SingUp'} style={{ color: 'black', backgroundColor: 'white' }} />
+				</div>
+			</section>
+			<Footer />
 		</>
 	);
 };
