@@ -3,6 +3,7 @@
 .footer{
   padding: 50px 100px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
   font-family: 'Work Sans';
@@ -14,5 +15,8 @@
 
   &-ul {
     color: inherit;
+    max-width: 200px;
+    width: 100%;
+    margin: 10px 0;
   }
 }

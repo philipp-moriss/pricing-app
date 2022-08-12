@@ -1,4 +1,8 @@
 .direction {
+
+	@media (max-width: 1100px) {
+		display: none;
+	}
 	&-bottom {
 		transform: rotate(90deg);
 	}

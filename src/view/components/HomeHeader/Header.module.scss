@@ -18,8 +18,8 @@
     transition: 0.5s;
 
     &-hidden {
-      top: -1000px;
-      bottom: 1000px;
+      top: -2000px;
+      bottom: 2000px;
     }
 
     @media (max-width: 1200px) {
@@ -27,7 +27,7 @@
     }
 
     @media (max-width: 900px) {
-      height: unset;
+      height: 100vh;
       flex-direction: column;
       align-content: center;
       justify-content: space-evenly;

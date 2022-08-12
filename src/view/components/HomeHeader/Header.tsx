@@ -5,7 +5,7 @@ import { NavBar } from '../NavBar/NavBar';
 import styles from './Header.module.scss';
 
 export const Header = (): React.ReactElement => {
-	const [show, setShow] = useState(true);
+	const [show, setShow] = useState(false);
 	const navigate = useNavigate();
 	return (
 		<header className={styles['header']}>

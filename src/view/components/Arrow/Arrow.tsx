@@ -31,5 +31,9 @@ export const Arrow = ({ type, direction = 'right' }: IArrowProps): React.ReactEl
 		),
 	};
 
-	return <div className={styles[`direction-${direction}`]}>{arrows[type]}</div>;
+	return (
+		<div className={`${styles['direction']} ${styles[`direction-${direction}`]}`}>
+			{arrows[type]}
+		</div>
+	);
 };
