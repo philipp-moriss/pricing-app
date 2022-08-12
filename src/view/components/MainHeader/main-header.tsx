@@ -11,7 +11,7 @@ const MainHeader = observer(() => {
 		<div className={styles['main-header']}>
 			<div className={styles['main-header_avatar-block']}>
 				<img src={ava} alt={'avatar'} />
-				<span>{userInfo ? userInfo.name : 'No name'}</span>
+				<span>{userInfo ? userInfo.email : 'No name'}</span>
 			</div>
 		</div>
 	);
