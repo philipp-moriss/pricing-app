@@ -1,6 +1,7 @@
 import { action, makeAutoObservable, observable } from 'mobx';
 
-type UserInfoType = { name: string; password: unknown };
+export type UserInfoType = { email: string; password: string };
+export type NewUserType = { email: string; password: string; name: string; lastName: string };
 
 export class AuthStore {
 	@observable
@@ -8,6 +9,9 @@ export class AuthStore {
 
 	@observable
 	userInfo: UserInfoType | undefined = {} as UserInfoType;
+
+	@observable
+	newUserInfo: NewUserType | undefined = {} as NewUserType;
 
 	@action
 	setAuth(auth: boolean): void {
@@ -34,7 +38,7 @@ export class AuthStore {
 	@action
 	async setUser(userData: UserInfoType): Promise<void> {
 		await localStorage.setItem('user-data', JSON.stringify(userData));
-		this.userInfo = { name: userData.name, password: userData.password };
+		this.userInfo = userData;
 
 		return;
 	}
@@ -42,6 +46,13 @@ export class AuthStore {
 	@action
 	async removeUser(): Promise<void> {
 		await localStorage.removeItem('user-data');
+		return;
+	}
+
+	@action
+	async setNewUser(userData: NewUserType): Promise<void> {
+		await localStorage.setItem('new-user-data', JSON.stringify(userData));
+		this.newUserInfo = userData;
 		return;
 	}
 

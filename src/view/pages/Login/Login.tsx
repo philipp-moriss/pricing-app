@@ -1,25 +1,39 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../../../src/view/components/Button/Button';
+import { CustomInput } from '../../../../src/view/components/CustomInput/CustomInput';
 import { CustomLink } from '../../../../src/view/components/Link/Link';
 import { Title } from '../../../../src/view/components/Title/Title';
+import logo from '../../../assets/logo/logo-pony-web.svg';
 import AuthStore from '../../../store/auth-store';
 import styles from './Login.module.scss';
-import logo from '../../../assets/logo/logo-pony-web.svg';
 
 export const Login = (): React.ReactElement => {
 	const [data, setData] = useState({
-		name: '',
+		email: '',
 		password: '',
 	});
 	const navigate = useNavigate();
 	const logInHandler = (): void => {
-		if (data.name && data.password) {
-			AuthStore.setAuthStorage(data);
-			navigate('/');
+		if (data.email && data.password) {
+			const userData = JSON.parse(localStorage.getItem('new-user-data') as string);
+			if (userData.password === data.password && data.email === userData.email) {
+				AuthStore.setAuthStorage(data);
+				navigate('/');
+			} else {
+				alert('Wrong login or password');
+			}
 		} else {
 			alert('Empty field');
 		}
+	};
+	const handlerData = (value: string, key: string): void => {
+		setData((prevState) => {
+			return {
+				...prevState,
+				[key]: value,
+			};
+		});
 	};
 	return (
 		<div className={styles['container']}>
@@ -27,22 +41,27 @@ export const Login = (): React.ReactElement => {
 			<div className={styles['login']}>
 				<Title title={'Login'} size={'h1'} className={styles['login-title']} />
 				<div className={styles['login-input-block']}>
-					<input
-						onChange={(e): void => setData({ ...data, name: e.currentTarget.value })}
+					<CustomInput
+						onChange={(e): void => handlerData(e.currentTarget.value, 'email')}
 						placeholder={'Email'}
 						type="text"
-						value={data.name}
+						value={data.email}
 					/>
-					<input
+					<CustomInput
 						value={data.password}
-						onChange={(e): void => setData({ ...data, password: e.currentTarget.value })}
+						onChange={(e): void => handlerData(e.currentTarget.value, 'password')}
 						placeholder={'Password'}
 						type={'text'}
 					/>
 				</div>
 				<div className={styles['login-btn-block']}>
 					<Button onClick={logInHandler} textBtn={'Log in'} />
-					<Button textBtn={'New user'} />
+					<Button
+						onClick={() => {
+							navigate('/new-user');
+						}}
+						textBtn={'New user'}
+					/>
 				</div>
 				<div className={styles['login-link']}>
 					<CustomLink

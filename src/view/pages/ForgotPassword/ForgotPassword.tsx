@@ -18,7 +18,7 @@ export const ForgotPassword = () => {
 		<div className={styles['container']}>
 			<img className={styles['logo']} src={logo} alt={'logo'} />
 			<div className={styles['forgot-password']}>
-				<Title title={'Login'} size={'h1'} className={styles['forgot-password-title']} />
+				<Title title={'Forgot password'} size={'h1'} className={styles['forgot-password-title']} />
 				<div className={styles['forgot-password-input-block']}>
 					<input
 						onChange={(e) => setData({ email: e.currentTarget.value })}
@@ -34,7 +34,7 @@ export const ForgotPassword = () => {
 					<CustomLink
 						className={styles['forgot-password-link_link']}
 						to={'/login'}
-						linkText={'Go Back'}
+						linkText={'Go back'}
 					/>
 				</div>
 			</div>
