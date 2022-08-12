@@ -6,10 +6,18 @@ import styles from './Header.module.scss';
 
 export const Header = (): React.ReactElement => {
 	const [show, setShow] = useState(false);
+	const toggleMenu = (): void => {
+		if (show) {
+			document.body.style.overflow = 'auto';
+		} else {
+			document.body.style.overflow = 'hidden';
+		}
+		setShow(!show);
+	};
 	const navigate = useNavigate();
 	return (
 		<header className={styles['header']}>
-			<button className={styles['burger-button']} onClick={(): void => setShow(!show)}>
+			<button className={styles['burger-button']} onClick={toggleMenu}>
 				<span className={`${styles['burger-line']} ${show && styles['burger-line-active']}`} />
 			</button>
 			<div className={`${styles['header-wrapper']} ${!show && styles['header-wrapper-hidden']}`}>
@@ -57,7 +65,7 @@ export const Header = (): React.ReactElement => {
 				<div className={styles['button-container']}>
 					<Button
 						textBtn={'Login'}
-						onClick={() => {
+						onClick={(): void => {
 							navigate('/login');
 						}}
 					/>
