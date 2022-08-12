@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/pricing-app/static/css/main.32e89443.css",
+    "main.css": "/pricing-app/static/css/main.0e2f493a.css",
     "main.js": "/pricing-app/static/js/main.586de011.js",
     "static/media/itachi.png": "/pricing-app/static/media/itachi.1e46c6824b2d81359c42.png",
     "static/media/WorkSans-Medium.ttf": "/pricing-app/static/media/WorkSans-Medium.3515918acace1f6dd1e9.ttf",
@@ -20,11 +20,11 @@
     "index.html": "/pricing-app/index.html",
     "static/media/log-out.svg": "/pricing-app/static/media/log-out.47ad58fbbfb523fb4bdbedac739d78aa.svg",
     "static/media/person.svg": "/pricing-app/static/media/person.c070c3ffe653514c9709fdb32f514658.svg",
-    "main.32e89443.css.map": "/pricing-app/static/css/main.32e89443.css.map",
+    "main.0e2f493a.css.map": "/pricing-app/static/css/main.0e2f493a.css.map",
     "main.586de011.js.map": "/pricing-app/static/js/main.586de011.js.map"
   },
   "entrypoints": [
-    "static/css/main.32e89443.css",
+    "static/css/main.0e2f493a.css",
     "static/js/main.586de011.js"
   ]
 }
