@@ -17,9 +17,9 @@
     align-items: center;
     transition: 0.5s;
 
-    &-hidden {
-      top: -2000px;
-      bottom: 2000px;
+    &-show {
+      top: 0 !important;
+      bottom: 0 !important;
     }
 
     @media (max-width: 1200px) {
@@ -28,6 +28,8 @@
 
     @media (max-width: 900px) {
       height: 100%;
+      top: -2000px;
+      bottom: 2000px;
       flex-direction: column;
       align-content: center;
       justify-content: space-evenly;
