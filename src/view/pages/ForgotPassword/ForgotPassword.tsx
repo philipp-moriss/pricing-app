@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { Button } from '../../../../src/view/components/Button/Button';
 import { CustomLink } from '../../../../src/view/components/Link/Link';
 import { Title } from '../../../../src/view/components/Title/Title';
-import styles from './ForgotPassword.module.scss';
 import logo from '../../../assets/logo/logo-pony-web.svg';
+import styles from './ForgotPassword.module.scss';
 
 export const ForgotPassword = () => {
 	const [data, setData] = useState({

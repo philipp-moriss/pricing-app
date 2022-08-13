@@ -5,5 +5,8 @@
   "semi": true,
   "bracketSpacing": true,
   "printWidth": 100,
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

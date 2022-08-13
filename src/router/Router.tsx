@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import React, { useLayoutEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
+
 import { ForgotPassword } from '../../src/view/pages/ForgotPassword/ForgotPassword';
 import { Login } from '../../src/view/pages/Login/Login';
 import { Main } from '../../src/view/pages/Main/Main';

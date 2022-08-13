@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './Title.module.scss';
 
 export const Title = ({ size, className, title, ...props }: TitleProps): React.ReactElement => {

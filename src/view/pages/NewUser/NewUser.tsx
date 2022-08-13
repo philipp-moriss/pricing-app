@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import logo from '../../../assets/logo/logo-pony-web.svg';
 import AuthStore from '../../../store';
 import { NewUserType } from '../../../store/auth-store';

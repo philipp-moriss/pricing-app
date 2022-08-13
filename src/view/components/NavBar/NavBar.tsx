@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { CustomLink } from '../Link/Link';
 import styles from './NavBar.module.scss';
 

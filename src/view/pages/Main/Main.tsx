@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { ModalWrapper } from '../../components/Modals/modal-wrapper';
 import { SideBar } from '../../components/SIdeBar/side-bar';
 import styles from './Main.module.scss';
