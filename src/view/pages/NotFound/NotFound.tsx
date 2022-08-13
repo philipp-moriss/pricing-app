@@ -16,7 +16,7 @@ export const NotFound = (): React.ReactElement => {
 					The page you are looking for might have been removed, had its name changed, or is
 					temporarily unavailable.
 				</span>
-				<Button onClick={() => navigate('/')} textBtn={'Back to Home'} />
+				<Button onClick={(): void => navigate('/')} textBtn={'Back to Home'} />
 			</div>
 		</div>
 	);

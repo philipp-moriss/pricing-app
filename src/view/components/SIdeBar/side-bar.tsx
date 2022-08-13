@@ -11,7 +11,6 @@ import logo from '../../../assets/logo/logo-pony-web.svg';
 import AuthStore from '../../../store/auth-store';
 import styles from './side-bar.module.scss';
 
-
 export const SideBar = observer((): React.ReactElement => {
 	const navigate = useNavigate();
 	return (
