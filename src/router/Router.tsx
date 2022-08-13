@@ -5,6 +5,7 @@ import { ForgotPassword } from '../../src/view/pages/ForgotPassword/ForgotPasswo
 import { Login } from '../../src/view/pages/Login/Login';
 import { Main } from '../../src/view/pages/Main/Main';
 import { NewUser } from '../../src/view/pages/NewUser/NewUser';
+import { PersonalCabinet } from '../../src/view/pages/PersonalCabinet/PersonalCabinet';
 import AuthStore from '../store/auth-store';
 import { Home } from '../view/pages/Home/Home';
 import { NotFound } from '../view/pages/NotFound/NotFound';
@@ -15,9 +16,11 @@ export const Router = observer((): React.ReactElement => {
 	useLayoutEffect(() => {
 		const authStorage = JSON.parse(localStorage.getItem('auth') as string);
 		const userData = JSON.parse(localStorage.getItem('user-data') as string);
+		const newUser = JSON.parse(localStorage.getItem('new-user-data') as string);
 		if (authStorage && !auth) {
 			AuthStore.setAuth(true);
 			AuthStore.setUser(userData);
+			AuthStore.setNewUser(newUser);
 		}
 	}, []);
 
@@ -25,7 +28,9 @@ export const Router = observer((): React.ReactElement => {
 		<Routes location={location}>
 			{auth ? (
 				<>
-					<Route path={'/'} element={<Main />} />
+					<Route path={'/'} element={<Main />}>
+						<Route path={'/personal-cabinet'} element={<PersonalCabinet />} />
+					</Route>
 				</>
 			) : (
 				<>

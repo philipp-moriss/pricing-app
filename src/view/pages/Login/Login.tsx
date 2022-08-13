@@ -57,7 +57,7 @@ export const Login = (): React.ReactElement => {
 				<div className={styles['login-btn-block']}>
 					<Button onClick={logInHandler} textBtn={'Log in'} />
 					<Button
-						onClick={() => {
+						onClick={(): void => {
 							navigate('/new-user');
 						}}
 						textBtn={'New user'}

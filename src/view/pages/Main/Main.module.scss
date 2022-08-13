@@ -1,12 +1,11 @@
 @import "src/globalStyles/colors";
 
 .main {
-  &_container {
-    background: $gray-light;
+  &_content {
+    margin-top: 90px;
+    margin-left: 90px;
   }
-
-  &-side-bar {
-    display: flex;
-    flex-direction: column;
-  }
+}
+body {
+  background: $gray-light;
 }

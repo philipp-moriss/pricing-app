@@ -9,24 +9,28 @@ import { ReactComponent as SettingIcon } from '../../../assets/icons/setting.svg
 import logo from '../../../assets/logo/logo-pony-web.svg';
 import AuthStore from '../../../store/auth-store';
 import styles from './side-bar.module.scss';
-import MainHeader from '../MainHeader/main-header';
 
-export const SideBar = observer(() => {
+export const SideBar = observer((): React.ReactElement => {
 	const navigate = useNavigate();
 	return (
 		<div className={styles['side-bar']}>
-			<MainHeader />
 			<div className={styles['side-bar_container']}>
 				<img className={styles['side-bar_logo']} src={logo} alt={'logo'} />
 				<div className={styles['side-bar_ico-container']}>
 					<BagIcon className={styles['side-bar_ico']} />
 					<ChartIcon className={styles['side-bar_ico']} />
-					<PersonIcon className={styles['side-bar_ico']} />
-					<SettingIcon className={styles['side-bar_ico']} />
+					<PersonIcon
+						onClick={(): void => navigate('/personal-cabinet')}
+						className={styles['side-bar_ico']}
+					/>
+					<SettingIcon
+						onClick={(): void => navigate('/setting')}
+						className={styles['side-bar_ico']}
+					/>
 				</div>
 
 				<LogoutIcon
-					onClick={() => {
+					onClick={(): void => {
 						AuthStore.removeAuth();
 						navigate('/');
 					}}

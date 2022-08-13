@@ -8,7 +8,7 @@ export class AuthStore {
 	auth = false;
 
 	@observable
-	userInfo: UserInfoType | undefined = {} as UserInfoType;
+	userInfo: UserInfoType | undefined;
 
 	@observable
 	newUserInfo: NewUserType | undefined = {} as NewUserType;

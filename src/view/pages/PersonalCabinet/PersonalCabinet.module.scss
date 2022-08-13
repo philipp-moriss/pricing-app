@@ -1,0 +1,46 @@
+@import "src/globalStyles/colors";
+
+.personal-cabinet {
+  &__wrapper {
+    min-width: 282px;
+    min-height: 364px;
+    max-width: 800px;
+    background: $white;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+
+    h1 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: $gray;
+    }
+
+    span {
+      display: block;
+      line-height: 24px;
+      color: $gray;
+      margin-bottom: 5px;
+
+      &:nth-child(1) {
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+
+    &_text {
+      color: $black !important;
+      font-size: 18px;
+    }
+
+    div {
+      margin-bottom: 10px;
+      border-bottom: 1px solid $gray-dark-light;
+    }
+  }
+}
