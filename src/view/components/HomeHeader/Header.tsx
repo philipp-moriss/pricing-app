@@ -1,18 +1,27 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { Button } from '../Button/Button';
 import { NavBar } from '../NavBar/NavBar';
 import styles from './Header.module.scss';
 
 export const Header = (): React.ReactElement => {
 	const [show, setShow] = useState(true);
+	const toggleMenu = (): void => {
+		if (!show) {
+			document.body.style.overflow = 'auto';
+		} else {
+			document.body.style.overflow = 'hidden';
+		}
+		setShow(!show);
+	};
 	const navigate = useNavigate();
 	return (
 		<header className={styles['header']}>
-			<button className={styles['burger-button']} onClick={(): void => setShow(!show)}>
-				<span className={`${styles['burger-line']} ${show && styles['burger-line-active']}`} />
+			<button className={styles['burger-button']} onClick={toggleMenu}>
+				<span className={`${styles['burger-line']} ${!show && styles['burger-line-active']}`} />
 			</button>
-			<div className={`${styles['header-wrapper']} ${!show && styles['header-wrapper-hidden']}`}>
+			<div className={`${styles['header-wrapper']} ${!show && styles['header-wrapper-show']}`}>
 				<div className={styles['header-logo']}>
 					<svg
 						width="81"
@@ -57,7 +66,7 @@ export const Header = (): React.ReactElement => {
 				<div className={styles['button-container']}>
 					<Button
 						textBtn={'Login'}
-						onClick={() => {
+						onClick={(): void => {
 							navigate('/login');
 						}}
 					/>

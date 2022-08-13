@@ -5,7 +5,6 @@ import { SideBar } from '../../components/SIdeBar/side-bar';
 import styles from './Main.module.scss';
 
 export const Main = (): React.ReactElement => {
-	const [show, setShow] = useState(true);
 	return (
 		<>
 			<MainHeader />
@@ -18,13 +17,3 @@ export const Main = (): React.ReactElement => {
 		</>
 	);
 };
-{
-	/*			{show && (
-				<ModalWrapper
-					closeCallback={(): void => setShow(false)}
-					callBack={(): void => setShow(false)}
-				>
-					<h1>Hello</h1>
-				</ModalWrapper>
-			)}*/
-}

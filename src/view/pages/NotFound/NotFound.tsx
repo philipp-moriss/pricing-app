@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import page404Image from '../../../assets/backgrounds/404-error.png';
 import { Button } from '../../components/Button/Button';
 import styles from './NotFound.module.scss';

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
+
 import styles from './Autosuggest.module.scss';
 
 const options = [

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './Arrow.module.scss';
 
 interface IArrowProps {
@@ -31,5 +32,9 @@ export const Arrow = ({ type, direction = 'right' }: IArrowProps): React.ReactEl
 		),
 	};
 
-	return <div className={styles[`direction-${direction}`]}>{arrows[type]}</div>;
+	return (
+		<div className={`${styles['direction']} ${styles[`direction-${direction}`]}`}>
+			{arrows[type]}
+		</div>
+	);
 };

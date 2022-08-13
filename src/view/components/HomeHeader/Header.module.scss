@@ -17,9 +17,9 @@
     align-items: center;
     transition: 0.5s;
 
-    &-hidden {
-      top: -1000px;
-      bottom: 1000px;
+    &-show {
+      top: 0 !important;
+      bottom: 0 !important;
     }
 
     @media (max-width: 1200px) {
@@ -27,7 +27,9 @@
     }
 
     @media (max-width: 900px) {
-      height: unset;
+      height: 100%;
+      top: -2000px;
+      bottom: 2000px;
       flex-direction: column;
       align-content: center;
       justify-content: space-evenly;
@@ -50,9 +52,8 @@
 
 .burger {
   &-button {
-	  max-width: 50px;
 	  max-height: 50px;
-	  width: 100%;
+	  width: 50px;
 	  height: 100%;
 	  position: fixed;
 	  background-color: transparent;
