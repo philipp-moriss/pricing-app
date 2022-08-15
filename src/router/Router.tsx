@@ -30,6 +30,7 @@ export const Router = observer((): React.ReactElement => {
 				<>
 					<Route path={'/'} element={<Main />}>
 						<Route path={'/personal-cabinet'} element={<PersonalCabinet />} />
+						<Route path={'/setting'} element={<PersonalCabinet />} />
 					</Route>
 				</>
 			) : (

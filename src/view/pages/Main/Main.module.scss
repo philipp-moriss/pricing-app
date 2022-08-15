@@ -2,10 +2,15 @@
 
 .main {
   &_content {
-    margin-top: 90px;
-    margin-left: 90px;
+    &__page {
+      position: absolute;
+      left: 85px;
+      right: 15px;
+      top: 70px;
+    }
   }
 }
+
 body {
   background: $gray-light;
 }
