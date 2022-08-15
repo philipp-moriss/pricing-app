@@ -1,6 +1,5 @@
-import React from 'react';
-
 import { Router } from './router/Router';
+import React from 'react';
 
 const App = (): React.ReactElement => {
 	return <Router />;

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
-
-import styles from './Autosuggest.module.scss';
+import styles from 'src/view/components/UiComponent/Autosuggest/Autosuggest.module.scss';
 
 const options = [
 	{ value: 'Belarus', label: ' BY' },

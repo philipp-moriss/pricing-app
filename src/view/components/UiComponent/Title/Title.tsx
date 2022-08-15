@@ -1,6 +1,5 @@
-import React from 'react';
-
 import styles from './Title.module.scss';
+import React from 'react';
 
 export const Title = ({ size, className, title, ...props }: TitleProps): React.ReactElement => {
 	switch (size) {

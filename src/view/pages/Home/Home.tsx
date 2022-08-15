@@ -1,18 +1,17 @@
-import React from 'react';
-
 import bgMoneyPerson from '../../../assets/backgrounds/mony-person.png';
 import bgPlainPerson from '../../../assets/backgrounds/plain-person.png';
 import iconMoney from '../../../assets/icons/mone.svg';
 import iconNote from '../../../assets/icons/note.svg';
 import iconPhone from '../../../assets/icons/phone.svg';
-import { Arrow } from '../../components/Arrow/Arrow';
-import { Button } from '../../components/Button/Button';
 import { Card } from '../../components/Card/Card';
 import { Footer } from '../../components/Footer/Footer';
 import { Header } from '../../components/HomeHeader/Header';
 import { Info } from '../../components/Info/Info';
-import { Title } from '../../components/Title/Title';
+import { Arrow } from '../../components/UiComponent/Arrow/Arrow';
+import { Button } from '../../components/UiComponent/Button/Button';
+import { Title } from '../../components/UiComponent/Title/Title';
 import styles from './Home.module.scss';
+import React from 'react';
 
 export const Home = (): React.ReactElement => {
 	return (

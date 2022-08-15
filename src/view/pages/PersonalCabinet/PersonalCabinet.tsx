@@ -1,13 +1,10 @@
+import AuthStore from '../../../store/AuthStore';
+import styles from './PersonalCabinet.module.scss';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import AuthStore from '../../../store/auth-store';
-import styles from './PersonalCabinet.module.scss';
 
 export const PersonalCabinet = observer((): React.ReactElement => {
-	const navigate = useNavigate();
 	const { newUserInfo } = AuthStore;
-	console.log(newUserInfo);
 	return (
 		<div className={styles['personal-cabinet']}>
 			<div className={styles['personal-cabinet__wrapper']}>

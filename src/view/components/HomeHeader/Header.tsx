@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-import { Button } from '../Button/Button';
+import { Button } from '../../components/UiComponent/Button/Button';
 import { NavBar } from '../NavBar/NavBar';
 import styles from './Header.module.scss';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const Header = (): React.ReactElement => {
 	const [show, setShow] = useState(true);

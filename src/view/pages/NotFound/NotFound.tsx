@@ -1,12 +1,12 @@
+import page404Image from '../../../assets/backgrounds/404-error.png';
+import { Button } from '../../components/UiComponent/Button/Button';
+import styles from './NotFound.module.scss';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import page404Image from '../../../assets/backgrounds/404-error.png';
-import { Button } from '../../components/Button/Button';
-import styles from './NotFound.module.scss';
-
 export const NotFound = (): React.ReactElement => {
 	const navigate = useNavigate();
+
 	return (
 		<div className={styles['container']}>
 			<div className={styles['not-found']}>

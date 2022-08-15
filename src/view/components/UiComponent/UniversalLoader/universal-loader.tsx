@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-
-import './universal-loader.scss';
+import 'src/view/components/UiComponent/UniversalLoader/universal-loader.scss';
 
 interface UniversalLoaderProps {
 	label?: string;

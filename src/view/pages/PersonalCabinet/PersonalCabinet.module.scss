@@ -36,11 +36,16 @@
     &_text {
       color: $black !important;
       font-size: 18px;
+      padding-left: 2px;
     }
 
     div {
       margin-bottom: 10px;
       border-bottom: 1px solid $gray-dark-light;
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
   }
 }

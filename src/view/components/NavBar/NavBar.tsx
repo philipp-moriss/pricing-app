@@ -1,7 +1,6 @@
-import React from 'react';
-
-import { CustomLink } from '../Link/Link';
+import { CustomLink } from '../UiComponent/Link/Link';
 import styles from './NavBar.module.scss';
+import React from 'react';
 
 export const NavBar = (): React.ReactElement => {
 	return (

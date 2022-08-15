@@ -1,14 +1,13 @@
+import logo from '../../../assets/logo/logo-pony-web.svg';
+import AuthStore from '../../../store/AuthStore';
+import { NewUserType } from '../../../store/AuthStore/auth-store';
+import { Button } from '../../components/UiComponent/Button/Button';
+import { CustomInput } from '../../components/UiComponent/CustomInput/CustomInput';
+import { CustomLink } from '../../components/UiComponent/Link/Link';
+import { Title } from '../../components/UiComponent/Title/Title';
+import styles from './NewUser.module.scss';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import logo from '../../../assets/logo/logo-pony-web.svg';
-import AuthStore from '../../../store';
-import { NewUserType } from '../../../store/auth-store';
-import { Button } from '../../components/Button/Button';
-import { CustomInput } from '../../components/CustomInput/CustomInput';
-import { CustomLink } from '../../components/Link/Link';
-import { Title } from '../../components/Title/Title';
-import styles from './NewUser.module.scss';
 
 export const NewUser = (): React.ReactElement => {
 	const [data, setData] = useState<NewUserType>({

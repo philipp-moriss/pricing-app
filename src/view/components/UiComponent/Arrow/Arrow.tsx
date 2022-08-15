@@ -1,6 +1,5 @@
-import React from 'react';
-
 import styles from './Arrow.module.scss';
+import React from 'react';
 
 interface IArrowProps {
 	type: 'withCircle';

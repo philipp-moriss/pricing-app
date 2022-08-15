@@ -1,7 +1,6 @@
-import React from 'react';
-
-import { Title } from '../Title/Title';
+import { Title } from '../UiComponent/Title/Title';
 import styles from './Info.module.scss';
+import React from 'react';
 
 export const Info = ({
 	description,
