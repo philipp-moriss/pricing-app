@@ -1,4 +1,14 @@
+@import "../../../../globalStyles/colors";
+
 .autosuggest {
   min-width: 200px;
   min-height: 40px;
+  width: 200px;
 }
+.label{
+  color: $black;
+  margin: 10px 0;
+  font-weight: 500;
+  font-size: 17px;
+}
+

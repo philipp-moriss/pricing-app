@@ -6,9 +6,10 @@ import { ForgotPassword } from 'view/pages/ForgotPassword/ForgotPassword';
 import { Home } from 'view/pages/Home/Home';
 import { Login } from 'view/pages/Login/Login';
 import { Main } from 'view/pages/Main/Main';
+import { PersonalCabinet } from 'view/pages/Main/PersonalCabinet/PersonalCabinet';
+import { Wallet } from 'view/pages/Main/Wallet/Wallet';
 import { NewUser } from 'view/pages/NewUser/NewUser';
 import { NotFound } from 'view/pages/NotFound/NotFound';
-import { PersonalCabinet } from 'view/pages/PersonalCabinet/PersonalCabinet';
 
 export const Router = observer((): React.ReactElement => {
 	const { auth } = AuthStore;
@@ -29,6 +30,7 @@ export const Router = observer((): React.ReactElement => {
 			{auth ? (
 				<>
 					<Route path={'/'} element={<Main />}>
+						<Route path={'/wallet'} element={<Wallet />} />
 						<Route path={'/personal-cabinet'} element={<PersonalCabinet />} />
 						<Route path={'/setting'} element={<PersonalCabinet />} />
 					</Route>

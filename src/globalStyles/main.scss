@@ -31,3 +31,10 @@
   transition: opacity 300ms, transform 300ms;
 }
 
+.label{
+  color: $black;
+  margin: 10px 0;
+  font-weight: 500;
+  font-size: 17px;
+  display: block;
+}

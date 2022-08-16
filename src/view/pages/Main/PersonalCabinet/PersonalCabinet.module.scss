@@ -1,4 +1,4 @@
-@import "src/globalStyles/colors";
+@import "../../../../globalStyles/colors";
 
 .personal-cabinet {
   &__wrapper {
@@ -13,9 +13,9 @@
   &__body {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    padding: 20px;
 
-    h1 {
+    h3 {
       margin-top: 20px;
       margin-bottom: 20px;
       color: $gray;

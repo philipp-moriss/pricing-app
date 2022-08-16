@@ -1,9 +1,9 @@
 import MainHeader from '../../components/MainHeader/main-header';
-import { SideBar } from '../../components/SIdeBar/side-bar';
 import styles from './Main.module.scss';
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { SideBar } from 'view/components/SIdeBar/side-bar';
 
 export const Main = (): React.ReactElement => {
 	const location = useLocation();

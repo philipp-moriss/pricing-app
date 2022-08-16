@@ -10,7 +10,7 @@ export interface CustomInputProps
 export const CustomInput = ({ label, ...rest }: CustomInputProps): React.ReactElement => {
 	return (
 		<>
-			{label && <span className={styles['label']}>{label}</span>}
+			{label && <span className={'label'}>{label}</span>}
 			<input className={styles['input']} {...rest} />
 		</>
 	);
