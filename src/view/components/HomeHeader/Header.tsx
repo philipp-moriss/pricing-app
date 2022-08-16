@@ -1,11 +1,12 @@
-import { Button } from '../../components/UiComponent/Button/Button';
 import { NavBar } from '../NavBar/NavBar';
 import styles from './Header.module.scss';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useCustomNavigate } from 'utils/hooks/useCustomNav';
+import { Button } from 'view/components/UiComponent/Button/Button';
 
 export const Header = (): React.ReactElement => {
 	const [show, setShow] = useState(true);
+	const { goTo } = useCustomNavigate();
 	const toggleMenu = (): void => {
 		if (!show) {
 			document.body.style.overflow = 'auto';
@@ -14,7 +15,6 @@ export const Header = (): React.ReactElement => {
 		}
 		setShow(!show);
 	};
-	const navigate = useNavigate();
 	return (
 		<header className={styles['header']}>
 			<button className={styles['burger-button']} onClick={toggleMenu}>
@@ -66,10 +66,14 @@ export const Header = (): React.ReactElement => {
 					<Button
 						textBtn={'Login'}
 						onClick={(): void => {
-							navigate('/login');
+							goTo('/login');
 						}}
 					/>
-					<Button textBtn={'SingUp'} style={{ backgroundColor: '#582EFF' }} />
+					<Button
+						textBtn={'SingUp'}
+						onClick={(): void => goTo('/new-user')}
+						style={{ backgroundColor: '#582EFF' }}
+					/>
 				</div>
 			</div>
 		</header>

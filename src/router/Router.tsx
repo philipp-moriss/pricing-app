@@ -1,14 +1,14 @@
-import { ForgotPassword } from '../../src/view/pages/ForgotPassword/ForgotPassword';
-import { Login } from '../../src/view/pages/Login/Login';
-import { Main } from '../../src/view/pages/Main/Main';
-import { NewUser } from '../../src/view/pages/NewUser/NewUser';
-import { PersonalCabinet } from '../../src/view/pages/PersonalCabinet/PersonalCabinet';
 import AuthStore from '../store/AuthStore/auth-store';
-import { Home } from '../view/pages/Home/Home';
-import { NotFound } from '../view/pages/NotFound/NotFound';
 import { observer } from 'mobx-react-lite';
 import React, { useLayoutEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import { ForgotPassword } from 'view/pages/ForgotPassword/ForgotPassword';
+import { Home } from 'view/pages/Home/Home';
+import { Login } from 'view/pages/Login/Login';
+import { Main } from 'view/pages/Main/Main';
+import { NewUser } from 'view/pages/NewUser/NewUser';
+import { NotFound } from 'view/pages/NotFound/NotFound';
+import { PersonalCabinet } from 'view/pages/PersonalCabinet/PersonalCabinet';
 
 export const Router = observer((): React.ReactElement => {
 	const { auth } = AuthStore;

@@ -39,10 +39,25 @@
   }
 
   &-btn-block {
-    button:last-child {
-      margin-top: 20px;
-      background: $blue;
+    button {
+      max-width: none;
+      width: 100px;
+
+      &:last-child {
+        margin-left: 20px;
+        background: $blue;
+      }
     }
   }
 
+  &__link_block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__link {
+    &:last-child {
+      margin-top: 15px;
+    }
+  }
 }

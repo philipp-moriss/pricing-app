@@ -1,12 +1,12 @@
 import logo from '../../../assets/logo/logo-pony-web.svg';
 import AuthStore from '../../../store/AuthStore/auth-store';
-import { Button } from '../../components/UiComponent/Button/Button';
-import { CustomInput } from '../../components/UiComponent/CustomInput/CustomInput';
-import { CustomLink } from '../../components/UiComponent/Link/Link';
-import { Title } from '../../components/UiComponent/Title/Title';
 import styles from './Login.module.scss';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button } from 'view/components/UiComponent/Button/Button';
+import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
+import { CustomLink } from 'view/components/UiComponent/Link/Link';
+import { Title } from 'view/components/UiComponent/Title/Title';
 
 export const Login = (): React.ReactElement => {
 	const [data, setData] = useState({
@@ -63,12 +63,13 @@ export const Login = (): React.ReactElement => {
 						textBtn={'New user'}
 					/>
 				</div>
-				<div className={styles['login-link']}>
+				<div className={styles['login__link_block']}>
 					<CustomLink
-						className={styles['login-link_link']}
+						className={styles['login__link']}
 						to={'/forgot-password'}
 						linkText={'Forgot your password?'}
 					/>
+					<CustomLink className={styles['login__link']} to={'/'} linkText={'Go to home page'} />
 				</div>
 			</div>
 		</div>
