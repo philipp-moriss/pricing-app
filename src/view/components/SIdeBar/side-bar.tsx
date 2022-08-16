@@ -1,3 +1,7 @@
+import { observer } from 'mobx-react-lite';
+import React from 'react';
+import { useCustomNavigate } from 'utils/hooks/useCustomNav';
+
 import { ReactComponent as BagIcon } from '../../../assets/icons/bag.svg';
 import { ReactComponent as ChartIcon } from '../../../assets/icons/chart.svg';
 import { ReactComponent as LogoutIcon } from '../../../assets/icons/log-out.svg';
@@ -7,9 +11,6 @@ import { ReactComponent as WalletIcon } from '../../../assets/icons/wallet.svg';
 import logo from '../../../assets/logo/logo-pony-web.svg';
 import AuthStore from '../../../store/AuthStore';
 import styles from './side-bar.module.scss';
-import { observer } from 'mobx-react-lite';
-import React from 'react';
-import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 
 export const SideBar = observer((): React.ReactElement => {
 	const { goTo } = useCustomNavigate();

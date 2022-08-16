@@ -1,4 +1,3 @@
-import styles from './Wallet.module.scss';
 import wallet from 'assets/images/wallet.png';
 import React, { ChangeEvent, useState } from 'react';
 import { Autosuggest } from 'view/components/UiComponent/Autosuggest/Autosuggest';
@@ -6,6 +5,8 @@ import { Button } from 'view/components/UiComponent/Button/Button';
 import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
 import { Title } from 'view/components/UiComponent/Title/Title';
 import { TotalAmount } from 'view/pages/Main/Wallet/TotalAmount/TotalAmount';
+
+import styles from './Wallet.module.scss';
 
 export const Wallet = (): React.ReactElement => {
 	const [spendData, setSpendData] = useState<{ spend: number | undefined; categories: any }>({

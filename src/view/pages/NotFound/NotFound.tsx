@@ -1,8 +1,9 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import page404Image from '../../../assets/backgrounds/404-error.png';
 import { Button } from '../../components/UiComponent/Button/Button';
 import styles from './NotFound.module.scss';
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 export const NotFound = (): React.ReactElement => {
 	const navigate = useNavigate();

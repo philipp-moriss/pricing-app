@@ -1,7 +1,8 @@
-import styles from './TotalAmount.module.scss';
 import wallet from 'assets/images/wallet.png';
 import React from 'react';
 import { Title } from 'view/components/UiComponent/Title/Title';
+
+import styles from './TotalAmount.module.scss';
 
 export const TotalAmount = () => {
 	return (

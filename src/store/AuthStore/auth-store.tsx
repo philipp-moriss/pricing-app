@@ -41,8 +41,8 @@ export class AuthStore {
 		return;
 	}
 
-	async setNewUser(userData: NewUserType): Promise<void> {
-		await localStorage.setItem('new-user-data', JSON.stringify(userData));
+	setNewUser(userData: NewUserType): void {
+		localStorage.setItem('new-user-data', JSON.stringify(userData));
 		this.newUserInfo = userData;
 		return;
 	}

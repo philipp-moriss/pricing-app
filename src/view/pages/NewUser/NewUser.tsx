@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import logo from '../../../assets/logo/logo-pony-web.svg';
 import AuthStore from '../../../store/AuthStore';
 import { NewUserType } from '../../../store/AuthStore/auth-store';
@@ -6,8 +9,6 @@ import { CustomInput } from '../../components/UiComponent/CustomInput/CustomInpu
 import { CustomLink } from '../../components/UiComponent/Link/Link';
 import { Title } from '../../components/UiComponent/Title/Title';
 import styles from './NewUser.module.scss';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 export const NewUser = (): React.ReactElement => {
 	const [data, setData] = useState<NewUserType>({

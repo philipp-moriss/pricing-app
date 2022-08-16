@@ -1,5 +1,6 @@
-import styles from './CustomInput.module.scss';
 import React from 'react';
+
+import styles from './CustomInput.module.scss';
 
 export interface CustomInputProps
 	extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,

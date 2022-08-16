@@ -1,8 +1,9 @@
-import { NavBar } from '../NavBar/NavBar';
-import styles from './Header.module.scss';
 import React, { useState } from 'react';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { Button } from 'view/components/UiComponent/Button/Button';
+
+import { NavBar } from '../NavBar/NavBar';
+import styles from './Header.module.scss';
 
 export const Header = (): React.ReactElement => {
 	const [show, setShow] = useState(true);

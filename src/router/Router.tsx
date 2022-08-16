@@ -1,4 +1,3 @@
-import AuthStore from '../store/AuthStore/auth-store';
 import { observer } from 'mobx-react-lite';
 import React, { useLayoutEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
@@ -10,6 +9,8 @@ import { PersonalCabinet } from 'view/pages/Main/PersonalCabinet/PersonalCabinet
 import { Wallet } from 'view/pages/Main/Wallet/Wallet';
 import { NewUser } from 'view/pages/NewUser/NewUser';
 import { NotFound } from 'view/pages/NotFound/NotFound';
+
+import AuthStore from '../store/AuthStore/auth-store';
 
 export const Router = observer((): React.ReactElement => {
 	const { auth } = AuthStore;
