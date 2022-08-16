@@ -19,7 +19,7 @@ export const SideBar = observer((): React.ReactElement => {
 			<div className={styles['side-bar_container']}>
 				<img className={styles['side-bar_logo']} src={logo} alt={'logo'} />
 				<div className={styles['side-bar_ico-container']}>
-					<WalletIcon onClick={(): void => goTo('/wallet')} className={styles['side-bar_ico']} />
+					<WalletIcon onClick={(): void => goTo('/')} className={styles['side-bar_ico']} />
 					<BagIcon className={styles['side-bar_ico']} />
 					<ChartIcon className={styles['side-bar_ico']} />
 					<PersonIcon

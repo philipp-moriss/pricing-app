@@ -43,7 +43,8 @@
     "build": "react-scripts build",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
-    "format": "prettier --write src/**/*.ts{,x}"
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "eslintConfig": {
     "extends": [

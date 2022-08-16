@@ -31,7 +31,7 @@ export const Router = observer((): React.ReactElement => {
 			{auth ? (
 				<>
 					<Route path={'/'} element={<Main />}>
-						<Route path={'/wallet'} element={<Wallet />} />
+						<Route index element={<Wallet />} />
 						<Route path={'/personal-cabinet'} element={<PersonalCabinet />} />
 						<Route path={'/setting'} element={<PersonalCabinet />} />
 					</Route>

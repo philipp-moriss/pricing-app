@@ -9,13 +9,12 @@ const optionsDefault = [
 	{ value: 'RU', label: ' RUB' },
 ] as any;
 type AutosuggestType = {
-	options: [];
+	options: any[];
 	callBack: (value: any) => void;
 	label?: string;
 };
 export const Autosuggest = ({ options, callBack, label }: AutosuggestType) => {
 	const [value, setValue] = useState<string | null>('');
-
 	const selectHandler = (value: any) => {
 		setValue(value);
 		callBack(value);
@@ -24,7 +23,7 @@ export const Autosuggest = ({ options, callBack, label }: AutosuggestType) => {
 		<div>
 			{label && <span className={'label'}>{label}</span>}
 			<Select
-				options={optionsDefault}
+				options={options}
 				className={styles['autosuggest']}
 				classNamePrefix={'autosuggest'}
 				placeholder={'Start typing...'}
