@@ -1,7 +1,6 @@
 import { ReactComponent as ArrowSortIcon } from 'assets/icons/arrow-sort.svg';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect, useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import WalletStore from 'store/WalletStore';
 import { Title } from 'view/components/UiComponent/Title/Title';
 
@@ -13,7 +12,7 @@ export const ShoppingTable = observer((): React.ReactElement => {
 		name: '',
 		isUpDirection: false,
 	});
-	const sortHandler = (field: string, activeProp: boolean) => {
+	const sortHandler = (field: string, activeProp: boolean): void => {
 		setSortField((prev) => ({
 			...prev,
 			name: field,
@@ -47,21 +46,21 @@ export const ShoppingTable = observer((): React.ReactElement => {
 							Category
 							<ArrowSortIcon
 								className={`${sortField.name === 'category' ? styles['sort-on'] : ''}`}
-								onClick={() => sortHandler('category', sortField.isUpDirection)}
+								onClick={(): void => sortHandler('category', sortField.isUpDirection)}
 							/>
 						</div>
 						<div className={styles['shop-table__sort-history_date']}>
 							Date
 							<ArrowSortIcon
 								className={`${sortField.name === 'date' ? styles['sort-on'] : ''}`}
-								onClick={() => sortHandler('date', sortField.isUpDirection)}
+								onClick={(): void => sortHandler('date', sortField.isUpDirection)}
 							/>
 						</div>
 						<div className={styles['shop-table__sort-history_amount']}>
 							Amount
 							<ArrowSortIcon
 								className={`${sortField.name === 'amount' ? styles['sort-on'] : ''}`}
-								onClick={() => sortHandler('amount', sortField.isUpDirection)}
+								onClick={(): void => sortHandler('amount', sortField.isUpDirection)}
 							/>
 						</div>
 					</div>
