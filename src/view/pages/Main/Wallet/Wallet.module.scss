@@ -14,9 +14,9 @@
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
-    justify-content: center;
     flex-wrap: wrap;
     padding: 20px;
+    margin: 10px;
   }
 
   &__body {
@@ -26,6 +26,9 @@
     input {
       border: 1px solid $gray;
     }
+    input[type=number]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
   }
 
   img {
@@ -34,9 +37,11 @@
   }
 
   h3 {
+    line-height: normal;
     margin-top: 20px;
     margin-bottom: 20px;
-    color: $gray;
+    font-size: 30px;
+    color: $black;
   }
 
 }

@@ -1,7 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-
-export type UserInfoType = { email: string; password: string };
-export type NewUserType = { email: string; password: string; name: string; lastName: string };
+import { NewUserType, UserInfoType } from 'store/Type/models';
 
 export class AuthStore {
 	auth = false;

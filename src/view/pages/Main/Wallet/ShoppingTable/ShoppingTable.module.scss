@@ -1,0 +1,122 @@
+@import "src/globalStyles/colors";
+
+.shop-table {
+  &__wrapper {
+    min-width: 282px;
+    max-height: 700px;
+    height: 700px;
+    width: 600px;
+    background: $white;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 5px
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $orange;
+      outline: 1px solid $orange;
+    }
+
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  &__spend-block {
+  }
+
+  &__sort-history {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 2px 10px 2px;
+
+    div {
+
+      /*
+      &:hover {
+        color: $orange;
+      }
+      */
+
+      display: flex;
+      align-items: center;
+
+      svg {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+        transition: 0.3s;
+        /*   &:hover {
+             path {
+               stroke: $orange
+             }
+           }*/
+      }
+    }
+
+    &_date {
+
+    }
+
+    &_amount {
+
+    }
+  }
+
+  &__spend-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid $gray-light;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+
+    span {
+      font-size: 16px;
+      color: $gray;
+    }
+
+    &_category {
+
+    }
+
+    &_amount {
+
+    }
+
+    &_date {
+
+    }
+
+    &:hover {
+      background: $orange;
+      border: 1px solid $orange;
+
+      span {
+        color: $white;
+      }
+    }
+  }
+}
+
+.sort-on {
+  transform: rotate(180deg);
+  transition: 0.3s;
+
+  path {
+    stroke: $orange
+  }
+}
