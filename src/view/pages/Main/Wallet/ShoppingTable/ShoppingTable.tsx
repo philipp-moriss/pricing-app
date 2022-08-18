@@ -14,11 +14,15 @@ export const ShoppingTable = observer((): React.ReactElement => {
 		isUpDirection: false,
 	});
 	const sortHandler = (field: string, activeProp: boolean) => {
-		setSortField((prev) => ({
-			...prev,
-			name: field,
-			isUpDirection: !activeProp,
-		}));
+		setSortField((prev) => {
+			console.log(field);
+			console.log(prev.name);
+			return {
+				...prev,
+				name: field,
+				isUpDirection: !activeProp,
+			};
+		});
 	};
 	useEffect(() => {
 		wallet.myCategories?.sort((a, b) => {
@@ -37,6 +41,7 @@ export const ShoppingTable = observer((): React.ReactElement => {
 			return 0;
 		});
 	}, [sortField.isUpDirection]);
+
 	return (
 		<div className={styles['shop-table']}>
 			<div className={styles['shop-table__wrapper']}>
@@ -46,22 +51,40 @@ export const ShoppingTable = observer((): React.ReactElement => {
 						<div className={styles['shop-table__sort-history_category']}>
 							Category
 							<ArrowSortIcon
-								className={`${sortField.name === 'category' ? styles['sort-on'] : ''}`}
-								onClick={() => sortHandler('category', sortField.isUpDirection)}
+								className={`${
+									sortField.name === 'category' && sortField.isUpDirection ? styles['sort-on'] : ''
+								}`}
+								onClick={() =>
+									sortHandler(
+										'category',
+										sortField.name === 'category' ? sortField.isUpDirection : false,
+									)
+								}
 							/>
 						</div>
 						<div className={styles['shop-table__sort-history_date']}>
 							Date
 							<ArrowSortIcon
-								className={`${sortField.name === 'date' ? styles['sort-on'] : ''}`}
-								onClick={() => sortHandler('date', sortField.isUpDirection)}
+								className={`${
+									sortField.name === 'date' && sortField.isUpDirection ? styles['sort-on'] : ''
+								}`}
+								onClick={() =>
+									sortHandler('date', sortField.name === 'date' ? sortField.isUpDirection : false)
+								}
 							/>
 						</div>
 						<div className={styles['shop-table__sort-history_amount']}>
 							Amount
 							<ArrowSortIcon
-								className={`${sortField.name === 'amount' ? styles['sort-on'] : ''}`}
-								onClick={() => sortHandler('amount', sortField.isUpDirection)}
+								className={`${
+									sortField.name === 'amount' && sortField.isUpDirection ? styles['sort-on'] : ''
+								}`}
+								onClick={() =>
+									sortHandler(
+										'amount',
+										sortField.name === 'amount' ? sortField.isUpDirection : false,
+									)
+								}
 							/>
 						</div>
 					</div>
