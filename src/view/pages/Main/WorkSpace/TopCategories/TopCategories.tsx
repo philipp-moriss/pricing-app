@@ -8,7 +8,6 @@ import styles from './TopCategories.module.scss';
 
 export const TopCategories = observer((): React.ReactElement => {
 	const { wallet } = WalletStore;
-	console.log(wallet.myCategories);
 	const topCategories = sortCategoriesByAmount(wallet?.myCategories)?.splice(0, 3);
 	return (
 		<div className={styles['top-categories']}>
