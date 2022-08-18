@@ -90,27 +90,27 @@ export const ExpenseTable = observer((): React.ReactElement => {
 							/>
 						</div>
 					</div>
-					<div>
-						{wallet?.fullHistory &&
-							wallet.fullHistory.map((category, index) => {
-								return (
-									<div
-										key={`${category.category.value}-${index}-${category.amount}`}
-										className={styles['expense-table__spend-card']}
-									>
-										<span className={styles['expense-table__spend-card_category']}>
-											{category.category.label}
-										</span>
-										<span className={styles['expense-table__spend-card_date']}>
-											{category.date}-{category.time}
-										</span>
-										<span className={styles['expense-table__spend-card_amount']}>
-											{category.amount}
-										</span>
-									</div>
-								);
-							})}
-					</div>
+				</div>
+				<div className={styles['expense-table__body']}>
+					{wallet?.fullHistory &&
+						wallet.fullHistory.map((category, index) => {
+							return (
+								<div
+									key={`${category.category.value}-${index}-${category.amount}`}
+									className={styles['expense-table__spend-card']}
+								>
+									<span className={styles['expense-table__spend-card_category']}>
+										{category.category.label}
+									</span>
+									<span className={styles['expense-table__spend-card_date']}>
+										{category.date}-{category.time}
+									</span>
+									<span className={styles['expense-table__spend-card_amount']}>
+										{category.amount}
+									</span>
+								</div>
+							);
+						})}
 				</div>
 			</div>
 		</div>

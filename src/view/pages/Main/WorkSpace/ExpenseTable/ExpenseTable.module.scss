@@ -11,20 +11,6 @@
     border-radius: 8px;
     padding: 20px;
     margin: 10px;
-    overflow: auto;
-
-    &::-webkit-scrollbar {
-      width: 5px
-    }
-
-    &::-webkit-scrollbar-track {
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: $orange;
-      outline: 1px solid $orange;
-    }
 
   }
 
@@ -51,7 +37,8 @@
 
       display: flex;
       align-items: center;
-
+      margin-right: 10px;
+      margin-left: 10px;
       svg {
         cursor: pointer;
         width: 20px;
@@ -75,6 +62,7 @@
     }
   }
 
+
   &__spend-card {
     display: flex;
     justify-content: space-between;
@@ -84,7 +72,7 @@
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 8px;
-
+    margin-right: 10px;
     span {
       min-width: 80px;
       font-size: 16px;
@@ -107,10 +95,30 @@
     &:hover {
       background: $orange;
       border: 1px solid $orange;
-
+      opacity: 0.8;
+      transition: 0.3s;
       span {
         color: $white;
       }
+    }
+  }
+
+  &__body {
+    max-height: 550px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      padding-left: 10px;
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $orange;
+      outline: 1px solid $orange;
     }
   }
 }
