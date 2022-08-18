@@ -1,6 +1,5 @@
 import { makeAutoObservable } from 'mobx';
 import { MyCategoriesType, WalletType } from 'store/Type/models';
-import { getUniqueId } from 'utils/utils';
 
 export class WalletStore {
 	wallet: WalletType = {
@@ -21,27 +20,22 @@ export class WalletStore {
 	}
 
 	addSpend(currentSpend: MyCategoriesType): void {
-		const currentSpendWitchId = {
-			...currentSpend,
-			categories: { ...currentSpend.categories, value: getUniqueId() },
-		};
 		const checkCategory = this.wallet?.myCategories.findIndex(
-			(category) => category.categories.label === currentSpend.categories.label,
+			(category) => category.category.label === currentSpend.category.label,
 		);
-
-		if (checkCategory > 0) {
+		if (checkCategory >= 0) {
 			this.wallet.myCategories.forEach((category, index) => {
 				if (checkCategory === index) {
 					this.wallet.myCategories[index] = {
-						...currentSpendWitchId,
-						amount: this.wallet.myCategories[index].amount + currentSpendWitchId.amount,
+						...currentSpend,
+						amount: this.wallet.myCategories[index].amount + currentSpend.amount,
 					};
 				}
 			});
 		} else {
-			this.wallet?.myCategories.push(currentSpendWitchId);
+			this.wallet?.myCategories.push(currentSpend);
 		}
-		this.wallet?.fullHistory?.unshift(currentSpendWitchId);
+		this.wallet?.fullHistory?.unshift(currentSpend);
 		const currentSpends = this.wallet?.totalSpends + currentSpend.amount;
 		this.addToSpends(currentSpends);
 		return;

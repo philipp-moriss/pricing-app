@@ -23,7 +23,7 @@ export const ExpenseTable = observer((): React.ReactElement => {
 		wallet?.fullHistory &&
 			wallet.fullHistory.sort((a, b) => {
 				if (sortField.name === 'category') {
-					if (a.categories.label > b.categories.label) {
+					if (a.category.label > b.category.label) {
 						return sortField.isUpDirection ? 1 : -1;
 					}
 					return sortField.isUpDirection ? -1 : 1;
@@ -95,14 +95,14 @@ export const ExpenseTable = observer((): React.ReactElement => {
 							wallet.fullHistory.map((category, index) => {
 								return (
 									<div
-										key={`${category.categories.value}-${index}-${category.amount}`}
+										key={`${category.category.value}-${index}-${category.amount}`}
 										className={styles['expense-table__spend-card']}
 									>
 										<span className={styles['expense-table__spend-card_category']}>
-											{category.categories.label}
+											{category.category.label}
 										</span>
 										<span className={styles['expense-table__spend-card_date']}>
-											{category.date}
+											{category.date}-{category.time}
 										</span>
 										<span className={styles['expense-table__spend-card_amount']}>
 											{category.amount}

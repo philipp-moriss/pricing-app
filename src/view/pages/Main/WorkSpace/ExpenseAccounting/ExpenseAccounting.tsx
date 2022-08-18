@@ -3,7 +3,7 @@ import React, { ChangeEvent, useState } from 'react';
 import CategoriesStore from 'store/CategoriesStore';
 import { MyCategoriesType } from 'store/Type/models';
 import WalletStore from 'store/WalletStore';
-import { dateFormat, getUniqueId } from 'utils/utils';
+import { dateFormat, getDateFormatTime, getUniqueId } from 'utils/utils';
 import { Autosuggest } from 'view/components/UiComponent/Autosuggest/Autosuggest';
 import { Button } from 'view/components/UiComponent/Button/Button';
 import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
@@ -15,10 +15,11 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 	const { categories } = CategoriesStore;
 	const { addSpend } = WalletStore;
 	const [spendData, setSpendData] = useState<MyCategoriesType>({
-		amount: 0,
+		amount: null as unknown as number,
 		date: dateFormat(new Date()),
-		categories: {
-			value: 0,
+		time: getDateFormatTime(new Date()),
+		category: {
+			value: getUniqueId(),
 			label: '',
 		},
 	});
@@ -32,7 +33,7 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 	};
 
 	const saveHandler = (): void => {
-		if (spendData.categories.label && spendData.amount) {
+		if (spendData.category.label && spendData.amount) {
 			addSpend(spendData);
 		} else {
 			alert('Fields cannot be empty ');
@@ -48,7 +49,7 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 						label={'Category selection'}
 						options={categories}
 						callBack={(value): void => {
-							setSpendData({ ...spendData, categories: value });
+							setSpendData({ ...spendData, category: value });
 						}}
 					/>
 					<CustomInput

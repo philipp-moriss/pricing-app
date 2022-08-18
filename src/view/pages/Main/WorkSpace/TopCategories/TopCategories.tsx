@@ -8,7 +8,7 @@ import styles from './TopCategories.module.scss';
 
 export const TopCategories = observer((): React.ReactElement => {
 	const { wallet } = WalletStore;
-
+	console.log(wallet.myCategories);
 	const topCategories = sortCategoriesByAmount(wallet?.myCategories)?.splice(0, 3);
 	return (
 		<div className={styles['top-categories']}>
@@ -19,10 +19,10 @@ export const TopCategories = observer((): React.ReactElement => {
 						topCategories.map((category, index) => {
 							return (
 								<div
-									key={`${category.categories.label}-${index}`}
+									key={`${category.category.label}-${index}`}
 									className={styles['top-categories__body__categories-block']}
 								>
-									<span>{category.categories.label}&nbsp;&nbsp;</span>
+									<span>{category.category.label}&nbsp;&nbsp;</span>
 									<span>{category.amount}</span>
 								</div>
 							);
