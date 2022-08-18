@@ -10,11 +10,15 @@ export type CategoriesType = {
 export type MyCategoriesType = {
 	categories: CategoriesType;
 	amount: number;
+	date: string;
 };
 
 export type WalletType = {
+	name: string;
 	id: number;
 	currentCurrency: string;
 	account: number;
 	myCategories: MyCategoriesType[];
+	fullHistory: MyCategoriesType[];
+	totalSpends: number;
 };

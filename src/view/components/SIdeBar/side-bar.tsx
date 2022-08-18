@@ -20,13 +20,13 @@ export const SideBar = observer((): React.ReactElement => {
 				<img className={styles['side-bar_logo']} src={logo} alt={'logo'} />
 				<div className={styles['side-bar_ico-container']}>
 					<WalletIcon onClick={(): void => goTo('/')} className={styles['side-bar_ico']} />
-					<BagIcon className={styles['side-bar_ico']} />
+					<BagIcon onClick={(): void => goTo('/work-space')} className={styles['side-bar_ico']} />
 					<ChartIcon className={styles['side-bar_ico']} />
 					<PersonIcon
 						onClick={(): void => goTo('/personal-cabinet')}
 						className={styles['side-bar_ico']}
 					/>
-					<SettingIcon onClick={(): void => goTo('/setting')} className={styles['side-bar_ico']} />
+					<SettingIcon className={styles['side-bar_ico']} />
 				</div>
 
 				<LogoutIcon

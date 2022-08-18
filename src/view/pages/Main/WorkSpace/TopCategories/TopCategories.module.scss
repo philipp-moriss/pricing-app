@@ -1,0 +1,46 @@
+@import "src/globalStyles/colors";
+
+.top-categories {
+  &__wrapper {
+    min-width: 100px;
+    min-height: 50px;
+    background: $white;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+  }
+
+  &__body {
+    &__categories-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid $gray-light;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      min-width: 200px;
+
+      span {
+        font-size: 16px;
+        color: $gray;
+      }
+
+    }
+  }
+
+  h3 {
+    text-align: center;
+    line-height: normal;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: $black;
+  }
+}
