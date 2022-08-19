@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $black;
+  background: #3e39549e;;
   flex-direction: column;
 }
 
@@ -45,7 +45,6 @@
   }
 
   button {
-    margin-top: 20px;
     margin-bottom: 20px;
     width: 140px;
   }
