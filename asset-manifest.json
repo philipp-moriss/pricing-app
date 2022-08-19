@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pricing-app/static/css/main.8f4a2418.css",
-    "main.js": "/pricing-app/static/js/main.029b564a.js",
+    "main.css": "/pricing-app/static/css/main.36443d73.css",
+    "main.js": "/pricing-app/static/js/main.2621705f.js",
     "static/media/itachi.png": "/pricing-app/static/media/itachi.1e46c6824b2d81359c42.png",
     "static/media/WorkSans-Medium.ttf": "/pricing-app/static/media/WorkSans-Medium.3515918acace1f6dd1e9.ttf",
     "static/media/WorkSans-Bold.ttf": "/pricing-app/static/media/WorkSans-Bold.d8de505f08550a8e4c16.ttf",
@@ -10,21 +10,24 @@
     "static/media/WorkSans-Thin.ttf": "/pricing-app/static/media/WorkSans-Thin.2e3bceacbfb70245eacf.ttf",
     "static/media/mony-person.png": "/pricing-app/static/media/mony-person.0cebfd15e77b9b2f92ae.png",
     "static/media/plain-person.png": "/pricing-app/static/media/plain-person.9470c083a8febde6f93d.png",
-    "static/media/logo-pony-web.svg": "/pricing-app/static/media/logo-pony-web.0772285f9c20ebc7366e79f21a0de9d4.svg",
-    "static/media/mone.svg": "/pricing-app/static/media/mone.08eccb96e75efd06b6824cc6618f2504.svg",
-    "static/media/note.svg": "/pricing-app/static/media/note.c6226b4be9556477658ed7284e85a9b2.svg",
-    "static/media/phone.svg": "/pricing-app/static/media/phone.9b63328a2628e803323ccdd51451dcd3.svg",
-    "static/media/bag.svg": "/pricing-app/static/media/bag.a32e82175535fb5cfc8e007ee1c0815b.svg",
-    "static/media/chart.svg": "/pricing-app/static/media/chart.4649365dae551fc32add8ba8b5c4b415.svg",
-    "static/media/setting.svg": "/pricing-app/static/media/setting.e42aa1ce8ad1ae4d14883dd22f1a569b.svg",
+    "static/media/logo-pony-web.svg": "/pricing-app/static/media/logo-pony-web.3b4ad1441b9d07dae3f6aade3f147a55.svg",
+    "static/media/wallet.png": "/pricing-app/static/media/wallet.11fb7f1872f943d1b98d.png",
+    "static/media/mone.svg": "/pricing-app/static/media/mone.d946dd3bf729e1b069a33bb9259aa004.svg",
+    "static/media/note.svg": "/pricing-app/static/media/note.ee33ddcff41ae3b2d9f2e3b007cc7b9d.svg",
+    "static/media/phone.svg": "/pricing-app/static/media/phone.73e63a77a3e257c82b0deb6572aca6bd.svg",
+    "static/media/bag.svg": "/pricing-app/static/media/bag.f54bd7c7266ad82274af0f1352df05b6.svg",
+    "static/media/chart.svg": "/pricing-app/static/media/chart.e6d46ff14f67eba0f8857e8bae7d67a3.svg",
+    "static/media/setting.svg": "/pricing-app/static/media/setting.d8506baf27cceeed89cfea723920f1b5.svg",
     "index.html": "/pricing-app/index.html",
-    "static/media/log-out.svg": "/pricing-app/static/media/log-out.47ad58fbbfb523fb4bdbedac739d78aa.svg",
-    "static/media/person.svg": "/pricing-app/static/media/person.c070c3ffe653514c9709fdb32f514658.svg",
-    "main.8f4a2418.css.map": "/pricing-app/static/css/main.8f4a2418.css.map",
-    "main.029b564a.js.map": "/pricing-app/static/js/main.029b564a.js.map"
+    "static/media/log-out.svg": "/pricing-app/static/media/log-out.c77dfc0c631f57000e80199f0a7c08d4.svg",
+    "static/media/wallet.svg": "/pricing-app/static/media/wallet.d601e98626e77e85f4733d8941d830c8.svg",
+    "static/media/arrow-sort.svg": "/pricing-app/static/media/arrow-sort.19e8c6eaf03bf54b000bc5d3e76bf9b7.svg",
+    "static/media/person.svg": "/pricing-app/static/media/person.4a02c06d0250816e0ebbdf23afb59b23.svg",
+    "main.36443d73.css.map": "/pricing-app/static/css/main.36443d73.css.map",
+    "main.2621705f.js.map": "/pricing-app/static/js/main.2621705f.js.map"
   },
   "entrypoints": [
-    "static/css/main.8f4a2418.css",
-    "static/js/main.029b564a.js"
+    "static/css/main.36443d73.css",
+    "static/js/main.2621705f.js"
   ]
 }
