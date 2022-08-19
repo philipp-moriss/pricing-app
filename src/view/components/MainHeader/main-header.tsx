@@ -15,7 +15,9 @@ const MainHeader = observer(({ toggleSideBar, setToggleSideBar }: MainHeaderProp
 	return (
 		<div className={styles['main-header']}>
 			<button
-				className={styles['burger-button']}
+				className={`${styles['burger-button']} ${
+					toggleSideBar ? styles['burger-button_position'] : ''
+				}`}
 				onClick={(): void => setToggleSideBar(!toggleSideBar)}
 			>
 				<span
