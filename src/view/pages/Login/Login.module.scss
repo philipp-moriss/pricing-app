@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: $black;
+  background: #3e39549e;;
   flex-direction: column;
 }
 .logo {
@@ -39,6 +39,10 @@
   }
 
   &-btn-block {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
     button {
       max-width: none;
       width: 100px;
@@ -58,6 +62,21 @@
   &__link {
     &:last-child {
       margin-top: 15px;
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .login {
+    &-title {
+      margin-bottom: 0;
+    }
+    &-btn-block {
+      button {
+        width: 100%;
+        &:last-child {
+          margin: 10px 0 10px 0;
+        }
+      }
     }
   }
 }

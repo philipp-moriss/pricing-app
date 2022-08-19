@@ -1,4 +1,5 @@
 import React from 'react';
+import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { Card } from 'view/components/Card/Card';
 import { Footer } from 'view/components/Footer/Footer';
 import { Header } from 'view/components/HomeHeader/Header';
@@ -15,6 +16,7 @@ import iconPhone from '../../../assets/icons/phone.svg';
 import styles from './Home.module.scss';
 
 export const Home = (): React.ReactElement => {
+	const { goTo } = useCustomNavigate();
 	return (
 		<>
 			<Header />
@@ -69,7 +71,13 @@ export const Home = (): React.ReactElement => {
 			<section className={styles['get-app']}>
 				<div className={styles['get-app-inner']}>
 					<p className={styles['get-app-text']}>get apps just by registering</p>
-					<Button textBtn={'SingUp'} style={{ color: 'black', backgroundColor: 'white' }} />
+					<Button
+						onClick={(): void => {
+							goTo('/new-user');
+						}}
+						textBtn={'SingUp'}
+						style={{ color: 'black', backgroundColor: 'white' }}
+					/>
 				</div>
 			</section>
 			<Footer />
