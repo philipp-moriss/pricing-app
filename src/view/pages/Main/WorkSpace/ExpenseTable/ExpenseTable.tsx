@@ -24,21 +24,21 @@ export const ExpenseTable = observer((): React.ReactElement => {
 			wallet.fullHistory.sort((a, b) => {
 				if (sortField.name === 'category') {
 					if (a.category.label > b.category.label) {
-						return sortField.isUpDirection ? 1 : -1;
+						return sortField.isUpDirection ? -1 : 1;
 					}
-					return sortField.isUpDirection ? -1 : 1;
+					return sortField.isUpDirection ? 1 : -1;
 				}
 				if (sortField.name === 'amount') {
 					if (a.amount > b.amount) {
-						return sortField.isUpDirection ? 1 : -1;
+						return sortField.isUpDirection ? -1 : 1;
 					}
-					return sortField.isUpDirection ? -1 : 1;
+					return sortField.isUpDirection ? 1 : -1;
 				}
 				if (sortField.name === 'date') {
 					if (a.date > b.date) {
-						return sortField.isUpDirection ? 1 : -1;
+						return sortField.isUpDirection ? -1 : 1;
 					}
-					return sortField.isUpDirection ? -1 : 1;
+					return sortField.isUpDirection ? 1 : -1;
 				}
 				return 0;
 			});

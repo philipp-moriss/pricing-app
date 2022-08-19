@@ -14,3 +14,12 @@
 body {
   background: $gray-light;
 }
+@media screen and (max-width: 900px) {
+  .main {
+    &_content {
+      &__page {
+        left: 15px;
+      }
+    }
+  }
+}

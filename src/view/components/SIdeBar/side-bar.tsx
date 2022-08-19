@@ -12,31 +12,65 @@ import logo from '../../../assets/logo/logo-pony-web.svg';
 import AuthStore from '../../../store/AuthStore';
 import styles from './side-bar.module.scss';
 
-export const SideBar = observer((): React.ReactElement => {
-	const { goTo } = useCustomNavigate();
-	return (
-		<div className={styles['side-bar']}>
-			<div className={styles['side-bar_container']}>
-				<img className={styles['side-bar_logo']} src={logo} alt={'logo'} />
-				<div className={styles['side-bar_ico-container']}>
-					<WalletIcon onClick={(): void => goTo('/')} className={styles['side-bar_ico']} />
-					<BagIcon onClick={(): void => goTo('/work-space')} className={styles['side-bar_ico']} />
-					<ChartIcon className={styles['side-bar_ico']} />
-					<PersonIcon
-						onClick={(): void => goTo('/personal-cabinet')}
-						className={styles['side-bar_ico']}
-					/>
-					<SettingIcon className={styles['side-bar_ico']} />
-				</div>
+interface SideBarProps {
+	toggleSideBar: boolean;
+	setToggleSideBar: (value: boolean) => void;
+}
 
-				<LogoutIcon
-					onClick={(): void => {
-						AuthStore.removeAuth();
-						goTo('/');
-					}}
-					className={styles['side-bar_ico-logout']}
-				/>
+export const SideBar = observer(
+	({ toggleSideBar, setToggleSideBar }: SideBarProps): React.ReactElement => {
+		const { goTo } = useCustomNavigate();
+
+		const navigateHandler = (to: string): void => {
+			goTo(to);
+			setToggleSideBar(false);
+			return;
+		};
+		return (
+			<div className={`${styles['side-bar']} ${!toggleSideBar ? styles['side-bar_hide'] : ''}`}>
+				<div className={styles['side-bar_container']}>
+					<img className={styles['side-bar_logo']} src={logo} alt={'logo'} />
+					<div className={styles['side-bar_ico-container']}>
+						<div>
+							<WalletIcon
+								onClick={(): void => navigateHandler('/')}
+								className={styles['side-bar_ico']}
+							/>
+							<span>Wallet</span>
+						</div>
+						<div>
+							<BagIcon
+								onClick={(): void => navigateHandler('/work-space')}
+								className={styles['side-bar_ico']}
+							/>
+							<span>Work space</span>
+						</div>
+						<div>
+							<ChartIcon className={styles['side-bar_ico']} />
+							<span>Charts</span>
+						</div>
+						<div>
+							<PersonIcon
+								onClick={(): void => navigateHandler('/personal-cabinet')}
+								className={styles['side-bar_ico']}
+							/>
+							<span>Personal cabinet</span>
+						</div>
+						<div>
+							<SettingIcon className={styles['side-bar_ico']} />
+							<span>Setting</span>
+						</div>
+					</div>
+
+					<LogoutIcon
+						onClick={(): void => {
+							AuthStore.removeAuth();
+							goTo('/');
+						}}
+						className={styles['side-bar_ico-logout']}
+					/>
+				</div>
 			</div>
-		</div>
-	);
-});
+		);
+	},
+);

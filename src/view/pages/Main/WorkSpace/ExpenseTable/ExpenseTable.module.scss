@@ -1,15 +1,17 @@
 @import "../../../../../globalStyles/colors";
 
 .expense-table {
+  width: 100%;
   &__wrapper {
-    min-width: 282px;
+    min-width: 450px;
     max-height: 700px;
     height: 700px;
-    width: 1400px;
+    max-width: 1400px;
+    width: 100%;
     background: $white;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
     border-radius: 8px;
-    padding: 20px;
+    padding: 10px;
     margin: 10px;
 
   }
@@ -37,8 +39,7 @@
 
       display: flex;
       align-items: center;
-      margin-right: 10px;
-      margin-left: 10px;
+      margin: 0 15px;
       svg {
         cursor: pointer;
         width: 20px;
@@ -70,9 +71,8 @@
     border: 1px solid $gray-light;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
     padding: 10px;
-    margin-bottom: 15px;
     border-radius: 8px;
-    margin-right: 10px;
+    margin: 15px 10px;
     span {
       min-width: 80px;
       font-size: 16px;
@@ -108,12 +108,12 @@
     overflow: auto;
 
     &::-webkit-scrollbar {
-      padding-left: 10px;
       width: 5px;
     }
 
     &::-webkit-scrollbar-track {
       box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
+      margin: 15px 20px;
     }
 
     &::-webkit-scrollbar-thumb {
