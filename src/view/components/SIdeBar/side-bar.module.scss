@@ -24,28 +24,28 @@
   }
 
   &_logo {
-    width: 48px;
-    height: 48px;
+    width: 80px;
+    height: 80px;
   }
 
   &_ico {
     margin: 50px 0px 10px 0px;
-    width: 21px;
-    height: 21px;
+    width: 31px;
+    height: 31px;
     cursor: pointer;
   }
 
   &_ico-logout {
     flex: 5;
-    width: 21px;
-    height: 21px;
+    width: 31px;
+    height: 31px;
     cursor: pointer;
     position: absolute;
     bottom: 5%;
   }
   svg:hover {
     -webkit-transform: scale(1.5);
-    transform: scale(2);
+    transform: scale(1.5);
     -webkit-transition: .3s ease-in-out;
     transition: .3s ease-in-out;
     path {
@@ -69,8 +69,8 @@
       }
 
       svg {
-        width: 21px;
-        height: 21px;
+        width: 31px;
+        height: 31px;
       }
     }
 

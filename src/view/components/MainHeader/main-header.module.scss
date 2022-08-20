@@ -49,12 +49,15 @@
     color: transparent;
     border: none;
     top: 10px;
-    left: 130px;
+    left: 24px;
     z-index: 2;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    &_position {
+      left: 130px;
+    }
   }
 
   &-line {
