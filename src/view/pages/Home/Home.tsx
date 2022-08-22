@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { Card } from 'view/components/Card/Card';
 import { Footer } from 'view/components/Footer/Footer';
@@ -8,6 +8,7 @@ import { Arrow } from 'view/components/UiComponent/Arrow/Arrow';
 import { Button } from 'view/components/UiComponent/Button/Button';
 import { Title } from 'view/components/UiComponent/Title/Title';
 
+import { axiosInstance } from '../../../api/api';
 import bgMoneyPerson from '../../../assets/backgrounds/mony-person.png';
 import bgPlainPerson from '../../../assets/backgrounds/plain-person.png';
 import iconMoney from '../../../assets/icons/mone.svg';
@@ -16,6 +17,16 @@ import iconPhone from '../../../assets/icons/phone.svg';
 import styles from './Home.module.scss';
 
 export const Home = (): React.ReactElement => {
+	useEffect(() => {
+		axiosInstance
+			.get('wallet', {
+				params: { walletId: '1' },
+			})
+			.then((response) => {
+				console.log(response.data);
+			});
+	}, []);
+
 	const { goTo } = useCustomNavigate();
 	return (
 		<>

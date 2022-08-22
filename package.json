@@ -7,6 +7,7 @@
     "@babel/helper-string-parser": "^7.18.10",
     "@types/classnames": "^2.3.1",
     "@types/react-select": "^5.0.1",
+    "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "gh-pages": "^4.0.0",
     "mobx": "^6.6.1",
