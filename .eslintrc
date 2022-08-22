@@ -4,6 +4,7 @@
   "plugins": [
     "@typescript-eslint"
   ],
+  "ignorePatterns": ["root/dir"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
