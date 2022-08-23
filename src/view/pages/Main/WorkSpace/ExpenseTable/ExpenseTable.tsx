@@ -19,9 +19,9 @@ export const ExpenseTable = observer((): React.ReactElement => {
 			isUpDirection: !activeProp,
 		}));
 	};
-	useEffect(() => {
-		wallet?.fullHistory &&
-			wallet.fullHistory.sort((a, b) => {
+	/*useEffect(() => {
+		wallet?.history &&
+			wallet.history.sort((a, b) => {
 				if (sortField.name === 'category') {
 					if (a.category.label > b.category.label) {
 						return sortField.isUpDirection ? -1 : 1;
@@ -42,7 +42,7 @@ export const ExpenseTable = observer((): React.ReactElement => {
 				}
 				return 0;
 			});
-	}, [sortField.isUpDirection]);
+	}, [sortField.isUpDirection]);*/
 
 	return (
 		<div className={styles['expense-table']}>
@@ -92,21 +92,21 @@ export const ExpenseTable = observer((): React.ReactElement => {
 					</div>
 				</div>
 				<div className={styles['expense-table__body']}>
-					{wallet?.fullHistory &&
-						wallet.fullHistory.map((category, index) => {
+					{wallet?.history &&
+						wallet.history.map((history, index) => {
 							return (
 								<div
-									key={`${category.category.value}-${index}-${category.amount}`}
+									key={`${history._id}-${index}-${history.amount}`}
 									className={styles['expense-table__spend-card']}
 								>
 									<span className={styles['expense-table__spend-card_category']}>
-										{category.category.label}
+										{history.title}
 									</span>
 									<span className={styles['expense-table__spend-card_date']}>
-										{category.date}-{category.time}
+										{history.date.toString()}
 									</span>
 									<span className={styles['expense-table__spend-card_amount']}>
-										{category.amount}
+										{history.amount}
 									</span>
 								</div>
 							);

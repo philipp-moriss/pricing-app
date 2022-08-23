@@ -1,9 +1,3 @@
-import { MyCategoriesType } from 'store/Type/models';
-
-export const sortCategoriesByAmount = (categories: MyCategoriesType[]): MyCategoriesType[] => {
-	if (!categories) return [];
-	return [...categories].sort((a, b) => b.amount - a.amount);
-};
 export const dateFormat = (date: Date): string => {
 	return date.toLocaleDateString('az-Cyrl-AZ');
 };

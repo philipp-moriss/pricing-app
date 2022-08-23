@@ -30,18 +30,13 @@
 
   &_ico {
     margin: 50px 0px 10px 0px;
-    width: 31px;
-    height: 31px;
     cursor: pointer;
   }
 
   &_ico-logout {
-    flex: 5;
-    width: 31px;
-    height: 31px;
     cursor: pointer;
     position: absolute;
-    bottom: 5%;
+    bottom: 10px;
   }
   svg:hover {
     -webkit-transform: scale(1.5);
@@ -87,5 +82,28 @@
     left: 80px;
     z-index: 30;
   }
+}
 
+@media screen and (max-width: 700px) {
+  .side-bar {
+    &_ico-container {
+      svg {
+        width: 21px!important;
+        height: 21px!important;
+      }
+    }
+    &_ico-logout {
+      bottom: 40px;
+    }
+    &_ico {
+      margin-top: 30px;
+    }
+  }
+}
+@media screen and (max-height: 600px) {
+  .side-bar {
+    &_ico-logout {
+      bottom: 10px!important;
+    }
+  }
 }

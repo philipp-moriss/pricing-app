@@ -23,3 +23,28 @@ export type WalletType = {
 	fullHistory: MyCategoriesType[];
 	totalSpends: number;
 };
+
+export type WalletModelType = {
+	_id: string;
+	icon: string;
+	name: string;
+	balance: number;
+	currency: string;
+	totalSpends: number;
+	myCategories: Array<CategoryModelType>;
+	history: Array<SpendingModel>;
+};
+
+export type CategoryModelType = {
+	_id: string;
+	value: string;
+	amount: number;
+};
+export type SpendingModel = {
+	_id: string;
+	title: string;
+	description: string;
+	category: string;
+	amount: number;
+	date: Date;
+};

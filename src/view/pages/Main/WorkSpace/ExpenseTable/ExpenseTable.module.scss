@@ -65,6 +65,7 @@
 
 
   &__spend-card {
+    min-width: 620px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -74,22 +75,21 @@
     border-radius: 8px;
     margin: 15px 10px;
     span {
-      min-width: 80px;
+      min-width: 200px;
       font-size: 16px;
       color: $gray;
-      text-align: center;
     }
 
     &_category {
-
+      text-align: left;
     }
 
     &_amount {
-
+      text-align: right;
     }
 
     &_date {
-
+      text-align: center;
     }
 
     &:hover {

@@ -60,15 +60,16 @@ export const SideBar = observer(
 							<SettingIcon className={styles['side-bar_ico']} />
 							<span>Setting</span>
 						</div>
+						<div className={styles['side-bar_ico-logout']}>
+							<LogoutIcon
+								onClick={(): void => {
+									AuthStore.removeAuth();
+									goTo('/');
+								}}
+							/>
+							<span>log out</span>
+						</div>
 					</div>
-
-					<LogoutIcon
-						onClick={(): void => {
-							AuthStore.removeAuth();
-							goTo('/');
-						}}
-						className={styles['side-bar_ico-logout']}
-					/>
 				</div>
 			</div>
 		);
