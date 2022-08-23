@@ -11,7 +11,7 @@ export const TopCategories = observer((): React.ReactElement => {
 	return (
 		<div className={styles['top-categories']}>
 			<div className={styles['top-categories__wrapper']}>
-				<Title title={'Top three expense categories'} size={'h3'} />
+				<Title title={'Top three spends categories'} size={'h3'} />
 				<div className={styles['top-categories__body']}>
 					{/*			{topCategories &&
 						topCategories.map((category, index) => {

@@ -1,6 +1,6 @@
 import { ReactComponent as ArrowSortIcon } from 'assets/icons/arrow-sort.svg';
 import { observer } from 'mobx-react-lite';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import WalletStore from 'store/WalletStore';
 import { Title } from 'view/components/UiComponent/Title/Title';
 
@@ -47,7 +47,7 @@ export const ExpenseTable = observer((): React.ReactElement => {
 	return (
 		<div className={styles['expense-table']}>
 			<div className={styles['expense-table__wrapper']}>
-				<Title title={'History spend'} size={'h3'} />
+				<Title title={'History spends'} size={'h3'} />
 				<div className={styles['expense-table__spend-block']}>
 					<div className={styles['expense-table__sort-history']}>
 						<div className={styles['expense-table__sort-history_category']}>
@@ -103,7 +103,7 @@ export const ExpenseTable = observer((): React.ReactElement => {
 										{history.title}
 									</span>
 									<span className={styles['expense-table__spend-card_date']}>
-										{history.date.toString()}
+										{history.date.toString().slice(0, 10)}
 									</span>
 									<span className={styles['expense-table__spend-card_amount']}>
 										{history.amount}

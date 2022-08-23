@@ -16,9 +16,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     width: 130px;
     height: auto;
-    backdrop-filter: saturate(180%) blur(5px);
+    backdrop-filter: saturate(180%) blur(20px);
     background-color: rgba(255, 255, 255, 0.72);
     z-index: 11;
   }
@@ -34,9 +35,8 @@
   }
 
   &_ico-logout {
+    margin-top: 100px;
     cursor: pointer;
-    position: absolute;
-    bottom: 10px;
   }
   svg:hover {
     -webkit-transform: scale(1.5);
@@ -92,18 +92,8 @@
         height: 21px!important;
       }
     }
-    &_ico-logout {
-      bottom: 40px;
-    }
     &_ico {
       margin-top: 30px;
-    }
-  }
-}
-@media screen and (max-height: 600px) {
-  .side-bar {
-    &_ico-logout {
-      bottom: 10px!important;
     }
   }
 }
