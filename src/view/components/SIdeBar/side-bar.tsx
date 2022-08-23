@@ -29,8 +29,8 @@ export const SideBar = observer(
 		return (
 			<div className={`${styles['side-bar']} ${!toggleSideBar ? styles['side-bar_hide'] : ''}`}>
 				<div className={styles['side-bar_container']}>
-					<img className={styles['side-bar_logo']} src={logo} alt={'logo'} />
 					<div className={styles['side-bar_ico-container']}>
+						<img className={styles['side-bar_logo']} src={logo} alt={'logo'} />
 						<div>
 							<WalletIcon
 								onClick={(): void => navigateHandler('/')}
@@ -60,15 +60,16 @@ export const SideBar = observer(
 							<SettingIcon className={styles['side-bar_ico']} />
 							<span>Setting</span>
 						</div>
+						<div className={styles['side-bar_ico-logout']}>
+							<LogoutIcon
+								onClick={(): void => {
+									AuthStore.removeAuth();
+									goTo('/');
+								}}
+							/>
+							<span>log out</span>
+						</div>
 					</div>
-
-					<LogoutIcon
-						onClick={(): void => {
-							AuthStore.removeAuth();
-							goTo('/');
-						}}
-						className={styles['side-bar_ico-logout']}
-					/>
 				</div>
 			</div>
 		);

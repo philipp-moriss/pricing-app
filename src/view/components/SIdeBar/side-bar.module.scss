@@ -16,9 +16,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     width: 130px;
     height: auto;
-    backdrop-filter: saturate(180%) blur(5px);
+    backdrop-filter: saturate(180%) blur(20px);
     background-color: rgba(255, 255, 255, 0.72);
     z-index: 11;
   }
@@ -30,18 +31,12 @@
 
   &_ico {
     margin: 50px 0px 10px 0px;
-    width: 31px;
-    height: 31px;
     cursor: pointer;
   }
 
   &_ico-logout {
-    flex: 5;
-    width: 31px;
-    height: 31px;
+    margin-top: 100px;
     cursor: pointer;
-    position: absolute;
-    bottom: 5%;
   }
   svg:hover {
     -webkit-transform: scale(1.5);
@@ -87,5 +82,18 @@
     left: 80px;
     z-index: 30;
   }
+}
 
+@media screen and (max-width: 700px) {
+  .side-bar {
+    &_ico-container {
+      svg {
+        width: 21px!important;
+        height: 21px!important;
+      }
+    }
+    &_ico {
+      margin-top: 30px;
+    }
+  }
 }

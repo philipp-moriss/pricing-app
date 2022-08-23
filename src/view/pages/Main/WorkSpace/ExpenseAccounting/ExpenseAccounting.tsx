@@ -34,7 +34,7 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 
 	const saveHandler = (): void => {
 		if (spendData.category.label && spendData.amount) {
-			addSpend(spendData);
+			/*	addSpend(spendData);*/
 		} else {
 			alert('Fields cannot be empty ');
 		}
