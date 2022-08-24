@@ -1,4 +1,5 @@
 import React from 'react';
+import { Trans, useTranslation } from 'react-i18next';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { Card } from 'view/components/Card/Card';
 import { Footer } from 'view/components/Footer/Footer';
@@ -17,31 +18,33 @@ import styles from './Home.module.scss';
 
 export const Home = (): React.ReactElement => {
 	const { goTo } = useCustomNavigate();
+
+	const { t } = useTranslation();
 	return (
 		<>
 			<Header />
 			<div className={'container'}>
 				<div className={styles['home-container']}>
 					<Info
-						title={'Start Saving Money'}
+						title={t('START_SAVING_MONEY')}
 						bgImage={bgMoneyPerson}
-						description={'Start use on desktop and mobile'}
+						description={t('START_USE_ON_DESKTOP_AND_MOBILE')}
 					/>
 					<Info
-						title={'Save Money By Writing'}
+						title={t('SAVE_MONEY_BY_WRITING')}
 						bgImage={bgPlainPerson}
-						description={
-							'spend 1 minute after the purchase by writing down the waste you will save wealth'
-						}
+						description={t(
+							'SPEND_1_MINUTE_AFTER_THE_PURCHASE_BY_WRITING_DOWN_THE_WASTE_YOU_WILL_SAVE_WEALTH',
+						)}
 						reverse={true}
 					/>
 					<section className={styles['how-work']}>
-						<Title className={styles['how-work-title']} title={"How it's Work"} size={'h3'} />
+						<Title className={styles['how-work-title']} title={t('HOW_IT_WORK')} size={'h3'} />
 						<div className={styles['cards-inner']}>
 							<Card
 								icon={iconPhone}
-								title={'Set up an account'}
-								description={'Download the app for free, sign up and verify your account.'}
+								title={t('SET_UP_AN_ACCOUNT')}
+								description={t('DOWNLOAD_THE_APP_FOR_FREE_SIGN_UP_AND_VERIFY_YOUR_ACCOUNT')}
 								color={'primary'}
 							/>
 
@@ -49,10 +52,10 @@ export const Home = (): React.ReactElement => {
 
 							<Card
 								icon={iconNote}
-								title={'Apply for a loan'}
-								description={
-									'Apply for a loan and our technology will run a credit score and decide if you are qualified.'
-								}
+								title={t('APPLY_FOR_A_LOAN')}
+								description={t(
+									'APPLY_FOR_A_LOAN_AND_OUR_TECHNOLOGY_WILL_RUN_A_CREDIT_SCORE_AND_DECIDE_IF_YOU_ARE_QUALIFIED',
+								)}
 								color={'orange'}
 							/>
 
@@ -60,8 +63,8 @@ export const Home = (): React.ReactElement => {
 
 							<Card
 								icon={iconMoney}
-								title={'Get your cash'}
-								description={'If you qualify, your loan will be disbursed to your wallet.'}
+								title={t('GET_YOUR_CASH')}
+								description={t('IF_YOU_QUALIFY_YOUR_LOAN_WILL_BE_DISBURSED_TO_YOUR_WALLET')}
 								color={'green'}
 							/>
 						</div>
@@ -70,12 +73,12 @@ export const Home = (): React.ReactElement => {
 			</div>
 			<section className={styles['get-app']}>
 				<div className={styles['get-app-inner']}>
-					<p className={styles['get-app-text']}>get apps just by registering</p>
+					<p className={styles['get-app-text']}>{t('GET_APPS_JUST_BY_REGISTERING')}</p>
 					<Button
 						onClick={(): void => {
 							goTo('/new-user');
 						}}
-						textBtn={'SingUp'}
+						textBtn={t('SING_UP')}
 						style={{ color: 'black', backgroundColor: 'white' }}
 					/>
 				</div>

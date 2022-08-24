@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'view/components/UiComponent/Button/Button';
 import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
@@ -10,6 +11,7 @@ import AuthStore from '../../../store/AuthStore/auth-store';
 import styles from './Login.module.scss';
 
 export const Login = (): React.ReactElement => {
+	const { t } = useTranslation();
 	const [data, setData] = useState({
 		email: '',
 		password: '',
@@ -40,37 +42,37 @@ export const Login = (): React.ReactElement => {
 		<div className={styles['container']}>
 			<img className={styles['logo']} src={logo} alt={'logo'} />
 			<div className={styles['login']}>
-				<Title title={'Login'} size={'h1'} className={styles['login-title']} />
+				<Title title={t('LOGIN')} size={'h1'} className={styles['login-title']} />
 				<div className={styles['login-input-block']}>
 					<CustomInput
 						onChange={(e): void => handlerData(e.currentTarget.value, 'email')}
-						placeholder={'Email'}
+						placeholder={t('EMAIL')}
 						type="text"
 						value={data.email}
 					/>
 					<CustomInput
 						value={data.password}
 						onChange={(e): void => handlerData(e.currentTarget.value, 'password')}
-						placeholder={'Password'}
+						placeholder={t('PASSWORD')}
 						type={'text'}
 					/>
 				</div>
 				<div className={styles['login-btn-block']}>
-					<Button onClick={logInHandler} textBtn={'Log in'} />
+					<Button onClick={logInHandler} textBtn={t('LOG_IN')} />
 					<Button
 						onClick={(): void => {
 							navigate('/new-user');
 						}}
-						textBtn={'New user'}
+						textBtn={t('NEW_USER')}
 					/>
 				</div>
 				<div className={styles['login__link_block']}>
 					<CustomLink
 						className={styles['login__link']}
 						to={'/forgot-password'}
-						linkText={'Forgot your password?'}
+						linkText={t('FORGOT_YOUR_PASSWORD')}
 					/>
-					<CustomLink className={styles['login__link']} to={'/'} linkText={'Go to home page'} />
+					<CustomLink className={styles['login__link']} to={'/'} linkText={t('GO_TO_HOME_PAGE')} />
 				</div>
 			</div>
 		</div>

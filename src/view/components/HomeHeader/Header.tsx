@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { Button } from 'view/components/UiComponent/Button/Button';
 
@@ -7,6 +8,7 @@ import styles from './Header.module.scss';
 
 export const Header = (): React.ReactElement => {
 	const [show, setShow] = useState(true);
+	const { t, i18n } = useTranslation();
 	const { goTo } = useCustomNavigate();
 	const toggleMenu = (): void => {
 		if (!show) {
@@ -16,6 +18,10 @@ export const Header = (): React.ReactElement => {
 		}
 		setShow(!show);
 	};
+	const changeLanguageHandler = (e: FormEvent<HTMLSelectElement>): void => {
+		i18n.changeLanguage(e.currentTarget.value);
+	};
+
 	return (
 		<header className={styles['header']}>
 			<button className={styles['burger-button']} onClick={toggleMenu}>
@@ -64,14 +70,18 @@ export const Header = (): React.ReactElement => {
 				</div>
 				<NavBar />
 				<div className={styles['button-container']}>
+					<select onChange={(e): void => changeLanguageHandler(e)}>
+						<option>EN</option>
+						<option>RU</option>
+					</select>
 					<Button
-						textBtn={'Login'}
+						textBtn={t('LOGIN')}
 						onClick={(): void => {
 							goTo('/login');
 						}}
 					/>
 					<Button
-						textBtn={'SingUp'}
+						textBtn={t('SING_UP')}
 						onClick={(): void => goTo('/new-user')}
 						style={{ backgroundColor: '#582EFF' }}
 					/>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { NewUserType } from 'store/Type/models';
 
@@ -17,6 +18,7 @@ export const NewUser = (): React.ReactElement => {
 		lastName: '',
 		password: '',
 	});
+	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const logInHandler = (): void => {
 		if (data.name && data.password && data.lastName && data.email) {
@@ -39,36 +41,36 @@ export const NewUser = (): React.ReactElement => {
 		<div className={styles['container']}>
 			<img className={styles['logo']} src={logo} alt={'logo'} />
 			<div className={styles['login']}>
-				<Title title={'New user'} size={'h1'} className={styles['login-title']} />
+				<Title title={t('NEW_USER')} size={'h1'} className={styles['login-title']} />
 				<div className={styles['login-input-block']}>
 					<CustomInput
 						type={'text'}
 						value={data.name}
-						placeholder={'Name'}
+						placeholder={t('NAME')}
 						onChange={(e): void => handlerData(e.currentTarget.value, 'name')}
 					/>
 					<CustomInput
-						placeholder={'Last name'}
+						placeholder={t('LAST_NAME')}
 						type={'text'}
 						value={data.lastName}
 						onChange={(e): void => handlerData(e.currentTarget.value, 'lastName')}
 					/>
 					<CustomInput
-						placeholder={'Email'}
+						placeholder={t('EMAIL')}
 						type={'text'}
 						value={data.email}
 						onChange={(e): void => handlerData(e.currentTarget.value, 'email')}
 					/>
 					<CustomInput
-						placeholder={'Password'}
+						placeholder={t('PASSWORD')}
 						type={'text'}
 						value={data.password}
 						onChange={(e): void => handlerData(e.currentTarget.value, 'password')}
 					/>
 				</div>
-				<Button onClick={logInHandler} textBtn={'Log in'} />
+				<Button onClick={logInHandler} textBtn={t('LOG_IN')} />
 				<div className={styles['login-link']}>
-					<CustomLink className={styles['login-link_link']} to={'/login'} linkText={'Go back'} />
+					<CustomLink className={styles['login-link_link']} to={'/login'} linkText={t('GO_BACK')} />
 				</div>
 			</div>
 		</div>

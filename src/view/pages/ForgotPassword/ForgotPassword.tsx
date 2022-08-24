@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import logo from '../../../assets/logo/logo-pony-web.svg';
@@ -8,6 +9,7 @@ import { Title } from '../../components/UiComponent/Title/Title';
 import styles from './ForgotPassword.module.scss';
 
 export const ForgotPassword = (): React.ReactElement => {
+	const { t } = useTranslation();
 	const [data, setData] = useState({
 		email: '',
 	});
@@ -18,23 +20,27 @@ export const ForgotPassword = (): React.ReactElement => {
 		<div className={styles['container']}>
 			<img className={styles['logo']} src={logo} alt={'logo'} />
 			<div className={styles['forgot-password']}>
-				<Title title={'Forgot password'} size={'h1'} className={styles['forgot-password-title']} />
+				<Title
+					title={t('PASSWORD_RETRIEVAL')}
+					size={'h1'}
+					className={styles['forgot-password-title']}
+				/>
 				<div className={styles['forgot-password-input-block']}>
 					<input
 						onChange={(e): void => setData({ email: e.currentTarget.value })}
-						placeholder={'Email'}
+						placeholder={t('EMAIL')}
 						type="text"
 						value={data.email}
 					/>
 				</div>
 				<div className={styles['forgot-password-btn-block']}>
-					<Button onClick={sendEmailHandler} textBtn={'Send'} />
+					<Button onClick={sendEmailHandler} textBtn={t('SEND')} />
 				</div>
 				<div className={styles['forgot-password-link']}>
 					<CustomLink
 						className={styles['forgot-password-link_link']}
 						to={'/login'}
-						linkText={'Go back'}
+						linkText={t('GO_BACK')}
 					/>
 				</div>
 			</div>
