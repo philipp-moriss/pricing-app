@@ -55,5 +55,6 @@
   "YOUR_PERSONAL_DATA": "Ваши личные данные",
   "CURRENT_CURRENCY": "Текущая валюта",
   "CHANGE_LANGUAGE": "Изменить язык",
-  "EMPTY": "Пусто"
+  "EMPTY": "Пусто",
+  "LOG_IN": "Войти"
 }
