@@ -24,18 +24,18 @@ i18n
 	.use(initReactI18next)
 	.init({
 		// Standard language used
-		fallbackLng: 'EN',
+		fallbackLng: 'en-RU',
 		debug: true,
 		//Detects and caches a cookie from the language provided
 		detection: {
 			order: ['queryString', 'cookie'],
-			cache: ['cookie'],
+			cache: [],
 		},
 		interpolation: {
 			escapeValue: false,
 		},
 		resources,
-		lng: 'EN',
+		lng: localStorage.getItem('i18nextLng') || 'EN',
 	});
 
 export default i18n;

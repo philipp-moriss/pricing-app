@@ -58,6 +58,9 @@
     &_position {
       left: 140px;
     }
+    &:focus {
+      border: none;
+    }
   }
 
   &-line {
@@ -102,12 +105,4 @@
       transform: scale(1) rotate(260deg);
     }
   }
-}
-
-.button-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 300px;
-  width: 100%;
 }

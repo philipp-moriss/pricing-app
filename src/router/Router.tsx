@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React, { useLayoutEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import WalletStore from 'store/WalletStore';
 import { ForgotPassword } from 'view/pages/ForgotPassword/ForgotPassword';
@@ -7,6 +8,7 @@ import { Home } from 'view/pages/Home/Home';
 import { Login } from 'view/pages/Login/Login';
 import { Main } from 'view/pages/Main/Main';
 import { PersonalCabinet } from 'view/pages/Main/PersonalCabinet/PersonalCabinet';
+import { Settings } from 'view/pages/Main/Settings/settings';
 import { Wallets } from 'view/pages/Main/Wallet/Wallets';
 import { WorkSpace } from 'view/pages/Main/WorkSpace/WorkSpace';
 import { NewUser } from 'view/pages/NewUser/NewUser';
@@ -16,6 +18,8 @@ import AuthStore from '../store/AuthStore/auth-store';
 
 export const Router = observer((): React.ReactElement => {
 	const { auth } = AuthStore;
+	const { i18n } = useTranslation();
+
 	const location = useLocation();
 	useLayoutEffect(() => {
 		const authStorage = JSON.parse(localStorage.getItem('auth') as string);
@@ -38,7 +42,7 @@ export const Router = observer((): React.ReactElement => {
 						<Route index element={<Wallets />} />
 						<Route path={'/work-space'} element={<WorkSpace />} />
 						<Route path={'/personal-cabinet'} element={<PersonalCabinet />} />
-						<Route path={'/setting'} element={<PersonalCabinet />} />
+						<Route path={'/settings'} element={<Settings />} />
 					</Route>
 				</>
 			) : (

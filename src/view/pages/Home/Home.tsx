@@ -39,7 +39,7 @@ export const Home = (): React.ReactElement => {
 						reverse={true}
 					/>
 					<section className={styles['how-work']}>
-						<Title className={styles['how-work-title']} title={t('HOW_IT_WORK')} size={'h3'} />
+						<Title className={styles['how-work-title']} title={t('HOW_IT_WORK')} size={'h1'} />
 						<div className={styles['cards-inner']}>
 							<Card
 								icon={iconPhone}

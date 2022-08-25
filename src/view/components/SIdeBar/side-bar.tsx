@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 
 import { ReactComponent as BagIcon } from '../../../assets/icons/bag.svg';
@@ -20,7 +21,7 @@ interface SideBarProps {
 export const SideBar = observer(
 	({ toggleSideBar, setToggleSideBar }: SideBarProps): React.ReactElement => {
 		const { goTo } = useCustomNavigate();
-
+		const { t } = useTranslation();
 		const navigateHandler = (to: string): void => {
 			goTo(to);
 			setToggleSideBar(false);
@@ -36,29 +37,32 @@ export const SideBar = observer(
 								onClick={(): void => navigateHandler('/')}
 								className={styles['side-bar_ico']}
 							/>
-							<span>Wallet</span>
+							<span>{t('WALLET')}</span>
 						</div>
 						<div>
 							<BagIcon
 								onClick={(): void => navigateHandler('/work-space')}
 								className={styles['side-bar_ico']}
 							/>
-							<span>Work space</span>
+							<span>{t('WORK_SPACE')}</span>
 						</div>
 						<div>
 							<ChartIcon className={styles['side-bar_ico']} />
-							<span>Charts</span>
+							<span>{t('CHARTS')}</span>
 						</div>
 						<div>
 							<PersonIcon
 								onClick={(): void => navigateHandler('/personal-cabinet')}
 								className={styles['side-bar_ico']}
 							/>
-							<span>Personal cabinet</span>
+							<span>{t('PERSONAL_CABINET')}</span>
 						</div>
 						<div>
-							<SettingIcon className={styles['side-bar_ico']} />
-							<span>Setting</span>
+							<SettingIcon
+								onClick={(): void => navigateHandler('/settings')}
+								className={styles['side-bar_ico']}
+							/>
+							<span>{t('SETTINGS')}</span>
 						</div>
 						<div className={styles['side-bar_ico-logout']}>
 							<LogoutIcon
@@ -67,7 +71,7 @@ export const SideBar = observer(
 									goTo('/');
 								}}
 							/>
-							<span>log out</span>
+							<span>{t('LOG_OUT')}</span>
 						</div>
 					</div>
 				</div>

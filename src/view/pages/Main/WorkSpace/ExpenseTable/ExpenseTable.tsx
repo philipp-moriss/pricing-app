@@ -1,6 +1,7 @@
 import { ReactComponent as ArrowSortIcon } from 'assets/icons/arrow-sort.svg';
 import { observer } from 'mobx-react-lite';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import WalletStore from 'store/WalletStore';
 import { Title } from 'view/components/UiComponent/Title/Title';
 
@@ -8,6 +9,7 @@ import styles from './ExpenseTable.module.scss';
 
 export const ExpenseTable = observer((): React.ReactElement => {
 	const { wallet } = WalletStore;
+	const { t } = useTranslation();
 	const [sortField, setSortField] = useState({
 		name: '',
 		isUpDirection: false,
@@ -47,11 +49,11 @@ export const ExpenseTable = observer((): React.ReactElement => {
 	return (
 		<div className={styles['expense-table']}>
 			<div className={styles['expense-table__wrapper']}>
-				<Title title={'History spends'} size={'h3'} />
+				<Title title={t('HISTORY_SPENDS')} size={'h3'} />
 				<div className={styles['expense-table__spend-block']}>
 					<div className={styles['expense-table__sort-history']}>
 						<div className={styles['expense-table__sort-history_category']}>
-							Category
+							{t('CATEGORY')}
 							<ArrowSortIcon
 								className={`${
 									sortField.name === 'category' && sortField.isUpDirection ? styles['sort-on'] : ''
@@ -65,7 +67,7 @@ export const ExpenseTable = observer((): React.ReactElement => {
 							/>
 						</div>
 						<div className={styles['expense-table__sort-history_date']}>
-							Date
+							{t('DATE')}
 							<ArrowSortIcon
 								className={`${
 									sortField.name === 'date' && sortField.isUpDirection ? styles['sort-on'] : ''
@@ -76,7 +78,7 @@ export const ExpenseTable = observer((): React.ReactElement => {
 							/>
 						</div>
 						<div className={styles['expense-table__sort-history_amount']}>
-							Amount
+							{t('AMOUNT')}
 							<ArrowSortIcon
 								className={`${
 									sortField.name === 'amount' && sortField.isUpDirection ? styles['sort-on'] : ''

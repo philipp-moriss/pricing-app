@@ -2,6 +2,7 @@ import React, { FormEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { Button } from 'view/components/UiComponent/Button/Button';
+import { Select } from 'view/components/UiComponent/Select/Select';
 
 import { NavBar } from '../NavBar/NavBar';
 import styles from './Header.module.scss';
@@ -70,10 +71,11 @@ export const Header = (): React.ReactElement => {
 				</div>
 				<NavBar />
 				<div className={styles['button-container']}>
-					<select onChange={(e): void => changeLanguageHandler(e)}>
-						<option>EN</option>
-						<option>RU</option>
-					</select>
+					<Select
+						className={'button__change-language'}
+						onChange={changeLanguageHandler}
+						options={['EN', 'RU']}
+					/>
 					<Button
 						textBtn={t('LOGIN')}
 						onClick={(): void => {
