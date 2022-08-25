@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pricing-app/static/css/main.1a2c1188.css",
-    "main.js": "/pricing-app/static/js/main.489f23a7.js",
+    "main.css": "/pricing-app/static/css/main.ec387b14.css",
+    "main.js": "/pricing-app/static/js/main.cbd7cc2e.js",
     "static/media/itachi.png": "/pricing-app/static/media/itachi.1e46c6824b2d81359c42.png",
     "static/media/WorkSans-Medium.ttf": "/pricing-app/static/media/WorkSans-Medium.3515918acace1f6dd1e9.ttf",
     "static/media/WorkSans-Bold.ttf": "/pricing-app/static/media/WorkSans-Bold.d8de505f08550a8e4c16.ttf",
@@ -21,13 +21,14 @@
     "index.html": "/pricing-app/index.html",
     "static/media/log-out.svg": "/pricing-app/static/media/log-out.47ad58fbbfb523fb4bdbedac739d78aa.svg",
     "static/media/wallet.svg": "/pricing-app/static/media/wallet.1e03b7c614a846dc59b6ae9be71d66f1.svg",
+    "static/media/getFetch.cjs": "/pricing-app/static/media/getFetch.c780682470504fffbd04.cjs",
     "static/media/arrow-sort.svg": "/pricing-app/static/media/arrow-sort.02af6d8bbf219270feb6913ba0320ce3.svg",
     "static/media/person.svg": "/pricing-app/static/media/person.c070c3ffe653514c9709fdb32f514658.svg",
-    "main.1a2c1188.css.map": "/pricing-app/static/css/main.1a2c1188.css.map",
-    "main.489f23a7.js.map": "/pricing-app/static/js/main.489f23a7.js.map"
+    "main.ec387b14.css.map": "/pricing-app/static/css/main.ec387b14.css.map",
+    "main.cbd7cc2e.js.map": "/pricing-app/static/js/main.cbd7cc2e.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a2c1188.css",
-    "static/js/main.489f23a7.js"
+    "static/css/main.ec387b14.css",
+    "static/js/main.cbd7cc2e.js"
   ]
 }
