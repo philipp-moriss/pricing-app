@@ -11,6 +11,7 @@ export interface SelectProps
 export const Select = ({ options, className, ...rest }: SelectProps): React.ReactElement => {
 	return (
 		<select className={`${styles['select']}`} {...rest}>
+			<option></option>;
 			{options.map((option, index) => {
 				return <option key={`${option}-${index}`}>{option}</option>;
 			})}

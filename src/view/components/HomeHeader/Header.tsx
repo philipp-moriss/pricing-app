@@ -20,7 +20,7 @@ export const Header = (): React.ReactElement => {
 		setShow(!show);
 	};
 	const changeLanguageHandler = (e: FormEvent<HTMLSelectElement>): void => {
-		i18n.changeLanguage(e.currentTarget.value);
+		e.currentTarget.value && i18n.changeLanguage(e.currentTarget.value);
 	};
 
 	return (
