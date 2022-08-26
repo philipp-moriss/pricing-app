@@ -10,16 +10,16 @@ import { ReactComponent as PersonIcon } from '../../../assets/icons/person.svg';
 import { ReactComponent as SettingIcon } from '../../../assets/icons/setting.svg';
 import { ReactComponent as WalletIcon } from '../../../assets/icons/wallet.svg';
 import logo from '../../../assets/logo/logo-pony-web.svg';
-import AuthStore from '../../../store/AuthStore';
 import styles from './side-bar.module.scss';
 
 interface SideBarProps {
 	toggleSideBar: boolean;
 	setToggleSideBar: (value: boolean) => void;
+	setExitModal: (value: boolean) => void;
 }
 
 export const SideBar = observer(
-	({ toggleSideBar, setToggleSideBar }: SideBarProps): React.ReactElement => {
+	({ toggleSideBar, setToggleSideBar, setExitModal }: SideBarProps): React.ReactElement => {
 		const { goTo } = useCustomNavigate();
 		const { t } = useTranslation();
 		const navigateHandler = (to: string): void => {
@@ -27,6 +27,7 @@ export const SideBar = observer(
 			setToggleSideBar(false);
 			return;
 		};
+
 		return (
 			<div className={`${styles['side-bar']} ${!toggleSideBar ? styles['side-bar_hide'] : ''}`}>
 				<div className={styles['side-bar_container']}>
@@ -65,12 +66,7 @@ export const SideBar = observer(
 							<span>{t('SETTINGS')}</span>
 						</div>
 						<div className={styles['side-bar_ico-logout']}>
-							<LogoutIcon
-								onClick={(): void => {
-									AuthStore.removeAuth();
-									goTo('/');
-								}}
-							/>
+							<LogoutIcon onClick={(): void => setExitModal(true)} />
 							<span>{t('LOG_OUT')}</span>
 						</div>
 					</div>

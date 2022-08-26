@@ -12,9 +12,11 @@ import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 
 import styles from './MobileBar.module.scss';
 
-export const MobileBar = (): React.ReactElement => {
+interface MobileBarProps {
+	setExitModal: (value: boolean) => void;
+}
+export const MobileBar = ({ setExitModal }: MobileBarProps): React.ReactElement => {
 	const { goTo } = useCustomNavigate();
-	const { t } = useTranslation();
 	const navigateHandler = (to: string): void => {
 		goTo(to);
 		return;
@@ -44,12 +46,7 @@ export const MobileBar = (): React.ReactElement => {
 						onClick={(): void => navigateHandler('/settings')}
 						className={styles['mobile-bar_ico']}
 					/>
-					<LogoutIcon
-						onClick={(): void => {
-							AuthStore.removeAuth();
-							goTo('/');
-						}}
-					/>
+					<LogoutIcon onClick={(): void => setExitModal(true)} />
 				</div>
 			</div>
 		</div>

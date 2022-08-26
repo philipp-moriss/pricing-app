@@ -59,5 +59,8 @@
   "LOG_IN": "Войти",
   "CHANGE_THEME": "Изменить тему",
   "DATE_REGISTRATION": "Дата регистрации",
-  "START_TYPING": "Поиск"
+  "START_TYPING": "Поиск",
+  "YES": "Да",
+  "NO": "Нет",
+  "DO_YOU_REALLY_WANT_TO_LEAVE_THE_SITE": "Вы действительно хотите покинуть сайт?"
 }

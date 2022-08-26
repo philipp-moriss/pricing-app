@@ -59,5 +59,8 @@
   "EMPTY": "Empty",
   "CHANGE_THEME": "Change theme",
   "DATE_REGISTRATION": "Date registration",
-  "START_TYPING": "Start typing..."
+  "START_TYPING": "Start typing...",
+  "YES": "YES",
+  "NO": "NO",
+  "DO_YOU_REALLY_WANT_TO_LEAVE_THE_SITE": "Do you really want to leave the site?"
 }
