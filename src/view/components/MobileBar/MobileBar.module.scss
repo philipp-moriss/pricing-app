@@ -1,0 +1,52 @@
+@import "src/globalStyles/colors";
+
+.mobile-bar {
+  transition: 0.1s;
+
+
+  &_container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    backdrop-filter: saturate(180%) blur(7px);
+    background-color: rgba(255, 255, 255, 0.72);
+    z-index: 11;
+  }
+
+  &_ico {
+    cursor: pointer;
+  }
+
+  svg:hover {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+
+    path {
+      fill: $blue;
+    }
+  }
+
+  &_ico-container {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 2px solid $orange;
+
+    svg {
+      width: 26px;
+      height: 26px;
+    }
+
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .mobile-bar {
+    display: none;
+  }
+}

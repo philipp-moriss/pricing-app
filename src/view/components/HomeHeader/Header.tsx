@@ -28,6 +28,14 @@ export const Header = (): React.ReactElement => {
 			<button className={styles['burger-button']} onClick={toggleMenu}>
 				<span className={`${styles['burger-line']} ${!show && styles['burger-line-active']}`} />
 			</button>
+			<div className={styles['header__language-block']}>
+				<div>{t('CHANGE_LANGUAGE')}</div>
+				<Select
+					className={'button__change-language'}
+					onChange={changeLanguageHandler}
+					options={['EN', 'RU']}
+				/>
+			</div>
 			<div className={`${styles['header-wrapper']} ${!show && styles['header-wrapper-show']}`}>
 				<div className={styles['header-logo']}>
 					<svg
@@ -71,11 +79,6 @@ export const Header = (): React.ReactElement => {
 				</div>
 				<NavBar />
 				<div className={styles['button-container']}>
-					<Select
-						className={'button__change-language'}
-						onChange={changeLanguageHandler}
-						options={['EN', 'RU']}
-					/>
 					<Button
 						textBtn={t('LOGIN')}
 						onClick={(): void => {

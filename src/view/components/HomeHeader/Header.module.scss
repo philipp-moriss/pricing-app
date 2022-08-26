@@ -48,6 +48,21 @@
       width: unset;
     }
   }
+  &__language-block {
+    text-align: center;
+    position: absolute;
+    top: 110px;
+    right: 4%;
+    z-index: 10;
+    @media (max-width: 900px) {
+      right: 40px;
+      top: 36px;
+    }
+
+    select {
+      margin-top: 5px;
+    }
+  }
 }
 
 .burger {
@@ -114,7 +129,7 @@
 
 .button-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   max-width: 400px;
   width: 100%;
@@ -122,15 +137,17 @@
 
   button:last-child {
     max-width: 150px;
+    margin-left: 10px;
   }
 }
-
-.button {
-  @media (max-width: 900px) {
-    &__change-language {
-      position: absolute;
-      left: 42%;
-      top: 70px;
-    }
-  }
-}
+   @media screen and (max-width: 900px) {
+     .burger {
+       &-button {
+         &__change-language {
+           position: absolute;
+           left: 42%;
+           top: 70px;
+         }
+       }
+     }
+   }

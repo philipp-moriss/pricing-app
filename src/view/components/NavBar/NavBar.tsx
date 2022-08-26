@@ -10,9 +10,6 @@ export const NavBar = (): React.ReactElement => {
 		<nav className={styles['nav-bar']}>
 			<ul className={styles['menu']}>
 				<li>
-					<CustomLink to={'/'} linkText={t('HOME')} />
-				</li>
-				<li>
 					<CustomLink to={'/asdfsadf'} linkText={t('CONTACT')} />
 				</li>
 				<li>
