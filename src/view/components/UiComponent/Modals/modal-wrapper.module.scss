@@ -31,9 +31,7 @@
 
   &-inner {
     max-height: 400px;
-    max-width: 400px;
-    width: 100%;
-    height: 100%;
+    max-width: 340px;
     z-index: 20;
     background: white;
     border-radius: 10px;
@@ -48,8 +46,6 @@
   height: 100%;
 
   &-container {
-    width: 400px;
-    height: 400px;
     padding: 24px 24px 0;
     display: flex;
     flex-direction: column;
