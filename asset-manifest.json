@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pricing-app/static/css/main.ec387b14.css",
-    "main.js": "/pricing-app/static/js/main.cbd7cc2e.js",
+    "main.css": "/pricing-app/static/css/main.f595956f.css",
+    "main.js": "/pricing-app/static/js/main.024ac1ed.js",
     "static/media/itachi.png": "/pricing-app/static/media/itachi.1e46c6824b2d81359c42.png",
     "static/media/WorkSans-Medium.ttf": "/pricing-app/static/media/WorkSans-Medium.3515918acace1f6dd1e9.ttf",
     "static/media/WorkSans-Bold.ttf": "/pricing-app/static/media/WorkSans-Bold.d8de505f08550a8e4c16.ttf",
@@ -24,11 +24,11 @@
     "static/media/getFetch.cjs": "/pricing-app/static/media/getFetch.c780682470504fffbd04.cjs",
     "static/media/arrow-sort.svg": "/pricing-app/static/media/arrow-sort.02af6d8bbf219270feb6913ba0320ce3.svg",
     "static/media/person.svg": "/pricing-app/static/media/person.c070c3ffe653514c9709fdb32f514658.svg",
-    "main.ec387b14.css.map": "/pricing-app/static/css/main.ec387b14.css.map",
-    "main.cbd7cc2e.js.map": "/pricing-app/static/js/main.cbd7cc2e.js.map"
+    "main.f595956f.css.map": "/pricing-app/static/css/main.f595956f.css.map",
+    "main.024ac1ed.js.map": "/pricing-app/static/js/main.024ac1ed.js.map"
   },
   "entrypoints": [
-    "static/css/main.ec387b14.css",
-    "static/js/main.cbd7cc2e.js"
+    "static/css/main.f595956f.css",
+    "static/js/main.024ac1ed.js"
   ]
 }
