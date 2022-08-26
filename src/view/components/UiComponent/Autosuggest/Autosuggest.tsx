@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Select from 'react-select';
 import { CategoryType } from 'store/Type/models';
 
@@ -11,6 +12,7 @@ type AutosuggestType = {
 };
 export const Autosuggest = ({ options, callBack, label }: AutosuggestType): React.ReactElement => {
 	const [value, setValue] = useState<string | null>('');
+	const { t } = useTranslation();
 	const selectHandler = (value: any): void => {
 		setValue(value);
 		callBack(value);
@@ -33,7 +35,7 @@ export const Autosuggest = ({ options, callBack, label }: AutosuggestType): Reac
 				options={options}
 				className={styles['autosuggest']}
 				classNamePrefix={'autosuggest'}
-				placeholder={'Start typing...'}
+				placeholder={t('START_TYPING')}
 				isDisabled={false}
 				value={value}
 				onChange={(value): void => selectHandler(value)}

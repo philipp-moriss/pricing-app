@@ -16,13 +16,18 @@ export const Settings = (): React.ReactElement => {
 			<div className={styles['settings__wrapper']}>
 				<Title title={t('SETTINGS')} size={'h3'} />
 				<div className={styles['settings__body']}>
-					<div className={styles['settings__body-block']}>
-						<div>{t('CHANGE_LANGUAGE')}</div>
-						<Select
-							className={'button__change-language'}
-							onChange={changeLanguageHandler}
-							options={['EN', 'RU']}
-						/>
+					<div className={styles['settings__body__block']}>
+						<div className={styles['settings__body__language-block']}>
+							<div>{t('CHANGE_LANGUAGE')}</div>
+							<Select
+								className={'button__change-language'}
+								onChange={changeLanguageHandler}
+								options={['EN', 'RU']}
+							/>
+						</div>
+						<div className={styles['settings__body__theme-block']}>
+							<div>{t('CHANGE_THEME')}</div>
+						</div>
 					</div>
 				</div>
 			</div>

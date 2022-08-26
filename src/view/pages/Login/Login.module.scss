@@ -5,7 +5,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #3e39549e;;
+  background: #466368;
+  background: radial-gradient(#648880, #293f50);
   flex-direction: column;
 }
 .logo {
@@ -25,7 +26,7 @@
   justify-content: space-between;
   border-radius: 10px;
   margin: 20px;
-  backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(10px);
   background-color: rgba(255, 255, 255, 0.72);
   &-input-block {
     input {
