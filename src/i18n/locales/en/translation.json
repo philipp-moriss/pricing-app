@@ -56,5 +56,8 @@
   "YOUR_PERSONAL_DATA": "Your personal data",
   "CURRENT_CURRENCY": "Current currency",
   "CHANGE_LANGUAGE": "Change language",
-  "EMPTY": "Empty"
+  "EMPTY": "Empty",
+  "CHANGE_THEME": "Change theme",
+  "DATE_REGISTRATION": "Date registration",
+  "START_TYPING": "Start typing..."
 }

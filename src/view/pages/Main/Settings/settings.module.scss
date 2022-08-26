@@ -2,9 +2,9 @@
 
 .settings {
   &__wrapper {
-    min-width: 450px;
     max-height: 700px;
-    max-width: 1400px;
+    min-height: 400px;
+    max-width: 600px;
     background: $white;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
     border-radius: 8px;
@@ -13,22 +13,28 @@
   }
 
   &__body {
-    &__settings__body-block {
+    &__block {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 1px solid $gray-light;
-      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
-      padding: 10px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      min-width: 200px;
-
-      span {
+      flex-direction: column;
+      div {
+        margin-top: 10px;
         font-size: 16px;
         color: $gray;
+        select {
+          margin-top: 10px;
+          margin-bottom: 10px;
+        }
       }
 
+
     }
+    &__language-block {
+      border-bottom: 1px solid $gray-light;
+    }
+    &__theme-block {
+    }
+  }
+  h3 {
+    text-align: center;
   }
 }

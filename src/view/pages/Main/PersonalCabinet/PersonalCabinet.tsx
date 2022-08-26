@@ -3,7 +3,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import AuthStore from 'store/AuthStore';
 import { Title } from 'view/components/UiComponent/Title/Title';
-import styles from 'view/pages/Main/PersonalCabinet/PersonalCabinet.module.scss';
+
+import styles from './PersonalCabinet.module.scss';
 
 export const PersonalCabinet = observer((): React.ReactElement => {
 	const { newUserInfo } = AuthStore;
@@ -26,8 +27,12 @@ export const PersonalCabinet = observer((): React.ReactElement => {
 						<span className={styles['personal-cabinet__body_text']}>{newUserInfo?.lastName}</span>
 					</div>
 					<div className={styles['personal-cabinet__block-text']}>
-						<span>{t('CURRENT_CURRENCY')}:</span>
+						<span>{t('PASSWORD')}:</span>
 						<span className={styles['personal-cabinet__body_text']}>1313131</span>
+					</div>
+					<div className={styles['personal-cabinet__block-text']}>
+						<span>{t('DATE_REGISTRATION')}:</span>
+						<span className={styles['personal-cabinet__body_text']}>22.09.2021</span>
 					</div>
 				</div>
 			</div>

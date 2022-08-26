@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
 
 import logo from '../../../assets/logo/logo-pony-web.svg';
 import { Button } from '../../components/UiComponent/Button/Button';
@@ -26,10 +26,10 @@ export const ForgotPassword = (): React.ReactElement => {
 					className={styles['forgot-password-title']}
 				/>
 				<div className={styles['forgot-password-input-block']}>
-					<input
+					<CustomInput
 						onChange={(e): void => setData({ email: e.currentTarget.value })}
 						placeholder={t('EMAIL')}
-						type="text"
+						type={'text'}
 						value={data.email}
 					/>
 				</div>

@@ -47,7 +47,7 @@ export const Login = (): React.ReactElement => {
 					<CustomInput
 						onChange={(e): void => handlerData(e.currentTarget.value, 'email')}
 						placeholder={t('EMAIL')}
-						type="text"
+						type={'text'}
 						value={data.email}
 					/>
 					<CustomInput

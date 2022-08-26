@@ -25,7 +25,7 @@
   "BACK_TO_HOME": "Вернуться на главную страницу",
   "NEW_USER": "Новый пользователь",
   "NAME": "Имя",
-  "PASSWORD": "Пороль",
+  "PASSWORD": "Пароль",
   "EMAIL": "Электронная почта",
   "GO_BACK": "Вернуться назад",
   "LAST_NAME": "Фамилия",
@@ -56,5 +56,8 @@
   "CURRENT_CURRENCY": "Текущая валюта",
   "CHANGE_LANGUAGE": "Изменить язык",
   "EMPTY": "Пусто",
-  "LOG_IN": "Войти"
+  "LOG_IN": "Войти",
+  "CHANGE_THEME": "Изменить тему",
+  "DATE_REGISTRATION": "Дата регистрации",
+  "START_TYPING": "Поиск"
 }
