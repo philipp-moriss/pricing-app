@@ -1,4 +1,4 @@
-@import "../../../../../src/globalStyles/colors";
+@import "src/globalStyles/colors";
 
 .link {
   font-family: 'Work Sans';
@@ -7,10 +7,12 @@
   font-size: 18px;
   line-height: 1.7;
   color: #222222;
-  text-decoration: none;
   transition: 0.5s;
 
   &:hover {
     color: $blue-light;
   }
+}
+a {
+  text-decoration: none;
 }
