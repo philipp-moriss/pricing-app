@@ -18,7 +18,6 @@ import AuthStore from '../store/AuthStore/auth-store';
 
 export const Router = observer((): React.ReactElement => {
 	const { auth } = AuthStore;
-	const { i18n } = useTranslation();
 
 	const location = useLocation();
 	useLayoutEffect(() => {
@@ -41,7 +40,6 @@ export const Router = observer((): React.ReactElement => {
 					<Route path={'/'} element={<Main />}>
 						<Route index element={<Wallets />} />
 						<Route path={'/work-space'} element={<WorkSpace />} />
-						<Route path={'/personal-cabinet'} element={<PersonalCabinet />} />
 						<Route path={'/settings'} element={<Settings />} />
 					</Route>
 				</>
