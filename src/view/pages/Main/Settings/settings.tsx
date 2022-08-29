@@ -2,6 +2,7 @@ import React, { FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Select } from 'view/components/UiComponent/Select/Select';
 import { Title } from 'view/components/UiComponent/Title/Title';
+import { PersonalCabinet } from 'view/pages/Main/PersonalCabinet/PersonalCabinet';
 
 import styles from './settings.module.scss';
 
@@ -25,12 +26,13 @@ export const Settings = (): React.ReactElement => {
 								options={['EN', 'RU']}
 							/>
 						</div>
-						<div className={styles['settings__body__theme-block']}>
+						{/*	<div className={styles['settings__body__theme-block']}>
 							<div>{t('CHANGE_THEME')}</div>
-						</div>
+						</div>*/}
 					</div>
 				</div>
 			</div>
+			<PersonalCabinet />
 		</div>
 	);
 };

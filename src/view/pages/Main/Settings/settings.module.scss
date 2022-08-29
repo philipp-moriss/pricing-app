@@ -1,10 +1,13 @@
 @import "src/globalStyles/colors";
 
 .settings {
+  display: flex;
+  justify-content: space-around;
   &__wrapper {
     max-height: 700px;
     min-height: 400px;
     max-width: 600px;
+    width: 100%;
     background: $white;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
     border-radius: 8px;

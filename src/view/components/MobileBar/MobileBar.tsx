@@ -37,11 +37,6 @@ export const MobileBar = ({ setExitModal }: MobileBarProps): React.ReactElement 
 
 					<ChartIcon className={styles['mobile-bar_ico']} />
 
-					<PersonIcon
-						onClick={(): void => navigateHandler('/personal-cabinet')}
-						className={styles['mobile-bar_ico']}
-					/>
-
 					<SettingIcon
 						onClick={(): void => navigateHandler('/settings')}
 						className={styles['mobile-bar_ico']}
