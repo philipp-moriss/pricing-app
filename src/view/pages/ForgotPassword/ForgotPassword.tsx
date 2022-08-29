@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Button } from 'view/components/UiComponent/Button/Button';
 import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
+import { CustomLink } from 'view/components/UiComponent/Link/Link';
+import { Title } from 'view/components/UiComponent/Title/Title';
 
 import logo from '../../../assets/logo/logo-pony-web.svg';
-import { Button } from '../../components/UiComponent/Button/Button';
-import { CustomLink } from '../../components/UiComponent/Link/Link';
-import { Title } from '../../components/UiComponent/Title/Title';
 import styles from './ForgotPassword.module.scss';
 
 export const ForgotPassword = (): React.ReactElement => {
