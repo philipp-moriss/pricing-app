@@ -5,16 +5,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #466368;
-  background: radial-gradient(#648880, #293f50);
+  background: $gray-light;
   flex-direction: column;
 }
 
 .logo {
-  max-width: 300px;
-  max-height: 300px;
-  min-width: 150px;
-  min-height: 150px;
+  min-width: 80px;
+  max-width: 120px;
+  width: 100%;
   margin-bottom: 50px;
 }
 
@@ -27,8 +25,10 @@
   justify-content: space-between;
   border-radius: 10px;
   margin: 20px;
-  backdrop-filter: saturate(180%) blur(10px);
-  background-color: rgba(255, 255, 255, 0.72);
+  background: $white;
+  -webkit-box-shadow: 0px 0px 36px 21px rgba(34, 60, 80, 0.15);
+  -moz-box-shadow: 0px 0px 36px 21px rgba(34, 60, 80, 0.15);
+  box-shadow: 0px 0px 36px 21px rgba(34, 60, 80, 0.15);
 
   &-input-block {
     input {

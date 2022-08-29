@@ -16,7 +16,7 @@
     justify-content: space-between;
     align-items: center;
     transition: 0.5s;
-
+    z-index: 10;
     &-show {
       top: 0 !important;
       bottom: 0 !important;

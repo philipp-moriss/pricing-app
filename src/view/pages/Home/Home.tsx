@@ -52,10 +52,8 @@ export const Home = (): React.ReactElement => {
 
 							<Card
 								icon={iconNote}
-								title={t('APPLY_FOR_A_LOAN')}
-								description={t(
-									'APPLY_FOR_A_LOAN_AND_OUR_TECHNOLOGY_WILL_RUN_A_CREDIT_SCORE_AND_DECIDE_IF_YOU_ARE_QUALIFIED',
-								)}
+								title={t('REGISTRATION_A_WALLET_WITHOUT_BINDING_REAL_ACCOUNT')}
+								description={t('REGISTER_A_WALLET_IN_WITCH_YOUR_EXPENSES_WILL_BE_SAVED')}
 								color={'orange'}
 							/>
 
@@ -63,8 +61,8 @@ export const Home = (): React.ReactElement => {
 
 							<Card
 								icon={iconMoney}
-								title={t('GET_YOUR_CASH')}
-								description={t('IF_YOU_QUALIFY_YOUR_LOAN_WILL_BE_DISBURSED_TO_YOUR_WALLET')}
+								title={t('GET_FULL_CONTROL_OF_YOUR_FOUNDS')}
+								description={t('WEEKLY_REPORTS_SAVE_HISTORY_TOP_3_CATEGORIES_AND_MORE')}
 								color={'green'}
 							/>
 						</div>
