@@ -1,4 +1,4 @@
-export type UserInfoType = { email: string; password: string };
+export type UserInfoType = { email: string; password: string; id: string };
 
 export type NewUserType = { email: string; password: string; name: string; lastName: string };
 
@@ -48,3 +48,10 @@ export type SpendingModel = {
 	amount: number;
 	date: Date;
 };
+export enum LoadingType {
+	initial = 'initial',
+	fetching = 'fetching',
+	success = 'success',
+	error = 'error',
+	loadingMore = 'loadingMore',
+}

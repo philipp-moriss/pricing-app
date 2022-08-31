@@ -10,3 +10,21 @@ export const walletApi = {
 		return instance.post<SpendingModel>('/wallet/spending', { walletId, spendingId });
 	},
 };
+
+export const authApi = {
+	login(email: string, password: string) {
+		return instance.post(`auth/login`, { email, password });
+	},
+	logOut(email: string | undefined) {
+		return instance.post(`auth/logOut`, { email });
+	},
+	registration(email: string, password: string) {
+		return instance.post('auth/register', { email, password });
+	},
+};
+
+export const userApi = {
+	getUser(id: string) {
+		return instance.get(`/users/user/${id}`);
+	},
+};

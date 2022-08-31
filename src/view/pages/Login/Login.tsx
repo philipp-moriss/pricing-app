@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { Button } from 'view/components/UiComponent/Button/Button';
 import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
 import { CustomLink } from 'view/components/UiComponent/Link/Link';
@@ -12,6 +13,7 @@ import styles from './Login.module.scss';
 
 export const Login = (): React.ReactElement => {
 	const { t } = useTranslation();
+	const { goTo } = useCustomNavigate();
 	const [data, setData] = useState({
 		email: '',
 		password: '',
@@ -19,13 +21,9 @@ export const Login = (): React.ReactElement => {
 	const navigate = useNavigate();
 	const logInHandler = (): void => {
 		if (data.email && data.password) {
-			const userData = JSON.parse(localStorage.getItem('new-user-data') as string);
-			if (userData.password === data.password && data.email === userData.email) {
-				AuthStore.setAuthStorage(data);
-				navigate('/');
-			} else {
-				alert('Wrong login or password');
-			}
+			AuthStore.login(data).then(() => {
+				goTo('/');
+			});
 		} else {
 			alert('Empty field');
 		}

@@ -22,7 +22,7 @@ export const NewUser = (): React.ReactElement => {
 	const navigate = useNavigate();
 	const logInHandler = (): void => {
 		if (data.name && data.password && data.lastName && data.email) {
-			AuthStore.setNewUser(data);
+			AuthStore.registration(data);
 			alert('GOOD : ), This will take you to the Login page ');
 			navigate('/login');
 		} else {

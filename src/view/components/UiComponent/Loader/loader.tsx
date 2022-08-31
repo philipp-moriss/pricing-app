@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from 'src/view/components/UiComponent/Loader/loader.module.scss';
+
+import styles from './loader.module.scss';
 
 export const Loader = (): React.ReactElement => {
 	return (
