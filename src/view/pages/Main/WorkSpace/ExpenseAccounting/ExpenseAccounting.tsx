@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 import CategoriesStore from 'store/CategoriesStore';
 import { MyCategoriesType } from 'store/Type/models';
 import WalletStore from 'store/WalletStore';
-import { dateFormat, getDateFormatTime, getUniqueId } from 'utils/utils';
+import { dateFormat, getDateFormatTime } from 'utils/utils';
+import { v1 } from 'uuid';
 import { Autosuggest } from 'view/components/UiComponent/Autosuggest/Autosuggest';
 import { Button } from 'view/components/UiComponent/Button/Button';
 import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
@@ -21,7 +22,7 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 		date: dateFormat(new Date()),
 		time: getDateFormatTime(new Date()),
 		category: {
-			value: getUniqueId(),
+			value: v1(),
 			label: '',
 		},
 	});

@@ -3,7 +3,7 @@ export type UserInfoType = { email: string; password: string; id: string };
 export type NewUserType = { email: string; password: string; name: string; lastName: string };
 
 export type CategoryType = {
-	value: number; // value это id, библиотека React select принимает обьект строго с value и label
+	value: string; // value это id, библиотека React select принимает обьект строго с value и label
 	label: string;
 };
 

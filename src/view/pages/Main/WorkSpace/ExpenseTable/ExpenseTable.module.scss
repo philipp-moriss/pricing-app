@@ -61,7 +61,6 @@
     border-radius: 8px;
     margin: 15px 10px;
     span {
-      min-width: 100px;
       font-size: 16px;
       color: $gray;
     }
@@ -95,7 +94,7 @@
     overflow: auto;
 
     &::-webkit-scrollbar {
-      width: 5px;
+
     }
 
     &::-webkit-scrollbar-track {
