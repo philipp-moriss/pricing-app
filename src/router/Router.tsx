@@ -5,7 +5,6 @@ import BaseStore from 'store/BaseStore';
 import { LoadingType } from 'store/Type/models';
 import WalletStore from 'store/WalletStore';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
-import { Loader } from 'view/components/UiComponent/Loader/loader';
 import UniversalLoader from 'view/components/UiComponent/UniversalLoader/universal-loader';
 import { ForgotPassword } from 'view/pages/ForgotPassword/ForgotPassword';
 import { Home } from 'view/pages/Home/Home';
@@ -26,10 +25,11 @@ export const Router = observer((): React.ReactElement => {
 	const location = useLocation();
 	useEffect(() => {
 		const wallet = JSON.parse(localStorage.getItem('wallet') as string);
-		const userId = JSON.parse(localStorage.getItem('userId') as string);
-		if (userId) {
+		const token = JSON.parse(localStorage.getItem('token') as string);
+		console.log(token);
+		if (token) {
 			setIsLoading(LoadingType.fetching);
-			AuthStore.getUser(userId).finally(() => {
+			AuthStore.getUser().finally(() => {
 				setIsLoading(LoadingType.success);
 			});
 		}

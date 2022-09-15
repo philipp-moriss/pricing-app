@@ -1,6 +1,6 @@
 import { instance } from 'api/config';
 import { AxiosResponse } from 'axios';
-import { SpendingModel, WalletModelType } from 'store/Type/models';
+import { NewUserType, SpendingModel, WalletModelType } from 'store/Type/models';
 
 export const walletApi = {
 	getWallet(walletId: string): Promise<AxiosResponse<WalletModelType>> {
@@ -15,11 +15,12 @@ export const authApi = {
 	login(email: string, password: string) {
 		return instance.post(`auth/login`, { email, password });
 	},
-	logOut(email: string | undefined) {
-		return instance.post(`auth/logOut`, { email });
+	logOut() {
+		return instance.post(`auth/logout`);
 	},
-	registration(email: string, password: string) {
-		return instance.post('auth/register', { email, password });
+	registration(userData: NewUserType) {
+		const { email, password, lastName, name } = userData;
+		return instance.post('auth/register', { email, password, lastName, name });
 	},
 };
 
