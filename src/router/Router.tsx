@@ -1,13 +1,15 @@
 import { observer } from 'mobx-react-lite';
-import React, { useLayoutEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import React, { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import BaseStore from 'store/BaseStore';
+import { LoadingType } from 'store/Type/models';
 import WalletStore from 'store/WalletStore';
+import { useCustomNavigate } from 'utils/hooks/useCustomNav';
+import UniversalLoader from 'view/components/UiComponent/UniversalLoader/universal-loader';
 import { ForgotPassword } from 'view/pages/ForgotPassword/ForgotPassword';
 import { Home } from 'view/pages/Home/Home';
 import { Login } from 'view/pages/Login/Login';
 import { Main } from 'view/pages/Main/Main';
-import { PersonalCabinet } from 'view/pages/Main/PersonalCabinet/PersonalCabinet';
 import { Settings } from 'view/pages/Main/Settings/settings';
 import { Wallets } from 'view/pages/Main/Wallet/Wallets';
 import { WorkSpace } from 'view/pages/Main/WorkSpace/WorkSpace';
@@ -17,25 +19,31 @@ import { NotFound } from 'view/pages/NotFound/NotFound';
 import AuthStore from '../store/AuthStore/auth-store';
 
 export const Router = observer((): React.ReactElement => {
-	const { auth } = AuthStore;
-
+	const { user } = AuthStore;
+	const { isLoading, setIsLoading } = BaseStore;
+	const { goTo } = useCustomNavigate();
 	const location = useLocation();
-	useLayoutEffect(() => {
-		const authStorage = JSON.parse(localStorage.getItem('auth') as string);
-		const userData = JSON.parse(localStorage.getItem('user-data') as string);
-		const newUser = JSON.parse(localStorage.getItem('new-user-data') as string);
+	useEffect(() => {
 		const wallet = JSON.parse(localStorage.getItem('wallet') as string);
-		if (authStorage && !auth) {
-			AuthStore.setAuth(true);
-			AuthStore.setUser(userData);
-			AuthStore.setNewUser(newUser);
+		const token = JSON.parse(localStorage.getItem('token') as string);
+		console.log(token);
+		if (token) {
+			setIsLoading(LoadingType.fetching);
+			AuthStore.getUser().finally(() => {
+				setIsLoading(LoadingType.success);
+			});
+		}
+		if (user) {
 			WalletStore.setWallet(wallet);
 		}
+		goTo('/');
 	}, []);
-
+	if (isLoading === LoadingType.fetching) {
+		return <UniversalLoader />;
+	}
 	return (
 		<Routes location={location}>
-			{auth ? (
+			{user ? (
 				<>
 					<Route path={'/'} element={<Main />}>
 						<Route index element={<Wallets />} />

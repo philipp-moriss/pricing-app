@@ -11,7 +11,7 @@ interface MainHeaderProps {
 }
 
 const MainHeader = observer(({ toggleSideBar, setToggleSideBar }: MainHeaderProps) => {
-	const { userInfo } = AuthStore;
+	const { user } = AuthStore;
 	return (
 		<div className={styles['main-header']}>
 			<button
@@ -26,7 +26,7 @@ const MainHeader = observer(({ toggleSideBar, setToggleSideBar }: MainHeaderProp
 			</button>
 			<div className={styles['main-header_avatar-block']}>
 				<img src={ava} alt={'avatar'} />
-				<span>{userInfo ? userInfo.email : 'No name'}</span>
+				<span>{user ? user.email : 'No name'}</span>
 			</div>
 		</div>
 	);

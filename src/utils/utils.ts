@@ -4,7 +4,3 @@ export const dateFormat = (date: Date): string => {
 export const getDateFormatTime = (date: Date): string => {
 	return date.toLocaleTimeString('en-US');
 };
-export const getUniqueId = (): number => {
-	const id = `${new Date().getUTCMilliseconds()}${new Date().getUTCMilliseconds()}`;
-	return +id;
-};

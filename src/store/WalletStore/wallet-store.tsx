@@ -1,11 +1,6 @@
-import { walletApi } from 'api/wallet-api';
+import { walletApi } from 'api/api';
 import { makeAutoObservable } from 'mobx';
-import {
-	CategoryModelType,
-	CategoryType,
-	MyCategoriesType,
-	WalletModelType,
-} from 'store/Type/models';
+import { WalletModelType } from 'store/Type/models';
 
 export class WalletStore {
 	wallet: WalletModelType = {
@@ -63,7 +58,7 @@ export class WalletStore {
 			await walletApi.postSpendToWallet(walletId, spendingId);
 			this.getWallet(walletId);
 		} catch (e) {
-			console.log(e);
+			alert(e);
 		}
 		return;
 	}
@@ -90,7 +85,7 @@ export class WalletStore {
 			const { data } = await walletApi.getWallet(walletId);
 			this.setWallet(data);
 		} catch (e) {
-			console.log(e);
+			alert(e);
 		}
 		return;
 	}

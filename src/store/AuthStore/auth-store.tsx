@@ -1,48 +1,56 @@
+import { authApi, userApi } from 'api/api';
 import { makeAutoObservable } from 'mobx';
-import { NewUserType, UserInfoType } from 'store/Type/models';
+import { NewUserType } from 'store/Type/models';
 
 export class AuthStore {
-	auth = false;
-
-	userInfo: UserInfoType | undefined;
+	user: any;
 
 	newUserInfo: NewUserType | undefined = {} as NewUserType;
 
-	setAuth(auth: boolean): void {
-		this.auth = auth;
+	async login(userData: any) {
+		try {
+			const { data } = await authApi.login(userData.email, userData.password);
+			this.setUser(userData);
+			localStorage.setItem('token', JSON.stringify(data.token));
+			localStorage.setItem('id', JSON.stringify(data._id));
+		} catch (e) {
+			alert('Wrong login or password');
+		}
 		return;
 	}
 
-	async setAuthStorage(userData: UserInfoType): Promise<void> {
-		this.setAuth(true);
-		await this.setUser(userData);
-		await localStorage.setItem('auth', 'true');
+	async logOutUser() {
+		try {
+			await authApi.logOut();
+			this.user = undefined;
+			localStorage.removeItem('token');
+			alert('ok');
+		} catch (e) {
+			alert(e);
+		}
+	}
+
+	setUser(userData: any) {
+		this.user = userData;
+	}
+
+	async registration(userData: NewUserType) {
+		try {
+			await authApi.registration(userData);
+		} catch (e) {
+			alert(e);
+		}
 		return;
 	}
 
-	async removeAuth(): Promise<void> {
-		this.setAuth(false);
-		await localStorage.removeItem('auth');
-		await this.removeUser();
-		return;
-	}
-
-	async setUser(userData: UserInfoType): Promise<void> {
-		await localStorage.setItem('user-data', JSON.stringify(userData));
-		this.userInfo = userData;
-
-		return;
-	}
-
-	async removeUser(): Promise<void> {
-		await localStorage.removeItem('user-data');
-		return;
-	}
-
-	setNewUser(userData: NewUserType): void {
-		localStorage.setItem('new-user-data', JSON.stringify(userData));
-		this.newUserInfo = userData;
-		return;
+	async getUser() {
+		const id = JSON.parse(localStorage.getItem('id') as string);
+		try {
+			const user = await userApi.getUser(id);
+			this.setUser(user);
+		} catch (e) {
+			alert(e);
+		}
 	}
 
 	constructor() {
