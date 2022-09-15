@@ -6,6 +6,9 @@ export const walletApi = {
 	getWallet(walletId: string): Promise<AxiosResponse<WalletModelType>> {
 		return instance.get<WalletModelType>(`/wallet?walletId=${walletId}`);
 	},
+	addWallet(newWallet: any, userId: string): Promise<AxiosResponse<any>> {
+		return instance.post<any>(`/wallet`, { userId, wallet: newWallet });
+	},
 	postSpendToWallet(walletId: string, spendingId: string): Promise<AxiosResponse<SpendingModel>> {
 		return instance.post<SpendingModel>('/wallet/spending', { walletId, spendingId });
 	},

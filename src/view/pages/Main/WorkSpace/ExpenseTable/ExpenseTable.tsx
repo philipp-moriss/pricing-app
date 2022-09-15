@@ -94,7 +94,7 @@ export const ExpenseTable = observer((): React.ReactElement => {
 					</div>
 				</div>
 				<div className={styles['expense-table__body']}>
-					{wallet?.history &&
+					{/*	{wallet?.history &&
 						wallet.history.map((history, index) => {
 							return (
 								<div
@@ -112,7 +112,7 @@ export const ExpenseTable = observer((): React.ReactElement => {
 									</span>
 								</div>
 							);
-						})}
+						})}*/}
 				</div>
 			</div>
 		</div>
