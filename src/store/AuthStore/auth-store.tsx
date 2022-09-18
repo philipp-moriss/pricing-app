@@ -1,18 +1,15 @@
 import { authApi, userApi } from 'api/api';
 import { makeAutoObservable } from 'mobx';
-import { NewUserType } from 'store/Type/models';
+import { NewUserType, UserType } from 'store/Type/models';
 
 export class AuthStore {
-	user: any;
+	user: UserType | undefined;
 
-	newUserInfo: NewUserType | undefined = {} as NewUserType;
-
-	async login(userData: any) {
+	async login(userData: { email: string; password: string }) {
 		try {
 			const { data } = await authApi.login(userData.email, userData.password);
-			this.setUser(userData);
 			localStorage.setItem('token', JSON.stringify(data.token));
-			localStorage.setItem('id', JSON.stringify(data._id));
+			this.getUser();
 		} catch (e) {
 			alert('Wrong login or password');
 		}
@@ -30,7 +27,7 @@ export class AuthStore {
 		}
 	}
 
-	setUser(userData: any) {
+	setUser(userData: UserType) {
 		this.user = userData;
 	}
 
@@ -44,10 +41,9 @@ export class AuthStore {
 	}
 
 	async getUser() {
-		const id = JSON.parse(localStorage.getItem('id') as string);
 		try {
-			const user = await userApi.getUser(id);
-			this.setUser(user);
+			const { data } = await userApi.getUser();
+			this.setUser(data);
 		} catch (e) {
 			alert(e);
 		}

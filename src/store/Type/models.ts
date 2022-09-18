@@ -1,5 +1,17 @@
 export type UserInfoType = { email: string; password: string; id: string };
-
+export type UserType = {
+	active: boolean;
+	avatarImg: string;
+	createdAt: string;
+	email: string;
+	lastName: string;
+	passwordHash: string;
+	permission: string;
+	updatedAt: string;
+	wallets: [];
+	__v: number;
+	_id: string;
+};
 export type NewUserType = { email: string; password: string; name: string; lastName: string };
 
 export type CategoryType = {
