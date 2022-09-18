@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { NewUserType } from 'store/Type/models';
+import { Button } from 'view/components/UiComponent/Button/Button';
+import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
+import { CustomLink } from 'view/components/UiComponent/Link/Link';
+import { Title } from 'view/components/UiComponent/Title/Title';
 
 import logo from '../../../assets/logo/logo-pony-web.svg';
 import AuthStore from '../../../store/AuthStore';
-import { Button } from '../../components/UiComponent/Button/Button';
-import { CustomInput } from '../../components/UiComponent/CustomInput/CustomInput';
-import { CustomLink } from '../../components/UiComponent/Link/Link';
-import { Title } from '../../components/UiComponent/Title/Title';
 import styles from './NewUser.module.scss';
 
 export const NewUser = (): React.ReactElement => {

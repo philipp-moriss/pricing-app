@@ -1,10 +1,13 @@
 import { instance } from 'api/config';
 import { AxiosResponse } from 'axios';
-import { NewUserType, SpendingModel, WalletModelType } from 'store/Type/models';
+import { NewUserType, SpendingModel, UserType, WalletModelType } from 'store/Type/models';
 
 export const walletApi = {
 	getWallet(walletId: string): Promise<AxiosResponse<WalletModelType>> {
 		return instance.get<WalletModelType>(`/wallet?walletId=${walletId}`);
+	},
+	addWallet(newWallet: any, userId: string): Promise<AxiosResponse<any>> {
+		return instance.post<any>(`/wallet`, { userId, wallet: newWallet });
 	},
 	postSpendToWallet(walletId: string, spendingId: string): Promise<AxiosResponse<SpendingModel>> {
 		return instance.post<SpendingModel>('/wallet/spending', { walletId, spendingId });
@@ -25,7 +28,7 @@ export const authApi = {
 };
 
 export const userApi = {
-	getUser(id: string) {
-		return instance.get(`/users/user/${id}`);
+	getUser(): Promise<AxiosResponse<UserType>> {
+		return instance.get<UserType>(`/users/user`);
 	},
 };

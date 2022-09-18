@@ -3,7 +3,7 @@ import axios from 'axios';
 export const instance = axios.create({
 	baseURL: 'http://localhost:3001/api',
 	headers: {
-		authorization: `${JSON.parse(<string>localStorage.getItem('token'))}`,
+		authorization: `Barer ${JSON.parse(<string>localStorage.getItem('token'))}`,
 	},
 });
 

@@ -7,7 +7,7 @@ import { Title } from 'view/components/UiComponent/Title/Title';
 import styles from './PersonalCabinet.module.scss';
 
 export const PersonalCabinet = observer((): React.ReactElement => {
-	const { newUserInfo } = AuthStore;
+	const { user } = AuthStore;
 	const { t } = useTranslation();
 	return (
 		<div className={styles['personal-cabinet']}>
@@ -16,23 +16,19 @@ export const PersonalCabinet = observer((): React.ReactElement => {
 					<Title title={t('YOUR_PERSONAL_DATA')} size={'h3'} />
 					<div className={styles['personal-cabinet__block-text']}>
 						<span>{t('EMAIL')}:</span>
-						<span className={styles['personal-cabinet__body_text']}>{newUserInfo?.email}</span>
+						<span className={styles['personal-cabinet__body_text']}>{user?.email}</span>
 					</div>
 					<div className={styles['personal-cabinet__block-text']}>
 						<span>{t('NAME')}:</span>
-						<span className={styles['personal-cabinet__body_text']}>{newUserInfo?.name}</span>
+						<span className={styles['personal-cabinet__body_text']}>{user?.lastName}</span>
 					</div>
 					<div className={styles['personal-cabinet__block-text']}>
 						<span>{t('LAST_NAME')}:</span>
-						<span className={styles['personal-cabinet__body_text']}>{newUserInfo?.lastName}</span>
-					</div>
-					<div className={styles['personal-cabinet__block-text']}>
-						<span>{t('PASSWORD')}:</span>
-						<span className={styles['personal-cabinet__body_text']}>1313131</span>
+						<span className={styles['personal-cabinet__body_text']}>{user?.lastName}</span>
 					</div>
 					<div className={styles['personal-cabinet__block-text']}>
 						<span>{t('DATE_REGISTRATION')}:</span>
-						<span className={styles['personal-cabinet__body_text']}>22.09.2021</span>
+						<span className={styles['personal-cabinet__body_text']}>{user?.createdAt}</span>
 					</div>
 				</div>
 			</div>

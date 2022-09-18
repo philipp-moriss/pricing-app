@@ -3,7 +3,8 @@ import { makeAutoObservable } from 'mobx';
 import { WalletModelType } from 'store/Type/models';
 
 export class WalletStore {
-	wallet: WalletModelType = {
+	wallet: WalletModelType[] | undefined;
+	/*= {
 		_id: '2',
 		icon: '123',
 		name: 'wew',
@@ -27,7 +28,7 @@ export class WalletStore {
 				date: '20/08/2021' as unknown as Date,
 			},
 		],
-	};
+	};*/
 
 	/*	addToSpends(spends: number): void {
 		if (!this.wallet) return;
@@ -69,7 +70,7 @@ export class WalletStore {
 	}
 
 	setWallet(wallet: WalletModelType): void {
-		this.wallet = wallet;
+		this.wallet?.push(wallet);
 		return;
 	}
 
@@ -84,6 +85,14 @@ export class WalletStore {
 		try {
 			const { data } = await walletApi.getWallet(walletId);
 			this.setWallet(data);
+		} catch (e) {
+			alert(e);
+		}
+		return;
+	}
+	async addWallet(newWallet: any, userId: string): Promise<void> {
+		try {
+			await walletApi.addWallet(newWallet, userId);
 		} catch (e) {
 			alert(e);
 		}

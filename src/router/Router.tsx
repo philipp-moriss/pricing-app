@@ -26,7 +26,6 @@ export const Router = observer((): React.ReactElement => {
 	useEffect(() => {
 		const wallet = JSON.parse(localStorage.getItem('wallet') as string);
 		const token = JSON.parse(localStorage.getItem('token') as string);
-		console.log(token);
 		if (token) {
 			setIsLoading(LoadingType.fetching);
 			AuthStore.getUser().finally(() => {
