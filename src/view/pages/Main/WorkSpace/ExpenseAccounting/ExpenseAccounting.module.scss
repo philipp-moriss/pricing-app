@@ -23,8 +23,32 @@
       border: 1px solid $gray;
       outline: none;
     }
+    select {
+      border: 1px solid $gray;
+      width: 200px;
+      height: 40px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 5px;
+      outline: none;
+      &:focus {
+        box-shadow: 0 0 10px $orange;
+        border: 1px solid $orange;
+      }
+    }
+    textarea {
+      resize: none;
+      margin-bottom: 10px;
+      border: 1px solid $gray;
+      &:focus {
+        outline: none !important;
+        border-color: $orange;
+        box-shadow: 0 0 10px $orange;
+      }
+    }
     input[type=number]:focus {
       border: 1px solid $orange;
+      box-shadow: 0 0 10px $orange;
     }
 
     input[type=number]::-webkit-inner-spin-button {

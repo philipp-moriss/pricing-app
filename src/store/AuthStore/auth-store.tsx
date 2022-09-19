@@ -19,7 +19,7 @@ export class AuthStore {
 	async logOutUser() {
 		try {
 			await authApi.logOut();
-			this.user = undefined;
+			this.user = {} as UserType;
 			localStorage.removeItem('token');
 			alert('ok');
 		} catch (e) {

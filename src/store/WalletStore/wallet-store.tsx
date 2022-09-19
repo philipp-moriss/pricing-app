@@ -1,14 +1,13 @@
-import { walletApi } from 'api/api';
+import { spendingApi, walletApi } from 'api/api';
 import { makeAutoObservable } from 'mobx';
 import { NewWalletType, WalletModelType } from 'store/Type/models';
 
 export class WalletStore {
 	wallets: WalletModelType[] | undefined;
 
-	async addSpend(walletId: string, spendingId: string): Promise<void> {
+	async addSpending(data: any): Promise<void> {
 		try {
-			await walletApi.addSpendToWallet(walletId, spendingId);
-			this.getWallet(walletId);
+			await spendingApi.addSpending(data);
 		} catch (e) {
 			alert(e);
 		}
@@ -71,7 +70,7 @@ export class WalletStore {
 
 	constructor() {
 		makeAutoObservable(this);
-		this.addSpend = this.addSpend.bind(this);
+		this.addSpending = this.addSpending.bind(this);
 		this.setWalletLocalStorage = this.setWalletLocalStorage.bind(this);
 		this.setWallet = this.setWallet.bind(this);
 		this.setWallets = this.setWallets.bind(this);

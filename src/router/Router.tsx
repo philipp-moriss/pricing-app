@@ -33,9 +33,6 @@ export const Router = observer((): React.ReactElement => {
 				setIsLoading(LoadingType.success);
 			});
 		}
-		if (user) {
-			WalletStore.setWallet(wallet);
-		}
 		goTo('/');
 	}, []);
 	if (isLoading === LoadingType.fetching) {

@@ -2,6 +2,7 @@ import walletImages from 'assets/images/wallet.png';
 import { observer } from 'mobx-react-lite';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import AuthStore from 'store/AuthStore';
 import WalletStore from 'store/WalletStore';
 import { ModalWrapper } from 'view/components/UiComponent/ModalWrapper/modal-wrapper';
 
@@ -13,15 +14,19 @@ interface WalletProps {
 	balance?: number;
 	currency?: string;
 	totalSpends?: number;
+	idWallet: string;
 }
 
 export const Wallet = observer(
-	({ name, totalSpends, currency, balance }: WalletProps): React.ReactElement => {
+	({ name, totalSpends, currency, balance, idWallet }: WalletProps): React.ReactElement => {
 		const [removeWalletModal, setRemoveWalletModal] = useState(false);
 		const { removeWallet } = WalletStore;
+		const { user } = AuthStore;
 		const { t } = useTranslation();
 		const removeWalletHandler = (): void => {
-			removeWallet('6328373deabd630db0d9d5ff', '632839a1eabd630db0d9d604');
+			if (user?._id) {
+				removeWallet(user?._id, idWallet);
+			}
 		};
 		return (
 			<>
@@ -29,7 +34,7 @@ export const Wallet = observer(
 					<div className={styles['wallet__wrapper']}>
 						<div className={styles['wallet__body']}>
 							<GarbageIcon
-								onClick={() => setRemoveWalletModal(true)}
+								onClick={(): void => setRemoveWalletModal(true)}
 								className={styles['wallet__body_ico']}
 							/>
 							<div>

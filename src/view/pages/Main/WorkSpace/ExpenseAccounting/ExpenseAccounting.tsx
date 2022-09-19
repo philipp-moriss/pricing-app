@@ -1,11 +1,9 @@
 import { observer } from 'mobx-react-lite';
-import React, { ChangeEvent, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import AuthStore from 'store/AuthStore';
 import CategoriesStore from 'store/CategoriesStore';
-import { MyCategoriesType } from 'store/Type/models';
 import WalletStore from 'store/WalletStore';
-import { dateFormat, getDateFormatTime } from 'utils/utils';
-import { v1 } from 'uuid';
 import { Autosuggest } from 'view/components/UiComponent/Autosuggest/Autosuggest';
 import { Button } from 'view/components/UiComponent/Button/Button';
 import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
@@ -16,8 +14,9 @@ import styles from './ExpenseAccounting.module.scss';
 export const ExpenseAccounting = observer((): React.ReactElement => {
 	const { t } = useTranslation();
 	const { categories } = CategoriesStore;
-	const { addSpend } = WalletStore;
-	const [spendData, setSpendData] = useState<MyCategoriesType>({
+	const { addSpending, wallets } = WalletStore;
+	const { user } = AuthStore;
+	/*	const [spendData, setSpendData] = useState<MyCategoriesType>({
 		amount: null as unknown as number,
 		date: dateFormat(new Date()),
 		time: getDateFormatTime(new Date()),
@@ -25,22 +24,18 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 			value: v1(),
 			label: '',
 		},
+	});*/
+	const [spendData, setSpendData] = useState({
+		userId: user?._id,
+		walletId: '',
+		spending: {
+			title: '',
+			description: '',
+			amount: '',
+		},
 	});
-	const spendHandler = (e: ChangeEvent<HTMLInputElement>): void => {
-		const { value } = e.currentTarget;
-		if (!value) {
-			setSpendData({ ...spendData, amount: 0 });
-		} else {
-			setSpendData({ ...spendData, amount: +e.currentTarget.value });
-		}
-	};
-
 	const saveHandler = (): void => {
-		if (spendData.category.label && spendData.amount) {
-			/*	addSpend(spendData);*/
-		} else {
-			alert(t('FIELDS_CANNOT_BE_EMPTY'));
-		}
+		addSpending(spendData);
 	};
 
 	return (
@@ -52,14 +47,53 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 						label={t('CATEGORY_SELECTION')}
 						options={categories}
 						callBack={(value): void => {
-							setSpendData({ ...spendData, category: value });
+							setSpendData({
+								...spendData,
+								spending: { ...spendData.spending, title: value.label },
+							});
 						}}
 					/>
 					<CustomInput
 						label={t('THE_AMOUNT_YOU_SPEND')}
 						type={'number'}
-						value={spendData.amount ?? ''}
-						onChange={(e): void => spendHandler(e)}
+						value={spendData.spending.amount ?? ''}
+						onChange={(e): void =>
+							setSpendData({
+								...spendData,
+								spending: { ...spendData.spending, amount: e.currentTarget.value },
+							})
+						}
+					/>
+					<span style={{ marginBottom: '5px' }}>{t('SELECT_A_WALLET')}</span>
+					<select
+						onChange={(e): void =>
+							setSpendData({
+								...spendData,
+								walletId: e.currentTarget.value,
+							})
+						}
+					>
+						{wallets?.map((wallet) => {
+							return (
+								<option key={wallet._id} value={wallet._id}>
+									{wallet.name}
+								</option>
+							);
+						})}
+					</select>
+					<label style={{ marginBottom: '5px' }} htmlFor={'description'}>
+						{t('ADD_COMMENT')}:
+					</label>
+					<textarea
+						onChange={(e): void =>
+							setSpendData({
+								...spendData,
+								spending: { ...spendData.spending, description: e.currentTarget.value },
+							})
+						}
+						name={'description'}
+						rows={5}
+						cols={33}
 					/>
 					<Button textBtn={t('SAVE')} onClick={saveHandler} />
 				</div>
