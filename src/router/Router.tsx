@@ -4,6 +4,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import BaseStore from 'store/BaseStore';
 import { LoadingType } from 'store/Type/models';
 import WalletStore from 'store/WalletStore';
+import WalletInstance from 'store/WalletStore/wallet-store';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import UniversalLoader from 'view/components/UiComponent/UniversalLoader/universal-loader';
 import { ForgotPassword } from 'view/pages/ForgotPassword/ForgotPassword';

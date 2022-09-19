@@ -4,6 +4,7 @@ export type UserType = {
 	avatarImg: string;
 	createdAt: string;
 	email: string;
+	firstName: string;
 	lastName: string;
 	passwordHash: string;
 	permission: string;
@@ -67,3 +68,9 @@ export enum LoadingType {
 	error = 'error',
 	loadingMore = 'loadingMore',
 }
+export type NewWalletType = {
+	userId: string;
+	name: string;
+	balance: number;
+	currency: string;
+};
