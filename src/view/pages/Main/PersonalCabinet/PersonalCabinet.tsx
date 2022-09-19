@@ -20,7 +20,7 @@ export const PersonalCabinet = observer((): React.ReactElement => {
 					</div>
 					<div className={styles['personal-cabinet__block-text']}>
 						<span>{t('NAME')}:</span>
-						<span className={styles['personal-cabinet__body_text']}>{user?.lastName}</span>
+						<span className={styles['personal-cabinet__body_text']}>{user?.firstName}</span>
 					</div>
 					<div className={styles['personal-cabinet__block-text']}>
 						<span>{t('LAST_NAME')}:</span>

@@ -8,7 +8,7 @@ import { Title } from 'view/components/UiComponent/Title/Title';
 import styles from './ExpenseTable.module.scss';
 
 export const ExpenseTable = observer((): React.ReactElement => {
-	const { wallet } = WalletStore;
+	const { wallets } = WalletStore;
 	const { t } = useTranslation();
 	const [sortField, setSortField] = useState({
 		name: '',
