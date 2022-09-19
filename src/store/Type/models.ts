@@ -39,13 +39,13 @@ export type WalletType = {
 
 export type WalletModelType = {
 	_id: string;
-	icon?: string;
+	icon: string;
 	name: string;
-	balance?: number;
-	currency?: string;
-	totalSpends?: number;
-	myCategories?: Array<CategoryModelType>;
-	history?: Array<SpendingModel>;
+	balance: number;
+	currency: string;
+	totalSpends: number;
+	myCategories: Array<CategoryModelType>;
+	history: Array<SpendingModel>;
 };
 
 export type CategoryModelType = {

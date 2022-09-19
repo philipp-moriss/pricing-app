@@ -45,3 +45,8 @@ export const userApi = {
 		return instance.get<UserType>(`/users/user`);
 	},
 };
+export const spendingApi = {
+	addSpending(data: any): Promise<AxiosResponse<any>> {
+		return instance.post('/spending', data);
+	},
+};
