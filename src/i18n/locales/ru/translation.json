@@ -64,5 +64,6 @@
   "NO": "Нет",
   "DO_YOU_REALLY_WANT_TO_LEAVE_THE_SITE": "Вы действительно хотите покинуть сайт?",
   "SELECT_A_WALLET": "Выберете кошелек",
-  "ADD_COMMENT": "Добавить коментарий"
+  "ADD_COMMENT": "Добавить коментарий",
+  "DO_YOU_REALLY_WANT_DELETE_YOUR_WALLET": "Вы действительно хотите удалить ваш кошелек?"
 }

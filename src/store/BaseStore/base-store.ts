@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { action, makeObservable, observable } from 'mobx';
 import { LoadingType } from 'store/Type/models';
 
 export class BaseStore {
@@ -8,7 +8,10 @@ export class BaseStore {
 		this.isLoading = isLoading;
 	};
 	constructor() {
-		makeAutoObservable(this);
+		makeObservable(this, {
+			isLoading: observable,
+			setIsLoading: action,
+		});
 	}
 }
 export default new BaseStore();

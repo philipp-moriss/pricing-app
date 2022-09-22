@@ -1,56 +1,79 @@
 import { authApi, userApi } from 'api/api';
+import { API_URL, instance } from 'api/config';
+import axios from 'axios';
 import { makeAutoObservable } from 'mobx';
 import { NewUserType, UserType } from 'store/Type/models';
 
 export class AuthStore {
-	user: UserType | undefined;
+	user: UserType = {} as UserType;
 
-	async login(userData: { email: string; password: string }) {
-		try {
-			const { data } = await authApi.login(userData.email, userData.password);
-			localStorage.setItem('token', JSON.stringify(data.token));
-			this.getUser();
-		} catch (e) {
-			alert('Wrong login or password');
-		}
-		return;
-	}
+	isAuth: boolean | undefined;
 
-	async logOutUser() {
-		try {
-			await authApi.logOut();
-			this.user = {} as UserType;
-			localStorage.removeItem('token');
-			alert('ok');
-		} catch (e) {
-			alert(e);
-		}
-	}
-
-	setUser(userData: UserType) {
+	setUser(userData: UserType): void {
 		this.user = userData;
+		this.setAuth(true);
+	}
+	setAuth(auth: boolean): void {
+		this.isAuth = auth;
 	}
 
-	async registration(userData: NewUserType) {
-		try {
-			await authApi.registration(userData);
-		} catch (e) {
-			alert(e);
-		}
-		return;
-	}
-
-	async getUser() {
+	async getUser(): Promise<void> {
 		try {
 			const { data } = await userApi.getUser();
 			this.setUser(data);
-		} catch (e) {
-			alert(e);
+		} catch (e: any) {
+			console.dir(e);
 		}
 	}
 
+	async login(userData: { email: string; password: string }): Promise<void> {
+		try {
+			const { data } = await authApi.login(userData.email, userData.password);
+			localStorage.setItem('token', JSON.stringify(data.token));
+			this.setAuth(true);
+			await this.getUser();
+		} catch (e) {
+			console.dir(e);
+		}
+	}
+
+	async logOutUser(): Promise<void> {
+		try {
+			await authApi.logOut();
+			localStorage.removeItem('token');
+			this.setAuth(false);
+		} catch (e) {
+			console.log(e);
+		}
+	}
+
+	async registration(userData: NewUserType): Promise<void> {
+		try {
+			await authApi.registration(userData);
+		} catch (e) {
+			console.log(e);
+		}
+		return;
+	}
+
+	async checkAuth(): Promise<void> {
+		try {
+			const { data } = await authApi.refreshToken();
+			localStorage.setItem('token', data.token);
+			this.setAuth(true);
+			await this.getUser();
+		} catch (e) {
+			console.dir(e);
+		}
+		return;
+	}
 	constructor() {
 		makeAutoObservable(this);
+		this.setAuth = this.setAuth.bind(this);
+		this.getUser = this.getUser.bind(this);
+		this.checkAuth = this.checkAuth.bind(this);
+		this.login = this.login.bind(this);
+		this.logOutUser = this.logOutUser.bind(this);
 	}
 }
 

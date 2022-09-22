@@ -22,21 +22,24 @@ export const walletApi = {
 	addSpendToWallet(walletId: string, spendingId: string): Promise<AxiosResponse<SpendingModel>> {
 		return instance.post<SpendingModel>('/wallet/spending', { walletId, spendingId });
 	},
-	removeWallet(userId: string, walletId: string) {
+	removeWallet(userId: string, walletId: string): Promise<AxiosResponse<any>> {
 		return instance.delete('/wallet', { data: { userId, walletId } });
 	},
 };
 
 export const authApi = {
-	login(email: string, password: string) {
+	login(email: string, password: string): Promise<AxiosResponse<any>> {
 		return instance.post(`auth/login`, { email, password });
 	},
-	logOut() {
+	logOut(): Promise<AxiosResponse<any>> {
 		return instance.post(`auth/logout`);
 	},
-	registration(userData: NewUserType) {
+	registration(userData: NewUserType): Promise<AxiosResponse<any>> {
 		const { email, password, lastName, name } = userData;
 		return instance.post('auth/register', { email, password, lastName, name });
+	},
+	refreshToken(): Promise<AxiosResponse<any>> {
+		return instance.post<{ token: string }>(`auth/refresh`);
 	},
 };
 

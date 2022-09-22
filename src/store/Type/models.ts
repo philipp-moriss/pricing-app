@@ -47,7 +47,13 @@ export type WalletModelType = {
 	myCategories: Array<CategoryModelType>;
 	history: Array<SpendingModel>;
 };
-
+export enum LoadingType {
+	initial = 'initial',
+	fetching = 'fetching',
+	success = 'success',
+	error = 'error',
+	loadingMore = 'loadingMore',
+}
 export type CategoryModelType = {
 	_id: string;
 	value: string;
@@ -61,13 +67,7 @@ export type SpendingModel = {
 	amount: number;
 	date: Date;
 };
-export enum LoadingType {
-	initial = 'initial',
-	fetching = 'fetching',
-	success = 'success',
-	error = 'error',
-	loadingMore = 'loadingMore',
-}
+
 export type NewWalletType = {
 	userId: string;
 	name: string;

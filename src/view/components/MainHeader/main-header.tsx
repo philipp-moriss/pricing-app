@@ -1,7 +1,7 @@
 import ava from 'assets/images/itachi.png';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
-import AuthStore from 'store/AuthStore/auth-store';
+import AuthStore from 'store/AuthStore';
 
 import styles from './main-header.module.scss';
 

@@ -66,12 +66,12 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 					/>
 					<span style={{ marginBottom: '5px' }}>{t('SELECT_A_WALLET')}</span>
 					<select
-						onChange={(e): void =>
+						onChange={(e): void => {
 							setSpendData({
 								...spendData,
 								walletId: e.currentTarget.value,
-							})
-						}
+							});
+						}}
 					>
 						{wallets?.map((wallet) => {
 							return (

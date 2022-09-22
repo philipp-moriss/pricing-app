@@ -62,7 +62,7 @@ export const Wallet = observer(
 						callBackSave={removeWalletHandler}
 						closeCallback={(): void => setRemoveWalletModal(false)}
 					>
-						<div>{t('DO_YOU_REALLY_WANT_TO_LEAVE_THE_SITE')}</div>
+						<div>{t('DO_YOU_REALLY_WANT_DELETE_YOUR_WALLET')}</div>
 					</ModalWrapper>
 				)}
 			</>

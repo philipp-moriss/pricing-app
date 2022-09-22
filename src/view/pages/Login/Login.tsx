@@ -13,15 +13,16 @@ import styles from './Login.module.scss';
 
 export const Login = (): React.ReactElement => {
 	const { t } = useTranslation();
+	const { login, getUser } = AuthStore;
 	const { goTo } = useCustomNavigate();
 	const [data, setData] = useState({
-		email: '',
-		password: '',
+		email: '1@mail.ru',
+		password: '1',
 	});
 	const navigate = useNavigate();
 	const logInHandler = (): void => {
 		if (data.email && data.password) {
-			AuthStore.login(data).then(() => {
+			login(data).then(() => {
 				goTo('/');
 			});
 		} else {
