@@ -4,7 +4,6 @@
   width: 100%;
   &__wrapper {
     min-width: 325px;
-    max-height: 700px;
     max-width: 1400px;
     background: $white;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
@@ -16,7 +15,6 @@
   h3 {
     text-align: center;
     font-size: 30px;
-    margin-bottom: 30px;
   }
 
   &__spend-block {
@@ -94,7 +92,8 @@
     overflow: auto;
 
     &::-webkit-scrollbar {
-
+      width: 1px;
+      outline: none;
     }
 
     &::-webkit-scrollbar-track {
@@ -104,7 +103,31 @@
 
     &::-webkit-scrollbar-thumb {
       background-color: $orange;
-      outline: 1px solid $orange;
+      outline: 0.5px solid $orange;
+    }
+  }
+
+  &__section-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__section-select {
+      margin-bottom: 30px;
+      select {
+        border: 1px solid $gray;
+        width: 200px;
+        height: 40px;
+        border-radius: 8px;
+        padding: 5px;
+        outline: none;
+        margin: 10px 0 0 15px;
+
+        &:focus {
+          box-shadow: 0 0 10px $orange;
+          border: 1px solid $orange;
+        }
+      }
     }
   }
 }

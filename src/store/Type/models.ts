@@ -63,6 +63,7 @@ export type CategoryModelType = {
 };
 export type SpendingModel = {
 	_id: string;
+	createdAt: string;
 	title: string;
 	description: string;
 	category: string;

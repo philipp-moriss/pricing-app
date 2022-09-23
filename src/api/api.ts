@@ -9,8 +9,8 @@ import {
 } from 'store/Type/models';
 
 export const walletApi = {
-	getWallet(walletId: string): Promise<AxiosResponse<WalletModelType>> {
-		return instance.get<WalletModelType>(`/wallet?walletId=${walletId}`);
+	getWallet(walletId: string, userId: string): Promise<AxiosResponse<WalletModelType>> {
+		return instance.get<WalletModelType>(`/wallet?walletId=${walletId}&userId=${userId}`);
 	},
 	getWallets(userId: string): Promise<AxiosResponse<WalletModelType[]>> {
 		return instance.get(`/wallet/wallets?userId=${userId}`);
