@@ -1,14 +1,16 @@
 import { ReactComponent as ArrowSortIcon } from 'assets/icons/arrow-sort.svg';
 import { observer } from 'mobx-react-lite';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import WalletStore from 'store/WalletStore';
+import { convertToDate, dateFormat } from 'utils/utils';
 import { Title } from 'view/components/UiComponent/Title/Title';
 
 import styles from './ExpenseTable.module.scss';
 
 export const ExpenseTable = observer((): React.ReactElement => {
-	const { wallets } = WalletStore;
+	const { wallets, selectedWalletHistory, setSelectedWalletHistory, clearSelectedWalletHistory } =
+		WalletStore;
 	const { t } = useTranslation();
 	const [sortField, setSortField] = useState({
 		name: '',
@@ -45,11 +47,33 @@ export const ExpenseTable = observer((): React.ReactElement => {
 				return 0;
 			});
 	}, [sortField.isUpDirection]);*/
-
+	useEffect(() => {
+		return () => {
+			clearSelectedWalletHistory();
+		};
+	}, []);
 	return (
 		<div className={styles['expense-table']}>
 			<div className={styles['expense-table__wrapper']}>
-				<Title title={t('HISTORY_SPENDS')} size={'h3'} />
+				<div className={styles['expense-table__section-title']}>
+					<Title title={t('HISTORY_SPENDS')} size={'h3'} />
+					<div className={styles['expense-table__section-title__section-select']}>
+						<div>Select a wallet to view the history</div>
+						<select
+							onChange={(e): void => {
+								setSelectedWalletHistory(e.currentTarget.value);
+							}}
+						>
+							{wallets?.map((wallet) => {
+								return (
+									<option key={wallet._id} value={wallet._id}>
+										{wallet.name}
+									</option>
+								);
+							})}
+						</select>
+					</div>
+				</div>
 				<div className={styles['expense-table__spend-block']}>
 					<div className={styles['expense-table__sort-history']}>
 						<div className={styles['expense-table__sort-history_category']}>
@@ -94,8 +118,8 @@ export const ExpenseTable = observer((): React.ReactElement => {
 					</div>
 				</div>
 				<div className={styles['expense-table__body']}>
-					{/*	{wallet?.history &&
-						wallet.history.map((history, index) => {
+					{selectedWalletHistory?.history &&
+						selectedWalletHistory.history.map((history, index) => {
 							return (
 								<div
 									key={`${history._id}-${index}-${history.amount}`}
@@ -105,14 +129,14 @@ export const ExpenseTable = observer((): React.ReactElement => {
 										{history.title}
 									</span>
 									<span className={styles['expense-table__spend-card_date']}>
-										{history.date.toString().slice(0, 10)}
+										{dateFormat(convertToDate(history.createdAt))}
 									</span>
 									<span className={styles['expense-table__spend-card_amount']}>
 										{history.amount}
 									</span>
 								</div>
 							);
-						})}*/}
+						})}
 				</div>
 			</div>
 		</div>
