@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import BaseStore from 'store/BaseStore';
+import { LoadingType } from 'store/Type/models';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { Button } from 'view/components/UiComponent/Button/Button';
 import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
@@ -13,6 +15,8 @@ import styles from './Login.module.scss';
 
 export const Login = (): React.ReactElement => {
 	const { t } = useTranslation();
+	const { setIsLoading } = BaseStore;
+	const { login } = AuthStore;
 	const { goTo } = useCustomNavigate();
 	const [data, setData] = useState({
 		email: '',
@@ -21,9 +25,14 @@ export const Login = (): React.ReactElement => {
 	const navigate = useNavigate();
 	const logInHandler = (): void => {
 		if (data.email && data.password) {
-			AuthStore.login(data).then(() => {
-				goTo('/');
-			});
+			setIsLoading(LoadingType.fetching);
+			login(data)
+				.then(() => {
+					goTo('/');
+				})
+				.finally(() => {
+					setIsLoading(LoadingType.success);
+				});
 		} else {
 			alert('Empty field');
 		}
