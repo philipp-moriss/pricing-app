@@ -58,11 +58,7 @@ export const Wallet = observer(
 								<span>{t('BALANCE')}:&nbsp;</span>
 								<span>{balance ?? t('EMPTY')}</span>
 							</div>
-							<div>
-								<span>{t('EXPENSES')}:&nbsp;</span>
-								<span>{totalSpends ?? t('EMPTY')}</span>
-							</div>
-							<div>
+							<div className={styles['wallet__body__section_date']}>
 								<span>{t('CREATE_WALLET')}:&nbsp;</span>
 								<span>{dateFormat(convertToDate(createDate)) ?? t('EMPTY')}</span>
 							</div>

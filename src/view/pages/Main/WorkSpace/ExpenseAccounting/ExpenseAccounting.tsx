@@ -16,15 +16,6 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 	const { categories } = CategoriesStore;
 	const { addSpending, wallets } = WalletStore;
 	const { user } = AuthStore;
-	/*	const [spendData, setSpendData] = useState<MyCategoriesType>({
-		amount: null as unknown as number,
-		date: dateFormat(new Date()),
-		time: getDateFormatTime(new Date()),
-		category: {
-			value: v1(),
-			label: '',
-		},
-	});*/
 	const [spendData, setSpendData] = useState({
 		userId: user?._id,
 		walletId: '',
