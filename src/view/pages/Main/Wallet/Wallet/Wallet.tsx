@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import AuthStore from 'store/AuthStore';
 import WalletStore from 'store/WalletStore';
+import { convertToDate, dateFormat } from 'utils/utils';
 import { ModalWrapper } from 'view/components/UiComponent/ModalWrapper/modal-wrapper';
 
 import { ReactComponent as GarbageIcon } from '../../../../../assets/icons/garbage.svg';
@@ -15,10 +16,18 @@ interface WalletProps {
 	currency?: string;
 	totalSpends?: number;
 	idWallet: string;
+	createDate: string;
 }
 
 export const Wallet = observer(
-	({ name, totalSpends, currency, balance, idWallet }: WalletProps): React.ReactElement => {
+	({
+		name,
+		totalSpends,
+		currency,
+		balance,
+		idWallet,
+		createDate,
+	}: WalletProps): React.ReactElement => {
 		const [removeWalletModal, setRemoveWalletModal] = useState(false);
 		const { removeWallet } = WalletStore;
 		const { user } = AuthStore;
@@ -52,6 +61,10 @@ export const Wallet = observer(
 							<div>
 								<span>{t('EXPENSES')}:&nbsp;</span>
 								<span>{totalSpends ?? t('EMPTY')}</span>
+							</div>
+							<div>
+								<span>{t('CREATE_WALLET')}:&nbsp;</span>
+								<span>{dateFormat(convertToDate(createDate)) ?? t('EMPTY')}</span>
 							</div>
 						</div>
 						<img src={walletImages} alt={'wallet-images'} />

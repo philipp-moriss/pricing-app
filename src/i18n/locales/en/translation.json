@@ -65,5 +65,6 @@
   "DO_YOU_REALLY_WANT_TO_LEAVE_THE_SITE": "Do you really want to leave the site?",
   "SELECT_A_WALLET": "select a wallet",
   "ADD_COMMENT": "Add comment",
-  "DO_YOU_REALLY_WANT_DELETE_YOUR_WALLET": "Do you want delete your wallet?"
+  "DO_YOU_REALLY_WANT_DELETE_YOUR_WALLET": "Do you want delete your wallet?",
+  "CREATE_WALLET": "Create wallet"
 }

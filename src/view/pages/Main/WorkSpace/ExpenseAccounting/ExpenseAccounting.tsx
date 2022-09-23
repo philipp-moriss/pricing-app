@@ -92,8 +92,7 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 							})
 						}
 						name={'description'}
-						rows={5}
-						cols={33}
+						rows={3}
 					/>
 					<Button textBtn={t('SAVE')} onClick={saveHandler} />
 				</div>
