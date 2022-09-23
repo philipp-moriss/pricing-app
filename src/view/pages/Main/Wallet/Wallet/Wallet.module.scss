@@ -51,14 +51,22 @@
       right: 0;
       cursor: pointer;
     }
+
     svg:hover {
       -webkit-transform: scale(1.5);
       transform: scale(1.5);
       -webkit-transition: .3s ease-in-out;
       transition: .3s ease-in-out;
+
       path {
         fill: $blue;
       }
+    }
+
+    &__section_date {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
   img {
