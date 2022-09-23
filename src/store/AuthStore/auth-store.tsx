@@ -29,7 +29,7 @@ export class AuthStore {
 	async login(userData: { email: string; password: string }): Promise<void> {
 		try {
 			const { data } = await authApi.login(userData.email, userData.password);
-			localStorage.setItem('token', JSON.stringify(data.token));
+			localStorage.setItem('token', data.token);
 			this.setAuth(true);
 			await this.getUser();
 		} catch (e) {
