@@ -1,21 +1,18 @@
 import { spendingApi, walletApi } from 'api/api';
-import { makeAutoObservable } from 'mobx';
+import { action, makeAutoObservable, makeObservable, observable } from 'mobx';
+import { AuthStore } from 'store/AuthStore';
 import { NewWalletType, WalletModelType } from 'store/Type/models';
 
 export class WalletStore {
 	wallets: WalletModelType[] | undefined;
 
+	userId = '';
 	async addSpending(data: any): Promise<void> {
 		try {
 			await spendingApi.addSpending(data);
 		} catch (e) {
 			alert(e);
 		}
-		return;
-	}
-
-	setWalletLocalStorage(): void {
-		localStorage.setItem('wallet', JSON.stringify(this.wallets));
 		return;
 	}
 
@@ -40,6 +37,7 @@ export class WalletStore {
 	}
 
 	async getWallets(userId: string): Promise<void> {
+		this.userId = userId;
 		try {
 			const { data } = await walletApi.getWallets(userId);
 			this.setWallets(data);
@@ -52,7 +50,7 @@ export class WalletStore {
 	async addWallet(newWallet: NewWalletType): Promise<void> {
 		try {
 			await walletApi.addWallet(newWallet);
-			await this.getWallets('6327580c3bc6e8fb2254c4f6');
+			await this.getWallets(this.userId);
 		} catch (e) {
 			alert(e);
 		}
@@ -61,7 +59,7 @@ export class WalletStore {
 	async removeWallet(userId: string, walletId: string): Promise<void> {
 		try {
 			const { data } = await walletApi.removeWallet(userId, walletId);
-			await this.getWallets('6327580c3bc6e8fb2254c4f6');
+			await this.getWallets(this.userId);
 		} catch (e) {
 			alert(e);
 		}
@@ -69,9 +67,17 @@ export class WalletStore {
 	}
 
 	constructor() {
-		makeAutoObservable(this);
+		makeObservable(this, {
+			wallets: observable,
+			addSpending: action,
+			setWallet: action,
+			setWallets: action,
+			getWallet: action,
+			getWallets: action,
+			addWallet: action,
+			removeWallet: action,
+		});
 		this.addSpending = this.addSpending.bind(this);
-		this.setWalletLocalStorage = this.setWalletLocalStorage.bind(this);
 		this.setWallet = this.setWallet.bind(this);
 		this.setWallets = this.setWallets.bind(this);
 		this.getWallet = this.getWallet.bind(this);

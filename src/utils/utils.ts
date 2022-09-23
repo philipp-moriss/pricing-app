@@ -4,3 +4,7 @@ export const dateFormat = (date: Date): string => {
 export const getDateFormatTime = (date: Date): string => {
 	return date.toLocaleTimeString('en-US');
 };
+
+export const convertToDate = (dateString: string): Date => {
+	return new Date(dateString);
+};

@@ -15,4 +15,12 @@
       transition: .4s ease-in-out;
     }
   }
+  &__wallet-modal {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    input {
+      width: 280px;
+    }
+  }
 }

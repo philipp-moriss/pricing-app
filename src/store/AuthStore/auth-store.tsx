@@ -1,7 +1,7 @@
 import { authApi, userApi } from 'api/api';
 import { API_URL, instance } from 'api/config';
 import axios from 'axios';
-import { makeAutoObservable } from 'mobx';
+import { action, makeAutoObservable, makeObservable, observable } from 'mobx';
 import { NewUserType, UserType } from 'store/Type/models';
 
 export class AuthStore {
@@ -67,8 +67,19 @@ export class AuthStore {
 		}
 		return;
 	}
+
 	constructor() {
-		makeAutoObservable(this);
+		makeObservable(this, {
+			user: observable,
+			isAuth: observable,
+			setUser: action,
+			setAuth: action,
+			getUser: action,
+			login: action,
+			logOutUser: action,
+			registration: action,
+			checkAuth: action,
+		});
 		this.setAuth = this.setAuth.bind(this);
 		this.getUser = this.getUser.bind(this);
 		this.checkAuth = this.checkAuth.bind(this);

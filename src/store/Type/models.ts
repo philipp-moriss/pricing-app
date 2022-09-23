@@ -39,6 +39,7 @@ export type WalletType = {
 
 export type WalletModelType = {
 	_id: string;
+	userId: string;
 	icon: string;
 	name: string;
 	balance: number;
@@ -46,6 +47,7 @@ export type WalletModelType = {
 	totalSpends: number;
 	myCategories: Array<CategoryModelType>;
 	history: Array<SpendingModel>;
+	createdAt: string;
 };
 export enum LoadingType {
 	initial = 'initial',
