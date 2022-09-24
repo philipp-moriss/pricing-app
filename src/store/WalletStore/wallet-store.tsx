@@ -41,7 +41,6 @@ export class WalletStore {
 	async getWallet(walletId: string): Promise<void> {
 		try {
 			const { data } = await walletApi.getWallet(walletId, this.userId);
-			this.setWallet(data);
 			this.selectedWalletHistory = data;
 		} catch (e) {
 			alert(e);
@@ -63,7 +62,6 @@ export class WalletStore {
 	async addWallet(newWallet: NewWalletType): Promise<void> {
 		try {
 			await walletApi.addWallet(newWallet);
-			await this.getWallets(this.userId);
 		} catch (e) {
 			alert(e);
 		}
@@ -72,7 +70,7 @@ export class WalletStore {
 	async removeWallet(userId: string, walletId: string): Promise<void> {
 		try {
 			const { data } = await walletApi.removeWallet(userId, walletId);
-			await this.getWallets(this.userId);
+			await this.getWallets(userId);
 		} catch (e) {
 			alert(e);
 		}

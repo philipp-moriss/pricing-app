@@ -64,6 +64,7 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 							});
 						}}
 					>
+						<option value={''}>Chose wallet</option>
 						{wallets?.map((wallet) => {
 							return (
 								<option key={wallet._id} value={wallet._id}>
