@@ -64,6 +64,7 @@ export const ExpenseTable = observer((): React.ReactElement => {
 								setSelectedWalletHistory(e.currentTarget.value);
 							}}
 						>
+							<option value={''}>Chose wallet</option>
 							{wallets?.map((wallet) => {
 								return (
 									<option key={wallet._id} value={wallet._id}>
