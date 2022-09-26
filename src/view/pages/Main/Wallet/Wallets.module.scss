@@ -8,6 +8,8 @@
     cursor: pointer;
     width: 65px;
     height: 65px;
+    transform: rotate(0deg) scale(1);
+    transition: .4s ease-in-out;
     &:hover {
       -webkit-transform: scale(1.5);
       -webkit-transition: .4s ease-in-out;

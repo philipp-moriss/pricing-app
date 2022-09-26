@@ -58,9 +58,13 @@
     padding: 10px;
     border-radius: 8px;
     margin: 15px 10px;
+    width: 100%;
     span {
       font-size: 16px;
       color: $gray;
+      min-width: 95px;
+      width: 440px;
+      word-break: break-all;
     }
 
     &_category {
@@ -114,6 +118,7 @@
 
     &__section-select {
       margin-bottom: 30px;
+      text-align: center;
       select {
         border: 1px solid $gray;
         width: 200px;
@@ -126,6 +131,9 @@
         &:focus {
           box-shadow: 0 0 10px $orange;
           border: 1px solid $orange;
+        }
+        option:checked {
+          background-color: $gray-dark-light;
         }
       }
     }

@@ -66,5 +66,6 @@
   "SELECT_A_WALLET": "select a wallet",
   "ADD_COMMENT": "Add comment",
   "DO_YOU_REALLY_WANT_DELETE_YOUR_WALLET": "Do you want delete your wallet?",
-  "CREATE_WALLET": "Create wallet"
+  "CREATE_WALLET": "Create wallet",
+  "SELECT_A_WALLET_TO_VIEW_THE_HISTORY": "Select a wallet to view the history"
 }
