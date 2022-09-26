@@ -66,5 +66,6 @@
   "SELECT_A_WALLET": "Выберете кошелек",
   "ADD_COMMENT": "Добавить коментарий",
   "DO_YOU_REALLY_WANT_DELETE_YOUR_WALLET": "Вы действительно хотите удалить ваш кошелек?",
-  "CREATE_WALLET": "Создания кошелька"
+  "CREATE_WALLET": "Создания кошелька",
+  "SELECT_A_WALLET_TO_VIEW_THE_HISTORY": "Выбор кошелька для просмотра истории"
 }

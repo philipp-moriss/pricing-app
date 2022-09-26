@@ -21,7 +21,6 @@ export class WalletStore {
 	async addSpending(data: any): Promise<void> {
 		try {
 			await spendingApi.addSpending(data);
-			await this.getWallet(data?.walletId);
 		} catch (e) {
 			alert(e);
 		}

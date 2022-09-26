@@ -9,8 +9,7 @@ import { Title } from 'view/components/UiComponent/Title/Title';
 import styles from './ExpenseTable.module.scss';
 
 export const ExpenseTable = observer((): React.ReactElement => {
-	const { wallets, selectedWalletHistory, setSelectedWalletHistory, clearSelectedWalletHistory } =
-		WalletStore;
+	const { wallets, selectedWalletHistory, getWallet, clearSelectedWalletHistory } = WalletStore;
 	const { t } = useTranslation();
 	const [sortField, setSortField] = useState({
 		name: '',
@@ -23,15 +22,15 @@ export const ExpenseTable = observer((): React.ReactElement => {
 			isUpDirection: !activeProp,
 		}));
 	};
-	/*useEffect(() => {
-		wallet?.history &&
-			wallet.history.sort((a, b) => {
-				if (sortField.name === 'category') {
-					if (a.category.label > b.category.label) {
+	useEffect(() => {
+		selectedWalletHistory?.history &&
+			selectedWalletHistory.history.sort((a, b) => {
+				/*if (sortField.name === 'category') {
+					if (a.category.value > b.category.label) {
 						return sortField.isUpDirection ? -1 : 1;
 					}
 					return sortField.isUpDirection ? 1 : -1;
-				}
+				}*/
 				if (sortField.name === 'amount') {
 					if (a.amount > b.amount) {
 						return sortField.isUpDirection ? -1 : 1;
@@ -46,7 +45,7 @@ export const ExpenseTable = observer((): React.ReactElement => {
 				}
 				return 0;
 			});
-	}, [sortField.isUpDirection]);*/
+	}, [sortField.isUpDirection]);
 	useEffect(() => {
 		return () => {
 			clearSelectedWalletHistory();
@@ -58,10 +57,13 @@ export const ExpenseTable = observer((): React.ReactElement => {
 				<div className={styles['expense-table__section-title']}>
 					<Title title={t('HISTORY_SPENDS')} size={'h3'} />
 					<div className={styles['expense-table__section-title__section-select']}>
-						<div>Select a wallet to view the history</div>
+						<div>{t('SELECT_A_WALLET_TO_VIEW_THE_HISTORY')}</div>
 						<select
 							onChange={(e): void => {
-								setSelectedWalletHistory(e.currentTarget.value);
+								if (!e.currentTarget.value) {
+									return clearSelectedWalletHistory();
+								}
+								getWallet(e.currentTarget.value);
 							}}
 						>
 							<option value={''}>Chose wallet</option>
