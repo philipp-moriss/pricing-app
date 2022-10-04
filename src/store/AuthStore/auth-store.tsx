@@ -1,7 +1,5 @@
 import { authApi, userApi } from 'api/api';
-import { API_URL, instance } from 'api/config';
-import axios from 'axios';
-import { action, makeAutoObservable, makeObservable, observable } from 'mobx';
+import { action, makeObservable, observable } from 'mobx';
 import { NewUserType, UserType } from 'store/Type/models';
 
 export class AuthStore {

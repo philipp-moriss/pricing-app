@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import AuthStore from 'store/AuthStore';
 import CategoriesStore from 'store/CategoriesStore';
+import { SpendDataType } from 'store/Type/models';
 import WalletStore from 'store/WalletStore';
 import { Autosuggest } from 'view/components/UiComponent/Autosuggest/Autosuggest';
 import { Button } from 'view/components/UiComponent/Button/Button';
@@ -16,7 +17,7 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 	const { categories } = CategoriesStore;
 	const { addSpending, wallets } = WalletStore;
 	const { user } = AuthStore;
-	const [spendData, setSpendData] = useState({
+	const [spendData, setSpendData] = useState<SpendDataType>({
 		userId: user?._id,
 		walletId: '',
 		spending: {
