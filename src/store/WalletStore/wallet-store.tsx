@@ -1,26 +1,46 @@
-import { spendingApi, walletApi } from 'api/api';
+import { historyApi, spendingApi, walletApi } from 'api/api';
 import { action, makeObservable, observable } from 'mobx';
-import { NewWalletType, WalletModelType } from 'store/Type/models';
+import { NewWalletType, SpendingModel, WalletModelType } from 'store/Type/models';
+import { convertToDate } from 'utils/utils';
 
 export class WalletStore {
 	wallets: WalletModelType[] | undefined;
-	selectedWalletHistory: WalletModelType | undefined;
+	selectedWalletHistory: SpendingModel[] | undefined;
 	userId = '';
 
-	setSelectedWalletHistory(idWallet: string): void {
-		const currentWallet = this.wallets?.find((wallet) => wallet._id === idWallet);
-		this.selectedWalletHistory = currentWallet;
+	clearSelectedWalletHistory(): void {
+		this.selectedWalletHistory = [] as SpendingModel[];
 		return;
 	}
-
-	clearSelectedWalletHistory(): void {
-		this.selectedWalletHistory = {} as WalletModelType;
+	sortSelectedWalletHistory(sortField: string, isUpDirection: boolean): void {
+		this.selectedWalletHistory = this.selectedWalletHistory?.sort((a, b) => {
+			if (sortField === 'category') {
+				if (a.title?.toLowerCase() > b.title?.toLowerCase()) {
+					return isUpDirection ? -1 : 1;
+				}
+				return isUpDirection ? 1 : -1;
+			}
+			if (sortField === 'amount') {
+				if (a.amount > b.amount) {
+					return isUpDirection ? -1 : 1;
+				}
+				return isUpDirection ? 1 : -1;
+			}
+			if (sortField === 'date') {
+				if (convertToDate(a.createdAt) > convertToDate(b.createdAt)) {
+					return isUpDirection ? -1 : 1;
+				}
+				return isUpDirection ? 1 : -1;
+			}
+			return 0;
+		});
 		return;
 	}
 
 	async addSpending(data: any): Promise<void> {
 		try {
 			await spendingApi.addSpending(data);
+			await this.getCurrentHistory(data.walletId);
 		} catch (e) {
 			alert(e);
 		}
@@ -40,6 +60,15 @@ export class WalletStore {
 	async getWallet(walletId: string): Promise<void> {
 		try {
 			const { data } = await walletApi.getWallet(walletId, this.userId);
+		} catch (e) {
+			alert(e);
+		}
+		return;
+	}
+
+	async getCurrentHistory(walletId: string): Promise<void> {
+		try {
+			const { data } = await historyApi.getCurrentHistory(walletId);
 			this.selectedWalletHistory = data;
 		} catch (e) {
 			alert(e);
@@ -87,16 +116,18 @@ export class WalletStore {
 			getWallets: action,
 			addWallet: action,
 			removeWallet: action,
-			setSelectedWalletHistory: action,
 			clearSelectedWalletHistory: action,
+			getCurrentHistory: action,
+			sortSelectedWalletHistory: action,
 		});
 		this.addSpending = this.addSpending.bind(this);
+		this.getCurrentHistory = this.getCurrentHistory.bind(this);
+		this.sortSelectedWalletHistory = this.sortSelectedWalletHistory.bind(this);
 		this.setWallet = this.setWallet.bind(this);
 		this.setWallets = this.setWallets.bind(this);
 		this.getWallet = this.getWallet.bind(this);
 		this.getWallets = this.getWallets.bind(this);
 		this.removeWallet = this.removeWallet.bind(this);
-		this.setSelectedWalletHistory = this.setSelectedWalletHistory.bind(this);
 		this.clearSelectedWalletHistory = this.clearSelectedWalletHistory.bind(this);
 	}
 }

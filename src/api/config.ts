@@ -1,9 +1,9 @@
 import { authApi } from 'api/api';
 import axios from 'axios';
 
-export const API_URL = 'http://localhost:3001/api';
+export const API_URL = 'https://pony-web-server-1.onrender.com/api/';
 export const instance = axios.create({
-	baseURL: 'http://localhost:3001/api',
+	baseURL: 'http://localhost:3001/api/',
 });
 
 // Request interceptor for API calls

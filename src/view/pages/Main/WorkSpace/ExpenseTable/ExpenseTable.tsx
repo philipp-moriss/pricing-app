@@ -9,7 +9,13 @@ import { Title } from 'view/components/UiComponent/Title/Title';
 import styles from './ExpenseTable.module.scss';
 
 export const ExpenseTable = observer((): React.ReactElement => {
-	const { wallets, selectedWalletHistory, getWallet, clearSelectedWalletHistory } = WalletStore;
+	const {
+		wallets,
+		selectedWalletHistory,
+		getCurrentHistory,
+		clearSelectedWalletHistory,
+		sortSelectedWalletHistory,
+	} = WalletStore;
 	const { t } = useTranslation();
 	const [sortField, setSortField] = useState({
 		name: '',
@@ -23,28 +29,7 @@ export const ExpenseTable = observer((): React.ReactElement => {
 		}));
 	};
 	useEffect(() => {
-		selectedWalletHistory?.history &&
-			selectedWalletHistory.history.sort((a, b) => {
-				/*if (sortField.name === 'category') {
-					if (a.category.value > b.category.label) {
-						return sortField.isUpDirection ? -1 : 1;
-					}
-					return sortField.isUpDirection ? 1 : -1;
-				}*/
-				if (sortField.name === 'amount') {
-					if (a.amount > b.amount) {
-						return sortField.isUpDirection ? -1 : 1;
-					}
-					return sortField.isUpDirection ? 1 : -1;
-				}
-				if (sortField.name === 'date') {
-					if (a.date > b.date) {
-						return sortField.isUpDirection ? -1 : 1;
-					}
-					return sortField.isUpDirection ? 1 : -1;
-				}
-				return 0;
-			});
+		sortSelectedWalletHistory(sortField.name, sortField.isUpDirection);
 	}, [sortField.isUpDirection]);
 	useEffect(() => {
 		return () => {
@@ -63,7 +48,7 @@ export const ExpenseTable = observer((): React.ReactElement => {
 								if (!e.currentTarget.value) {
 									return clearSelectedWalletHistory();
 								}
-								getWallet(e.currentTarget.value);
+								getCurrentHistory(e.currentTarget.value);
 							}}
 						>
 							<option value={''}>Chose wallet</option>
@@ -121,8 +106,8 @@ export const ExpenseTable = observer((): React.ReactElement => {
 					</div>
 				</div>
 				<div className={styles['expense-table__body']}>
-					{selectedWalletHistory?.history &&
-						selectedWalletHistory.history.map((history, index) => {
+					{selectedWalletHistory &&
+						selectedWalletHistory.map((history, index) => {
 							return (
 								<div
 									key={`${history._id}-${index}-${history.amount}`}

@@ -62,13 +62,15 @@ export type CategoryModelType = {
 	amount: number;
 };
 export type SpendingModel = {
-	_id: string;
-	createdAt: string;
-	title: string;
-	description: string;
-	category: string;
 	amount: number;
-	date: Date;
+	createdAt: string;
+	description: string;
+	title: string;
+	updatedAt: string;
+	userId: string;
+	walletId: string;
+	category: string;
+	_id: string;
 };
 
 export type NewWalletType = {
@@ -76,4 +78,14 @@ export type NewWalletType = {
 	name: string;
 	balance: number;
 	currency: string;
+};
+
+export type SpendDataType = {
+	userId: string;
+	walletId: string;
+	spending: {
+		title: string;
+		description: string;
+		amount: string;
+	};
 };

@@ -10,20 +10,26 @@ import {
 
 export const walletApi = {
 	getWallet(walletId: string, userId: string): Promise<AxiosResponse<WalletModelType>> {
-		return instance.get<WalletModelType>(`/wallet?walletId=${walletId}&userId=${userId}`);
+		return instance.get<WalletModelType>(`wallet?walletId=${walletId}&userId=${userId}`);
 	},
 	getWallets(userId: string): Promise<AxiosResponse<WalletModelType[]>> {
-		return instance.get(`/wallet/wallets?userId=${userId}`);
+		return instance.get(`wallet/wallets?userId=${userId}`);
 	},
 	addWallet(newWallet: NewWalletType): Promise<AxiosResponse<any>> {
 		const { userId, name, currency, balance } = newWallet;
-		return instance.post<any>(`/wallet`, { userId, wallet: { name, currency, balance } });
+		return instance.post<any>(`wallet`, { userId, wallet: { name, currency, balance } });
 	},
 	addSpendToWallet(walletId: string, spendingId: string): Promise<AxiosResponse<SpendingModel>> {
-		return instance.post<SpendingModel>('/wallet/spending', { walletId, spendingId });
+		return instance.post<SpendingModel>('wallet/spending', { walletId, spendingId });
 	},
 	removeWallet(userId: string, walletId: string): Promise<AxiosResponse<any>> {
-		return instance.delete('/wallet', { data: { userId, walletId } });
+		return instance.delete('history/wallet', { data: { userId, walletId } });
+	},
+};
+
+export const historyApi = {
+	getCurrentHistory(walletId: string): Promise<AxiosResponse<SpendingModel[]>> {
+		return instance.get<SpendingModel[]>(`history?walletId=${walletId}`);
 	},
 };
 
@@ -45,11 +51,11 @@ export const authApi = {
 
 export const userApi = {
 	getUser(): Promise<AxiosResponse<UserType>> {
-		return instance.get<UserType>(`/users/user`);
+		return instance.get<UserType>(`users/user`);
 	},
 };
 export const spendingApi = {
 	addSpending(data: any): Promise<AxiosResponse<any>> {
-		return instance.post('/spending', data);
+		return instance.post('history/spending', data);
 	},
 };
