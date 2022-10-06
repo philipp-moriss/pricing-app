@@ -47,6 +47,7 @@ export type WalletModelType = {
 	totalSpends: number;
 	myCategories: Array<CategoryModelType>;
 	history: Array<SpendingModel>;
+	castCurrency: CurrencyType[];
 	createdAt: string;
 };
 export enum LoadingType {
@@ -70,6 +71,7 @@ export type SpendingModel = {
 	userId: string;
 	walletId: string;
 	category: string;
+	currency: string;
 	_id: string;
 };
 
@@ -88,4 +90,9 @@ export type SpendDataType = {
 		description: string;
 		amount: string;
 	};
+};
+
+export type CurrencyType = {
+	value: string;
+	_id: string;
 };

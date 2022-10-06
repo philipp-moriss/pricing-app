@@ -1,12 +1,13 @@
 import { historyApi, spendingApi, walletApi } from 'api/api';
 import { action, makeObservable, observable } from 'mobx';
-import { NewWalletType, SpendingModel, WalletModelType } from 'store/Type/models';
+import { CurrencyType, NewWalletType, SpendingModel, WalletModelType } from 'store/Type/models';
 import { convertToDate } from 'utils/utils';
 
 export class WalletStore {
 	wallets: WalletModelType[] | undefined;
 	selectedWalletHistory: SpendingModel[] | undefined;
 	userId = '';
+	allCurrencyList: CurrencyType[] | undefined;
 
 	clearSelectedWalletHistory(): void {
 		this.selectedWalletHistory = [] as SpendingModel[];
@@ -64,6 +65,15 @@ export class WalletStore {
 		}
 		return;
 	}
+	async getCurrencyList(): Promise<void> {
+		try {
+			const { data } = await walletApi.getCurrencyList();
+			this.allCurrencyList = data;
+		} catch (e) {
+			alert(e);
+		}
+		return;
+	}
 
 	async getCurrentHistory(walletId: string): Promise<void> {
 		try {
@@ -108,6 +118,7 @@ export class WalletStore {
 		makeObservable(this, {
 			wallets: observable,
 			selectedWalletHistory: observable,
+			allCurrencyList: observable,
 			addSpending: action,
 			setWallet: action,
 			setWallets: action,
@@ -118,9 +129,11 @@ export class WalletStore {
 			clearSelectedWalletHistory: action,
 			getCurrentHistory: action,
 			sortSelectedWalletHistory: action,
+			getCurrencyList: action,
 		});
 		this.addSpending = this.addSpending.bind(this);
 		this.getCurrentHistory = this.getCurrentHistory.bind(this);
+		this.getCurrencyList = this.getCurrencyList.bind(this);
 		this.sortSelectedWalletHistory = this.sortSelectedWalletHistory.bind(this);
 		this.setWallet = this.setWallet.bind(this);
 		this.setWallets = this.setWallets.bind(this);

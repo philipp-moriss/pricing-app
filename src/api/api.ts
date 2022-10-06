@@ -1,6 +1,7 @@
 import { instance } from 'api/config';
 import { AxiosResponse } from 'axios';
 import {
+	CurrencyType,
 	NewUserType,
 	NewWalletType,
 	SpendingModel,
@@ -24,6 +25,10 @@ export const walletApi = {
 	},
 	removeWallet(userId: string, walletId: string): Promise<AxiosResponse<any>> {
 		return instance.delete('history/wallet', { data: { userId, walletId } });
+	},
+	//
+	getCurrencyList(): Promise<AxiosResponse<CurrencyType[]>> {
+		return instance.get<CurrencyType[]>('wallet/currency-list');
 	},
 };
 
