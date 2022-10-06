@@ -120,7 +120,7 @@ export const ExpenseTable = observer((): React.ReactElement => {
 										{dateFormat(convertToDate(history.createdAt))}
 									</span>
 									<span className={styles['expense-table__spend-card_amount']}>
-										{history.amount}
+										{history.amount} ({history.currency})
 									</span>
 								</div>
 							);

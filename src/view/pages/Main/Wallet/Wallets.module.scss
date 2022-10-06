@@ -1,15 +1,21 @@
 @import "src/globalStyles/colors";
 
 .wallets {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  &__wallet-section {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
   &__add-wallet-img {
     cursor: pointer;
     width: 65px;
     height: 65px;
     transform: rotate(0deg) scale(1);
     transition: .4s ease-in-out;
+    position: absolute;
+    right: 100%;
+
     &:hover {
       -webkit-transform: scale(1.5);
       -webkit-transition: .4s ease-in-out;
@@ -21,8 +27,43 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    select {
+      border: 1px solid $gray;
+      height: 40px;
+      border-radius: 8px;
+      padding: 5px;
+      outline: none;
+      color: $gray;
+
+      &:focus {
+        box-shadow: 0 0 10px $orange;
+        border: 1px solid $orange;
+      }
+
+      option:checked {
+        background-color: $gray-dark-light;
+      }
+    }
+
     input {
       width: 280px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .wallets {
+    min-width: 450px;
+    &__wallet-section {
+      justify-content: center;
+      margin-bottom: 100px;
+      margin-top: 75px;
+    }
+
+    &__add-wallet-img {
+      left: 30px;
+      top: 0;
     }
   }
 }
