@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import BaseStore from 'store/BaseStore';
@@ -22,6 +23,7 @@ export const Login = (): React.ReactElement => {
 		email: '',
 		password: '',
 	});
+	const { register, handleSubmit } = useForm();
 	const navigate = useNavigate();
 	const logInHandler = (): void => {
 		if (data.email && data.password) {
@@ -33,8 +35,6 @@ export const Login = (): React.ReactElement => {
 				.finally(() => {
 					setIsLoading(LoadingType.success);
 				});
-		} else {
-			alert('Empty field');
 		}
 	};
 	const handlerData = (value: string, key: string): void => {
@@ -50,29 +50,33 @@ export const Login = (): React.ReactElement => {
 			<img className={styles['logo']} src={logo} alt={'logo'} />
 			<div className={styles['login']}>
 				<Title title={t('LOGIN')} size={'h1'} className={styles['login-title']} />
-				<div className={styles['login-input-block']}>
-					<CustomInput
-						onChange={(e): void => handlerData(e.currentTarget.value, 'email')}
-						placeholder={t('EMAIL')}
-						type={'text'}
-						value={data.email}
-					/>
-					<CustomInput
-						value={data.password}
-						onChange={(e): void => handlerData(e.currentTarget.value, 'password')}
-						placeholder={t('PASSWORD')}
-						type={'text'}
-					/>
-				</div>
-				<div className={styles['login-btn-block']}>
-					<Button onClick={logInHandler} textBtn={t('LOG_IN')} />
-					<Button
-						onClick={(): void => {
-							navigate('/new-user');
-						}}
-						textBtn={t('NEW_USER')}
-					/>
-				</div>
+				<form onSubmit={handleSubmit(logInHandler)}>
+					<div className={styles['login-input-block']}>
+						<CustomInput
+							onChange={(e): void => handlerData(e.currentTarget.value, 'email')}
+							placeholder={t('EMAIL')}
+							type={'text'}
+							value={data.email}
+							register={{ ...register('email', { required: true }) }}
+						/>
+						<CustomInput
+							value={data.password}
+							onChange={(e): void => handlerData(e.currentTarget.value, 'password')}
+							placeholder={t('PASSWORD')}
+							type={'text'}
+							register={{ ...register('password', { required: true }) }}
+						/>
+					</div>
+					<div className={styles['login-btn-block']}>
+						<Button onClick={logInHandler} textBtn={t('LOG_IN')} />
+						<Button
+							onClick={(): void => {
+								navigate('/new-user');
+							}}
+							textBtn={t('NEW_USER')}
+						/>
+					</div>
+				</form>
 				<div className={styles['login__link_block']}>
 					<CustomLink
 						className={styles['login__link']}
