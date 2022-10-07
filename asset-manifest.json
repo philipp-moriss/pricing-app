@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pricing-app/static/css/main.37559c99.css",
-    "main.js": "/pricing-app/static/js/main.f7986aa6.js",
+    "main.css": "/pricing-app/static/css/main.bd65da58.css",
+    "main.js": "/pricing-app/static/js/main.f440972a.js",
     "static/media/itachi.png": "/pricing-app/static/media/itachi.1e46c6824b2d81359c42.png",
     "static/media/WorkSans-Medium.ttf": "/pricing-app/static/media/WorkSans-Medium.3515918acace1f6dd1e9.ttf",
     "static/media/WorkSans-Bold.ttf": "/pricing-app/static/media/WorkSans-Bold.d8de505f08550a8e4c16.ttf",
@@ -24,11 +24,11 @@
     "static/media/wallet.svg": "/pricing-app/static/media/wallet.1e03b7c614a846dc59b6ae9be71d66f1.svg",
     "static/media/getFetch.cjs": "/pricing-app/static/media/getFetch.c780682470504fffbd04.cjs",
     "static/media/arrow-sort.svg": "/pricing-app/static/media/arrow-sort.02af6d8bbf219270feb6913ba0320ce3.svg",
-    "main.37559c99.css.map": "/pricing-app/static/css/main.37559c99.css.map",
-    "main.f7986aa6.js.map": "/pricing-app/static/js/main.f7986aa6.js.map"
+    "main.bd65da58.css.map": "/pricing-app/static/css/main.bd65da58.css.map",
+    "main.f440972a.js.map": "/pricing-app/static/js/main.f440972a.js.map"
   },
   "entrypoints": [
-    "static/css/main.37559c99.css",
-    "static/js/main.f7986aa6.js"
+    "static/css/main.bd65da58.css",
+    "static/js/main.f440972a.js"
   ]
 }
