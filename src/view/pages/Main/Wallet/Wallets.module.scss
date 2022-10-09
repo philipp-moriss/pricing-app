@@ -1,9 +1,14 @@
 @import "src/globalStyles/colors";
 
 .wallets {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
   &__wallet-section {
     display: flex;
-    justify-content: flex-start;
+    width: 100%;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
@@ -13,7 +18,6 @@
     height: 65px;
     transform: rotate(0deg) scale(1);
     transition: .4s ease-in-out;
-    position: absolute;
     right: 100%;
 
     &:hover {
@@ -54,11 +58,10 @@
 
 @media (max-width: 900px) {
   .wallets {
-    min-width: 450px;
+    flex-direction: column;
     &__wallet-section {
       justify-content: center;
       margin-bottom: 100px;
-      margin-top: 75px;
     }
 
     &__add-wallet-img {
