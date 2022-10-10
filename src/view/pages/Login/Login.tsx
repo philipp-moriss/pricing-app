@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import BaseStore from 'store/BaseStore';
 import { LoadingType } from 'store/Type/models';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
+import { useInput } from 'utils/utils';
 import { Button } from 'view/components/UiComponent/Button/Button';
 import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
 import { CustomLink } from 'view/components/UiComponent/Link/Link';
@@ -19,64 +20,62 @@ export const Login = (): React.ReactElement => {
 	const { setIsLoading } = BaseStore;
 	const { login } = AuthStore;
 	const { goTo } = useCustomNavigate();
-	const [data, setData] = useState({
-		email: '',
-		password: '',
-	});
-	const { register, handleSubmit } = useForm();
+
+	const email = useInput('', { isEmpty: true, minLength: 3, isEmail: true });
+	const password = useInput('', { isEmpty: true, minLength: 6 });
+
 	const navigate = useNavigate();
 	const logInHandler = (): void => {
-		if (data.email && data.password) {
-			setIsLoading(LoadingType.fetching);
-			login(data)
-				.then(() => {
-					goTo('/');
-				})
-				.finally(() => {
-					setIsLoading(LoadingType.success);
-				});
-		}
-	};
-	const handlerData = (value: string, key: string): void => {
-		setData((prevState) => {
-			return {
-				...prevState,
-				[key]: value,
-			};
-		});
+		setIsLoading(LoadingType.fetching);
+		login({ email: email.value, password: password.value })
+			.then(() => {
+				goTo('/');
+			})
+			.finally(() => {
+				setIsLoading(LoadingType.success);
+			});
 	};
 	return (
 		<div className={styles['container']}>
 			<img className={styles['logo']} src={logo} alt={'logo'} />
 			<div className={styles['login']}>
 				<Title title={t('LOGIN')} size={'h1'} className={styles['login-title']} />
-				<form onSubmit={handleSubmit(logInHandler)}>
-					<div className={styles['login-input-block']}>
-						<CustomInput
-							onChange={(e): void => handlerData(e.currentTarget.value, 'email')}
-							placeholder={t('EMAIL')}
-							type={'text'}
-							value={data.email}
-							register={{ ...register('email', { required: true }) }}
-						/>
-						<CustomInput
-							value={data.password}
-							onChange={(e): void => handlerData(e.currentTarget.value, 'password')}
-							placeholder={t('PASSWORD')}
-							type={'text'}
-							register={{ ...register('password', { required: true }) }}
-						/>
-					</div>
-					<div className={styles['login-btn-block']}>
-						<Button onClick={logInHandler} textBtn={t('LOG_IN')} />
-						<Button
-							onClick={(): void => {
-								navigate('/new-user');
-							}}
-							textBtn={t('NEW_USER')}
-						/>
-					</div>
-				</form>
+				<div className={styles['login-input-block']}>
+					<CustomInput
+						onChange={(e): void => email.onChange(e)}
+						onBlur={(e): void => email.onBlur(e as unknown as FocusEvent)}
+						placeholder={t('EMAIL')}
+						type={'text'}
+						value={email.value}
+						error={email.isDirty && email.valid.emailError}
+						errorMessage={<span>Incorrect email </span>}
+					/>
+					<CustomInput
+						value={password.value}
+						onChange={(e): void => password.onChange(e)}
+						onBlur={(e): void => password.onBlur(e as unknown as FocusEvent)}
+						placeholder={t('PASSWORD')}
+						type={'text'}
+						error={password.isDirty && password.valid.minLengthError}
+						errorMessage={<span>Password too little</span>}
+					/>
+				</div>
+				<div className={styles['login-btn-block']}>
+					<Button
+						disabled={
+							(password.isDirty && password.valid.minLengthError) ||
+							(email.isDirty && email.valid.emailError)
+						}
+						onClick={logInHandler}
+						textBtn={t('LOG_IN')}
+					/>
+					<Button
+						onClick={(): void => {
+							navigate('/new-user');
+						}}
+						textBtn={t('NEW_USER')}
+					/>
+				</div>
 				<div className={styles['login__link_block']}>
 					<CustomLink
 						className={styles['login__link']}

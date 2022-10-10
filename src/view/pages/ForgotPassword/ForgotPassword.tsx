@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useInput } from 'utils/utils';
 import { Button } from 'view/components/UiComponent/Button/Button';
 import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
 import { CustomLink } from 'view/components/UiComponent/Link/Link';
@@ -10,11 +11,10 @@ import styles from './ForgotPassword.module.scss';
 
 export const ForgotPassword = (): React.ReactElement => {
 	const { t } = useTranslation();
-	const [data, setData] = useState({
-		email: '',
-	});
+	const email = useInput('', { isEmpty: true, minLength: 3, isEmail: true });
+
 	const sendEmailHandler = (): void => {
-		console.log(data);
+		console.log(email);
 	};
 	return (
 		<div className={styles['container']}>
@@ -27,14 +27,21 @@ export const ForgotPassword = (): React.ReactElement => {
 				/>
 				<div className={styles['forgot-password-input-block']}>
 					<CustomInput
-						onChange={(e): void => setData({ email: e.currentTarget.value })}
+						onChange={(e): void => email.onChange(e)}
+						onBlur={(e): void => email.onBlur(e as unknown as FocusEvent)}
 						placeholder={t('EMAIL')}
 						type={'text'}
-						value={data.email}
+						value={email.value}
+						error={email.isDirty && email.valid.emailError}
+						errorMessage={<span>Incorrect email </span>}
 					/>
 				</div>
 				<div className={styles['forgot-password-btn-block']}>
-					<Button onClick={sendEmailHandler} textBtn={t('SEND')} />
+					<Button
+						disabled={email.isDirty && email.valid.emailError}
+						onClick={sendEmailHandler}
+						textBtn={t('SEND')}
+					/>
 				</div>
 				<div className={styles['forgot-password-link']}>
 					<CustomLink
