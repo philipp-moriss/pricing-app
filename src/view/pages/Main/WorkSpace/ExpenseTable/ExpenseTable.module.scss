@@ -3,13 +3,11 @@
 .expense-table {
   width: 100%;
   &__wrapper {
-    min-width: 325px;
-    max-width: 1400px;
     background: $white;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
     border-radius: 8px;
     padding: 10px;
-    margin: 10px 10px 100px 10px;
+    height: 100%;
   }
 
   h3 {
@@ -49,21 +47,22 @@
 
 
   &__spend-card {
-    min-width: 120px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    //display: flex;
+    //justify-content: space-between;
+    //align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     border: 1px solid $gray-light;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
     padding: 10px;
     border-radius: 8px;
-    margin: 15px 10px;
     width: 100%;
+    margin: 15px 0;
+    cursor: pointer;
+    transition: all 0.5s;
     span {
       font-size: 16px;
       color: $gray;
-      min-width: 95px;
-      width: 440px;
       word-break: break-all;
     }
 
@@ -83,7 +82,7 @@
       background: $orange;
       border: 1px solid $orange;
       opacity: 0.8;
-      transition: 0.3s;
+      transition: all 1s;
       span {
         color: $white;
       }

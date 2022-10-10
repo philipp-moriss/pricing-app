@@ -32,36 +32,24 @@ export const SideBar = observer(
 				<div className={styles['side-bar_container']}>
 					<img className={styles['side-bar_logo']} src={logo} alt={'logo'} />
 					<div className={styles['side-bar_ico-container']}>
-						<div>
-							<WalletIcon
-								onClick={(): void => navigateHandler('/')}
-								className={styles['side-bar_ico']}
-							/>
+						<div onClick={(): void => navigateHandler('/')}>
+							<WalletIcon className={styles['side-bar_ico']} />
 							<span>{t('WALLET')}</span>
 						</div>
-						<div>
-							<BagIcon
-								onClick={(): void => navigateHandler('/work-space')}
-								className={styles['side-bar_ico']}
-							/>
+						<div onClick={(): void => navigateHandler('/work-space')}>
+							<BagIcon className={styles['side-bar_ico']} />
 							<span>{t('WORK_SPACE')}</span>
 						</div>
 						<div>
 							<ChartIcon className={styles['side-bar_ico']} />
 							<span>{t('CHARTS')}</span>
 						</div>
-						<div>
-							<SettingIcon
-								onClick={(): void => navigateHandler('/settings')}
-								className={styles['side-bar_ico']}
-							/>
+						<div onClick={(): void => navigateHandler('/settings')}>
+							<SettingIcon className={styles['side-bar_ico']} />
 							<span>{t('SETTINGS')}</span>
 						</div>
-						<div>
-							<LogoutIcon
-								className={styles['side-bar_ico']}
-								onClick={(): void => setExitModal(true)}
-							/>
+						<div onClick={(): void => setExitModal(true)}>
+							<LogoutIcon className={styles['side-bar_ico']} />
 							<span>{t('LOG_OUT')}</span>
 						</div>
 					</div>
