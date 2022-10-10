@@ -3,10 +3,7 @@
 .main {
   &_content {
     &__page {
-      position: absolute;
-      left: 85px;
-      right: 15px;
-      top: 90px;
+      margin-top: 82px;
     }
   }
 }
@@ -18,7 +15,7 @@ body {
   .main {
     &_content {
       &__page {
-        left: 15px;
+        margin-bottom: 90px;
       }
     }
   }
