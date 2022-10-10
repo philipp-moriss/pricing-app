@@ -4,7 +4,8 @@
   width: 200px;
   height: 40px;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   padding: 5px;
   outline: none;
   border: 1px solid $gray;
@@ -17,4 +18,8 @@ input[type=text]:focus {
 input[type=number]:focus {
   box-shadow: 0 0 10px $orange;
   border: 1px solid $orange!important;
+}
+.error {
+  box-shadow: 0 0 10px $red;
+  border: 1px solid $red!important;
 }

@@ -37,6 +37,15 @@
       border-radius: 2px;
       padding: 10px;
     }
+    span {
+      color: $red;
+    }
+
+    span::before {
+      display: inline;
+      content: "⚠ ";
+    }
+
   }
 
   &-btn-block {
@@ -45,9 +54,9 @@
     flex-wrap: wrap;
     justify-content: center;
     button {
-      max-width: none;
+  /*    max-width: none;
       width: 100px;
-      height: 48px;
+      height: 48px;*/
       &:last-child {
         margin-left: 20px;
         background: $blue;

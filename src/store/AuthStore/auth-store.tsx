@@ -39,6 +39,7 @@ export class AuthStore {
 		try {
 			await authApi.logOut();
 			localStorage.removeItem('token');
+			localStorage.removeItem('auth');
 			this.setAuth(false);
 		} catch (e) {
 			console.log(e);

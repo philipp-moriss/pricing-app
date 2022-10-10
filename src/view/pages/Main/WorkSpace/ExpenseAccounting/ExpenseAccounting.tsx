@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import AuthStore from 'store/AuthStore';
 import CategoriesStore from 'store/CategoriesStore';
@@ -17,6 +18,7 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 	const { categories } = CategoriesStore;
 	const { addSpending, wallets } = WalletStore;
 	const { user } = AuthStore;
+	const { register, handleSubmit } = useForm();
 	const [spendData, setSpendData] = useState<SpendDataType>({
 		userId: user?._id,
 		walletId: '',
@@ -27,7 +29,9 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 		},
 	});
 	const saveHandler = (): void => {
-		addSpending(spendData);
+		if (spendData.spending.amount && spendData.walletId && spendData.spending.title) {
+			addSpending(spendData);
+		}
 	};
 
 	return (
@@ -49,6 +53,7 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 						label={t('THE_AMOUNT_YOU_SPEND')}
 						type={'number'}
 						value={spendData.spending.amount ?? ''}
+						register={{ ...register('amount', { required: true }) }}
 						onChange={(e): void =>
 							setSpendData({
 								...spendData,
@@ -58,12 +63,14 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 					/>
 					<span style={{ marginBottom: '5px' }}>{t('SELECT_A_WALLET')}</span>
 					<select
+						{...register('walletId', { required: true })}
 						onChange={(e): void => {
 							setSpendData({
 								...spendData,
 								walletId: e.currentTarget.value,
 							});
 						}}
+						value={spendData.walletId}
 					>
 						<option value={''}>Chose wallet</option>
 						{wallets?.map((wallet) => {
