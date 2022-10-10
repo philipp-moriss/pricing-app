@@ -29,6 +29,11 @@
       padding: 10px;
       font-size: 18px;
       font-weight: 500;
+
+      // TODO: fix and add to js
+      @media (max-width: 900px) {
+        display: none;
+      }
     }
   }
 
