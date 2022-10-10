@@ -1,13 +1,14 @@
 @import "src/globalStyles/colors";
 
 .button{
-  max-width: 140px;
   min-width: 100px;
   width: 100%;
+  height: 48px;
+  max-width: max-content;
+  padding: 10px;
   font-family: 'Work Sans';
   font-style: normal;
   font-weight: 400;
-  height: 40px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
@@ -17,4 +18,11 @@
   &:hover {
     opacity: 0.6;
   }
+}
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: $red;
+  color: $white;
+  cursor: not-allowed;
 }
