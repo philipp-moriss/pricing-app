@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const API_URL = 'https://pony-web-orign.onrender.com/api/';
 export const instance = axios.create({
-	baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:3001/api/' : API_URL,
+	baseURL: API_URL,
 });
 
 // Request interceptor for API calls

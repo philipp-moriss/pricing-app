@@ -46,23 +46,24 @@ export class AuthStore {
 		}
 	}
 
-	async registration(userData: NewUserType): Promise<void> {
+	async registration(userData: NewUserType): Promise<any> {
 		try {
-			await authApi.registration(userData);
-		} catch (e) {
-			console.log(e);
+			const { data } = await authApi.registration(userData);
+			return data;
+		} catch (e: any) {
+			alert(e.response.data.message);
 		}
 		return;
 	}
 
-	async checkAuth(): Promise<void> {
+	async checkAuth(): Promise<any> {
 		try {
 			const { data } = await authApi.refreshToken();
 			localStorage.setItem('token', data.token);
 			this.setAuth(true);
 			await this.getUser();
 		} catch (e) {
-			console.dir(e);
+			return e;
 		}
 		return;
 	}

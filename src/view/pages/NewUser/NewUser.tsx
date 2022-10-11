@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { NewUserType } from 'store/Type/models';
+import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { useInput } from 'utils/utils';
 import { Button } from 'view/components/UiComponent/Button/Button';
 import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
@@ -15,7 +16,7 @@ import styles from './NewUser.module.scss';
 
 export const NewUser = (): React.ReactElement => {
 	const { t } = useTranslation();
-	const navigate = useNavigate();
+	const { goTo } = useCustomNavigate();
 
 	const email = useInput('', { isEmpty: true, minLength: 3, isEmail: true });
 	const password = useInput('', { isEmpty: true, minLength: 6 });
@@ -28,9 +29,11 @@ export const NewUser = (): React.ReactElement => {
 			name: name.value,
 			lastName: lastName.value,
 			password: password.value,
+		}).then((data) => {
+			if (data) {
+				goTo('/login');
+			}
 		});
-		alert('GOOD : ), This will take you to the Login page ');
-		navigate('/login');
 	};
 	return (
 		<div className={styles['container']}>
