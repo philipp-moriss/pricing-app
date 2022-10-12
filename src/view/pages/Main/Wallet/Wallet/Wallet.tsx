@@ -1,4 +1,5 @@
 import walletImages from 'assets/images/wallet.png';
+import cs from 'classnames';
 import { observer } from 'mobx-react-lite';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -46,21 +47,29 @@ export const Wallet = observer(
 								onClick={(): void => setRemoveWalletModal(true)}
 								className={styles['wallet__body_ico']}
 							/>
-							<div>
+							<div className={styles['wallet__body__item-wrapper']}>
 								<span>{t('NAME')}:&nbsp;</span>
-								<span>{name ?? t('EMPTY')}</span>
+								<span className={cs(styles['wallet__value'], styles['wallet__value-out'])}>
+									{name ?? t('EMPTY')}
+								</span>
 							</div>
-							<div>
+							<div className={styles['wallet__body__item-wrapper']}>
 								<span>{t('CURRENCY')}:&nbsp;</span>
-								<span>{currency ?? t('EMPTY')}</span>
+								<span className={cs(styles['wallet__value'], styles['wallet__value-out'])}>
+									{currency ?? t('EMPTY')}
+								</span>
 							</div>
-							<div>
+							<div className={styles['wallet__body__item-wrapper']}>
 								<span>{t('BALANCE')}:&nbsp;</span>
-								<span>{balance ?? t('EMPTY')}</span>
+								<span className={cs(styles['wallet__value'], styles['wallet__value-out'])}>
+									{balance ?? t('EMPTY')}
+								</span>
 							</div>
-							<div className={styles['wallet__body__section_date']}>
+							<div className={styles['wallet__body__item-wrapper']}>
 								<span>{t('CREATE_WALLET')}:&nbsp;</span>
-								<span>{dateFormat(convertToDate(createDate)) ?? t('EMPTY')}</span>
+								<span className={cs(styles['wallet__value'])}>
+									{dateFormat(convertToDate(createDate)) ?? t('EMPTY')}
+								</span>
 							</div>
 						</div>
 						<img src={walletImages} alt={'wallet-images'} />

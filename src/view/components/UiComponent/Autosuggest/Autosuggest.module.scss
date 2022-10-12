@@ -1,9 +1,19 @@
 @import "src/globalStyles/colors";
 
 .autosuggest {
-  min-width: 200px;
-  min-height: 40px;
-  width: 200px;
+  height: 40px;
+
+  &-active{
+  box-shadow: 0 0 10px $orange;
+  border: 1px solid $orange;
+  }
+
+
+  &:hover,&:focus{
+    box-shadow: 0 0 10px $orange;
+    border: 1px solid $orange;
+  }
+
 }
 .label{
   color: $black;

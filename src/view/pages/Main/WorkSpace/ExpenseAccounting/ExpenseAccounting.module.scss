@@ -26,13 +26,12 @@
 
     select {
       border: 1px solid $gray;
-      width: 200px;
       height: 40px;
       border-radius: 8px;
       margin-bottom: 20px;
       padding: 5px;
       outline: none;
-      &:focus {
+      &:focus,&:hover {
         box-shadow: 0 0 10px $orange;
         border: 1px solid $orange;
       }
@@ -40,9 +39,10 @@
     textarea {
       resize: none;
       margin-bottom: 10px;
+      border-radius: 8px;
       border: 1px solid $gray;
-      &:focus {
-        outline: none !important;
+      &:focus,&:hover {
+        outline: none;
         border-color: $orange;
         box-shadow: 0 0 10px $orange;
       }
@@ -60,9 +60,7 @@
 
   h3 {
     line-height: normal;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 30px;
+    font-size: 23px;
     color: $black;
   }
 }
