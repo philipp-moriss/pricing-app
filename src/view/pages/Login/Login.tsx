@@ -48,7 +48,7 @@ export const Login = (): React.ReactElement => {
 						type={'text'}
 						value={email.value}
 						error={email.isDirty && email.valid.emailError}
-						errorMessage={<span>Incorrect email </span>}
+						errorMessage={t('INCORRECT_EMAIL')}
 					/>
 					<CustomInput
 						value={password.value}
@@ -57,15 +57,12 @@ export const Login = (): React.ReactElement => {
 						placeholder={t('PASSWORD')}
 						type={'text'}
 						error={password.isDirty && password.valid.minLengthError}
-						errorMessage={<span>Password too little</span>}
+						errorMessage={t('PASSWORD_TOO_LITTLE')}
 					/>
 				</div>
 				<div className={styles['login-btn-block']}>
 					<Button
-						disabled={
-							(password.isDirty && password.valid.minLengthError) ||
-							(email.isDirty && email.valid.emailError)
-						}
+						disabled={password.valid.minLengthError || email.valid.emailError}
 						onClick={logInHandler}
 						textBtn={t('LOG_IN')}
 					/>

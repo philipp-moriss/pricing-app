@@ -37,14 +37,6 @@
       border-radius: 2px;
       padding: 10px;
     }
-    span {
-      color: $red;
-    }
-
-    span::before {
-      display: inline;
-      content: "⚠ ";
-    }
 
   }
 

@@ -33,12 +33,12 @@ export const ForgotPassword = (): React.ReactElement => {
 						type={'text'}
 						value={email.value}
 						error={email.isDirty && email.valid.emailError}
-						errorMessage={<span>Incorrect email </span>}
+						errorMessage={t('INCORRECT_EMAIL')}
 					/>
 				</div>
 				<div className={styles['forgot-password-btn-block']}>
 					<Button
-						disabled={email.isDirty && email.valid.emailError}
+						disabled={email.valid.emailError}
 						onClick={sendEmailHandler}
 						textBtn={t('SEND')}
 					/>

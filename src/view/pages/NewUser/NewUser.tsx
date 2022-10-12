@@ -48,7 +48,7 @@ export const NewUser = (): React.ReactElement => {
 						onChange={(e): void => name.onChange(e)}
 						onBlur={(e): void => name.onBlur(e as unknown as FocusEvent)}
 						error={name.isDirty && name.valid.isEmpty}
-						errorMessage={<span>Field is required</span>}
+						errorMessage={t('FIELD_IS_REQUIRED')}
 					/>
 					<CustomInput
 						placeholder={t('LAST_NAME')}
@@ -64,7 +64,7 @@ export const NewUser = (): React.ReactElement => {
 						onChange={(e): void => email.onChange(e)}
 						onBlur={(e): void => email.onBlur(e as unknown as FocusEvent)}
 						error={email.isDirty && email.valid.emailError}
-						errorMessage={<span>Incorrect email </span>}
+						errorMessage={t('INCORRECT_EMAIL')}
 					/>
 					<CustomInput
 						placeholder={t('PASSWORD')}
@@ -73,15 +73,11 @@ export const NewUser = (): React.ReactElement => {
 						onChange={(e): void => password.onChange(e)}
 						onBlur={(e): void => password.onBlur(e as unknown as FocusEvent)}
 						error={password.isDirty && password.valid.minLengthError}
-						errorMessage={<span>Password too little</span>}
+						errorMessage={t('PASSWORD_TOO_LITTLE')}
 					/>
 				</div>
 				<Button
-					disabled={
-						(password.isDirty && password.valid.minLengthError) ||
-						(email.isDirty && email.valid.emailError) ||
-						(name.isDirty && name.valid.isEmpty)
-					}
+					disabled={password.valid.minLengthError || email.valid.emailError || name.valid.isEmpty}
 					onClick={logInHandler}
 					textBtn={t('LOG_IN')}
 				/>

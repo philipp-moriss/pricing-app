@@ -9,7 +9,7 @@ export interface CustomInputProps
 	label?: string;
 	register?: any;
 	error?: boolean;
-	errorMessage?: JSX.Element;
+	errorMessage?: string;
 }
 
 export const CustomInput = ({
@@ -22,9 +22,9 @@ export const CustomInput = ({
 	const classNames = cs(styles['input'], { [styles['error']]: error }, className);
 	return (
 		<>
-			{label && <span className={'label'}>{label}</span>}
+			{label && <span className={styles['label']}>{label}</span>}
 			<input className={classNames} {...rest} />
-			{error && errorMessage}
+			{error && <span className={styles['error-message']}>{errorMessage}</span>}
 		</>
 	);
 };

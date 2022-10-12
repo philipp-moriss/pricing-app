@@ -33,7 +33,8 @@ export const Header = (): React.ReactElement => {
 				<Select
 					className={'button__change-language'}
 					onChange={changeLanguageHandler}
-					options={['EN', 'RU']}
+					options={[{ value: 'EN' }, { value: 'RU' }]}
+					placeholder={'Language selection'}
 				/>
 			</div>
 			<div className={`${styles['header-wrapper']} ${!show && styles['header-wrapper-show']}`}>

@@ -16,7 +16,7 @@ export const validateEmail = (email: string) => {
 };
 type UseInputReturnType = {
 	value: string;
-	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+	onChange: (e: any) => void;
 	onBlur: (e: FocusEvent) => void;
 	isDirty: boolean;
 	valid: UseValidationReturnType;
