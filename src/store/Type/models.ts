@@ -78,7 +78,7 @@ export type SpendingModel = {
 export type NewWalletType = {
 	userId: string;
 	name: string;
-	balance: number;
+	balance: number | null;
 	currency: string;
 };
 
