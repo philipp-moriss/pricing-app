@@ -6,12 +6,19 @@ import { Router } from './router/Router';
 
 const theme: Theme = createTheme({
 	palette: {
-		mode: 'light',
 		primary: {
-			main: orange[300],
+			main: '#ff9b06',
+			contrastText: '#000000',
 			dark: purple[500],
-			contrastText: 'white',
-			light: 'orange',
+		},
+		secondary: {
+			main: '#3be4d9',
+		},
+		text: {
+			primary: 'rgba(0,0,0,0.87)',
+		},
+		warning: {
+			main: '#e705f7',
 		},
 	},
 	components: {
