@@ -1,15 +1,14 @@
-import { Theme, ThemeProvider, createTheme } from '@mui/material';
-import { grey, orange, purple } from '@mui/material/colors';
+import { ThemeOptions, ThemeProvider, createTheme } from '@mui/material';
 import React from 'react';
 
 import { Router } from './router/Router';
 
-const theme: Theme = createTheme({
+export const themeOptions: ThemeOptions = createTheme({
 	palette: {
 		primary: {
 			main: '#ff9b06',
 			contrastText: '#000000',
-			dark: purple[500],
+			dark: 'rgba(121,17,249,0.69)',
 		},
 		secondary: {
 			main: '#3be4d9',
@@ -32,7 +31,7 @@ const theme: Theme = createTheme({
 
 const App = (): React.ReactElement => {
 	return (
-		<ThemeProvider theme={theme}>
+		<ThemeProvider theme={themeOptions}>
 			<Router />
 		</ThemeProvider>
 	);

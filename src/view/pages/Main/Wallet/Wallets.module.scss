@@ -29,30 +29,31 @@
   }
   &__wallet-modal {
     display: flex;
+    gap: 10px;
     align-items: center;
     flex-direction: column;
 
-    select {
-      border: 1px solid $gray;
-      height: 40px;
-      border-radius: 8px;
-      padding: 5px;
-      outline: none;
-      color: $gray;
-
-      &:focus {
-        box-shadow: 0 0 10px $orange;
-        border: 1px solid $orange;
-      }
-
-      option:checked {
-        background-color: $gray-dark-light;
-      }
-    }
-
-    input {
-      width: 280px;
-    }
+    //select {
+    //  border: 1px solid $gray;
+    //  height: 40px;
+    //  border-radius: 8px;
+    //  padding: 5px;
+    //  outline: none;
+    //  color: $gray;
+    //
+    //  &:focus {
+    //    box-shadow: 0 0 10px $orange;
+    //    border: 1px solid $orange;
+    //  }
+    //
+    //  option:checked {
+    //    background-color: $gray-dark-light;
+    //  }
+    //}
+    //
+    //input {
+    //  width: 280px;
+    //}
   }
 }
 
