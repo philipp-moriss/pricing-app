@@ -1,3 +1,4 @@
+import { MenuItem, OutlinedInput, Select, TextareaAutosize } from '@mui/material';
 import { observer } from 'mobx-react-lite';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -52,6 +53,7 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 					<CustomInput
 						label={t('THE_AMOUNT_YOU_SPEND')}
 						type={'number'}
+						placeholder={'amount'}
 						value={spendData.spending.amount ?? ''}
 						register={{ ...register('amount', { required: true }) }}
 						onChange={(e): void =>
@@ -62,37 +64,68 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 						}
 					/>
 					<span style={{ marginBottom: '5px' }}>{t('SELECT_A_WALLET')}</span>
-					<select
-						{...register('walletId', { required: true })}
+
+					{/*<select*/}
+					{/*	{...register('walletId', { required: true })}*/}
+					{/*	onChange={(e): void => {*/}
+					{/*		setSpendData({*/}
+					{/*			...spendData,*/}
+					{/*			walletId: e.currentTarget.value,*/}
+					{/*		});*/}
+					{/*	}}*/}
+					{/*	value={spendData.walletId}*/}
+					{/*>*/}
+					{/*	<option value={''}>Chose wallet</option>*/}
+					{/*	{wallets?.map((wallet) => {*/}
+					{/*		return (*/}
+					{/*			<option key={wallet._id} value={wallet._id}>*/}
+					{/*				{wallet.name}*/}
+					{/*			</option>*/}
+					{/*		);*/}
+					{/*	})}*/}
+					{/*</select>*/}
+
+					<Select
+						multiple={false}
+						value={spendData.walletId}
 						onChange={(e): void => {
 							setSpendData({
 								...spendData,
-								walletId: e.currentTarget.value,
+								walletId: e.target.value,
 							});
 						}}
-						value={spendData.walletId}
+						input={<OutlinedInput fullWidth />}
 					>
-						<option value={''}>Chose wallet</option>
-						{wallets?.map((wallet) => {
-							return (
-								<option key={wallet._id} value={wallet._id}>
+						{wallets &&
+							wallets.map((wallet) => (
+								<MenuItem key={wallet._id} value={wallet._id}>
 									{wallet.name}
-								</option>
-							);
-						})}
-					</select>
+								</MenuItem>
+							))}
+					</Select>
+
 					<label style={{ marginBottom: '5px' }} htmlFor={'description'}>
 						{t('ADD_COMMENT')}:
 					</label>
-					<textarea
+					{/*<textarea*/}
+					{/*	onChange={(e): void =>*/}
+					{/*		setSpendData({*/}
+					{/*			...spendData,*/}
+					{/*			spending: { ...spendData.spending, description: e.currentTarget.value },*/}
+					{/*		})*/}
+					{/*	}*/}
+					{/*	name={'description'}*/}
+					{/*	rows={3}*/}
+					{/*/>*/}
+					<TextareaAutosize
 						onChange={(e): void =>
 							setSpendData({
 								...spendData,
 								spending: { ...spendData.spending, description: e.currentTarget.value },
 							})
 						}
+						minRows={3}
 						name={'description'}
-						rows={3}
 					/>
 					<Button textBtn={t('SAVE')} onClick={saveHandler} />
 				</div>

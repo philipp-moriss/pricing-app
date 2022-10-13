@@ -88,7 +88,7 @@ export const Header = (): React.ReactElement => {
 					<Button
 						textBtn={t('SING_UP')}
 						onClick={(): void => goTo('/new-user')}
-						style={{ backgroundColor: '#582EFF' }}
+						color={'secondary'}
 					/>
 				</div>
 			</div>

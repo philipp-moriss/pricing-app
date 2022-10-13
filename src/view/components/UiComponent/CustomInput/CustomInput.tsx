@@ -14,7 +14,6 @@ export interface CustomInputProps
 }
 
 export const CustomInput = ({
-	label,
 	error,
 	className,
 	errorMessage,
@@ -23,8 +22,7 @@ export const CustomInput = ({
 	const classNames = cs(styles['input'], { [styles['error']]: error }, className);
 	return (
 		<>
-			{label && <span className={'label'}>{label}</span>}
-			<Input disableUnderline className={classNames} margin={'dense'} {...rest} />
+			<Input fullWidth error={error} className={classNames} {...rest} />
 			{error && errorMessage}
 		</>
 	);

@@ -1,4 +1,5 @@
 import { ThemeOptions, ThemeProvider, createTheme } from '@mui/material';
+import { StyledEngineProvider } from '@mui/styled-engine-sc';
 import React from 'react';
 
 import { Router } from './router/Router';
@@ -31,9 +32,11 @@ export const themeOptions: ThemeOptions = createTheme({
 
 const App = (): React.ReactElement => {
 	return (
-		<ThemeProvider theme={themeOptions}>
-			<Router />
-		</ThemeProvider>
+		<StyledEngineProvider injectFirst>
+			<ThemeProvider theme={themeOptions}>
+				<Router />
+			</ThemeProvider>
+		</StyledEngineProvider>
 	);
 };
 
