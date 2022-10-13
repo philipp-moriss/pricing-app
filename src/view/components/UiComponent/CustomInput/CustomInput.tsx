@@ -1,4 +1,5 @@
-import { Input, InputProps } from '@mui/material';
+import { Input, InputProps, TextField } from '@mui/material';
+import { TextFieldProps } from '@mui/material/TextField/TextField';
 import cs from 'classnames';
 import React from 'react';
 
@@ -18,12 +19,20 @@ export const CustomInput = ({
 	className,
 	errorMessage,
 	...rest
-}: CustomInputProps & InputProps): React.ReactElement => {
+}: CustomInputProps & TextFieldProps): React.ReactElement => {
 	const classNames = cs(styles['input'], { [styles['error']]: error }, className);
+
 	return (
 		<>
-			<Input fullWidth error={error} className={classNames} {...rest} />
-			{error && errorMessage}
+			<TextField
+				variant="outlined"
+				fullWidth
+				label={error ? '⚠' : rest.placeholder}
+				error={error}
+				helperText={error && errorMessage}
+				className={classNames}
+				{...rest}
+			/>
 		</>
 	);
 };

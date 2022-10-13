@@ -23,44 +23,31 @@
   &__body {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 
-    select {
-      border: 1px solid $gray;
-      height: 40px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      padding: 5px;
-      outline: none;
-      &:focus,&:hover {
-        box-shadow: 0 0 10px $orange;
-        border: 1px solid $orange;
-      }
-    }
-    textarea {
-      resize: none;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      border: 1px solid $gray;
-      &:focus,&:hover {
-        outline: none;
-        border-color: $orange;
-        box-shadow: 0 0 10px $orange;
+    &__wrapper {
+      width: 100%;
+      textarea {
+        width: 100%;
+        resize: none;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border: 1px solid $gray;
+        &:focus,&:hover {
+          outline: none;
+          border-color: $orange;
+          box-shadow: 0 0 10px $orange;
+        }
       }
     }
 
-    input[type=number]::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-    }
+    //input[type=number]::-webkit-inner-spin-button {
+    //  -webkit-appearance: none;
+    //}
   }
 
   img {
     width: 200px;
     height: 200px;
-  }
-
-  h3 {
-    line-height: normal;
-    font-size: 23px;
-    color: $black;
   }
 }

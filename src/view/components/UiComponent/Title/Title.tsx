@@ -26,7 +26,10 @@ export const Title = ({
 		}
 		case 'h3': {
 			return (
-				<h3 className={`${styles['title']} ${className}`} {...props}>
+				<h3
+					className={`${styles['title']} ${className} ${styles['title' + `-${size}`]}`}
+					{...props}
+				>
 					{title ?? children}
 				</h3>
 			);
