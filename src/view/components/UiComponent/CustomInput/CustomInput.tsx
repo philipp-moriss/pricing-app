@@ -1,3 +1,4 @@
+import { Input, InputProps } from '@mui/material';
 import cs from 'classnames';
 import React from 'react';
 
@@ -18,12 +19,12 @@ export const CustomInput = ({
 	className,
 	errorMessage,
 	...rest
-}: CustomInputProps): React.ReactElement => {
+}: CustomInputProps & InputProps): React.ReactElement => {
 	const classNames = cs(styles['input'], { [styles['error']]: error }, className);
 	return (
 		<>
 			{label && <span className={'label'}>{label}</span>}
-			<input className={classNames} {...rest} />
+			<Input disableUnderline className={classNames} margin={'dense'} {...rest} />
 			{error && errorMessage}
 		</>
 	);

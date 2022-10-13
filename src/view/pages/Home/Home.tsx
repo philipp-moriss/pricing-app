@@ -6,7 +6,7 @@ import { Footer } from 'view/components/Footer/Footer';
 import { Header } from 'view/components/HomeHeader/Header';
 import { Info } from 'view/components/Info/Info';
 import { Arrow } from 'view/components/UiComponent/Arrow/Arrow';
-import { Button } from 'view/components/UiComponent/Button/Button';
+import Button from 'view/components/UiComponent/Button/Button';
 import { Title } from 'view/components/UiComponent/Title/Title';
 
 import bgMoneyPerson from '../../../assets/backgrounds/mony-person.png';

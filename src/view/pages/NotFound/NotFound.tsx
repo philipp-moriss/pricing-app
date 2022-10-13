@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import page404Image from '../../../assets/backgrounds/404-error.png';
-import { Button } from '../../components/UiComponent/Button/Button';
+import Button from '../../components/UiComponent/Button/Button';
 import styles from './NotFound.module.scss';
 
 export const NotFound = (): React.ReactElement => {

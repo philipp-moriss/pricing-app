@@ -5,7 +5,7 @@ import BaseStore from 'store/BaseStore';
 import { LoadingType } from 'store/Type/models';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { useInput } from 'utils/utils';
-import { Button } from 'view/components/UiComponent/Button/Button';
+import Button from 'view/components/UiComponent/Button/Button';
 import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
 import { CustomLink } from 'view/components/UiComponent/Link/Link';
 import { Title } from 'view/components/UiComponent/Title/Title';

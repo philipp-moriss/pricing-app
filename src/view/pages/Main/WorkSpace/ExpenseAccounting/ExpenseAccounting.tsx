@@ -7,7 +7,7 @@ import CategoriesStore from 'store/CategoriesStore';
 import { SpendDataType } from 'store/Type/models';
 import WalletStore from 'store/WalletStore';
 import { Autosuggest } from 'view/components/UiComponent/Autosuggest/Autosuggest';
-import { Button } from 'view/components/UiComponent/Button/Button';
+import Button from 'view/components/UiComponent/Button/Button';
 import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
 import { Title } from 'view/components/UiComponent/Title/Title';
 

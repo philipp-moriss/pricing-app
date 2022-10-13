@@ -1,17 +1,26 @@
+import { Button, ButtonProps } from '@mui/material';
 import React from 'react';
 
 import styles from './Button.module.scss';
 
-export interface ButtonProps
-	extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
-		React.AriaAttributes {
+// export interface Button
+// 	extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
+// 		React.AriaAttributes {
+// 	textBtn: string;
+// }
+
+export interface IButton extends ButtonProps {
 	textBtn: string;
 }
 
-export const Button = ({ textBtn, ...rest }: ButtonProps): React.ReactElement => {
+const _Button = ({ textBtn, ...rest }: IButton): React.ReactElement => {
 	return (
-		<button className={styles['button']} {...rest}>
+		// <button className={styles['button']} {...rest}>
+		// 	{textBtn}
+		// </button>
+		<Button variant="contained" {...rest}>
 			{textBtn}
-		</button>
+		</Button>
 	);
 };
+export default _Button;

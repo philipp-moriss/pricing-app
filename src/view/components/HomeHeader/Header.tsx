@@ -1,7 +1,7 @@
 import React, { FormEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
-import { Button } from 'view/components/UiComponent/Button/Button';
+import Button from 'view/components/UiComponent/Button/Button';
 import { Select } from 'view/components/UiComponent/Select/Select';
 
 import { NavBar } from '../NavBar/NavBar';
