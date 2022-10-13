@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { Card } from 'view/components/Card/Card';
 import { Footer } from 'view/components/Footer/Footer';
