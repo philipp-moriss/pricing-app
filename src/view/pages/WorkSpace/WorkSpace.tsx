@@ -1,7 +1,7 @@
 import React from 'react';
-import { ExpenseAccounting } from 'view/pages/Main/WorkSpace/ExpenseAccounting/ExpenseAccounting';
-import { ExpenseTable } from 'view/pages/Main/WorkSpace/ExpenseTable/ExpenseTable';
 
+import { ExpenseAccounting } from '../../../components/Moleculs/ExpenseAccounting/ExpenseAccounting';
+import { ExpenseTable } from '../../../components/Moleculs/ExpenseTable/ExpenseTable';
 import styles from './WorkSpace.module.scss';
 
 export const WorkSpace = (): React.ReactElement => {

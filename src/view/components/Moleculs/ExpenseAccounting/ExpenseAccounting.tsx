@@ -103,7 +103,7 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 						/>
 					</div>
 
-					<Button textBtn={t('SAVE')} onClick={saveHandler} />
+					<Button onClick={saveHandler}>{t('SAVE')}</Button>
 				</div>
 			</div>
 		</div>

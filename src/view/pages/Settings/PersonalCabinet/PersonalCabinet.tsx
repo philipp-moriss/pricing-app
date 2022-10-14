@@ -3,8 +3,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import AuthStore from 'store/AuthStore';
 import { convertToDate, dateFormat } from 'utils/utils';
-import { Title } from 'view/components/UiComponent/Title/Title';
 
+import { Title } from '../../../../components/Atoms/Title/Title';
 import styles from './PersonalCabinet.module.scss';
 
 export const PersonalCabinet = observer((): React.ReactElement => {

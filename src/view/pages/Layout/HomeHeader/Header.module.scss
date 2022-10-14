@@ -131,14 +131,9 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  max-width: 400px;
+  gap: 20px;
   width: 100%;
   position: relative;
-
-  button:last-child {
-    max-width: 150px;
-    margin-left: 10px;
-  }
 }
    @media screen and (max-width: 900px) {
      .burger {

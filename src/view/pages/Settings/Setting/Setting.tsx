@@ -1,16 +1,12 @@
-import React, { FormEvent } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'view/components/UiComponent/Select/Select';
-import { Title } from 'view/components/UiComponent/Title/Title';
 
+import { Title } from '../../../../components/Atoms/Title/Title';
+import { LanguageSelect } from '../../../../components/Moleculs/LanguageSelect/LanguageSelect';
 import styles from './Setting.module.scss';
 
 const Setting = (): React.ReactElement => {
-	const { t, i18n } = useTranslation();
-
-	const changeLanguageHandler = (e: FormEvent<HTMLSelectElement>): void => {
-		e.currentTarget.value && i18n.changeLanguage(e.currentTarget.value);
-	};
+	const { t } = useTranslation();
 	return (
 		<div className={styles['setting']}>
 			<div className={styles['setting__wrapper']}>
@@ -19,11 +15,7 @@ const Setting = (): React.ReactElement => {
 					<div className={styles['setting__body__block']}>
 						<div className={styles['setting__body__language-block']}>
 							<div>{t('CHANGE_LANGUAGE')}</div>
-							<Select
-								className={'button__change-language'}
-								onChange={changeLanguageHandler}
-								options={['EN', 'RU']}
-							/>
+							<LanguageSelect />
 						</div>
 						{/*	<div className={styles['settings__body__theme-block']}>
 							<div>{t('CHANGE_THEME')}</div>
