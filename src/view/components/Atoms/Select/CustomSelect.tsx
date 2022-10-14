@@ -1,4 +1,4 @@
-import { MenuItem, OutlinedInput, Select } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
 import { SelectProps } from '@mui/material/Select/Select';
 import { SelectChangeEvent } from '@mui/material/Select/SelectInput';
 import React from 'react';
@@ -17,22 +17,26 @@ type Date = {
 export const CustomSelect = ({
 	data,
 	value,
+	label,
 	onChange,
 	...props
 }: ISelectProps): React.ReactElement => {
 	return (
-		<Select
-			multiple={false}
-			value={value}
-			onChange={onChange}
-			input={<OutlinedInput fullWidth />}
-			{...props}
-		>
-			{data.map((item) => (
-				<MenuItem key={item._id} value={item.value}>
-					{item.value}
-				</MenuItem>
-			))}
-		</Select>
+		<FormControl fullWidth>
+			{label && <InputLabel>{label}</InputLabel>}
+			<Select
+				multiple={false}
+				value={value}
+				onChange={onChange}
+				input={<OutlinedInput label={label && label} fullWidth />}
+				{...props}
+			>
+				{data.map((item) => (
+					<MenuItem key={item._id} value={item.value}>
+						{item.value}
+					</MenuItem>
+				))}
+			</Select>
+		</FormControl>
 	);
 };

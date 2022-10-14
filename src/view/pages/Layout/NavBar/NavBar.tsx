@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { CustomLink } from '../UiComponent/Link/Link';
+import { CustomLink } from '../../../components/Atoms/Link/Link';
 import styles from './NavBar.module.scss';
 
 export const NavBar = (): React.ReactElement => {

@@ -3,13 +3,13 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 
-import { ReactComponent as BagIcon } from '../../../assets/icons/bag.svg';
-import { ReactComponent as ChartIcon } from '../../../assets/icons/chart.svg';
-import { ReactComponent as LogoutIcon } from '../../../assets/icons/log-out.svg';
-import { ReactComponent as SettingIcon } from '../../../assets/icons/setting.svg';
-import { ReactComponent as WalletIcon } from '../../../assets/icons/wallet.svg';
-import logo from '../../../assets/logo/logo-pony-web.svg';
-import styles from './side-bar.module.scss';
+import { ReactComponent as BagIcon } from '../../../../assets/icons/bag.svg';
+import { ReactComponent as ChartIcon } from '../../../../assets/icons/chart.svg';
+import { ReactComponent as LogoutIcon } from '../../../../assets/icons/log-out.svg';
+import { ReactComponent as SettingIcon } from '../../../../assets/icons/setting.svg';
+import { ReactComponent as WalletIcon } from '../../../../assets/icons/wallet.svg';
+import logo from '../../../../assets/logo/logo-pony-web.svg';
+import styles from './SideBar.module.scss';
 
 interface SideBarProps {
 	toggleSideBar: boolean;

@@ -8,7 +8,7 @@ import WalletStore from 'store/WalletStore';
 import { convertToDate, dateFormat } from 'utils/utils';
 import { ModalWrapper } from 'view/components/UiComponent/ModalWrapper/modal-wrapper';
 
-import { ReactComponent as GarbageIcon } from '../../../../../assets/icons/garbage.svg';
+import { ReactComponent as GarbageIcon } from '../../../../assets/icons/garbage.svg';
 import styles from './Wallet.module.scss';
 
 interface WalletProps {

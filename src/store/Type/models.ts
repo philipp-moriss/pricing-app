@@ -16,8 +16,8 @@ export type UserType = {
 export type NewUserType = { email: string; password: string; name: string; lastName: string };
 
 export type CategoryType = {
-	value: string; // value это id, библиотека React select принимает обьект строго с value и label
-	label: string;
+	_id: string;
+	value: string;
 };
 
 export type MyCategoriesType = {

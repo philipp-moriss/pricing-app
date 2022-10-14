@@ -5,16 +5,17 @@ import AuthStore from 'store/AuthStore';
 import BaseStore from 'store/BaseStore';
 import { LoadingType } from 'store/Type/models';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
-import UniversalLoader from 'view/components/UiComponent/UniversalLoader/universal-loader';
 import { ForgotPassword } from 'view/pages/ForgotPassword/ForgotPassword';
 import { Home } from 'view/pages/Home/Home';
 import { Login } from 'view/pages/Login/Login';
-import { Main } from 'view/pages/Main/Main';
-import { Settings } from 'view/pages/Main/Settings/settings';
-import { Wallets } from 'view/pages/Main/Wallet/Wallets';
-import { WorkSpace } from 'view/pages/Main/WorkSpace/WorkSpace';
 import { NewUser } from 'view/pages/NewUser/NewUser';
 import { NotFound } from 'view/pages/NotFound/NotFound';
+
+import { UniversalLoader } from '../view/components/Atoms/UniversalLoader/UniversalLoader';
+import { Layout } from '../view/pages/Layout/Layout';
+import { Settings } from '../view/pages/Settings/settings';
+import { Wallets } from '../view/pages/Wallets/Wallets';
+import { WorkSpace } from '../view/pages/WorkSpace/WorkSpace';
 
 export const Router = observer((): React.ReactElement => {
 	const { isLoading, setIsLoading } = BaseStore;
@@ -38,7 +39,7 @@ export const Router = observer((): React.ReactElement => {
 		<Routes location={location}>
 			{isAuth ? (
 				<>
-					<Route path={'/'} element={<Main />}>
+					<Route path={'/'} element={<Layout />}>
 						<Route index element={<Wallets />} />
 						<Route path={'/work-space'} element={<WorkSpace />} />
 						<Route path={'/settings'} element={<Settings />} />

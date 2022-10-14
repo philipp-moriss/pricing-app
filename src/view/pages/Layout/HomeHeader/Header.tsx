@@ -1,10 +1,10 @@
 import React, { FormEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
-import Button from 'view/components/UiComponent/Button/Button';
 
-import { ReactComponent as Logo } from '../../../assets/logo/logo-pony-web.svg';
-import { LanguageSelect } from '../Moleculs/LanguageSelect/LanguageSelect';
+import { ReactComponent as Logo } from '../../../../assets/logo/logo-pony-web.svg';
+import Button from '../../../components/Atoms/Button/Button';
+import { LanguageSelect } from '../../../components/Moleculs/LanguageSelect/LanguageSelect';
 import { NavBar } from '../NavBar/NavBar';
 import styles from './Header.module.scss';
 

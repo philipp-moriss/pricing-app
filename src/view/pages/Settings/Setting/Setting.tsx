@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Title } from '../../../../components/Atoms/Title/Title';
-import { LanguageSelect } from '../../../../components/Moleculs/LanguageSelect/LanguageSelect';
+import { Title } from '../../../components/Atoms/Title/Title';
+import { LanguageSelect } from '../../../components/Moleculs/LanguageSelect/LanguageSelect';
 import styles from './Setting.module.scss';
 
 const Setting = (): React.ReactElement => {

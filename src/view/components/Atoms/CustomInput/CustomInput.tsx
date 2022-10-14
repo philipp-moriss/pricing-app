@@ -1,3 +1,4 @@
+import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import { Input, InputProps, TextField } from '@mui/material';
 import { TextFieldProps } from '@mui/material/TextField/TextField';
 import cs from 'classnames';
@@ -20,14 +21,14 @@ export const CustomInput = ({
 	errorMessage,
 	...rest
 }: CustomInputProps & TextFieldProps): React.ReactElement => {
-	const classNames = cs(styles['input'], { [styles['error']]: error }, className);
+	const classNames = cs(styles['input'], className);
 
 	return (
 		<>
 			<TextField
 				variant="outlined"
 				fullWidth
-				label={error ? '⚠' : rest.placeholder}
+				label={error ? <ReportProblemIcon fontSize={'small'} /> : rest.placeholder}
 				error={error}
 				helperText={error && errorMessage}
 				className={classNames}

@@ -2,13 +2,13 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { useInput } from 'utils/utils';
-import Button from 'view/components/UiComponent/Button/Button';
-import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
-import { CustomLink } from 'view/components/UiComponent/Link/Link';
-import { Title } from 'view/components/UiComponent/Title/Title';
 
 import logo from '../../../assets/logo/logo-pony-web.svg';
 import AuthStore from '../../../store/AuthStore';
+import Button from '../../components/Atoms/Button/Button';
+import { CustomInput } from '../../components/Atoms/CustomInput/CustomInput';
+import { CustomLink } from '../../components/Atoms/Link/Link';
+import { Title } from '../../components/Atoms/Title/Title';
 import styles from './NewUser.module.scss';
 
 export const NewUser = (): React.ReactElement => {
@@ -80,8 +80,9 @@ export const NewUser = (): React.ReactElement => {
 						(name.isDirty && name.valid.isEmpty)
 					}
 					onClick={logInHandler}
-					textBtn={t('LOG_IN')}
-				/>
+				>
+					{t('LOG_IN')}
+				</Button>
 				<div className={styles['login-link']}>
 					<CustomLink className={styles['login-link_link']} to={'/login'} linkText={t('GO_BACK')} />
 				</div>

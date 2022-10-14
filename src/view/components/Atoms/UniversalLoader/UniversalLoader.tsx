@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import './universal-loader.scss';
+import './UniversalLoader.scss';
 
 interface UniversalLoaderProps {
 	label?: string;
@@ -12,14 +12,14 @@ interface UniversalLoaderProps {
 	isWithoutContainerBg?: string;
 }
 
-const UniversalLoader = ({
+export const UniversalLoader = ({
 	label,
 	labelColor,
 	preloaderColor,
 	preloaderBgColor,
 	position,
 	isWithoutContainerBg,
-}: UniversalLoaderProps) => {
+}: UniversalLoaderProps): React.ReactElement => {
 	return (
 		<div
 			className={classNames({
@@ -49,5 +49,3 @@ const UniversalLoader = ({
 		</div>
 	);
 };
-
-export default UniversalLoader;

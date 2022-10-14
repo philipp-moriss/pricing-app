@@ -2,8 +2,8 @@ import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import WalletStore from 'store/WalletStore';
-import { Title } from 'view/components/UiComponent/Title/Title';
 
+import { Title } from '../../Atoms/Title/Title';
 import styles from './TopCategories.module.scss';
 
 export const TopCategories = observer((): React.ReactElement => {

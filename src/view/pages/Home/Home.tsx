@@ -1,20 +1,20 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
-import { Card } from 'view/components/Card/Card';
-import { Footer } from 'view/components/Footer/Footer';
-import { Header } from 'view/components/HomeHeader/Header';
-import { Info } from 'view/components/Info/Info';
-import { Arrow } from 'view/components/UiComponent/Arrow/Arrow';
-import Button from 'view/components/UiComponent/Button/Button';
-import { Title } from 'view/components/UiComponent/Title/Title';
+import { Arrow } from 'view/components/Atoms/Arrow/Arrow';
+import Button from 'view/components/Atoms/Button/Button';
 
 import bgMoneyPerson from '../../../assets/backgrounds/mony-person.png';
 import bgPlainPerson from '../../../assets/backgrounds/plain-person.png';
 import iconMoney from '../../../assets/icons/mone.svg';
 import iconNote from '../../../assets/icons/note.svg';
 import iconPhone from '../../../assets/icons/phone.svg';
+import { Card } from '../../components/Atoms/Card/Card';
+import { Title } from '../../components/Atoms/Title/Title';
+import { Footer } from '../Layout/Footer/Footer';
+import { Header } from '../Layout/HomeHeader/Header';
 import styles from './Home.module.scss';
+import { Info } from './Info/Info';
 
 export const Home = (): React.ReactElement => {
 	const { goTo } = useCustomNavigate();
@@ -76,9 +76,9 @@ export const Home = (): React.ReactElement => {
 						onClick={(): void => {
 							goTo('/new-user');
 						}}
-						textBtn={t('SING_UP')}
-						style={{ color: 'black', backgroundColor: 'white' }}
-					/>
+					>
+						{t('SING_UP')}
+					</Button>
 				</div>
 			</section>
 			<Footer />

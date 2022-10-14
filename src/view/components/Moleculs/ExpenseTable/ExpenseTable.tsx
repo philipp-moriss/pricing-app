@@ -5,8 +5,9 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import WalletStore from 'store/WalletStore';
 import { convertToDate, dateFormat } from 'utils/utils';
-import { Title } from 'view/components/UiComponent/Title/Title';
 
+import { Title } from '../../Atoms/Title/Title';
+import { WalletsSelect } from '../WalletsSelect/WalletsSelect';
 import styles from './ExpenseTable.module.scss';
 
 export const ExpenseTable = observer((): React.ReactElement => {
@@ -18,8 +19,6 @@ export const ExpenseTable = observer((): React.ReactElement => {
 		sortSelectedWalletHistory,
 	} = WalletStore;
 	const { t } = useTranslation();
-
-	const [currentWallet, setCurrentWallet] = useState<string>(wallets ? wallets[0]._id : '');
 
 	const [sortField, setSortField] = useState({
 		name: '',
@@ -47,30 +46,16 @@ export const ExpenseTable = observer((): React.ReactElement => {
 					<Title title={t('HISTORY_SPENDS')} size={'h3'} />
 					<div className={styles['expense-table__section-title__section-select']}>
 						<div>{t('SELECT_A_WALLET_TO_VIEW_THE_HISTORY')}</div>
-
-						{/*TODO: make component select to chose wallet*/}
-						<FormControl fullWidth>
-							<InputLabel htmlFor={'wallet'}>{t('SELECT_A_WALLET')}</InputLabel>
-							<Select
-								multiple={false}
-								value={currentWallet}
-								onChange={(e): void => {
-									if (!e.target.value) {
-										return clearSelectedWalletHistory();
-									}
-									setCurrentWallet(e.target.value);
-									getCurrentHistory(e.target.value);
-								}}
-								input={<OutlinedInput label={t('SELECT_A_WALLET')} id={'wallet'} fullWidth />}
-							>
-								{wallets &&
-									wallets.map((wallet) => (
-										<MenuItem key={wallet._id} value={wallet._id}>
-											{wallet.name}
-										</MenuItem>
-									))}
-							</Select>
-						</FormControl>
+						<WalletsSelect
+							wallets={wallets}
+							showAllWallets={true}
+							onChange={(e): void => {
+								if (!e.target.value) {
+									return clearSelectedWalletHistory();
+								}
+								getCurrentHistory(e.target.value);
+							}}
+						/>
 					</div>
 				</div>
 				<div className={styles['expense-table__spend-block']}>

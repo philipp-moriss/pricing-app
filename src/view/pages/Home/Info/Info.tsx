@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Title } from '../UiComponent/Title/Title';
+import { Title } from '../../../components/Atoms/Title/Title';
 import styles from './Info.module.scss';
 
 export const Info = ({
