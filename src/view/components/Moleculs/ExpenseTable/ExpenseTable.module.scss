@@ -119,7 +119,9 @@
     &__section-select {
       margin: 20px 0;
       text-align: center;
-      width: 50%;
+      display: flex;
+      gap: 17px;
+      flex-direction: column;
     }
   }
 }
