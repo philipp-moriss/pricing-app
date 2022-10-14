@@ -9,9 +9,9 @@ import Button from '../../components/Atoms/Button/Button';
 import { CustomInput } from '../../components/Atoms/CustomInput/CustomInput';
 import { CustomLink } from '../../components/Atoms/Link/Link';
 import { Title } from '../../components/Atoms/Title/Title';
-import styles from './NewUser.module.scss';
+import styles from './Register.module.scss';
 
-export const NewUser = (): React.ReactElement => {
+export const Register = (): React.ReactElement => {
 	const { t } = useTranslation();
 	const { goTo } = useCustomNavigate();
 

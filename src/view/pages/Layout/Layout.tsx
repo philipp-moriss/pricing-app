@@ -5,7 +5,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import AuthStore from '../../../store/AuthStore';
 import { useCustomNavigate } from '../../../utils/hooks/useCustomNav';
-import { ModalWrapper } from '../../components/UiComponent/ModalWrapper/modal-wrapper';
+import { ModalWrapper } from '../../components/Moleculs/ModalWrapper/ModalWrapper';
 import styles from './Layout.module.scss';
 import MainHeader from './MainHeader/main-header';
 import { MobileBar } from './MobileBar/MobileBar';

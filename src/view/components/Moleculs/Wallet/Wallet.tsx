@@ -6,9 +6,9 @@ import { useTranslation } from 'react-i18next';
 import AuthStore from 'store/AuthStore';
 import WalletStore from 'store/WalletStore';
 import { convertToDate, dateFormat } from 'utils/utils';
-import { ModalWrapper } from 'view/components/UiComponent/ModalWrapper/modal-wrapper';
 
 import { ReactComponent as GarbageIcon } from '../../../../assets/icons/garbage.svg';
+import { ModalWrapper } from '../ModalWrapper/ModalWrapper';
 import styles from './Wallet.module.scss';
 
 interface WalletProps {
