@@ -3,8 +3,7 @@ import { FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/m
 import { SelectProps } from '@mui/material/Select/Select';
 import { SelectChangeEvent } from '@mui/material/Select/SelectInput';
 import React, { useState } from 'react';
-
-import { WalletModelType } from '../../../../store/Type/models';
+import { WalletModelType } from 'store/Type/models';
 
 interface WalletsSelectProps extends SelectProps<string> {
 	wallets: WalletModelType[] | undefined;
