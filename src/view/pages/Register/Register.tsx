@@ -45,7 +45,7 @@ export const Register = (): React.ReactElement => {
 						onChange={(e): void => name.onChange(e)}
 						onBlur={(e): void => name.onBlur(e as unknown as FocusEvent)}
 						error={name.isDirty && name.valid.isEmpty}
-						errorMessage={<span>Field is required</span>}
+						errorMessage={'Field is required'}
 					/>
 					<CustomInput
 						placeholder={t('LAST_NAME')}
@@ -61,7 +61,7 @@ export const Register = (): React.ReactElement => {
 						onChange={(e): void => email.onChange(e)}
 						onBlur={(e): void => email.onBlur(e as unknown as FocusEvent)}
 						error={email.isDirty && email.valid.emailError}
-						errorMessage={<span>Incorrect email </span>}
+						errorMessage={'Incorrect email'}
 					/>
 					<CustomInput
 						placeholder={t('PASSWORD')}
@@ -70,7 +70,7 @@ export const Register = (): React.ReactElement => {
 						onChange={(e): void => password.onChange(e)}
 						onBlur={(e): void => password.onBlur(e as unknown as FocusEvent)}
 						error={password.isDirty && password.valid.minLengthError}
-						errorMessage={<span>Password too little</span>}
+						errorMessage={'Password too little'}
 					/>
 				</div>
 				<Button

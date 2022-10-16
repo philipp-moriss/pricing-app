@@ -1,3 +1,4 @@
+import { SelectChangeEvent } from '@mui/material/Select/SelectInput';
 import { ChangeEvent, useEffect, useState } from 'react';
 
 export const dateFormat = (date: Date): string => {
@@ -16,24 +17,28 @@ export const validateEmail = (email: string) => {
 };
 type UseInputReturnType = {
 	value: string;
-	onChange: (
-		e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-	) => void;
+	onChange: (e: any) => void;
 	onBlur: (e: FocusEvent) => void;
 	isDirty: boolean;
 	valid: UseValidationReturnType;
 };
 export const useInput = (
 	initValue: string,
-	validations: { isEmpty: boolean; minLength?: number; maxLength?: number; isEmail?: boolean },
+	validations: { isEmpty?: boolean; minLength?: number; maxLength?: number; isEmail?: boolean },
 ): UseInputReturnType => {
 	const [isDirty, setDirty] = useState(false);
 	const [value, setValue] = useState<string>('');
 	const valid = useValidation(value, validations);
-	const onChange = (
-		e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-	): void => {
-		setValue(e.currentTarget.value);
+	const onChange = (e: any): void => {
+		if (e.currentTarget) {
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			//@ts-ignore
+			setValue(e.currentTarget.value);
+		} else if (e.target) {
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			//@ts-ignore
+			setValue(e.target.value);
+		}
 	};
 	const onBlur = (e: FocusEvent): void => {
 		setDirty(true);
@@ -57,7 +62,7 @@ type UseValidationReturnType = {
 
 export const useValidation = (
 	value: string,
-	validations: { isEmpty: boolean; minLength?: number; maxLength?: number; isEmail?: boolean },
+	validations: { isEmpty?: boolean; minLength?: number; maxLength?: number; isEmail?: boolean },
 ): UseValidationReturnType => {
 	const [isEmpty, setEmpty] = useState(true);
 	const [minLengthError, setMinLengthError] = useState(false);

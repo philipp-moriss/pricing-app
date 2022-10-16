@@ -67,5 +67,9 @@
   "ADD_COMMENT": "Добавить коментарий",
   "DO_YOU_REALLY_WANT_DELETE_YOUR_WALLET": "Вы действительно хотите удалить ваш кошелек?",
   "CREATE_WALLET": "Создания кошелька",
-  "SELECT_A_WALLET_TO_VIEW_THE_HISTORY": "Выбор кошелька для просмотра истории"
+  "SELECT_A_WALLET_TO_VIEW_THE_HISTORY": "Выбор кошелька для просмотра истории",
+  "INCORRECT_EMAIL": "Не корректный email",
+  "PASSWORD_TOO_LITTLE": "Слишком маленький пороль",
+  "FIELD_IS_REQUIRED": "Поля являеться обязательным",
+  "CREATE_A_NEW_WALLET": "Создание нового кошелька"
 }

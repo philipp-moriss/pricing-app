@@ -1,21 +1,10 @@
-import {
-	FormControl,
-	InputLabel,
-	MenuItem,
-	OutlinedInput,
-	Select,
-	TextField,
-	TextareaAutosize,
-} from '@mui/material';
-import { SelectChangeEvent } from '@mui/material/Select/SelectInput';
 import { observer } from 'mobx-react-lite';
-import React, { ChangeEvent, ChangeEventHandler, TextareaHTMLAttributes, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import AuthStore from 'store/AuthStore';
 import CategoriesStore from 'store/CategoriesStore';
-import { SpendDataType } from 'store/Type/models';
 import WalletStore from 'store/WalletStore';
+import { useInput } from 'utils/utils';
 
 import Button from '../../Atoms/Button/Button';
 import { CustomInput } from '../../Atoms/CustomInput/CustomInput';
@@ -30,40 +19,23 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 	const { categories } = CategoriesStore;
 	const { addSpending, wallets } = WalletStore;
 	const { user } = AuthStore;
-	const { register, handleSubmit } = useForm();
-	const [spendData, setSpendData] = useState<SpendDataType>({
-		userId: user?._id,
-		walletId: '',
-		spending: {
-			title: '',
-			description: '',
-			amount: '',
-		},
-	});
+
+	const title = useInput('', { isEmpty: true });
+	const amount = useInput('', { isEmpty: true });
+	const walletId = useInput('', { isEmpty: true });
+	const description = useInput('', {});
+
 	const saveHandler = (): void => {
-		if (spendData.spending.amount && spendData.walletId && spendData.spending.title) {
-			addSpending(spendData);
-		}
-	};
-
-	const onchangeTextAreaHandler = (event: ChangeEvent<HTMLTextAreaElement>): void =>
-		setSpendData({
-			...spendData,
-			spending: { ...spendData.spending, description: event.currentTarget.value },
-		});
-
-	const onchangeSelectAreaHandler = (event: SelectChangeEvent<string>): void => {
-		setSpendData({
-			...spendData,
-			spending: { ...spendData.spending, title: event.target.value },
+		addSpending({
+			walletId: walletId.value,
+			userId: user._id,
+			spending: {
+				title: title.value,
+				description: description.value,
+				amount: amount.value,
+			},
 		});
 	};
-
-	const onchangeInputAreaHandler = (event: ChangeEvent<HTMLInputElement>): void =>
-		setSpendData({
-			...spendData,
-			spending: { ...spendData.spending, amount: event.currentTarget.value },
-		});
 
 	return (
 		<div className={styles['expense-accounting']}>
@@ -72,37 +44,48 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 					<Title title={t('WHERE_DID_YOU_MONEY_TODAY')} size={'h3'} />
 					<CustomSelect
 						data={categories}
-						label={spendData.spending.title}
-						value={spendData.spending.title}
-						onChange={onchangeSelectAreaHandler}
+						label={title.value}
+						value={title.value}
+						error={title.isDirty && title.valid.isEmpty}
+						errorMessage={t('FIELD_IS_REQUIRED')}
+						onChange={(e): void => title.onChange(e)}
+						onBlur={(e): void => title.onBlur(e as unknown as FocusEvent)}
 					/>
 					<CustomInput
 						label={t('THE_AMOUNT_YOU_SPEND')}
 						type={'number'}
 						placeholder={'amount'}
-						value={spendData.spending.amount ?? ''}
-						register={{ ...register('amount', { required: true }) }}
-						onChange={onchangeInputAreaHandler}
+						value={amount.value}
+						error={amount.isDirty && amount.valid.isEmpty}
+						errorMessage={t('FIELD_IS_REQUIRED')}
+						onChange={(e): void => amount.onChange(e)}
+						onBlur={(e): void => amount.onBlur(e as unknown as FocusEvent)}
 					/>
 					<div>
 						<WalletsSelect
 							wallets={wallets}
-							onChange={(e): void => {
-								setSpendData({
-									...spendData,
-									walletId: e.target.value,
-								});
-							}}
+							onChange={(e): void => walletId.onChange(e)}
+							onBlur={(e): void => walletId.onBlur(e as unknown as FocusEvent)}
+							value={walletId.value}
+							error={walletId.isDirty && walletId.valid.isEmpty}
+							errorMessage={t('FIELD_IS_REQUIRED')}
 						/>
 					</div>
 					<div className={styles['expense-accounting__body__wrapper']}>
 						<CustomTextArea
 							label={t('ADD_COMMENT')}
-							onChange={onchangeTextAreaHandler}
+							onChange={(e): void => description.onChange(e)}
+							onBlur={(e): void => description.onBlur(e as unknown as FocusEvent)}
+							value={description.value}
 							name={'description'}
 						/>
 					</div>
-					<Button onClick={saveHandler}>{t('SAVE')}</Button>
+					<Button
+						disabled={title.valid.isEmpty || amount.valid.isEmpty || walletId.valid.isEmpty}
+						onClick={saveHandler}
+					>
+						{t('SAVE')}
+					</Button>
 				</div>
 			</div>
 		</div>

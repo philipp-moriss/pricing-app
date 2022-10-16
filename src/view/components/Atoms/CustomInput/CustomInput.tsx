@@ -12,7 +12,7 @@ export interface CustomInputProps
 	label?: string;
 	register?: any;
 	error?: boolean;
-	errorMessage?: JSX.Element;
+	errorMessage?: string;
 }
 
 export const CustomInput = ({

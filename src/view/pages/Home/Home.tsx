@@ -11,9 +11,9 @@ import iconNote from '../../../assets/icons/note.svg';
 import iconPhone from '../../../assets/icons/phone.svg';
 import { Card } from '../../components/Atoms/Card/Card';
 import { Title } from '../../components/Atoms/Title/Title';
-import { Footer } from '../Layout/Footer/Footer';
-import { Header } from '../Layout/HomeHeader/Header';
+import { Footer } from './Footer/Footer';
 import styles from './Home.module.scss';
+import { Header } from './HomeHeader/Header';
 import { Info } from './Info/Info';
 
 export const Home = (): React.ReactElement => {

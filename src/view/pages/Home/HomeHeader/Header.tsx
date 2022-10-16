@@ -1,12 +1,11 @@
+import { ReactComponent as Logo } from 'assets/logo/logo-pony-web.svg';
 import React, { FormEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
-
-import { ReactComponent as Logo } from '../../../../assets/logo/logo-pony-web.svg';
-import Button from '../../../components/Atoms/Button/Button';
-import { LanguageSelect } from '../../../components/Moleculs/LanguageSelect/LanguageSelect';
-import { NavBar } from '../NavBar/NavBar';
-import styles from './Header.module.scss';
+import Button from 'view/components/Atoms/Button/Button';
+import { LanguageSelect } from 'view/components/Moleculs/LanguageSelect/LanguageSelect';
+import styles from 'view/pages/Home/HomeHeader/Header.module.scss';
+import { NavBar } from 'view/pages/Layout/NavBar/NavBar';
 
 export const Header = (): React.ReactElement => {
 	const [show, setShow] = useState(true);

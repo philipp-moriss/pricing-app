@@ -1,3 +1,4 @@
+import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import { FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
 import { SelectProps } from '@mui/material/Select/Select';
 import { SelectChangeEvent } from '@mui/material/Select/SelectInput';
@@ -9,23 +10,29 @@ interface WalletsSelectProps extends SelectProps<string> {
 	wallets: WalletModelType[] | undefined;
 	showAllWallets?: boolean;
 	onChange: (event: SelectChangeEvent<string>) => void;
+	error?: boolean;
+	errorMessage?: string;
 }
 
 export const WalletsSelect: React.FC<WalletsSelectProps> = ({
 	wallets,
-	onChange,
 	label,
 	showAllWallets = false,
-	value,
+	onChange,
+	error,
+	errorMessage,
 	...props
 }): React.ReactElement | null => {
 	if (!wallets) return null;
 
+	const { value } = props;
 	const copyWallet = showAllWallets ? [{ _id: '1', name: 'ShowAll' }, ...wallets] : [...wallets];
-	const [currentWallet, setCurrentWallet] = useState<string>(copyWallet[0]._id);
-	const [currentLabel, setCurrentLabel] = useState<string>(copyWallet[0].name);
 
-	const onChangeHandler = (event: SelectChangeEvent<string>) => {
+	const [currentWallet, setCurrentWallet] = useState<string>(value ?? '');
+
+	const [currentLabel, setCurrentLabel] = useState<string>(copyWallet[0]?.name);
+
+	const onChangeHandler = (event: SelectChangeEvent<string>): void => {
 		const wallet = copyWallet.find((wallet) => {
 			return wallet._id === event.target.value;
 		});
@@ -45,6 +52,8 @@ export const WalletsSelect: React.FC<WalletsSelectProps> = ({
 					value={currentWallet}
 					onChange={onChangeHandler}
 					input={<OutlinedInput label={currentLabel} fullWidth />}
+					label={error ? <ReportProblemIcon fontSize={'small'} /> : currentLabel}
+					error={error}
 					{...props}
 				>
 					{copyWallet.map((wallet) => (

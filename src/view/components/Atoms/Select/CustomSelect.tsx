@@ -7,6 +7,7 @@ export interface ISelectProps extends SelectProps<string> {
 	data: Date[];
 	value: string;
 	onChange: (event: SelectChangeEvent<string>) => void;
+	errorMessage?: string;
 }
 
 type Date = {
