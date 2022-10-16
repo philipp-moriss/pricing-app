@@ -1,7 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { NewUserType } from 'store/Type/models';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { useInput } from 'utils/utils';
+import { Button } from 'view/components/UiComponent/Button/Button';
+import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
+import { CustomLink } from 'view/components/UiComponent/Link/Link';
+import { Title } from 'view/components/UiComponent/Title/Title';
 
 import logo from '../../../assets/logo/logo-pony-web.svg';
 import AuthStore from '../../../store/AuthStore';
@@ -45,7 +51,7 @@ export const Register = (): React.ReactElement => {
 						onChange={(e): void => name.onChange(e)}
 						onBlur={(e): void => name.onBlur(e as unknown as FocusEvent)}
 						error={name.isDirty && name.valid.isEmpty}
-						errorMessage={'Field is required'}
+						errorMessage={t('FIELD_IS_REQUIRED')}
 					/>
 					<CustomInput
 						placeholder={t('LAST_NAME')}
@@ -61,7 +67,7 @@ export const Register = (): React.ReactElement => {
 						onChange={(e): void => email.onChange(e)}
 						onBlur={(e): void => email.onBlur(e as unknown as FocusEvent)}
 						error={email.isDirty && email.valid.emailError}
-						errorMessage={'Incorrect email'}
+						errorMessage={t('INCORRECT_EMAIL')}
 					/>
 					<CustomInput
 						placeholder={t('PASSWORD')}
@@ -70,19 +76,14 @@ export const Register = (): React.ReactElement => {
 						onChange={(e): void => password.onChange(e)}
 						onBlur={(e): void => password.onBlur(e as unknown as FocusEvent)}
 						error={password.isDirty && password.valid.minLengthError}
-						errorMessage={'Password too little'}
+						errorMessage={t('PASSWORD_TOO_LITTLE')}
 					/>
 				</div>
 				<Button
-					disabled={
-						(password.isDirty && password.valid.minLengthError) ||
-						(email.isDirty && email.valid.emailError) ||
-						(name.isDirty && name.valid.isEmpty)
-					}
+					disabled={password.valid.minLengthError || email.valid.emailError || name.valid.isEmpty}
 					onClick={logInHandler}
-				>
-					{t('LOG_IN')}
-				</Button>
+					textBtn={t('LOG_IN')}
+				/>
 				<div className={styles['login-link']}>
 					<CustomLink className={styles['login-link_link']} to={'/login'} linkText={t('GO_BACK')} />
 				</div>

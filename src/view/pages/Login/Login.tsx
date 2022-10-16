@@ -47,7 +47,7 @@ export const Login = (): React.ReactElement => {
 						type={'text'}
 						value={email.value}
 						error={email.isDirty && email.valid.emailError}
-						errorMessage={'Incorrect email'}
+						errorMessage={t('INCORRECT_EMAIL')}
 					/>
 					<CustomInput
 						value={password.value}
@@ -56,26 +56,21 @@ export const Login = (): React.ReactElement => {
 						placeholder={t('PASSWORD')}
 						type={'text'}
 						error={password.isDirty && password.valid.minLengthError}
-						errorMessage={'Password too little'}
+						errorMessage={t('PASSWORD_TOO_LITTLE')}
 					/>
 				</div>
 				<div className={styles['login-btn-block']}>
 					<Button
-						disabled={
-							(password.isDirty && password.valid.minLengthError) ||
-							(email.isDirty && email.valid.emailError)
-						}
+						disabled={password.valid.minLengthError || email.valid.emailError}
 						onClick={logInHandler}
-					>
-						{t('LOG_IN')}
-					</Button>
+						textBtn={t('LOG_IN')}
+					/>
 					<Button
 						onClick={(): void => {
 							navigate('/new-user');
 						}}
-					>
-						{t('NEW_USER')}
-					</Button>
+						textBtn={t('NEW_USER')}
+					/>
 				</div>
 				<div className={styles['login__link_block']}>
 					<CustomLink
