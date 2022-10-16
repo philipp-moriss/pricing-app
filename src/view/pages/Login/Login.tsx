@@ -63,14 +63,16 @@ export const Login = (): React.ReactElement => {
 					<Button
 						disabled={password.valid.minLengthError || email.valid.emailError}
 						onClick={logInHandler}
-						textBtn={t('LOG_IN')}
-					/>
+					>
+						{t('LOG_IN')}
+					</Button>
 					<Button
 						onClick={(): void => {
 							navigate('/new-user');
 						}}
-						textBtn={t('NEW_USER')}
-					/>
+					>
+						{t('NEW_USER')}
+					</Button>
 				</div>
 				<div className={styles['login__link_block']}>
 					<CustomLink

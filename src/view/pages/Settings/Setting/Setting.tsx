@@ -1,7 +1,8 @@
 import React, { FormEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'view/components/UiComponent/Select/Select';
-import { Title } from 'view/components/UiComponent/Title/Title';
+import { CustomSelect } from 'view/components/Atoms/Select/CustomSelect';
+import { Title } from 'view/components/Atoms/Title/Title';
+import { LanguageSelect } from 'view/components/Moleculs/LanguageSelect/LanguageSelect';
 
 import styles from './Setting.module.scss';
 
@@ -22,12 +23,7 @@ const Setting = (): React.ReactElement => {
 					<div className={styles['setting__body__block']}>
 						<div className={styles['setting__body__language-block']}>
 							<div>{t('CHANGE_LANGUAGE')}</div>
-							<Select
-								className={'button__change-language'}
-								onChange={changeLanguageHandler}
-								options={[{ value: 'EN' }, { value: 'RU' }]}
-								placeholder={'Language selection'}
-							/>
+							<LanguageSelect />
 						</div>
 						{/*	<div className={styles['settings__body__theme-block']}>
 							<div>{t('CHANGE_THEME')}</div>

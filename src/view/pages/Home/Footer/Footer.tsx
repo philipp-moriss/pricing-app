@@ -23,7 +23,7 @@ export const Footer = (): React.ReactElement => {
 					<a href={'#'}>ponyWeb@gmail.com</a>
 				</li>
 				<li>
-					<a href={'tel:+375 25 995 8308'}>+375 25 995 8308</a>
+					<a href={'tel:+375 25 995 8308'}>+375 25 995 83 08</a>
 				</li>
 			</ul>
 			<p>{t('POWERED_BY_PONY_WEB_COMPANY')}</p>

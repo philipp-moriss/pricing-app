@@ -71,5 +71,7 @@
   "INCORRECT_EMAIL": "Incorrect email",
   "PASSWORD_TOO_LITTLE": "Password too little",
   "FIELD_IS_REQUIRED": "Field is required",
-  "CREATE_A_NEW_WALLET": "Create a new wallet"
+  "CREATE_A_NEW_WALLET": "Create a new wallet",
+  "NOT_SAVE": "Not save",
+  "SAVE": "Save"
 }

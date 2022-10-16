@@ -1,13 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
-import { NewUserType } from 'store/Type/models';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { useInput } from 'utils/utils';
-import { Button } from 'view/components/UiComponent/Button/Button';
-import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
-import { CustomLink } from 'view/components/UiComponent/Link/Link';
-import { Title } from 'view/components/UiComponent/Title/Title';
 
 import logo from '../../../assets/logo/logo-pony-web.svg';
 import AuthStore from '../../../store/AuthStore';
@@ -82,8 +76,9 @@ export const Register = (): React.ReactElement => {
 				<Button
 					disabled={password.valid.minLengthError || email.valid.emailError || name.valid.isEmpty}
 					onClick={logInHandler}
-					textBtn={t('LOG_IN')}
-				/>
+				>
+					{t('LOG_IN')}
+				</Button>
 				<div className={styles['login-link']}>
 					<CustomLink className={styles['login-link_link']} to={'/login'} linkText={t('GO_BACK')} />
 				</div>

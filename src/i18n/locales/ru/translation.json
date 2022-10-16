@@ -71,5 +71,7 @@
   "INCORRECT_EMAIL": "Не корректный email",
   "PASSWORD_TOO_LITTLE": "Слишком маленький пороль",
   "FIELD_IS_REQUIRED": "Поля являеться обязательным",
-  "CREATE_A_NEW_WALLET": "Создание нового кошелька"
+  "CREATE_A_NEW_WALLET": "Создание нового кошелька",
+  "NOT_SAVE": "Не сохранять",
+  "SAVE": "Сохранить"
 }

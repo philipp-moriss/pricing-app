@@ -1,6 +1,12 @@
 import { historyApi, spendingApi, walletApi } from 'api/api';
 import { action, makeObservable, observable } from 'mobx';
-import { CurrencyType, NewWalletType, SpendingModel, WalletModelType } from 'store/Type/models';
+import {
+	CurrencyType,
+	NewWalletType,
+	SpendDataType,
+	SpendingModel,
+	WalletModelType,
+} from 'store/Type/models';
 import { convertToDate } from 'utils/utils';
 
 export class WalletStore {
@@ -38,7 +44,7 @@ export class WalletStore {
 		return;
 	}
 
-	async addSpending(data: any): Promise<void> {
+	async addSpending(data: SpendDataType): Promise<void> {
 		try {
 			await spendingApi.addSpending(data);
 		} catch (e) {

@@ -11,7 +11,7 @@ export const getDateFormatTime = (date: Date): string => {
 export const convertToDate = (dateString: string): Date => {
 	return new Date(dateString);
 };
-export const validateEmail = (email: string) => {
+export const validateEmail = (email: string): boolean => {
 	const regex = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
 	return regex.test(email.toLowerCase());
 };
