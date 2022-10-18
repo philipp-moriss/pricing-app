@@ -14,8 +14,9 @@
   &-container{
     width: 90%;
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
+    position: relative;
     margin: 0 auto;
   }
 
@@ -41,6 +42,11 @@
   height: 50px;
   max-width: 50px;
   width: 100%;
+  position: absolute;
+  left: 0;
+  &_position {
+    left: 75px;
+  }
   &-button {
     width: 100%;
     height: 100%;
@@ -52,9 +58,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    &_position {
-      margin-left: 75px;
-    }
     &:focus {
       border: none;
     }
