@@ -7,7 +7,7 @@ import AuthStore from '../../../store/AuthStore';
 import { useCustomNavigate } from '../../../utils/hooks/useCustomNav';
 import { ModalWrapper } from '../../components/Moleculs/ModalWrapper/ModalWrapper';
 import styles from './Layout.module.scss';
-import MainHeader from './MainHeader/main-header';
+import MainHeader from './MainHeader/MainHeader';
 import { MobileBar } from './MobileBar/MobileBar';
 import { SideBar } from './SIdeBar/SideBar';
 

@@ -1,0 +1,44 @@
+import Avatar from '@mui/material/Avatar';
+import ava from 'assets/images/avatar.png';
+import { observer } from 'mobx-react-lite';
+import React from 'react';
+import AuthStore from 'store/AuthStore';
+
+import { useResizeWindow } from '../../../../utils/hooks/useCustomNav';
+import styles from './MainHeader.module.scss';
+
+interface MainHeaderProps {
+	toggleSideBar: boolean;
+	setToggleSideBar: (value: boolean) => void;
+}
+
+const MainHeader = observer(({ toggleSideBar, setToggleSideBar }: MainHeaderProps) => {
+	const { user } = AuthStore;
+	const size = useResizeWindow();
+
+	return (
+		<div className={styles['main-header']}>
+			<div className={styles['main-header-container']}>
+				<div className={styles['burger']} onClick={(): void => setToggleSideBar(!toggleSideBar)}>
+					<button
+						className={`${styles['burger-button']} ${
+							toggleSideBar ? styles['burger-button_position'] : ''
+						}`}
+					>
+						<span
+							className={`${styles['burger-line']} ${
+								toggleSideBar && styles['burger-line-active']
+							}`}
+						/>
+					</button>
+				</div>
+				<div className={styles['main-header_avatar-block']}>
+					<Avatar alt="avatar" src={ava} sx={{ width: 44, height: 44 }} />
+					{size.width > 900 && <span>{user ? user.email : 'No name'}</span>}
+				</div>
+			</div>
+		</div>
+	);
+});
+
+export default MainHeader;

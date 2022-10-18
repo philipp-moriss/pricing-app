@@ -39,10 +39,6 @@
 @media (max-width: 900px) {
   .wallets {
     flex-direction: column;
-    &__wallet-section {
-      padding: 0 20px;
-    }
-
     &__add-wallet-img {
       left: 30px;
       top: 0;
