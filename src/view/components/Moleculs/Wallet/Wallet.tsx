@@ -1,3 +1,4 @@
+import { Tooltip } from '@mui/material';
 import walletImages from 'assets/images/wallet.png';
 import cs from 'classnames';
 import { observer } from 'mobx-react-lite';
@@ -43,10 +44,12 @@ export const Wallet = observer(
 				<div className={styles['wallet']}>
 					<div className={styles['wallet__wrapper']}>
 						<div className={styles['wallet__body']}>
-							<GarbageIcon
-								onClick={(): void => setRemoveWalletModal(true)}
-								className={styles['wallet__body_ico']}
-							/>
+							<Tooltip title="Delete">
+								<GarbageIcon
+									onClick={(): void => setRemoveWalletModal(true)}
+									className={styles['wallet__body_ico']}
+								/>
+							</Tooltip>
 							<div className={styles['wallet__body__item-wrapper']}>
 								<span>{t('NAME')}:&nbsp;</span>
 								<span className={cs(styles['wallet__value'], styles['wallet__value-out'])}>
