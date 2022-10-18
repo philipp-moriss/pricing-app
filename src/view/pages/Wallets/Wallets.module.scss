@@ -7,13 +7,10 @@
   margin: 0 auto;
   &__wallet-section {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 0.5fr));
+    justify-content: center;
     gap: 20px;
     width: 100%;
-    //display: flex;
-    //width: 100%;
-    //justify-content: center;
-    //flex-wrap: wrap;
   }
 
   &__add-wallet-img {
@@ -43,10 +40,7 @@
   .wallets {
     flex-direction: column;
     &__wallet-section {
-      grid-template-columns: minmax(320px, 0.7fr);
       padding: 0 20px;
-      justify-content: center;
-      align-content: center;
     }
 
     &__add-wallet-img {
