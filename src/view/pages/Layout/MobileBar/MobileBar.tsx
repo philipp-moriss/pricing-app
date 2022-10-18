@@ -4,7 +4,7 @@ import { ReactComponent as LogoutIcon } from 'assets/icons/log-out.svg';
 import { ReactComponent as SettingIcon } from 'assets/icons/setting.svg';
 import { ReactComponent as WalletIcon } from 'assets/icons/wallet.svg';
 import React from 'react';
-import { useCustomNavigate } from 'utils/hooks/useCustomNav';
+import { useCustomNavigate, useResizeWindow } from 'utils/hooks/useCustomNav';
 
 import styles from './MobileBar.module.scss';
 
@@ -13,6 +13,8 @@ interface MobileBarProps {
 }
 export const MobileBar = ({ setExitModal }: MobileBarProps): React.ReactElement => {
 	const { goTo } = useCustomNavigate();
+	const size = useResizeWindow();
+	const hiddenLogOut = size.width < 450;
 	const navigateHandler = (to: string): void => {
 		goTo(to);
 		return;
@@ -37,7 +39,7 @@ export const MobileBar = ({ setExitModal }: MobileBarProps): React.ReactElement 
 						onClick={(): void => navigateHandler('/settings')}
 						className={styles['mobile-bar_ico']}
 					/>
-					<LogoutIcon onClick={(): void => setExitModal(true)} />
+					{!hiddenLogOut && <LogoutIcon onClick={(): void => setExitModal(true)} />}
 				</div>
 			</div>
 		</div>

@@ -25,7 +25,11 @@ export const Layout = (): React.ReactElement => {
 	};
 	return (
 		<>
-			<MainHeader toggleSideBar={toggleSideBar} setToggleSideBar={setToggleSideBar} />
+			<MainHeader
+				toggleSideBar={toggleSideBar}
+				logOutHandler={logOutHandler}
+				setToggleSideBar={setToggleSideBar}
+			/>
 			<SideBar
 				setExitModal={setExitModal}
 				toggleSideBar={toggleSideBar}

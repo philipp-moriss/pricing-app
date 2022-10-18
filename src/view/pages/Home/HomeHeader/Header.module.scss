@@ -76,7 +76,7 @@
     border: none;
     top: 50px;
     left: 50px;
-    z-index: 2;
+    z-index: 20;
     cursor: pointer;
     display: none;
 
@@ -134,6 +134,9 @@
   gap: 20px;
   width: 100%;
   position: relative;
+  @media (max-width: 900px) {
+    justify-content: center;
+  }
 }
    @media screen and (max-width: 900px) {
      .burger {
