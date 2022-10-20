@@ -1,6 +1,7 @@
 import { Menu, MenuItem } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import ava from 'assets/images/avatar.png';
+import cs from 'classnames';
 import { observer } from 'mobx-react-lite';
 import React, { MouseEventHandler } from 'react';
 import AuthStore from 'store/AuthStore';
@@ -38,12 +39,11 @@ const MainHeader = observer(
 		return (
 			<div className={styles['main-header']}>
 				<div className={styles['main-header-container']}>
-					<div className={styles['burger']} onClick={(): void => setToggleSideBar(!toggleSideBar)}>
-						<button
-							className={`${styles['burger-button']} ${
-								toggleSideBar ? styles['burger-button_position'] : ''
-							}`}
-						>
+					<div
+						className={cs([styles['burger'], { [styles['burger_position']]: toggleSideBar }])}
+						onClick={(): void => setToggleSideBar(!toggleSideBar)}
+					>
+						<button className={styles['burger-button']}>
 							<span
 								className={`${styles['burger-line']} ${
 									toggleSideBar && styles['burger-line-active']
