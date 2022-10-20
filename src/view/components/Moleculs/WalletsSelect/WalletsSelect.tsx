@@ -1,9 +1,19 @@
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
-import { FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
+import {
+	FormControl,
+	FormHelperText,
+	InputLabel,
+	MenuItem,
+	OutlinedInput,
+	Select,
+} from '@mui/material';
 import { SelectProps } from '@mui/material/Select/Select';
 import { SelectChangeEvent } from '@mui/material/Select/SelectInput';
+import cs from 'classnames';
 import React, { useState } from 'react';
 import { WalletModelType } from 'store/Type/models';
+
+import styles from './WalletSelect.module.scss';
 
 interface WalletsSelectProps extends SelectProps<string> {
 	wallets: WalletModelType[] | undefined;
@@ -24,7 +34,8 @@ export const WalletsSelect: React.FC<WalletsSelectProps> = ({
 }): React.ReactElement | null => {
 	if (!wallets) return null;
 
-	const { value } = props;
+	const { value, className } = props;
+	const classNames = cs(styles['input'], { [styles['error']]: error }, className);
 	const copyWallet = showAllWallets ? [{ _id: '1', name: 'ShowAll' }, ...wallets] : [...wallets];
 
 	const [currentWallet, setCurrentWallet] = useState<string>(value ?? '');
@@ -53,6 +64,7 @@ export const WalletsSelect: React.FC<WalletsSelectProps> = ({
 					input={<OutlinedInput label={currentLabel} fullWidth />}
 					label={error ? <ReportProblemIcon fontSize={'small'} /> : currentLabel}
 					error={error}
+					className={classNames}
 					{...props}
 				>
 					{copyWallet.map((wallet) => (
@@ -61,6 +73,7 @@ export const WalletsSelect: React.FC<WalletsSelectProps> = ({
 						</MenuItem>
 					))}
 				</Select>
+				{error && <FormHelperText style={{ color: 'red' }}>{errorMessage}</FormHelperText>}
 			</FormControl>
 		</>
 	);

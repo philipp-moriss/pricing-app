@@ -1,13 +1,25 @@
-import { FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
+import ReportProblemIcon from '@mui/icons-material/ReportProblem';
+import {
+	FormControl,
+	FormHelperText,
+	InputLabel,
+	MenuItem,
+	OutlinedInput,
+	Select,
+} from '@mui/material';
 import { SelectProps } from '@mui/material/Select/Select';
 import { SelectChangeEvent } from '@mui/material/Select/SelectInput';
+import cs from 'classnames';
 import React from 'react';
+
+import styles from './Select.module.scss';
 
 export interface ISelectProps extends SelectProps<string> {
 	data: Date[];
 	value: string;
 	onChange: (event: SelectChangeEvent<string>) => void;
 	errorMessage?: string;
+	error?: boolean;
 }
 
 type Date = {
@@ -20,8 +32,12 @@ export const CustomSelect = ({
 	value,
 	label,
 	onChange,
+	error,
+	className,
+	errorMessage,
 	...props
 }: ISelectProps): React.ReactElement => {
+	const classNames = cs(styles['input'], { [styles['error']]: error }, className);
 	return (
 		<FormControl fullWidth>
 			{label && <InputLabel>{label}</InputLabel>}
@@ -29,6 +45,7 @@ export const CustomSelect = ({
 				multiple={false}
 				value={value}
 				onChange={onChange}
+				className={classNames}
 				input={<OutlinedInput label={label && label} fullWidth />}
 				{...props}
 			>
@@ -38,6 +55,7 @@ export const CustomSelect = ({
 					</MenuItem>
 				))}
 			</Select>
+			{error && <FormHelperText style={{ color: 'red' }}>{errorMessage}</FormHelperText>}
 		</FormControl>
 	);
 };
