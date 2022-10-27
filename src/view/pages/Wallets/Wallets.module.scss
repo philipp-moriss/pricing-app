@@ -5,6 +5,7 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+
   &__wallet-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 0.5fr));
@@ -15,11 +16,8 @@
 
   &__add-wallet-img {
     cursor: pointer;
-    width: 65px;
-    height: 65px;
     transform: rotate(0deg) scale(1);
     transition: .4s ease-in-out;
-    margin-left: 17px;
 
     &:hover {
       -webkit-transform: scale(1.5);
@@ -28,20 +26,53 @@
       transition: .4s ease-in-out;
     }
   }
+
   &__wallet-modal {
     display: flex;
     gap: 20px;
     align-items: center;
     flex-direction: column;
   }
+
+  &__header {
+  }
+
+  &__btn-add-spending-block {
+    position: absolute;
+    width: 150px;
+    right: 20px;
+    top: 100px;
+
+    &__btn {
+      font-size: 12px !important;
+      transform: rotate(0deg) scale(1);
+      transition: .3s ease-in-out;
+
+      &:hover {
+        color: $white;
+        -webkit-transform: scale(1.5);
+        -webkit-transition: .4s ease-in-out;
+        transform: rotate(360deg) scale(1.2);
+        transition: .4s ease-in-out;
+      }
+    }
+
+  }
 }
 
 @media (max-width: 900px) {
   .wallets {
     flex-direction: column;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+    }
+
     &__add-wallet-img {
-      left: 30px;
-      top: 0;
+      margin-left: 17px;
+      width: 70px;
+      height: 70px;
     }
   }
 }
