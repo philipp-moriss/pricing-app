@@ -27,8 +27,11 @@ export const Login = (): React.ReactElement => {
 	const logInHandler = (): void => {
 		setIsLoading(LoadingType.fetching);
 		login({ email: email.value, password: password.value })
-			.then(() => {
-				goTo('/');
+			.then((resp) => {
+				if (!resp) {
+					goTo('/');
+				}
+				alert(resp);
 			})
 			.finally(() => {
 				setIsLoading(LoadingType.success);
