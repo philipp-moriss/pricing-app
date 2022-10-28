@@ -19,6 +19,7 @@ export class WalletStore {
 		this.selectedWalletHistory = [] as SpendingModel[];
 		return;
 	}
+
 	sortSelectedWalletHistory(sortField: string, isUpDirection: boolean): void {
 		this.selectedWalletHistory = this.selectedWalletHistory?.sort((a, b) => {
 			if (sortField === 'category') {
@@ -71,6 +72,7 @@ export class WalletStore {
 		}
 		return;
 	}
+
 	async getCurrencyList(): Promise<void> {
 		try {
 			const { data } = await walletApi.getCurrencyList();
@@ -110,6 +112,7 @@ export class WalletStore {
 		}
 		return;
 	}
+
 	async removeWallet(userId: string, walletId: string): Promise<void> {
 		try {
 			const { data } = await walletApi.removeWallet(userId, walletId);
