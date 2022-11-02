@@ -22,14 +22,13 @@ export const CustomInput = ({
 	...rest
 }: CustomInputProps & TextFieldProps): React.ReactElement => {
 	const classNames = cs(styles['input'], { [styles['error']]: error }, className);
-
 	return (
 		<>
 			<TextField
 				variant="outlined"
 				fullWidth
 				label={error ? <ReportProblemIcon fontSize={'small'} /> : rest.placeholder}
-				error={error}
+				error={error && error}
 				helperText={error && errorMessage}
 				className={classNames}
 				{...rest}

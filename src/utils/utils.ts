@@ -21,9 +21,10 @@ type UseInputReturnType = {
 	onBlur: (e: FocusEvent) => void;
 	isDirty: boolean;
 	valid: UseValidationReturnType;
+	initValue: string | number;
 };
 export const useInput = (
-	initValue: string,
+	initValue: string | number,
 	validations: { isEmpty?: boolean; minLength?: number; maxLength?: number; isEmail?: boolean },
 ): UseInputReturnType => {
 	const [isDirty, setDirty] = useState(false);
@@ -31,12 +32,8 @@ export const useInput = (
 	const valid = useValidation(value, validations);
 	const onChange = (e: any): void => {
 		if (e.currentTarget) {
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			//@ts-ignore
 			setValue(e.currentTarget.value);
 		} else if (e.target) {
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			//@ts-ignore
 			setValue(e.target.value);
 		}
 	};
@@ -45,6 +42,7 @@ export const useInput = (
 	};
 	return {
 		value,
+		initValue,
 		onChange,
 		onBlur,
 		isDirty,

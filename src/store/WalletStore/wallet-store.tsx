@@ -133,6 +133,16 @@ export class WalletStore {
 		return;
 	}
 
+	async updateWallet(walletId: string, wallet: WalletModelType): Promise<void> {
+		try {
+			await walletApi.updateWallet(walletId, wallet);
+			await this.getWallets(wallet.userId);
+		} catch (e) {
+			alert(e);
+		}
+		return;
+	}
+
 	constructor() {
 		makeObservable(this, {
 			wallets: observable,
@@ -148,6 +158,7 @@ export class WalletStore {
 			getCurrentHistory: action,
 			sortSelectedWalletHistory: action,
 			getCurrencyList: action,
+			updateWallet: action,
 		});
 		this.addSpending = this.addSpending.bind(this);
 		this.getCurrentHistory = this.getCurrentHistory.bind(this);
@@ -159,6 +170,7 @@ export class WalletStore {
 		this.getWallets = this.getWallets.bind(this);
 		this.removeWallet = this.removeWallet.bind(this);
 		this.getAllHistory = this.getAllHistory.bind(this);
+		this.updateWallet = this.updateWallet.bind(this);
 	}
 }
 

@@ -30,6 +30,9 @@ export const walletApi = {
 	getCurrencyList(): Promise<AxiosResponse<CurrencyType[]>> {
 		return instance.get<CurrencyType[]>('wallet/currency-list');
 	},
+	updateWallet(walletId: string, wallet: WalletModelType): Promise<AxiosResponse<WalletModelType>> {
+		return instance.put<WalletModelType>('wallet', { walletId, wallet });
+	},
 };
 
 export const historyApi = {
