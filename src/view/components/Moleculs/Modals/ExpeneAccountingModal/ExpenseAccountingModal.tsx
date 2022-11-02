@@ -11,7 +11,7 @@ export const ExpenseAccountingModal = ({
 }: ExpenseAccountingModalType): React.ReactElement => {
 	return (
 		<ModalWrapper closeCallback={(): void => onClose(false)}>
-			<ExpenseAccounting />
+			<ExpenseAccounting className={'expense-accounting__modal-wrapper'} onClose={onClose} />
 		</ModalWrapper>
 	);
 };

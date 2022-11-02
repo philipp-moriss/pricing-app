@@ -36,7 +36,9 @@ export const WalletsSelect: React.FC<WalletsSelectProps> = ({
 
 	const { value, className } = props;
 	const classNames = cs(styles['input'], { [styles['error']]: error }, className);
-	const copyWallet = showAllWallets ? [{ _id: '1', name: 'ShowAll' }, ...wallets] : [...wallets];
+	const copyWallet = showAllWallets
+		? [{ _id: 'showAll', name: 'ShowAll' }, ...wallets]
+		: [...wallets];
 
 	const [currentWallet, setCurrentWallet] = useState<string>(value ?? '');
 

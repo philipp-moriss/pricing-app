@@ -1,4 +1,3 @@
-import { FormControl, InputLabel, MenuItem, OutlinedInput, Select } from '@mui/material';
 import { ReactComponent as ArrowSortIcon } from 'assets/icons/arrow-sort.svg';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect, useState } from 'react';
@@ -6,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import WalletStore from 'store/WalletStore';
 import { convertToDate, dateFormat } from 'utils/utils';
 
+import AuthStore from '../../../../store/AuthStore/auth-store';
 import { Title } from '../../Atoms/Title/Title';
 import { WalletsSelect } from '../WalletsSelect/WalletsSelect';
 import styles from './ExpenseTable.module.scss';
@@ -15,9 +15,10 @@ export const ExpenseTable = observer((): React.ReactElement => {
 		wallets,
 		selectedWalletHistory,
 		getCurrentHistory,
-		clearSelectedWalletHistory,
 		sortSelectedWalletHistory,
+		getAllHistory,
 	} = WalletStore;
+	const { user } = AuthStore;
 	const { t } = useTranslation();
 
 	const [sortField, setSortField] = useState({
@@ -35,9 +36,7 @@ export const ExpenseTable = observer((): React.ReactElement => {
 		sortSelectedWalletHistory(sortField.name, sortField.isUpDirection);
 	}, [sortField.isUpDirection]);
 	useEffect(() => {
-		return () => {
-			clearSelectedWalletHistory();
-		};
+		getAllHistory(user._id);
 	}, []);
 	return (
 		<div className={styles['expense-table']}>
@@ -50,10 +49,11 @@ export const ExpenseTable = observer((): React.ReactElement => {
 							wallets={wallets}
 							showAllWallets={true}
 							onChange={(e): void => {
-								if (!e.target.value) {
-									return clearSelectedWalletHistory();
+								if (e.target.value === 'showAll') {
+									getAllHistory(user._id);
+								} else {
+									getCurrentHistory(e.target.value);
 								}
-								getCurrentHistory(e.target.value);
 							}}
 						/>
 					</div>
