@@ -71,9 +71,9 @@
 
     svg:hover {
       -webkit-transform: scale(1.5);
-      transform: scale(1.5);
-      -webkit-transition: .3s ease-in-out;
-      transition: .3s ease-in-out;
+      transform: rotate(360deg);
+      -webkit-transition: .2s ease-in-out;
+      transition: .2s ease-in-out;
 
       path {
         fill: $blue;

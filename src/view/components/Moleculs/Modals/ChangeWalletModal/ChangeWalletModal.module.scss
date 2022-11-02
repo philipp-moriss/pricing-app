@@ -1,0 +1,38 @@
+@import "src/globalStyles/colors";
+
+.change-wallet {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  &_ico-remove {
+    cursor: pointer;
+  }
+
+  svg:hover {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+
+    path {
+      fill: $blue;
+    }
+  }
+
+  &_input-block {
+    max-width: 600px;
+
+    span {
+      display: inline-block;
+      margin-bottom: 10px;
+      word-break: break-all;
+    }
+  }
+}

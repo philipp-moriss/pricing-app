@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import WalletStore from 'store/WalletStore/wallet-store';
 
@@ -15,7 +15,7 @@ type NewWalletModalType = {
 };
 
 export const NewWalletModal = ({ onClose }: NewWalletModalType): React.ReactElement => {
-	const { getWallets, addWallet, allCurrencyList } = WalletStore;
+	const { getWallets, addWallet, allCurrencyList, getCurrencyList } = WalletStore;
 	const { t } = useTranslation();
 	const name = useInput('', { isEmpty: true });
 	const balance = useInput('', { isEmpty: true });
@@ -32,6 +32,9 @@ export const NewWalletModal = ({ onClose }: NewWalletModalType): React.ReactElem
 		});
 		onClose(false);
 	};
+	useEffect(() => {
+		getCurrencyList();
+	}, []);
 	return (
 		<ModalWrapper
 			callBackSave={saveWallet}
