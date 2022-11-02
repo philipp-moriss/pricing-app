@@ -16,9 +16,10 @@ import styles from './ExpenseAccounting.module.scss';
 
 type ExpenseAccountingType = {
 	onClose?: (value: boolean) => void;
+	className?: string;
 };
 export const ExpenseAccounting = observer(
-	({ onClose }: ExpenseAccountingType): React.ReactElement => {
+	({ onClose, className }: ExpenseAccountingType): React.ReactElement => {
 		const { t } = useTranslation();
 		const { categories } = CategoriesStore;
 		const { addSpending, wallets } = WalletStore;
@@ -45,7 +46,11 @@ export const ExpenseAccounting = observer(
 
 		return (
 			<div className={styles['expense-accounting']}>
-				<div className={styles['expense-accounting__wrapper']}>
+				<div
+					className={`${styles['expense-accounting__wrapper']}${
+						className ? styles[className] : ''
+					}`}
+				>
 					<div className={styles['expense-accounting__body']}>
 						<Title title={t('WHERE_DID_YOU_MONEY_TODAY')} size={'h3'} />
 						<CustomSelect

@@ -19,6 +19,11 @@
       margin-bottom: 20px;
     }
   }
+  &__modal-wrapper {
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
 
   &__body {
     display: flex;
