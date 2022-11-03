@@ -55,7 +55,7 @@ export const ExpenseAccounting = observer(
 						<Title title={t('WHERE_DID_YOU_MONEY_TODAY')} size={'h3'} />
 						<CustomSelect
 							data={categories}
-							label={title.value}
+							label={t('CATEGORIES')}
 							value={title.value}
 							error={title.isDirty && title.valid.isEmpty}
 							errorMessage={t('FIELD_IS_REQUIRED')}
@@ -77,6 +77,7 @@ export const ExpenseAccounting = observer(
 								wallets={wallets}
 								onChange={(e): void => walletId.onChange(e)}
 								onBlur={(e): void => walletId.onBlur(e as unknown as FocusEvent)}
+								placeholder={t('WALLET_SELECTION')}
 								value={walletId.value}
 								error={walletId.isDirty && walletId.valid.isEmpty}
 								errorMessage={t('FIELD_IS_REQUIRED')}

@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import BaseStore from 'store/BaseStore';
-import { LoadingType } from 'store/Type/models';
+import { LoadingEnum } from 'store/Type/models';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { useInput } from 'utils/utils';
 
@@ -25,7 +25,7 @@ export const Login = (): React.ReactElement => {
 
 	const navigate = useNavigate();
 	const logInHandler = (): void => {
-		setIsLoading(LoadingType.fetching);
+		setIsLoading(LoadingEnum.fetching);
 		login({ email: email.value, password: password.value })
 			.then((resp) => {
 				if (!resp) {
@@ -34,7 +34,7 @@ export const Login = (): React.ReactElement => {
 				alert(resp);
 			})
 			.finally(() => {
-				setIsLoading(LoadingType.success);
+				setIsLoading(LoadingEnum.success);
 			});
 	};
 	return (

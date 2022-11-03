@@ -1,17 +1,1 @@
-import { action, makeObservable, observable } from 'mobx';
-import { LoadingType } from 'store/Type/models';
-
-export class BaseStore {
-	isLoading: LoadingType = LoadingType.initial;
-
-	setIsLoading = (isLoading: LoadingType): void => {
-		this.isLoading = isLoading;
-	};
-	constructor() {
-		makeObservable(this, {
-			isLoading: observable,
-			setIsLoading: action,
-		});
-	}
-}
-export default new BaseStore();
+import { action, makeObservable, observable } from 'mobx';import { LoadingEnum, NotificationType } from 'store/Type/models';export class BaseStore {	isLoading: LoadingEnum = LoadingEnum.initial;	notification: NotificationType | undefined = undefined;	switcherNotification = false;	serverResponse: string | undefined = undefined;	setIsLoading = (isLoading: LoadingEnum): void => {		this.isLoading = isLoading;	};	setNotification = (		notification: NotificationType | undefined,		switcherNotification: boolean,		serverResponse: string | undefined,	): void => {		this.switcherNotification = switcherNotification;		this.notification = notification;		this.serverResponse = serverResponse;	};	constructor() {		makeObservable(this, {			isLoading: observable,			notification: observable,			switcherNotification: observable.deep,			serverResponse: observable,			setIsLoading: action,			setNotification: action,		});	}}export default new BaseStore();
