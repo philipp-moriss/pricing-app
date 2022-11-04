@@ -6,6 +6,7 @@ import CategoriesStore from 'store/CategoriesStore';
 import WalletStore from 'store/WalletStore';
 import { useInput } from 'utils/utils';
 
+import BaseStore from '../../../../store/BaseStore/base-store';
 import Button from '../../Atoms/Button/Button';
 import { CustomInput } from '../../Atoms/CustomInput/CustomInput';
 import { CustomSelect } from '../../Atoms/Select/CustomSelect';
@@ -24,6 +25,7 @@ export const ExpenseAccounting = observer(
 		const { categories } = CategoriesStore;
 		const { addSpending, wallets } = WalletStore;
 		const { user } = AuthStore;
+		const { setNotification } = BaseStore;
 
 		const title = useInput('', { isEmpty: true });
 		const amount = useInput('', { isEmpty: true });
@@ -39,8 +41,13 @@ export const ExpenseAccounting = observer(
 					description: description.value,
 					amount: amount.value,
 				},
-			}).then(() => {
-				onClose && onClose(false);
+			}).then((resp) => {
+				if (resp) {
+					setNotification('success', true, 'success added');
+					onClose && onClose(false);
+				} else {
+					setNotification('error', true, 'error request');
+				}
 			});
 		};
 
@@ -55,7 +62,7 @@ export const ExpenseAccounting = observer(
 						<Title title={t('WHERE_DID_YOU_MONEY_TODAY')} size={'h3'} />
 						<CustomSelect
 							data={categories}
-							label={title.value}
+							label={t('CATEGORIES')}
 							value={title.value}
 							error={title.isDirty && title.valid.isEmpty}
 							errorMessage={t('FIELD_IS_REQUIRED')}
@@ -77,6 +84,7 @@ export const ExpenseAccounting = observer(
 								wallets={wallets}
 								onChange={(e): void => walletId.onChange(e)}
 								onBlur={(e): void => walletId.onBlur(e as unknown as FocusEvent)}
+								placeholder={t('WALLET_SELECTION')}
 								value={walletId.value}
 								error={walletId.isDirty && walletId.valid.isEmpty}
 								errorMessage={t('FIELD_IS_REQUIRED')}

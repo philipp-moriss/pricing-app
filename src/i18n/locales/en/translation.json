@@ -80,5 +80,7 @@
   "DELETE_WALLET": "Delete wallet",
   "NAME_WALLET": "Name wallet",
   "BALANCE_FOR_WALLET": "Balance wallet",
-  "CURRENCY_SELECTION": "Currency selection"
+  "CURRENCY_SELECTION": "Currency selection",
+  "CATEGORIES": "Categories",
+  "WALLET_SELECTION": "Wallet selection"
 }
