@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import WalletStore from 'store/WalletStore/wallet-store';
@@ -15,9 +16,9 @@ type NewWalletModalType = {
 	onClose: (value: boolean) => void;
 };
 
-export const NewWalletModal = ({ onClose }: NewWalletModalType): React.ReactElement => {
+export const NewWalletModal = observer(({ onClose }: NewWalletModalType): React.ReactElement => {
 	const { getWallets, addWallet, allCurrencyList, getCurrencyList } = WalletStore;
-	const { notification, switcherNotification, setNotification, serverResponse } = BaseStore;
+	const { setNotification } = BaseStore;
 	const { t } = useTranslation();
 	const name = useInput('', { isEmpty: true });
 	const balance = useInput('', { isEmpty: true });
@@ -29,11 +30,15 @@ export const NewWalletModal = ({ onClose }: NewWalletModalType): React.ReactElem
 			name: name.value,
 			balance: +balance.value,
 			currency: currency.value,
-		}).then(() => {
-			setNotification('success', true, 'some eeeeee');
-			getWallets(user._id);
+		}).then((resp) => {
+			if (resp) {
+				setNotification('success', true, 'some eeeeee');
+				getWallets(user._id);
+				onClose(false);
+			} else {
+				setNotification('error', true, 'some text');
+			}
 		});
-		onClose(false);
 	};
 	useEffect(() => {
 		getCurrencyList();
@@ -78,4 +83,4 @@ export const NewWalletModal = ({ onClose }: NewWalletModalType): React.ReactElem
 			</div>
 		</ModalWrapper>
 	);
-};
+});
