@@ -1,4 +1,3 @@
-export type UserInfoType = { email: string; password: string; id: string };
 export type UserType = {
 	active: boolean;
 	avatarImg: string;
@@ -18,23 +17,6 @@ export type NewUserType = { email: string; password: string; name: string; lastN
 export type CategoryType = {
 	_id: string;
 	value: string;
-};
-
-export type MyCategoriesType = {
-	category: CategoryType;
-	amount: number;
-	date: string;
-	time: string;
-};
-
-export type WalletType = {
-	name: string;
-	id: number;
-	currentCurrency: string;
-	account: number;
-	myCategories: MyCategoriesType[];
-	fullHistory: MyCategoriesType[];
-	totalSpends: number;
 };
 
 export type WalletModelType = {
