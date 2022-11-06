@@ -4,6 +4,7 @@ import {
 	CurrencyType,
 	NewUserType,
 	NewWalletType,
+	SpendDataType,
 	SpendingModel,
 	UserType,
 	WalletModelType,
@@ -66,7 +67,7 @@ export const userApi = {
 	},
 };
 export const spendingApi = {
-	addSpending(data: any): Promise<AxiosResponse<any>> {
+	addSpending(data: SpendDataType): Promise<AxiosResponse<SpendDataType>> {
 		return instance.post('history/spending', data);
 	},
 };

@@ -31,7 +31,7 @@ export const ForgotPassword = (): React.ReactElement => {
 						onBlur={(e): void => email.onBlur(e as unknown as FocusEvent)}
 						placeholder={t('EMAIL')}
 						type={'text'}
-						value={email.value}
+						value={email.value ?? ''}
 						error={email.isDirty && email.valid.emailError}
 						errorMessage={t('INCORRECT_EMAIL')}
 					/>
