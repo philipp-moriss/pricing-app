@@ -41,7 +41,10 @@ export const SideBar = observer(
 							<span>{t('WORK_SPACE')}</span>
 						</div>
 						<div>
-							<ChartIcon className={styles['side-bar_ico']} />
+							<ChartIcon
+								onClick={(): void => navigateHandler('/chart-space')}
+								className={styles['side-bar_ico']}
+							/>
 							<span>{t('CHARTS')}</span>
 						</div>
 						<div onClick={(): void => navigateHandler('/settings')}>
