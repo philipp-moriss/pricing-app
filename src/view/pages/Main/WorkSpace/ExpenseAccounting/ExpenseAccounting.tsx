@@ -5,11 +5,10 @@ import AuthStore from 'store/AuthStore';
 import CategoriesStore from 'store/CategoriesStore';
 import { SpendDataType } from 'store/Type/models';
 import WalletStore from 'store/WalletStore';
-import { Autosuggest } from 'view/components/UiComponent/Autosuggest/Autosuggest';
-import { Button } from 'view/components/UiComponent/Button/Button';
-import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
-import { Title } from 'view/components/UiComponent/Title/Title';
 
+import Button from '../../../../components/Atoms/Button/Button';
+import { CustomInput } from '../../../../components/Atoms/CustomInput/CustomInput';
+import { Title } from '../../../../components/Atoms/Title/Title';
 import styles from './ExpenseAccounting.module.scss';
 
 export const ExpenseAccounting = observer((): React.ReactElement => {
@@ -37,16 +36,6 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 			<div className={styles['expense-accounting__wrapper']}>
 				<div className={styles['expense-accounting__body']}>
 					<Title title={t('WHERE_DID_YOU_MONEY_TODAY')} size={'h3'} />
-					<Autosuggest
-						label={t('CATEGORY_SELECTION')}
-						options={categories}
-						callBack={(value): void => {
-							setSpendData({
-								...spendData,
-								spending: { ...spendData.spending, title: value.label },
-							});
-						}}
-					/>
 					<CustomInput
 						label={t('THE_AMOUNT_YOU_SPEND')}
 						type={'number'}
@@ -90,7 +79,7 @@ export const ExpenseAccounting = observer((): React.ReactElement => {
 						name={'description'}
 						rows={3}
 					/>
-					<Button textBtn={t('SAVE')} onClick={saveHandler} />
+					<Button onClick={saveHandler} />
 				</div>
 			</div>
 		</div>
