@@ -1,18 +1,1 @@
-import { ThemeProvider } from '@mui/material';
-import { StyledEngineProvider } from '@mui/styled-engine-sc';
-import React from 'react';
-
-import { Router } from './router/Router';
-import { themeOptions } from './theme';
-
-const App = (): React.ReactElement => {
-	return (
-		<StyledEngineProvider injectFirst>
-			<ThemeProvider theme={themeOptions}>
-				<Router />
-			</ThemeProvider>
-		</StyledEngineProvider>
-	);
-};
-
-export default App;
+import { ThemeProvider } from '@mui/material';import { StyledEngineProvider } from '@mui/styled-engine-sc';import { observer } from 'mobx-react-lite';import React from 'react';import { Router } from './router/Router';import { themeOptions } from './theme';import { Notification } from './view/components/Atoms/Notification/Notification';const App = observer((): React.ReactElement => {	return (		<StyledEngineProvider injectFirst>			<ThemeProvider theme={themeOptions}>				<Router />			</ThemeProvider>			<Notification />		</StyledEngineProvider>	);});export default App;

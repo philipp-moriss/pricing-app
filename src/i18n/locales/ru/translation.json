@@ -80,5 +80,8 @@
   "DELETE_WALLET": "Удалить кошелек",
   "NAME_WALLET": "Имя кошелька",
   "BALANCE_FOR_WALLET": "Баланс кошелька",
-  "CURRENCY_SELECTION": "Выбор валюты"
+  "CURRENCY_SELECTION": "Выбор валюты",
+  "CATEGORIES": "Категории",
+  "WALLET_SELECTION": "Выбор кошелька",
+  "THE_OPERATION_WAS_SUCCESSFUL": "Операция прошла успешно"
 }

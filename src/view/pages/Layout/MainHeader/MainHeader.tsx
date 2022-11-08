@@ -23,15 +23,15 @@ const MainHeader = observer(
 
 		const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 		const open = Boolean(anchorEl);
-		const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+		const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
 			if (showAvatarMenu) {
 				setAnchorEl(event.currentTarget);
 			}
 		};
-		const handleClose = () => {
+		const handleClose = (): void => {
 			setAnchorEl(null);
 		};
-		const LogOut = () => {
+		const LogOut = (): void => {
 			handleClose();
 			logOutHandler();
 		};

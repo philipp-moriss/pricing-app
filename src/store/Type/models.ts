@@ -1,4 +1,3 @@
-export type UserInfoType = { email: string; password: string; id: string };
 export type UserType = {
 	active: boolean;
 	avatarImg: string;
@@ -20,23 +19,6 @@ export type CategoryType = {
 	value: string;
 };
 
-export type MyCategoriesType = {
-	category: CategoryType;
-	amount: number;
-	date: string;
-	time: string;
-};
-
-export type WalletType = {
-	name: string;
-	id: number;
-	currentCurrency: string;
-	account: number;
-	myCategories: MyCategoriesType[];
-	fullHistory: MyCategoriesType[];
-	totalSpends: number;
-};
-
 export type WalletModelType = {
 	_id: string;
 	userId: string;
@@ -50,13 +32,17 @@ export type WalletModelType = {
 	castCurrency: CurrencyType[];
 	createdAt: string;
 };
-export enum LoadingType {
+
+export enum LoadingEnum {
 	initial = 'initial',
 	fetching = 'fetching',
 	success = 'success',
 	error = 'error',
 	loadingMore = 'loadingMore',
 }
+
+export type NotificationType = 'success' | 'info' | 'warning' | 'error';
+
 export type CategoryModelType = {
 	_id: string;
 	value: string;
