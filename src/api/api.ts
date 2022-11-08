@@ -40,8 +40,8 @@ export const historyApi = {
 	getCurrentHistory(walletId: string): Promise<AxiosResponse<SpendingModel[]>> {
 		return instance.get<SpendingModel[]>(`history?walletId=${walletId}`);
 	},
-	getAllHistory(walletId: string): Promise<AxiosResponse<SpendingModel[]>> {
-		return instance.get<SpendingModel[]>(`history/allUserHistory?walletId=${walletId}`);
+	getAllHistory(): Promise<AxiosResponse<SpendingModel[]>> {
+		return instance.get<SpendingModel[]>(`history/allUserHistory`);
 	},
 };
 
