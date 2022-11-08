@@ -67,5 +67,18 @@
   "ADD_COMMENT": "Add comment",
   "DO_YOU_REALLY_WANT_DELETE_YOUR_WALLET": "Do you want delete your wallet?",
   "CREATE_WALLET": "Create wallet",
-  "SELECT_A_WALLET_TO_VIEW_THE_HISTORY": "Select a wallet to view the history"
+  "SELECT_A_WALLET_TO_VIEW_THE_HISTORY": "Select a wallet to view the history",
+  "INCORRECT_EMAIL": "Incorrect email",
+  "PASSWORD_TOO_LITTLE": "Password too little",
+  "FIELD_IS_REQUIRED": "Field is required",
+  "CREATE_A_NEW_WALLET": "Create a new wallet",
+  "NOT_SAVE": "Not save",
+  "ADD_SPENDING": "Change wallet",
+  "CHANGE_WALLET": "Change wallet",
+  "CURRENT_NAME": "Current balance",
+  "CURRENT_BALANCE": "Current wallet",
+  "DELETE_WALLET": "Delete wallet",
+  "NAME_WALLET": "Name wallet",
+  "BALANCE_FOR_WALLET": "Balance wallet",
+  "CURRENCY_SELECTION": "Currency selection"
 }

@@ -1,0 +1,9 @@
+@import "src/globalStyles/colors";
+
+
+.error {
+  fieldset {
+    border: none;
+    box-shadow: 0 0 8px 0 $red;
+  }
+}

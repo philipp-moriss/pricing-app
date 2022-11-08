@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import BaseStore from 'store/BaseStore';
 import { LoadingType } from 'store/Type/models';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
 import { useInput } from 'utils/utils';
-import { Button } from 'view/components/UiComponent/Button/Button';
-import { CustomInput } from 'view/components/UiComponent/CustomInput/CustomInput';
-import { CustomLink } from 'view/components/UiComponent/Link/Link';
-import { Title } from 'view/components/UiComponent/Title/Title';
 
 import logo from '../../../assets/logo/logo-pony-web.svg';
 import AuthStore from '../../../store/AuthStore/auth-store';
+import Button from '../../components/Atoms/Button/Button';
+import { CustomInput } from '../../components/Atoms/CustomInput/CustomInput';
+import { CustomLink } from '../../components/Atoms/Link/Link';
+import { Title } from '../../components/Atoms/Title/Title';
 import styles from './Login.module.scss';
 
 export const Login = (): React.ReactElement => {
@@ -28,8 +27,11 @@ export const Login = (): React.ReactElement => {
 	const logInHandler = (): void => {
 		setIsLoading(LoadingType.fetching);
 		login({ email: email.value, password: password.value })
-			.then(() => {
-				goTo('/');
+			.then((resp) => {
+				if (!resp) {
+					goTo('/');
+				}
+				alert(resp);
 			})
 			.finally(() => {
 				setIsLoading(LoadingType.success);
@@ -48,7 +50,7 @@ export const Login = (): React.ReactElement => {
 						type={'text'}
 						value={email.value}
 						error={email.isDirty && email.valid.emailError}
-						errorMessage={<span>Incorrect email </span>}
+						errorMessage={t('INCORRECT_EMAIL')}
 					/>
 					<CustomInput
 						value={password.value}
@@ -57,24 +59,23 @@ export const Login = (): React.ReactElement => {
 						placeholder={t('PASSWORD')}
 						type={'text'}
 						error={password.isDirty && password.valid.minLengthError}
-						errorMessage={<span>Password too little</span>}
+						errorMessage={t('PASSWORD_TOO_LITTLE')}
 					/>
 				</div>
 				<div className={styles['login-btn-block']}>
 					<Button
-						disabled={
-							(password.isDirty && password.valid.minLengthError) ||
-							(email.isDirty && email.valid.emailError)
-						}
+						disabled={password.valid.minLengthError || email.valid.emailError}
 						onClick={logInHandler}
-						textBtn={t('LOG_IN')}
-					/>
+					>
+						{t('LOG_IN')}
+					</Button>
 					<Button
 						onClick={(): void => {
 							navigate('/new-user');
 						}}
-						textBtn={t('NEW_USER')}
-					/>
+					>
+						{t('NEW_USER')}
+					</Button>
 				</div>
 				<div className={styles['login__link_block']}>
 					<CustomLink

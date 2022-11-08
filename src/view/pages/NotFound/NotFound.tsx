@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 import page404Image from '../../../assets/backgrounds/404-error.png';
-import { Button } from '../../components/UiComponent/Button/Button';
+import Button from '../../components/Atoms/Button/Button';
 import styles from './NotFound.module.scss';
 
 export const NotFound = (): React.ReactElement => {
@@ -19,7 +19,7 @@ export const NotFound = (): React.ReactElement => {
 						'THE_PAGE_YOU_ARE_LOOKING_FOR_MIGHT_HAVE_BEEN_REMOVED_HAD_ITS_NAME_CHANGED_OR_IS_TEMPORARILY_UNAVAILABLE',
 					)}
 				</span>
-				<Button onClick={(): void => navigate('/')} textBtn={t('BACK_TO_HOME')} />
+				<Button onClick={(): void => navigate('/')}>{t('BACK_TO_HOME')}</Button>
 			</div>
 		</div>
 	);

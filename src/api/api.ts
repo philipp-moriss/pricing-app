@@ -30,11 +30,17 @@ export const walletApi = {
 	getCurrencyList(): Promise<AxiosResponse<CurrencyType[]>> {
 		return instance.get<CurrencyType[]>('wallet/currency-list');
 	},
+	updateWallet(walletId: string, wallet: WalletModelType): Promise<AxiosResponse<WalletModelType>> {
+		return instance.put<WalletModelType>('wallet', { walletId, wallet });
+	},
 };
 
 export const historyApi = {
 	getCurrentHistory(walletId: string): Promise<AxiosResponse<SpendingModel[]>> {
 		return instance.get<SpendingModel[]>(`history?walletId=${walletId}`);
+	},
+	getAllHistory(walletId: string): Promise<AxiosResponse<SpendingModel[]>> {
+		return instance.get<SpendingModel[]>(`history/allUserHistory?walletId=${walletId}`);
 	},
 };
 

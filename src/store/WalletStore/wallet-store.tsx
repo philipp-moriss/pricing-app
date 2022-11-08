@@ -1,6 +1,12 @@
 import { historyApi, spendingApi, walletApi } from 'api/api';
 import { action, makeObservable, observable } from 'mobx';
-import { CurrencyType, NewWalletType, SpendingModel, WalletModelType } from 'store/Type/models';
+import {
+	CurrencyType,
+	NewWalletType,
+	SpendDataType,
+	SpendingModel,
+	WalletModelType,
+} from 'store/Type/models';
 import { convertToDate } from 'utils/utils';
 
 export class WalletStore {
@@ -9,10 +15,11 @@ export class WalletStore {
 	userId = '';
 	allCurrencyList: CurrencyType[] | undefined;
 
-	clearSelectedWalletHistory(): void {
-		this.selectedWalletHistory = [] as SpendingModel[];
-		return;
-	}
+	/*	clearSelectedWalletHistory(): void {
+            this.selectedWalletHistory = [] as SpendingModel[];
+            return;
+        }*/
+
 	sortSelectedWalletHistory(sortField: string, isUpDirection: boolean): void {
 		this.selectedWalletHistory = this.selectedWalletHistory?.sort((a, b) => {
 			if (sortField === 'category') {
@@ -38,7 +45,7 @@ export class WalletStore {
 		return;
 	}
 
-	async addSpending(data: any): Promise<void> {
+	async addSpending(data: SpendDataType): Promise<void> {
 		try {
 			await spendingApi.addSpending(data);
 		} catch (e) {
@@ -65,6 +72,7 @@ export class WalletStore {
 		}
 		return;
 	}
+
 	async getCurrencyList(): Promise<void> {
 		try {
 			const { data } = await walletApi.getCurrencyList();
@@ -78,6 +86,16 @@ export class WalletStore {
 	async getCurrentHistory(walletId: string): Promise<void> {
 		try {
 			const { data } = await historyApi.getCurrentHistory(walletId);
+			this.selectedWalletHistory = data;
+		} catch (e) {
+			alert(e);
+		}
+		return;
+	}
+
+	async getAllHistory(walletId: string): Promise<void> {
+		try {
+			const { data } = await historyApi.getAllHistory(walletId);
 			this.selectedWalletHistory = data;
 		} catch (e) {
 			alert(e);
@@ -104,10 +122,21 @@ export class WalletStore {
 		}
 		return;
 	}
+
 	async removeWallet(userId: string, walletId: string): Promise<void> {
 		try {
 			const { data } = await walletApi.removeWallet(userId, walletId);
 			await this.getWallets(userId);
+		} catch (e) {
+			alert(e);
+		}
+		return;
+	}
+
+	async updateWallet(walletId: string, wallet: WalletModelType): Promise<void> {
+		try {
+			await walletApi.updateWallet(walletId, wallet);
+			await this.getWallets(wallet.userId);
 		} catch (e) {
 			alert(e);
 		}
@@ -126,10 +155,10 @@ export class WalletStore {
 			getWallets: action,
 			addWallet: action,
 			removeWallet: action,
-			clearSelectedWalletHistory: action,
 			getCurrentHistory: action,
 			sortSelectedWalletHistory: action,
 			getCurrencyList: action,
+			updateWallet: action,
 		});
 		this.addSpending = this.addSpending.bind(this);
 		this.getCurrentHistory = this.getCurrentHistory.bind(this);
@@ -140,7 +169,8 @@ export class WalletStore {
 		this.getWallet = this.getWallet.bind(this);
 		this.getWallets = this.getWallets.bind(this);
 		this.removeWallet = this.removeWallet.bind(this);
-		this.clearSelectedWalletHistory = this.clearSelectedWalletHistory.bind(this);
+		this.getAllHistory = this.getAllHistory.bind(this);
+		this.updateWallet = this.updateWallet.bind(this);
 	}
 }
 
