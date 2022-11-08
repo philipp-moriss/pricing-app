@@ -1,0 +1,87 @@
+@import "src/globalStyles/colors";
+
+.wallet {
+  &__wrapper {
+    width: 100%;
+    min-width: 300px;
+    background: $white;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06), 0px 1px 1px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__value {
+    justify-self: right;
+    &-out {
+      max-width: 100px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+  }
+
+  &__body {
+    color: $black;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    padding: 20px;
+    &__item-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+      border-bottom: 1px solid $gray-dark-light;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      span {
+        &:first-child {
+          color: $gray;
+        }
+      }
+
+    }
+    span {
+      font-size: 25px;
+
+      @media (max-width : 1200px) {
+         font-size: 20px;
+      }
+
+      @media (max-width : 600px) {
+        font-size: 16px;
+      }
+    }
+    &_ico {
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+    }
+
+    svg:hover {
+      -webkit-transform: scale(1.5);
+      transform: rotate(360deg);
+      -webkit-transition: .2s ease-in-out;
+      transition: .2s ease-in-out;
+
+      path {
+        fill: $blue;
+      }
+    }
+  }
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}

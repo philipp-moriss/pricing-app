@@ -1,3 +1,4 @@
+import { SelectChangeEvent } from '@mui/material/Select/SelectInput';
 import { ChangeEvent, useEffect, useState } from 'react';
 
 export const dateFormat = (date: Date): string => {
@@ -10,32 +11,38 @@ export const getDateFormatTime = (date: Date): string => {
 export const convertToDate = (dateString: string): Date => {
 	return new Date(dateString);
 };
-export const validateEmail = (email: string) => {
+export const validateEmail = (email: string): boolean => {
 	const regex = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
 	return regex.test(email.toLowerCase());
 };
 type UseInputReturnType = {
 	value: string;
-	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+	onChange: (e: any) => void;
 	onBlur: (e: FocusEvent) => void;
 	isDirty: boolean;
 	valid: UseValidationReturnType;
+	initValue: string | number;
 };
 export const useInput = (
-	initValue: string,
-	validations: { isEmpty: boolean; minLength?: number; maxLength?: number; isEmail?: boolean },
+	initValue: string | number,
+	validations: { isEmpty?: boolean; minLength?: number; maxLength?: number; isEmail?: boolean },
 ): UseInputReturnType => {
 	const [isDirty, setDirty] = useState(false);
 	const [value, setValue] = useState<string>('');
 	const valid = useValidation(value, validations);
-	const onChange = (e: ChangeEvent<HTMLInputElement>): void => {
-		setValue(e.currentTarget.value);
+	const onChange = (e: any): void => {
+		if (e.currentTarget) {
+			setValue(e.currentTarget.value);
+		} else if (e.target) {
+			setValue(e.target.value);
+		}
 	};
 	const onBlur = (e: FocusEvent): void => {
 		setDirty(true);
 	};
 	return {
 		value,
+		initValue,
 		onChange,
 		onBlur,
 		isDirty,
@@ -53,7 +60,7 @@ type UseValidationReturnType = {
 
 export const useValidation = (
 	value: string,
-	validations: { isEmpty: boolean; minLength?: number; maxLength?: number; isEmail?: boolean },
+	validations: { isEmpty?: boolean; minLength?: number; maxLength?: number; isEmail?: boolean },
 ): UseValidationReturnType => {
 	const [isEmpty, setEmpty] = useState(true);
 	const [minLengthError, setMinLengthError] = useState(false);

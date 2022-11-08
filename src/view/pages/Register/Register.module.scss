@@ -1,0 +1,43 @@
+@import "src/globalStyles/colors";
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $gray-light;
+  flex-direction: column;
+}
+
+.logo {
+  min-width: 80px;
+  max-width: 120px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.login {
+  max-width: 480px;
+  padding: 30px 80px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin: 20px;
+  background: #FFFFFF;
+  background: $white;
+  -webkit-box-shadow: 0px 0px 36px 21px rgba(34, 60, 80, 0.15);
+  -moz-box-shadow: 0px 0px 36px 21px rgba(34, 60, 80, 0.15);
+  box-shadow: 0px 0px 36px 21px rgba(34, 60, 80, 0.15);
+
+  &-input-block {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+  }
+
+}

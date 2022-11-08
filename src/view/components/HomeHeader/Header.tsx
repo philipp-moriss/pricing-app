@@ -1,10 +1,10 @@
 import React, { FormEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCustomNavigate } from 'utils/hooks/useCustomNav';
-import { Button } from 'view/components/UiComponent/Button/Button';
-import { Select } from 'view/components/UiComponent/Select/Select';
+import Button from 'view/components/Atoms/Button/Button';
+import { LanguageSelect } from 'view/components/Moleculs/LanguageSelect/LanguageSelect';
+import { NavBar } from 'view/pages/Layout/NavBar/NavBar';
 
-import { NavBar } from '../NavBar/NavBar';
 import styles from './Header.module.scss';
 
 export const Header = (): React.ReactElement => {
@@ -30,11 +30,7 @@ export const Header = (): React.ReactElement => {
 			</button>
 			<div className={styles['header__language-block']}>
 				<div>{t('CHANGE_LANGUAGE')}</div>
-				<Select
-					className={'button__change-language'}
-					onChange={changeLanguageHandler}
-					options={['EN', 'RU']}
-				/>
+				<LanguageSelect />
 			</div>
 			<div className={`${styles['header-wrapper']} ${!show && styles['header-wrapper-show']}`}>
 				<div className={styles['header-logo']}>
@@ -80,16 +76,16 @@ export const Header = (): React.ReactElement => {
 				<NavBar />
 				<div className={styles['button-container']}>
 					<Button
-						textBtn={t('LOGIN')}
 						onClick={(): void => {
 							goTo('/login');
 						}}
-					/>
-					<Button
-						textBtn={t('SING_UP')}
-						onClick={(): void => goTo('/new-user')}
-						style={{ backgroundColor: '#582EFF' }}
-					/>
+					>
+						{t('LOGIN')}
+					</Button>
+					<Button onClick={(): void => goTo('/new-user')} style={{ backgroundColor: '#582EFF' }}>
+						{' '}
+						{t('SING_UP')}
+					</Button>
 				</div>
 			</div>
 		</header>

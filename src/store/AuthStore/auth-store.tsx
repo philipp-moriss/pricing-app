@@ -24,14 +24,15 @@ export class AuthStore {
 		}
 	}
 
-	async login(userData: { email: string; password: string }): Promise<void> {
+	async login(userData: { email: string; password: string }): Promise<any> {
 		try {
 			const { data } = await authApi.login(userData.email, userData.password);
 			localStorage.setItem('token', data.token);
 			this.setAuth(true);
 			await this.getUser();
-		} catch (e) {
+		} catch (e: any) {
 			console.dir(e);
+			return e.response.data.message;
 		}
 	}
 
