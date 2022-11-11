@@ -38,10 +38,7 @@
   }
 
   &__btn-add-spending-block {
-    position: absolute;
     width: 150px;
-    right: 20px;
-    top: 100px;
 
     &__btn {
       font-size: 12px !important;
@@ -67,6 +64,7 @@
     &__header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
 
     &__add-wallet-img {
