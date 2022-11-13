@@ -17,6 +17,7 @@
 
   &__value {
     justify-self: right;
+    transition: .1s;
     &-out {
       max-width: 100px;
       text-overflow: ellipsis;
@@ -24,6 +25,12 @@
       overflow: hidden;
     }
 
+  }
+
+  &__value-background {
+    transition: .1s;
+    transform: scale(1.2);
+    color: $orange;
   }
 
   &__body {
@@ -34,6 +41,7 @@
     width: 100%;
     position: relative;
     padding: 20px;
+
     &__item-wrapper {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -51,17 +59,19 @@
       }
 
     }
+
     span {
       font-size: 25px;
 
-      @media (max-width : 1200px) {
-         font-size: 20px;
+      @media (max-width: 1200px) {
+        font-size: 20px;
       }
 
-      @media (max-width : 600px) {
+      @media (max-width: 600px) {
         font-size: 16px;
       }
     }
+
     &_ico {
       position: absolute;
       top: 0;
@@ -80,6 +90,7 @@
       }
     }
   }
+
   img {
     width: 200px;
     height: 200px;
