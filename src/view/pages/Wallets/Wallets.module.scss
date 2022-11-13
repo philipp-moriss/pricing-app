@@ -42,15 +42,15 @@
 
     &__btn {
       font-size: 12px !important;
-      transform: rotate(0deg) scale(1);
-      transition: .3s ease-in-out;
+      transform: scale(1);
+      transition: .1s ease-in-out;
 
       &:hover {
         color: $white;
-        -webkit-transform: scale(1.5);
-        -webkit-transition: .4s ease-in-out;
-        transform: rotate(360deg) scale(1.2);
-        transition: .4s ease-in-out;
+        -webkit-transform: scale(1.2);
+        -webkit-transition: .1s ease-in-out;
+        transform: scale(1.2);
+        transition: .1s ease-in-out;
       }
     }
 
