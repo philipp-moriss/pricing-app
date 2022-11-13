@@ -18,6 +18,13 @@
  * Released under the MIT License
  */
 
+/*!
+ * chartjs-plugin-autocolors v0.0.7
+ * https://github.com/kurkle/chartjs-plugin-autocolors#readme
+ * (c) 2022 Jukka Kurkela
+ * Released under the MIT License
+ */
+
 /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
 
 /**
@@ -106,3 +113,5 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
+//! moment.js
