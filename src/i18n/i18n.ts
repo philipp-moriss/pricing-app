@@ -35,7 +35,7 @@ i18n
 			escapeValue: false,
 		},
 		resources,
-		lng: localStorage.getItem('i18nextLng') || 'EN',
+		lng: localStorage.getItem('i18nextLng') || 'RU',
 	});
 
 export default i18n;

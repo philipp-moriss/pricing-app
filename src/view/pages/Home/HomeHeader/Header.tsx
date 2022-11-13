@@ -26,7 +26,7 @@ export const Header = (): React.ReactElement => {
 				<span className={`${styles['burger-line']} ${!show && styles['burger-line-active']}`} />
 			</button>
 			<div className={styles['header__language-block']}>
-				<div>{t('CHANGE_LANGUAGE')}</div>
+				{/*			<div>{t('CHANGE_LANGUAGE')}</div>*/}
 				<LanguageSelect />
 			</div>
 			<div className={`${styles['header-wrapper']} ${!show && styles['header-wrapper-show']}`}>

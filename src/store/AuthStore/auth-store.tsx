@@ -11,6 +11,7 @@ export class AuthStore {
 		this.user = userData;
 		this.setAuth(true);
 	}
+
 	setAuth(auth: boolean): void {
 		this.isAuth = auth;
 	}
@@ -30,8 +31,8 @@ export class AuthStore {
 			localStorage.setItem('token', data.token);
 			this.setAuth(true);
 			await this.getUser();
+			return 'ok';
 		} catch (e: any) {
-			console.dir(e);
 			return e.response.data.message;
 		}
 	}
@@ -49,10 +50,10 @@ export class AuthStore {
 
 	async registration(userData: NewUserType): Promise<any> {
 		try {
-			const { data } = await authApi.registration(userData);
-			return data;
+			await authApi.registration(userData);
+			return 'ok';
 		} catch (e: any) {
-			alert(e.response.data.message);
+			return e.response.data.message;
 		}
 		return;
 	}

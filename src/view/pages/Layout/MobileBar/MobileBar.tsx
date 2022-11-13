@@ -11,6 +11,7 @@ import styles from './MobileBar.module.scss';
 interface MobileBarProps {
 	setExitModal: (value: boolean) => void;
 }
+
 export const MobileBar = ({ setExitModal }: MobileBarProps): React.ReactElement => {
 	const { goTo } = useCustomNavigate();
 	const size = useResizeWindow();
@@ -33,13 +34,17 @@ export const MobileBar = ({ setExitModal }: MobileBarProps): React.ReactElement 
 						className={styles['mobile-bar_ico']}
 					/>
 
-					<ChartIcon className={styles['mobile-bar_ico']} />
+					<ChartIcon
+						onClick={(): void => navigateHandler('/chart-space')}
+						className={styles['mobile-bar_ico']}
+					/>
 
 					<SettingIcon
 						onClick={(): void => navigateHandler('/settings')}
 						className={styles['mobile-bar_ico']}
 					/>
 					{!hiddenLogOut && <LogoutIcon onClick={(): void => setExitModal(true)} />}
+					<LogoutIcon onClick={(): void => setExitModal(true)} />
 				</div>
 			</div>
 		</div>
