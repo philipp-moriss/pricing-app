@@ -1,4 +1,3 @@
-import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import {
 	FormControl,
 	FormHelperText,
@@ -38,6 +37,7 @@ export const CustomSelect = ({
 	...props
 }: ISelectProps): React.ReactElement => {
 	const classNames = cs(styles['input'], { [styles['error']]: error }, className);
+
 	return (
 		<FormControl fullWidth>
 			{label && <InputLabel>{label}</InputLabel>}

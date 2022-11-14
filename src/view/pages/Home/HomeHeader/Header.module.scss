@@ -65,6 +65,26 @@
       margin-top: 5px;
     }
   }
+
+  &__btn-sing-up {
+    background: none !important;
+    border: 1px solid $orange !important;
+    color: $white;
+
+    &:hover {
+      color: $blue !important;
+    }
+  }
+
+  &__btn-login {
+    background: none !important;
+    border: 1px solid $orange !important;
+    color: $white;
+
+    &:hover {
+      color: $blue !important;
+    }
+  }
 }
 
 .burger {

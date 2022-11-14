@@ -76,6 +76,7 @@ export const Home = (): React.ReactElement => {
 						onClick={(): void => {
 							goTo('/new-user');
 						}}
+						className={styles['get-app__btn-sing_up']}
 					>
 						{t('SING_UP')}
 					</Button>

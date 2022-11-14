@@ -8,12 +8,14 @@
   background: $gray-light;
   flex-direction: column;
 }
+
 .logo {
   min-width: 80px;
   max-width: 120px;
   width: 100%;
   margin-bottom: 50px;
 }
+
 .login {
   max-width: 480px;
   height: 474px;
@@ -29,6 +31,7 @@
   -moz-box-shadow: 0px 0px 36px 21px rgba(34, 60, 80, 0.15);
   box-shadow: 0px 0px 36px 21px rgba(34, 60, 80, 0.15);
   border-radius: 8px;
+
   &-input-block {
     display: flex;
     flex-direction: column;
@@ -56,17 +59,11 @@
     }
   }
 }
-@media screen and (max-width: 900px) {
-  .login {
-    &-title {
-      margin-bottom: 0;
-    }
-  }
-}
+
 @media screen and (max-width: 500px) {
   .login {
     padding: 30px 40px;
-    margin: 0;
+    margin: 15px;
     width: auto;
   }
 }

@@ -39,10 +39,11 @@ export const Header = (): React.ReactElement => {
 						onClick={(): void => {
 							goTo('/login');
 						}}
+						className={styles['header__btn-login']}
 					>
 						{t('LOGIN')}
 					</Button>
-					<Button onClick={(): void => goTo('/new-user')} color={'secondary'}>
+					<Button onClick={(): void => goTo('/new-user')} className={styles['header__btn-sing-up']}>
 						{t('SING_UP')}
 					</Button>
 				</div>
