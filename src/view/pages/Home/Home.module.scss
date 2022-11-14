@@ -1,65 +1,74 @@
 @import "src/globalStyles/colors";
 
-.home-container{
-	padding: 100px 20px 0 20px;
+.home-container {
+  padding: 100px 20px 0 20px;
 }
 
 
-.how-work{
-	padding: 88px 0 30px 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+.how-work {
+  padding: 88px 0 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
-	&-title{
-		margin-bottom: 40px;
-	}
+  &-title {
+    margin-bottom: 40px;
+  }
 
-	.cards-inner{
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin-bottom: 29px;
+  .cards-inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 29px;
 
-		@media (max-width: 1000px) {
-			flex-direction: column;
-		}
-	}
+    @media (max-width: 1000px) {
+      flex-direction: column;
+    }
+  }
 }
 
 
 .get-app {
-	background-color: $green;
-	padding: 131px 0 80px 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  background-color: $blue;
+  padding: 131px 0 80px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-	@media (max-width: 700px) {
-		padding: 80px 0 60px 0;
-	}
+  @media (max-width: 700px) {
+    padding: 80px 0 60px 0;
+  }
 
-	&-inner {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+  &-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-text {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+
+    @media (max-width: 700px) {
+      font-size: 20px;
     }
+  }
 
-	&-text{
-		font-family: 'Work Sans';
-		font-style: normal;
-		font-weight: 400;
-		font-size: 30px;
-		line-height: 35px;
-		text-align: center;
-		color: #FFFFFF;
-		margin-bottom: 20px;
+  &__btn-sing_up {
+      background: $orange;
+      color: $white;
 
-		@media (max-width: 700px) {
-			font-size: 20px;
-		}
-	}
+      &:hover {
+        color: $yellowUK !important;
+      }
+    }
 }

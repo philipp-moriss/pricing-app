@@ -1,3 +1,4 @@
+import cs from 'classnames';
 import React from 'react';
 
 import styles from './Title.module.scss';
@@ -9,17 +10,18 @@ export const Title = ({
 	children,
 	...props
 }: TitleProps): React.ReactElement => {
+	const classNames = cs(styles['title'], className);
 	switch (size) {
 		case 'h1': {
 			return (
-				<h1 className={`${styles['title']} ${className}`} {...props}>
+				<h1 className={classNames} {...props}>
 					{title ?? children}
 				</h1>
 			);
 		}
 		case 'h2': {
 			return (
-				<h2 className={`${styles['title']} ${className}`} {...props}>
+				<h2 className={classNames} {...props}>
 					{title ?? children}
 				</h2>
 			);
@@ -36,21 +38,21 @@ export const Title = ({
 		}
 		case 'h4': {
 			return (
-				<h4 className={`${styles['title']} ${className}`} {...props}>
+				<h4 className={classNames} {...props}>
 					{title ?? children}
 				</h4>
 			);
 		}
 		case 'h5': {
 			return (
-				<h5 className={`${styles['title']} ${className}`} {...props}>
+				<h5 className={classNames} {...props}>
 					{title ?? children}
 				</h5>
 			);
 		}
 		default: {
 			return (
-				<h3 className={`${styles['title']} ${className}`} {...props}>
+				<h3 className={classNames} {...props}>
 					{title ?? children}
 				</h3>
 			);
