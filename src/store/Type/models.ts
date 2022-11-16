@@ -40,7 +40,6 @@ export enum LoadingEnum {
 	error = 'error',
 	loadingMore = 'loadingMore',
 }
-
 export type NotificationType = 'success' | 'info' | 'warning' | 'error';
 
 export type CategoryModelType = {
