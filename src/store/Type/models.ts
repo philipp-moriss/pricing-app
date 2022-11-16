@@ -79,6 +79,11 @@ export type SpendDataType = {
 	};
 };
 
+export type ParamsToChartDate = {
+	year?: string;
+	walletId?: string;
+};
+
 export type CurrencyType = {
 	value: string;
 	_id: string;

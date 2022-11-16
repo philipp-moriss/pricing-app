@@ -1,9 +1,11 @@
 import { instance } from 'api/config';
-import { AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import {
+	ChartDataType,
 	CurrencyType,
 	NewUserType,
 	NewWalletType,
+	ParamsToChartDate,
 	SpendDataType,
 	SpendingModel,
 	UserType,
@@ -66,6 +68,20 @@ export const userApi = {
 		return instance.get<UserType>(`users/user`);
 	},
 };
+
+export const chartApi = {
+	getChartData(params: ParamsToChartDate): Promise<AxiosResponse<ChartDataType[]>> {
+		try {
+			return instance.get('chart/getChartData', {
+				params: { ...params },
+			});
+		} catch (err) {
+			console.log(err);
+			throw err;
+		}
+	},
+};
+
 export const spendingApi = {
 	addSpending(data: SpendDataType): Promise<AxiosResponse<SpendDataType>> {
 		return instance.post('history/spending', data);
