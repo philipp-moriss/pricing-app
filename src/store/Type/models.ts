@@ -73,6 +73,7 @@ export type SpendDataType = {
 	walletId: string;
 	spending: {
 		title: string;
+		category: string;
 		description: string;
 		amount: string;
 	};
