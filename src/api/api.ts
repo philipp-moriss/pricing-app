@@ -1,5 +1,5 @@
 import { instance } from 'api/config';
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 import {
 	ChartDataType,
 	CurrencyType,
