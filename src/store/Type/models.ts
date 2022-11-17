@@ -72,9 +72,15 @@ export type SpendDataType = {
 	walletId: string;
 	spending: {
 		title: string;
+		category: string;
 		description: string;
 		amount: string;
 	};
+};
+
+export type ParamsToChartDate = {
+	year?: string;
+	walletId?: string;
 };
 
 export type CurrencyType = {
