@@ -1,5 +1,8 @@
 import { authApi } from 'api/api';
 import axios from 'axios';
+import i18n from 'i18next';
+
+import BaseStore from '../store/NotificationStore/notification-store';
 
 export const API_URL = 'https://pony-web-orign.onrender.com/api/';
 export const instance = axios.create({

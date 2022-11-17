@@ -1,0 +1,1 @@
+import HistoryStoreInstance, { HistoryStore } from './history-store';export default HistoryStoreInstance;export { HistoryStore };
