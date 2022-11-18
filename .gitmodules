@@ -1,0 +1,3 @@
+[submodule "shared-pricing"]
+	path = shared-pricing
+	url = git@github.com:philipp-moriss/shared-pricing.git
