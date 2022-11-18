@@ -1,3 +1,3 @@
 
 update_submodule:
-	git submodule update --remote --merge
+	git submodule update --force --recursive --init --remote
