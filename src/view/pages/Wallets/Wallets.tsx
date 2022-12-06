@@ -9,7 +9,6 @@ import { ExpenseAccounting } from 'view/components/Moleculs/ExpenseAccounting/Ex
 import { Wallet } from 'view/components/Moleculs/Wallet/Wallet';
 
 import AuthStore from '../../../store/AuthStore/auth-store';
-import RootStore from '../../../store/RootStore/root-store';
 import Button from '../../components/Atoms/Button/Button';
 import { ExpenseAccountingModal } from '../../components/Moleculs/Modals/ExpeneAccountingModal/ExpenseAccountingModal';
 import { NewWalletModal } from '../../components/Moleculs/Modals/NewWalletModal/NewWalletModal';
@@ -62,11 +61,16 @@ export const Wallets = observer((): React.ReactElement => {
 						wallets.slice(firstIndex, lastIndex).map((wallet) => {
 							return <Wallet key={wallet._id} currentWallet={wallet} />;
 						})}
-					<Pagination
-						count={totalPages ?? 0}
-						page={currentPage}
-						onChange={handleChangePagination}
-					/>
+
+					{totalPages ? (
+						<Pagination
+							count={totalPages ?? 0}
+							page={currentPage}
+							onChange={handleChangePagination}
+						/>
+					) : (
+						''
+					)}
 				</div>
 				{!hiddenSpendingMenu && !!wallets?.length && <ExpenseAccounting />}
 			</div>
