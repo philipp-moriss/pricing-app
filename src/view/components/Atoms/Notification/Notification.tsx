@@ -2,7 +2,7 @@ import { Alert, Snackbar } from '@mui/material';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 
-import BaseStore from '../../../../store/BaseStore/base-store';
+import BaseStore from '../../../../store/NotificationStore/notification-store';
 import style from './Notification.module.scss';
 
 export const Notification = observer(() => {
