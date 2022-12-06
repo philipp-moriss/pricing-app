@@ -72,5 +72,8 @@
       width: 70px;
       height: 70px;
     }
+    &__wallet-section {
+      grid-template-columns: repeat(auto-fit, minmax(342px, 0.5fr));
+    }
   }
 }
