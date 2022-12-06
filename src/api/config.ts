@@ -1,9 +1,12 @@
 import { authApi } from 'api/api';
 import axios from 'axios';
+import i18n from 'i18next';
+
+import BaseStore from '../store/NotificationStore/notification-store';
 
 export const API_URL = 'https://pony-web-orign.onrender.com/api/';
 export const instance = axios.create({
-	baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:3001/api/' : API_URL,
+	baseURL: 'https://pony-web-server-production.up.railway.app/api',
 });
 
 // Request interceptor for API calls

@@ -25,49 +25,29 @@ export class AuthStore {
 		}
 	}
 
-	async login(userData: { email: string; password: string }): Promise<any> {
-		try {
-			const { data } = await authApi.login(userData.email, userData.password);
-			localStorage.setItem('token', data.token);
-			this.setAuth(true);
-			await this.getUser();
-			return 'ok';
-		} catch (e: any) {
-			return e.response.data.message;
-		}
+	async login(userData: { email: string; password: string }): Promise<void> {
+		const { data } = await authApi.login(userData.email, userData.password);
+		localStorage.setItem('token', data.token);
+		this.setAuth(true);
+		await this.getUser();
 	}
 
 	async logOutUser(): Promise<void> {
-		try {
-			await authApi.logOut();
-			localStorage.removeItem('token');
-			localStorage.removeItem('auth');
-			this.setAuth(false);
-		} catch (e) {
-			console.log(e);
-		}
+		await authApi.logOut();
+		localStorage.removeItem('token');
+		localStorage.removeItem('auth');
+		this.setAuth(false);
 	}
 
-	async registration(userData: NewUserType): Promise<any> {
-		try {
-			await authApi.registration(userData);
-			return 'ok';
-		} catch (e: any) {
-			return e.response.data.message;
-		}
-		return;
+	async registration(userData: NewUserType): Promise<void> {
+		await authApi.registration(userData);
 	}
 
 	async checkAuth(): Promise<any> {
-		try {
-			const { data } = await authApi.refreshToken();
-			localStorage.setItem('token', data.token);
-			this.setAuth(true);
-			await this.getUser();
-		} catch (e) {
-			return e;
-		}
-		return;
+		const { data } = await authApi.refreshToken();
+		localStorage.setItem('token', data.token);
+		this.setAuth(true);
+		await this.getUser();
 	}
 
 	constructor() {
