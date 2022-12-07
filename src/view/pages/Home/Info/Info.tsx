@@ -12,7 +12,7 @@ export const Info = ({
 	return (
 		<section className={`${styles['started']} ${reverse && styles['started-reverse']}`}>
 			<div className={styles['started-info']}>
-				<Title size={'h3'} title={title} />
+				<Title size={'h1'} title={title} />
 				<p className={styles['text']}>{description}</p>
 			</div>
 			<div className={styles['started-bg']}>
