@@ -5,8 +5,9 @@ import i18n from 'i18next';
 import BaseStore from '../store/NotificationStore/notification-store';
 
 export const API_URL = 'https://pony-web-orign.onrender.com/api/';
+export const API_NIK = 'https://pone-server-production.up.railway.app/api/';
 export const instance = axios.create({
-	baseURL: 'https://server-pricing-production.up.railway.app/api',
+	baseURL: API_NIK,
 });
 
 // Request interceptor for API calls
