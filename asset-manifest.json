@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/pricing-app/static/css/main.717e4248.css",
-    "main.js": "/pricing-app/static/js/main.956ec02d.js",
+    "main.css": "/pricing-app/static/css/main.52700cdb.css",
+    "main.js": "/pricing-app/static/js/main.e22caea8.js",
     "static/media/WorkSans-Medium.ttf": "/pricing-app/static/media/WorkSans-Medium.3515918acace1f6dd1e9.ttf",
     "static/media/WorkSans-Bold.ttf": "/pricing-app/static/media/WorkSans-Bold.d8de505f08550a8e4c16.ttf",
     "static/media/WorkSans-Light.ttf": "/pricing-app/static/media/WorkSans-Light.6c55d51020749e7f6bec.ttf",
     "static/media/WorkSans-Regular.ttf": "/pricing-app/static/media/WorkSans-Regular.e6f572cef6e7a7d236de.ttf",
     "static/media/WorkSans-Thin.ttf": "/pricing-app/static/media/WorkSans-Thin.2e3bceacbfb70245eacf.ttf",
-    "static/media/mony-person.png": "/pricing-app/static/media/mony-person.0cebfd15e77b9b2f92ae.png",
-    "static/media/plain-person.png": "/pricing-app/static/media/plain-person.9470c083a8febde6f93d.png",
     "static/media/logo-pony-web.svg": "/pricing-app/static/media/logo-pony-web.0772285f9c20ebc7366e79f21a0de9d4.svg",
-    "static/media/wallet.png": "/pricing-app/static/media/wallet.592f34f2cdc663077cfe.png",
+    "static/media/save-money.jpg": "/pricing-app/static/media/save-money.0d90e9ee783e0bfd8bb1.jpg",
+    "static/media/wallet.png": "/pricing-app/static/media/wallet.57462fb1a53830cc62d1.png",
     "static/media/mone.svg": "/pricing-app/static/media/mone.08eccb96e75efd06b6824cc6618f2504.svg",
     "static/media/note.svg": "/pricing-app/static/media/note.c6226b4be9556477658ed7284e85a9b2.svg",
     "static/media/phone.svg": "/pricing-app/static/media/phone.9b63328a2628e803323ccdd51451dcd3.svg",
@@ -24,11 +23,11 @@
     "static/media/getFetch.cjs": "/pricing-app/static/media/getFetch.c780682470504fffbd04.cjs",
     "static/media/arrow-cicle.svg": "/pricing-app/static/media/arrow-cicle.29099955532aa75f3ff7423ba5647b0e.svg",
     "static/media/arrow-sort.svg": "/pricing-app/static/media/arrow-sort.02af6d8bbf219270feb6913ba0320ce3.svg",
-    "main.717e4248.css.map": "/pricing-app/static/css/main.717e4248.css.map",
-    "main.956ec02d.js.map": "/pricing-app/static/js/main.956ec02d.js.map"
+    "main.52700cdb.css.map": "/pricing-app/static/css/main.52700cdb.css.map",
+    "main.e22caea8.js.map": "/pricing-app/static/js/main.e22caea8.js.map"
   },
   "entrypoints": [
-    "static/css/main.717e4248.css",
-    "static/js/main.956ec02d.js"
+    "static/css/main.52700cdb.css",
+    "static/js/main.e22caea8.js"
   ]
 }
