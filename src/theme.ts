@@ -5,7 +5,7 @@ export const themeOptions: ThemeOptions = createTheme({
 		primary: {
 			main: '#ff9b06',
 			contrastText: '#000000',
-			dark: 'rgba(121,17,249,0.69)',
+			dark: '#424d63',
 		},
 		secondary: {
 			main: '#4caf50',
@@ -14,7 +14,7 @@ export const themeOptions: ThemeOptions = createTheme({
 			primary: 'rgba(0,0,0,0.87)',
 		},
 		warning: {
-			main: '#d32f2f',
+			main: '#e87288',
 		},
 	},
 	components: {
