@@ -8,7 +8,6 @@ export const WorkSpace = (): React.ReactElement => {
 	return (
 		<div className={styles['work-space']}>
 			<ExpenseTable />
-			<ExpenseAccounting />
 		</div>
 	);
 };

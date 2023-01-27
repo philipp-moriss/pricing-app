@@ -14,13 +14,20 @@ export const themeOptions: ThemeOptions = createTheme({
 			primary: 'rgba(0,0,0,0.87)',
 		},
 		warning: {
-			main: '#e705f7',
+			main: '#d32f2f',
 		},
 	},
 	components: {
 		MuiButtonBase: {
 			defaultProps: {
 				disableRipple: true,
+			},
+		},
+		MuiSelect: {
+			defaultProps: {
+				MenuProps: {
+					style: { zIndex: 35001 },
+				},
 			},
 		},
 	},

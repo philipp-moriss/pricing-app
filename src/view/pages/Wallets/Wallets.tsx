@@ -17,7 +17,6 @@ export const Wallets = observer((): React.ReactElement => {
 	const { getWallets, wallets, walletsCount } = WalletStore;
 	const { user } = AuthStore;
 	const [showAddWalletModal, setShowAddWalletModal] = useState(false);
-	const [showExpenseAccountingModal, setExpenseAccountingModal] = useState(false);
 	useEffect(() => {
 		getWallets(user._id);
 	}, []);
@@ -37,13 +36,6 @@ export const Wallets = observer((): React.ReactElement => {
 					>
 						Add Wallet
 					</Button>
-					<Button
-						onClick={(): void => setExpenseAccountingModal(true)}
-						size={'large'}
-						className={styles['wallets__btn-add-spending-block__btn']}
-					>
-						{t('ADD_SPENDING')}
-					</Button>
 				</div>
 				<div className={styles['wallets__wallet-section']}>
 					{wallets &&
@@ -53,7 +45,6 @@ export const Wallets = observer((): React.ReactElement => {
 				</div>
 			</div>
 			{showAddWalletModal && <NewWalletModal onClose={setShowAddWalletModal} />}
-			{showExpenseAccountingModal && <ExpenseAccountingModal onClose={setExpenseAccountingModal} />}
 		</>
 	);
 });

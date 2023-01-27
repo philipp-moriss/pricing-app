@@ -5,13 +5,19 @@ import { ModalWrapper } from '../../ModalWrapper/ModalWrapper';
 
 type ExpenseAccountingModalType = {
 	onClose: (value: boolean) => void;
+	walletId: string;
 };
 export const ExpenseAccountingModal = ({
 	onClose,
+	walletId,
 }: ExpenseAccountingModalType): React.ReactElement => {
 	return (
 		<ModalWrapper closeCallback={(): void => onClose(false)}>
-			<ExpenseAccounting className={'expense-accounting__modal-wrapper'} onClose={onClose} />
+			<ExpenseAccounting
+				walletId={walletId}
+				className={'expense-accounting__modal-wrapper'}
+				onClose={onClose}
+			/>
 		</ModalWrapper>
 	);
 };

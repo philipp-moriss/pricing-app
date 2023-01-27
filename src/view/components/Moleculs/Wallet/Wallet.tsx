@@ -10,6 +10,7 @@ import { usePrevious } from 'utils/utils';
 
 import { WalletModelType } from '../../../../store/Type/models';
 import { ChangeWalletModal } from '../Modals/ChangeWalletModal/ChangeWalletModal';
+import { ExpenseAccountingModal } from '../Modals/ExpeneAccountingModal/ExpenseAccountingModal';
 import styles from './Wallet.module.scss';
 
 interface WalletProps {
@@ -18,8 +19,9 @@ interface WalletProps {
 
 export const Wallet = observer(({ currentWallet }: WalletProps): React.ReactElement => {
 	const [changeWalletModal, setChangeWalletModal] = useState(false);
+	const [showExpenseAccountingModal, setExpenseAccountingModal] = useState(false);
 	const { t } = useTranslation();
-	const { balance, _id: idWallet, name, currency, createdAt } = currentWallet;
+	const { balance, _id: walletId, name, currency, createdAt } = currentWallet;
 	const prevBalance: number = usePrevious<number>(balance);
 	const [activeChangeBalance, setActiveChangeBalance] = useState(false);
 	useEffect(() => {
@@ -59,13 +61,13 @@ export const Wallet = observer(({ currentWallet }: WalletProps): React.ReactElem
 						{/*</div>*/}
 					</div>
 					<div className={styles['wallet__header']}>
-						<Fab color="primary" aria-label="add">
+						<Fab color="primary" aria-label="add" onClick={() => setExpenseAccountingModal(true)}>
 							<AddIcon />
 						</Fab>
 						<div>
 							<Chip
 								label={`${t('BALANCE')} ${balance ?? t('EMPTY')}`}
-								color={balance ? 'secondary' : 'primary'}
+								color={balance <= 0 ? 'warning' : 'secondary'}
 							/>
 						</div>
 						<Fab color="primary" aria-label="add" onClick={(): void => setChangeWalletModal(true)}>
@@ -82,6 +84,9 @@ export const Wallet = observer(({ currentWallet }: WalletProps): React.ReactElem
 					currentWallet={currentWallet}
 					closeCallback={(): void => setChangeWalletModal(false)}
 				/>
+			)}
+			{showExpenseAccountingModal && (
+				<ExpenseAccountingModal walletId={walletId} onClose={setExpenseAccountingModal} />
 			)}
 		</>
 	);
