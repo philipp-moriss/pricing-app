@@ -44,7 +44,6 @@ export const MobileBar = ({ setExitModal }: MobileBarProps): React.ReactElement 
 						className={styles['mobile-bar_ico']}
 					/>
 					{!hiddenLogOut && <LogoutIcon onClick={(): void => setExitModal(true)} />}
-					<LogoutIcon onClick={(): void => setExitModal(true)} />
 				</div>
 			</div>
 		</div>

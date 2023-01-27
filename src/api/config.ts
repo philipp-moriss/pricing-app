@@ -7,7 +7,7 @@ import BaseStore from '../store/NotificationStore/notification-store';
 export const API_URL = 'https://pony-web-orign.onrender.com/api/';
 export const API_NIK = 'https://pone-server-production.up.railway.app/api/';
 export const instance = axios.create({
-	baseURL: API_NIK,
+	baseURL: 'http://localhost:3001/api/',
 });
 
 // Request interceptor for API calls

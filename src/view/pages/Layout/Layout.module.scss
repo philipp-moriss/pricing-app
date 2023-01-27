@@ -1,6 +1,7 @@
 @import "src/globalStyles/colors";
 
 .main {
+  padding: 0 20px;
   &_content {
     &__page {
       margin-top: 82px;
@@ -11,12 +12,12 @@
 body {
   background: $gray-light;
 }
-@media screen and (max-width: 900px) {
-  .main {
-    &_content {
-      &__page {
-        margin-bottom: 120px;
-      }
-    }
-  }
-}
+//@media screen and (max-width: 900px) {
+//  .main {
+//    &_content {
+//      &__page {
+//        margin-bottom: 120px;
+//      }
+//    }
+//  }
+//}

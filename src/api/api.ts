@@ -23,13 +23,9 @@ export const walletApi = {
 		const { userId, name, currency, balance } = newWallet;
 		return instance.post<any>(`wallet`, { userId, wallet: { name, currency, balance } });
 	},
-	addSpendToWallet(walletId: string, spendingId: string): Promise<AxiosResponse<SpendingModel>> {
-		return instance.post<SpendingModel>('wallet/spending', { walletId, spendingId });
-	},
 	removeWallet(userId: string, walletId: string): Promise<AxiosResponse<any>> {
-		return instance.delete('history/wallet', { data: { userId, walletId } });
+		return instance.delete('wallet', { data: { userId, walletId } });
 	},
-	//
 	getCurrencyList(): Promise<AxiosResponse<CurrencyType[]>> {
 		return instance.get<CurrencyType[]>('wallet/currency-list');
 	},
@@ -65,7 +61,7 @@ export const authApi = {
 
 export const userApi = {
 	getUser(): Promise<AxiosResponse<UserType>> {
-		return instance.get<UserType>(`users/user`);
+		return instance.get<UserType>(`user`);
 	},
 };
 
@@ -84,6 +80,6 @@ export const chartApi = {
 
 export const spendingApi = {
 	addSpending(data: SpendDataType): Promise<AxiosResponse<SpendDataType>> {
-		return instance.post('history/spending', data);
+		return instance.post('spending', data);
 	},
 };
