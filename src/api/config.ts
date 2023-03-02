@@ -1,6 +1,5 @@
 import { authApi } from 'api/api';
 import axios from 'axios';
-import i18n from 'i18next';
 
 import BaseStore from '../store/NotificationStore/notification-store';
 
