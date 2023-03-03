@@ -3,13 +3,13 @@ import { StyledEngineProvider } from '@mui/styled-engine-sc';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
+import BaseStore from 'store/NotificationStore';
 
 import { Router } from './router/Router';
 import { LoadingEnum } from './store/Type/models';
-import BaseStore from 'store/NotificationStore';
+import { themeOptions } from './theme';
 import { Notification } from './view/components/Atoms/Notification/Notification';
 import { UniversalLoader } from './view/components/Atoms/UniversalLoader/UniversalLoader';
-import {themeOptions} from "./theme";
 
 const App = observer((): React.ReactElement => {
 	const { isLoading } = BaseStore;
