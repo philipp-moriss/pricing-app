@@ -78,6 +78,17 @@ export type SpendDataType = {
 	};
 };
 
+export type ReplenishmentDataType = {
+	walletId: string;
+	userId: string;
+	replenishment: {
+		title: string;
+		category: string;
+		description: string;
+		amount: string;
+	};
+};
+
 export type ParamsToChartDate = {
 	year?: string;
 	walletId?: string;

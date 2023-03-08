@@ -9,8 +9,8 @@ import { useTranslation } from 'react-i18next';
 import { usePrevious } from 'utils/utils';
 
 import { WalletModelType } from '../../../../store/Type/models';
+import { AddSpendingOrReplenishmentModal } from '../Modals/AddSpendingOrReplenishmentModal/AddSpendingOrReplenishmentModal';
 import { ChangeWalletModal } from '../Modals/ChangeWalletModal/ChangeWalletModal';
-import { ExpenseAccountingModal } from '../Modals/ExpeneAccountingModal/ExpenseAccountingModal';
 import styles from './Wallet.module.scss';
 
 interface WalletProps {
@@ -53,15 +53,13 @@ export const Wallet = observer(({ currentWallet }: WalletProps): React.ReactElem
 								</span>
 							</div>
 						</div>
-						{/*<div className={styles['wallet__body__item-wrapper']}>*/}
-						{/*	<span>{t('CREATE_WALLET')}:&nbsp;</span>*/}
-						{/*	<span className={cs(styles['wallet__value'])}>*/}
-						{/*		{dateFormat(convertToDate(createdAt)) ?? t('EMPTY')}*/}
-						{/*	</span>*/}
-						{/*</div>*/}
 					</div>
 					<div className={styles['wallet__header']}>
-						<Fab color="primary" aria-label="add" onClick={() => setExpenseAccountingModal(true)}>
+						<Fab
+							color="primary"
+							aria-label="add"
+							onClick={(): void => setExpenseAccountingModal(true)}
+						>
 							<AddIcon />
 						</Fab>
 						<div>
@@ -86,7 +84,7 @@ export const Wallet = observer(({ currentWallet }: WalletProps): React.ReactElem
 				/>
 			)}
 			{showExpenseAccountingModal && (
-				<ExpenseAccountingModal walletId={walletId} onClose={setExpenseAccountingModal} />
+				<AddSpendingOrReplenishmentModal walletId={walletId} onClose={setExpenseAccountingModal} />
 			)}
 		</>
 	);

@@ -6,6 +6,7 @@ import {
 	NewUserType,
 	NewWalletType,
 	ParamsToChartDate,
+	ReplenishmentDataType,
 	SpendDataType,
 	SpendingModel,
 	UserType,
@@ -81,5 +82,11 @@ export const chartApi = {
 export const spendingApi = {
 	addSpending(data: SpendDataType): Promise<AxiosResponse<SpendDataType>> {
 		return instance.post('spending', data);
+	},
+};
+
+export const replenishmentApi = {
+	addReplenishment(data: ReplenishmentDataType): Promise<AxiosResponse<ReplenishmentDataType>> {
+		return instance.post('replenishment', data);
 	},
 };

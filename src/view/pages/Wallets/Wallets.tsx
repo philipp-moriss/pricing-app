@@ -7,7 +7,6 @@ import { Wallet } from 'view/components/Moleculs/Wallet/Wallet';
 
 import AuthStore from '../../../store/AuthStore/auth-store';
 import Button from '../../components/Atoms/Button/Button';
-import { ExpenseAccountingModal } from '../../components/Moleculs/Modals/ExpeneAccountingModal/ExpenseAccountingModal';
 import { NewWalletModal } from '../../components/Moleculs/Modals/NewWalletModal/NewWalletModal';
 import styles from './Wallets.module.scss';
 
